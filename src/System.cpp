@@ -7,12 +7,20 @@
 
 #include "System.h"
 
-System::System() {
-	// TODO Auto-generated constructor stub
 
+const std::vector<Passenger*>& System::getPassengers() const {
+	return passengers;
 }
 
-System::~System() {
-	// TODO Auto-generated destructor stub
+const std::vector<Station*>& System::getStations() const {
+	return stations;
+}
+
+const std::vector<Train*>& System::getTrains() const {
+	return trains;
+}
+
+const std::vector<Trip*>& System::getTrips() const {
+	return trips;
 }
 
