@@ -1,12 +1,13 @@
-/*
- * System.cpp
- *
- *  Created on: Oct 24, 2018
- *      Author: mpdr
- */
-
 #include "System.h"
 
+System System::instance = System();
+
+System::~System() {
+	passengers.clear();
+	trips.clear();
+	trains.clear();
+	stations.clear();
+}
 
 const std::vector<Passenger*>& System::getPassengers() const {
 	return passengers;
