@@ -1,17 +1,19 @@
-/*
- * Train.h
- *
- *  Created on: Oct 24, 2018
- *      Author: mpdr
- */
-
 #ifndef TRAIN_H_
 #define TRAIN_H_
 
+#include "project_types.h"
+
 class Train {
+	static id_t currentID;
 public:
-	Train();
-	virtual ~Train();
+	Train(uint totalSeats);
+
+	id_t getTrainID();
+	uint getMaxSeats();
+
+private:
+	id_t trainID;
+	uint maxSeats;
 };
 
 #endif /* TRAIN_H_ */

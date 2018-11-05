@@ -1,18 +1,15 @@
-/*
- * Passenger.cpp
- *
- *  Created on: Oct 24, 2018
- *      Author: mpdr
- */
-
 #include "Passenger.h"
 
-Passenger::Passenger() {
-	// TODO Auto-generated constructor stub
+using namespace std;
 
+id_t Passenger::currentID = 0;
+
+Passenger::Passenger(string name, string birthDate): name(name), birthDate(birthDate) {
+	this->passengerID = currentID++;
+	this->card = nullptr;
 }
 
 Passenger::~Passenger() {
-	// TODO Auto-generated destructor stub
+	delete card;
 }
 

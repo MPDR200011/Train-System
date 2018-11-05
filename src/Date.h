@@ -1,20 +1,32 @@
+#ifndef DATE_H_
+#define DATE_H_
+
 #include <ctime>
 #include <iostream>
 #include <string>
-
-#ifndef DATE_H_
-#define DATE_H_
 
 class Date {
 public:
 	Date(unsigned int year, unsigned int month, unsigned int day,
 			unsigned int hour = 0, unsigned int minute = 0);
+	Date(const std::string &dateString);
 
-	bool isValid();
 	friend std::ostream& operator<< (std::ostream &o, Date &d);
+	bool operator== (Date &d);
+	bool operator< (Date &d);
+	bool operator<= (Date &d);
+	bool operator> (Date &d);
+	bool operator>= (Date &d);
+	std::string getDateString() const;
+	unsigned int getYear() const;
+	unsigned int getMonth() const;
+	unsigned int getDay() const;
+	unsigned int getHour() const;
+	unsigned int getMinutes() const;
+
 
 private:
-	std::string buildString();
+	bool validate();
 
 private:
 	tm date;

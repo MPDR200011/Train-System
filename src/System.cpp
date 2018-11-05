@@ -3,6 +3,18 @@
 System System::instance = System();
 
 System::~System() {
+	for (Passenger* p: passengers) {
+		delete p;
+	}
+	for (Trip* t: trips) {
+		delete t;
+	}
+	for (Train* tr: trains) {
+		delete tr;
+	}
+	for (Station* st: stations) {
+		delete st;
+	}
 	passengers.clear();
 	trips.clear();
 	trains.clear();

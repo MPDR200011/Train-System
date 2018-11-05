@@ -1,17 +1,16 @@
-/*
- * Station.h
- *
- *  Created on: Oct 24, 2018
- *      Author: mpdr
- */
-
 #ifndef STATION_H_
 #define STATION_H_
 
+#include "project_types.h"
+#include <string>
+
 class Station {
+	static id_t currentID;
 public:
-	Station();
-	virtual ~Station();
+	Station(std::string name);
+private:
+	id_t stationID;
+	std::string name;
 };
 
 #endif /* STATION_H_ */

@@ -1,9 +1,6 @@
-/*
- * System.h
- *
- *  Created on: Oct 24, 2018
- *      Author: mpdr
- */
+#ifndef SYSTEM_H_
+#define SYSTEM_H_
+
 #include <vector>
 #include "Passenger.h"
 #include "Trip.h"
@@ -12,10 +9,6 @@
 #include "TicketPurchaseRequest.h"
 #include "Date.h"
 #include "InvalidDateException.h"
-
-
-#ifndef SYSTEM_H_
-#define SYSTEM_H_
 
 class System {
 public:

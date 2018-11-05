@@ -1,18 +1,14 @@
-/*
- * PassengerCard.cpp
- *
- *  Created on: Oct 24, 2018
- *      Author: mpdr
- */
-
 #include "PassengerCard.h"
 
-PassengerCard::PassengerCard() {
-	// TODO Auto-generated constructor stub
+using namespace std;
 
+id_t PassengerCard::currentID = 0;
+
+PassengerCard::PassengerCard(PassengerCard::CardType type, string pName) : passengerName(pName) {
+	this->cardID = currentID++;
+	this->cardType = type;
 }
 
-PassengerCard::~PassengerCard() {
-	// TODO Auto-generated destructor stub
+int PassengerCard::getDiscount() const {
+	return cardType;
 }
-

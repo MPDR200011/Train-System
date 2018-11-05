@@ -1,5 +1,7 @@
 #include "Date.h"
 #include "InvalidDateException.h"
+#include <iomanip>
+#include <sstream>
 #include <algorithm>
 
 using namespace std;
@@ -17,12 +19,22 @@ Date::Date(unsigned int year, unsigned int month, unsigned int day,
 	date.tm_min = minutes;
 	date.tm_sec = 0;
 
-	if (!isValid()) {
-		throw InvalidDateException(buildString());
+	if (!validate()) {
+		throw InvalidDateException(getDateString());
 	}
 }
 
-bool Date::isValid() {
+Date::Date(const std::string &dateString) {
+	stringstream ss(dateString);
+	ss >> get_time(&date, dateFormat);
+	date.tm_sec = 0;
+
+	if (!validate()) {
+		throw InvalidDateException(getDateString());
+	}
+}
+
+bool Date::validate() {
 	if (date.tm_sec < 0 || date.tm_sec > 60)
 		return false;
 	if (date.tm_min < 0 || date.tm_min > 59)
@@ -37,9 +49,9 @@ bool Date::isValid() {
 		return false;
 
 	if (find(monthsWith31, monthsWith31+7, date.tm_mon) != monthsWith31+7) {
-		return date.tm_mday > 31;
+		return date.tm_mday <= 31;
 	} else if (find(monthsWith30, monthsWith30+4, date.tm_mon) != monthsWith30+4) {
-		return date.tm_mday > 30;
+		return date.tm_mday <= 30;
 	} else {
 		if (date.tm_year % 4 == 0) {
 			return date.tm_mday <= 29;
@@ -49,13 +61,84 @@ bool Date::isValid() {
 	}
 }
 
-std::string Date::buildString() {
+unsigned int Date::getYear() const {
+	return date.tm_year + 1900;
+}
+
+unsigned int Date::getMonth() const {
+	return date.tm_mon + 1;
+}
+
+unsigned int Date::getDay() const {
+	return date.tm_mday;
+}
+
+unsigned int Date::getHour() const {
+	return date.tm_hour;
+}
+
+unsigned int Date::getMinutes() const {
+	return date.tm_min;
+}
+
+std::string Date::getDateString() const {
 	char str[80];
 	strftime(str, 80, dateFormat, &date);
 	return string(str);
 }
 
 std::ostream& operator <<(std::ostream& o, Date& d) {
-	o << d.buildString();
+	o << d.getDateString();
 	return o;
+}
+
+bool Date::operator ==(Date& d) {
+	if (date.tm_year == d.date.tm_year) {
+		if (date.tm_mon == d.date.tm_mon) {
+			if (date.tm_mday == d.date.tm_mday) {
+				if (date.tm_hour == d.date.tm_hour) {
+					if (date.tm_min == d.date.tm_min) {
+						return date.tm_sec == d.date.tm_sec;
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
+
+bool Date::operator <(Date& d) {
+	if (date.tm_year == d.date.tm_year) {
+		if (date.tm_mon == d.date.tm_mon) {
+			if (date.tm_mday == d.date.tm_mday) {
+				if (date.tm_hour == d.date.tm_hour) {
+					if (date.tm_min == d.date.tm_min) {
+						return date.tm_sec < d.date.tm_sec;
+					} else {
+						return date.tm_min < d.date.tm_min;
+					}
+				} else {
+					return date.tm_hour < d.date.tm_hour;
+				}
+			} else {
+				return date.tm_mday < d.date.tm_mday;
+			}
+		} else {
+			return date.tm_mon < d.date.tm_mon;
+		}
+	}else {
+		return date.tm_year < d.date.tm_year;
+	}
+}
+
+bool Date::operator <=(Date& d) {
+	return ((*this < d) || (*this == d));
+}
+
+bool Date::operator >(Date& d) {
+	return !(*this <= d);
+}
+
+bool Date::operator >=(Date& d) {
+	return !(*this < d);
 }

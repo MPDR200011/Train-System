@@ -1,18 +1,16 @@
-/*
- * Train.cpp
- *
- *  Created on: Oct 24, 2018
- *      Author: mpdr
- */
-
 #include "Train.h"
 
-Train::Train() {
-	// TODO Auto-generated constructor stub
+id_t Train::currentID = 0;
 
+Train::Train(uint totalSeats) {
+	this->trainID = currentID++;
+	this->maxSeats = totalSeats;
 }
 
-Train::~Train() {
-	// TODO Auto-generated destructor stub
+id_t Train::getTrainID() {
+	return trainID;
 }
 
+uint Train::getMaxSeats() {
+	return maxSeats;
+}
