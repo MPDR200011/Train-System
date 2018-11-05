@@ -2,10 +2,12 @@
 #include "IdenticalDestinationException.h"
 #include "ReverseDatesException.h"
 
+using namespace std;
+
 id_t Trip::currentID = 0;
 
 Trip::Trip(uint basePrice, Station* source, Station* destination,
-		Train* train, const std::string &departureDate, const std::string &arrivalDate):
+		Train* train, const std::string departureDate, const std::string arrivalDate):
 		departureDate(departureDate), arrivalDate(arrivalDate){
 	this->tripID = currentID++;
 	this->occupiedSeats = 0;
@@ -33,12 +35,12 @@ void Trip::validate() {
 	}
 }
 
-id_t Trip::getTripID() const {
+id_t Trip::getID() const {
 	return tripID;
 }
 
 uint Trip::getNumberOfFreeSeats() const {
-	return train->getTotalSeats() - occupiedSeats;
+	return train->getMaxSeats() - occupiedSeats;
 }
 
 float Trip::getBasePrice() const {
@@ -57,11 +59,32 @@ Train* Trip::getTrain() const {
 	return train;
 }
 
-Date& Trip::getDepartureDate() {
+const Date& Trip::getDepartureDate() const {
 	return departureDate;
 }
 
-Date& Trip::getArrivalDate() {
+const Date& Trip::getArrivalDate() const {
 	return arrivalDate;
+}
+
+bool Trip::bookSeat() {
+	if (getNumberOfFreeSeats() == 0) {
+		return false;
+	} else {
+		occupiedSeats++;
+		return true;
+	}
+}
+
+ostream &operator<<(ostream &os, Trip &tr) {
+	os << "//// Trip ////" << endl;
+	os << "Base price: " << tr.basePrice << endl;
+	os << "Source: " << tr.source->getName() << endl;
+	os << "Departure date: " << tr.departureDate << endl;
+	os << "Destination: " << tr.destination->getName() << endl;
+	os << "Arrival date: " << tr.arrivalDate << endl;
+	os << "Train ID: " << tr.train->getID() << endl;
+	os << "Occupied Seats: " << tr.occupiedSeats;
+	return os;
 }
 

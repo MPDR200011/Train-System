@@ -6,25 +6,30 @@
 #include "Train.h"
 #include "Date.h"
 #include "project_types.h"
+#include <iostream>
 
 class Trip {
 	static id_t currentID;
 public:
 	Trip(uint basePrice, Station* source, Station* destination,
-			Train* train, const std::string &dapartureDate, const std::string &arrivalDate);
+			Train* train, const std::string dapartureDate, const std::string arrivalDate);
 	~Trip();
 
-	id_t getTripID() const;
-	uint getNumberOfFreeSeats() const;
+	id_t getID() const;
 	float getBasePrice() const;
 	Station* getSource() const;
 	Station* getDest() const;
 	Train* getTrain() const;
-	Date & getDepartureDate();
-	Date & getArrivalDate();
+	const Date & getDepartureDate() const;
+	const Date & getArrivalDate() const;
+
+	bool bookSeat();
+
+	friend std::ostream &operator<<(std::ostream &os, Trip &tr);
 
 private:
 	void validate();
+	uint getNumberOfFreeSeats() const;
 
 private:
 	id_t tripID;

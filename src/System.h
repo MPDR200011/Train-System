@@ -9,6 +9,7 @@
 #include "TicketPurchaseRequest.h"
 #include "Date.h"
 #include "InvalidDateException.h"
+#include "project_types.h"
 
 class System {
 public:
@@ -19,9 +20,18 @@ public:
 	const std::vector<Train*>& getTrains() const;
 	const std::vector<Station*>& getStations() const;
 
-	void processSearchRequest() const;
-	void processTicketPurchaseRequest(TicketPurchaseRequest &request);
+	Passenger* getPassenger(const id_t id) const;
+	Trip* getTrip(const id_t id) const;
+	Train* getTtrain(const id_t id) const;
+	Station* getStation(const id_t id) const;
 
+	bool addPassenger(Passenger* passenger);
+	bool addTrip(Trip* trip);
+	bool addTrain(Train* train);
+	bool addStation(Station* station);
+
+	bool processTicketPurchaseRequest(TicketPurchaseRequest &request);
+	
 private:
 	std::vector<Passenger*> passengers;
 	std::vector<Trip*> trips;
