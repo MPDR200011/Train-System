@@ -66,6 +66,7 @@ ostream &operator<<(ostream &os, Passenger &p) {
 				break;
 		}
 	}
+	os << endl;
 	return os;
 }
 

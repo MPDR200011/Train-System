@@ -10,6 +10,7 @@ class TicketPurchaseRequest {
 	friend class System;
 public:
 	TicketPurchaseRequest(Passenger* passenger, Trip* t);
+	~TicketPurchaseRequest();
 
 	const Passenger* getPassenger() const;
 	const Trip* getTrip() const;

@@ -8,6 +8,11 @@ TicketPurchaseRequest::TicketPurchaseRequest(Passenger* p, Trip* t) :
 	this->trip = trip;
 }
 
+TicketPurchaseRequest::~TicketPurchaseRequest() {
+	this->passenger = nullptr;
+	this->trip = nullptr;
+}
+
 const Passenger* TicketPurchaseRequest::getPassenger() const {
 	return passenger;
 }

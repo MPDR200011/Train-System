@@ -3,7 +3,7 @@
 
 #include <string>
 
-class TrainSystemException {
+class TrainSystemException : public std::exception {
 public:
 	virtual ~TrainSystemException() = default;
 	virtual std::string what() = 0;

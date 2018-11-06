@@ -13,7 +13,7 @@ class Passenger {
 	static id_t currentID;
 public:
 	Passenger(std::string name, std::string birthDate);
-	virtual ~Passenger();
+	~Passenger();
 
 	id_t getID() const;
 	std::string getName() const;

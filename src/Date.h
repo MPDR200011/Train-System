@@ -7,8 +7,8 @@
 
 class Date {
 public:
-	Date(unsigned int year, unsigned int month, unsigned int day,
-			unsigned int hour = 0, unsigned int minute = 0);
+	Date(int year, int month, int day,
+			int hour = 0, int minute = 0);
 	Date(const std::string &dateString);
 
 	friend std::ostream& operator<< (std::ostream &o, Date &d);
@@ -18,11 +18,11 @@ public:
 	bool operator> (Date &d);
 	bool operator>= (Date &d);
 	std::string getDateString() const;
-	unsigned int getYear() const;
-	unsigned int getMonth() const;
-	unsigned int getDay() const;
-	unsigned int getHour() const;
-	unsigned int getMinutes() const;
+	int getYear() const;
+	int getMonth() const;
+	int getDay() const;
+	int getHour() const;
+	int getMinutes() const;
 
 
 private:

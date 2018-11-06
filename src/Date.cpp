@@ -10,8 +10,8 @@ const unsigned int Date::monthsWith31[] = {0, 2, 4, 6, 7, 9, 11};
 const unsigned int Date::monthsWith30[] = {3, 5, 8, 10};
 const char* Date::dateFormat = "%d-%m-%Y %H:%M";
 
-Date::Date(unsigned int year, unsigned int month, unsigned int day,
-		unsigned int hour, unsigned int minutes) {
+Date::Date(int year, int month, int day,
+		int hour, int minutes) {
 	date.tm_year = year-1900;
 	date.tm_mon = month-1;
 	date.tm_mday = day;
@@ -61,23 +61,23 @@ bool Date::validate() {
 	}
 }
 
-unsigned int Date::getYear() const {
+int Date::getYear() const {
 	return date.tm_year + 1900;
 }
 
-unsigned int Date::getMonth() const {
+int Date::getMonth() const {
 	return date.tm_mon + 1;
 }
 
-unsigned int Date::getDay() const {
+int Date::getDay() const {
 	return date.tm_mday;
 }
 
-unsigned int Date::getHour() const {
+int Date::getHour() const {
 	return date.tm_hour;
 }
 
-unsigned int Date::getMinutes() const {
+int Date::getMinutes() const {
 	return date.tm_min;
 }
 

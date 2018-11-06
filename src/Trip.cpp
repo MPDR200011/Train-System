@@ -84,7 +84,7 @@ ostream &operator<<(ostream &os, Trip &tr) {
 	os << "Destination: " << tr.destination->getName() << endl;
 	os << "Arrival date: " << tr.arrivalDate << endl;
 	os << "Train ID: " << tr.train->getID() << endl;
-	os << "Occupied Seats: " << tr.occupiedSeats;
+	os << "Occupied Seats: " << tr.occupiedSeats << endl;
 	return os;
 }
 

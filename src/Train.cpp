@@ -20,6 +20,6 @@ uint Train::getMaxSeats() {
 ostream &operator<<(ostream &os, Train &tr) {
 	os << "//// Train ////" << endl;
 	os << "ID: " << tr.trainID << endl;
-	os << "Max Seats: " << tr.maxSeats;
+	os << "Max Seats: " << tr.maxSeats << endl;
 	return os;
 }

@@ -19,7 +19,7 @@ string Station::getName() const {
 ostream &operator<<(ostream &os, Station &st) {
 	os << "//// Station ////" << endl;
 	os << "ID: " << st.stationID << endl;
-	os << "Name: " << st.name;
+	os << "Name: " << st.name << endl;
 
 	return os;
 }

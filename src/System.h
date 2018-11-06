@@ -2,6 +2,7 @@
 #define SYSTEM_H_
 
 #include <vector>
+#include <iostream>
 #include "Passenger.h"
 #include "Trip.h"
 #include "Train.h"
@@ -15,14 +16,14 @@ class System {
 public:
 	System() = default;
 	~System();
-	const std::vector<Passenger*>& getPassengers() const;
-	const std::vector<Trip*>& getTrips() const;
-	const std::vector<Train*>& getTrains() const;
-	const std::vector<Station*>& getStations() const;
+	std::vector<Passenger*>& getPassengers();
+	std::vector<Trip*>& getTrips();
+	std::vector<Train*>& getTrains();
+	std::vector<Station*>& getStations();
 
 	Passenger* getPassenger(const id_t id);
 	Trip* getTrip(const id_t id);
-	Train* getTtrain(const id_t id);
+	Train* getTrain(const id_t id);
 	Station* getStation(const id_t id);
 
 	bool addPassenger(Passenger* passenger);
@@ -30,7 +31,18 @@ public:
 	bool addTrain(Train* train);
 	bool addStation(Station* station);
 
+	bool createPassenger(const std::vector<std::string> &arguments);
+	bool createStation(const std::vector<std::string> &arguments);
+	bool createTrain(const std::vector<std::string> &arguments);
+	bool createTrip(const std::vector<std::string> &arguments);
+
 	bool processTicketPurchaseRequest(TicketPurchaseRequest &request);
+
+	void printPassengers(std::ostream &os) const;
+	void printStations(std::ostream &os) const;
+	void printTrains(std::ostream &os) const;
+	void printTrips(std::ostream &os) const;
+	friend std::ostream &operator<<(std::ostream &os, System &sys);
 
 private:
 	std::vector<Passenger*> passengers;
