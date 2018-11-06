@@ -37,7 +37,7 @@ const std::vector<Trip*>& System::getTrips() const {
 	return trips;
 }
 
-Passenger* System::getPassenger(const id_t id) const {
+Passenger* System::getPassenger(const id_t id) {
 	for (Passenger* p: passengers) {
 		if (p->getID() == id) {
 			return p;
@@ -47,7 +47,7 @@ Passenger* System::getPassenger(const id_t id) const {
 	return nullptr;
 }
 	
-Trip* System::getTrip(const id_t id) const {
+Trip* System::getTrip(const id_t id) {
 	for (Trip* t: trips) {
 		if (t->getID() == id) {
 			return t;
@@ -56,7 +56,7 @@ Trip* System::getTrip(const id_t id) const {
 
 	return nullptr;
 }
-Train* System::getTtrain(const id_t id) const {
+Train* System::getTtrain(const id_t id) {
 	for (Train* t: trains) {
 		if (t->getID() == id) {
 			return t;
@@ -66,7 +66,7 @@ Train* System::getTtrain(const id_t id) const {
 	return nullptr;
 }
 
-Station* System::getStation(const id_t id) const {
+Station* System::getStation(const id_t id) {
 	for (Station* st: stations) {
 		if (st->getID() == id) {
 			return st;

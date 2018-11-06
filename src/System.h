@@ -20,10 +20,10 @@ public:
 	const std::vector<Train*>& getTrains() const;
 	const std::vector<Station*>& getStations() const;
 
-	Passenger* getPassenger(const id_t id) const;
-	Trip* getTrip(const id_t id) const;
-	Train* getTtrain(const id_t id) const;
-	Station* getStation(const id_t id) const;
+	Passenger* getPassenger(const id_t id);
+	Trip* getTrip(const id_t id);
+	Train* getTtrain(const id_t id);
+	Station* getStation(const id_t id);
 
 	bool addPassenger(Passenger* passenger);
 	bool addTrip(Trip* trip);
@@ -31,7 +31,7 @@ public:
 	bool addStation(Station* station);
 
 	bool processTicketPurchaseRequest(TicketPurchaseRequest &request);
-	
+
 private:
 	std::vector<Passenger*> passengers;
 	std::vector<Trip*> trips;
