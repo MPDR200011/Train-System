@@ -162,6 +162,23 @@ bool System::addStation(Station* station) {
 	return true;
 }
 
+bool System::removePassenger(id_t id){
+
+	return 0;
+}
+
+bool System::removeTrip(id_t id){
+	return 0;
+}
+
+bool System::removeStation(id_t id){
+	return 0;
+}
+
+bool System::removeTrain(id_t id){
+	return 0;
+}
+
 bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 	if (request.trip->bookSeat()) {
 		request.passenger->addTrip(request.trip);

@@ -55,9 +55,6 @@ void Passenger::printRow(ostream &os) {
 			case 50:
 				os << " Fifty";
 				break;
-			case 75:
-				os << " Seventy-Five";
-				break;
 			case 100:
 				os << " Hundred";
 				break;

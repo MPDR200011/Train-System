@@ -26,7 +26,6 @@ void prompt() {
 	cout << "Train System $ ";
 }
 
-//TODO remove 75% card
 //TODO 70% discount
 //TODO delete task
 //TODO search task
