@@ -43,6 +43,28 @@ bool Passenger::addTrip(Trip* trip) {
 	return true;
 }
 
+void Passenger::printRow(ostream &os) {
+	os << passengerID << " " << name << " " << birthDate.getDateStringWithoutHours();
+	if (card == nullptr) {
+		os << " None";
+	} else {
+		switch (card->getDiscount()) {
+			case 25:
+				os << " Twenty-Five";
+				break;
+			case 50:
+				os << " Fifty";
+				break;
+			case 75:
+				os << " Seventy-Five";
+				break;
+			case 100:
+				os << " Hundred";
+				break;
+		}
+	}
+}
+
 ostream &operator<<(ostream &os, Passenger &p) {
 	os << "//// Passenger ////" << endl;
 	os << "ID: " << p.passengerID << endl;

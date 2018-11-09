@@ -16,6 +16,10 @@ string Station::getName() const {
 	return name;
 }
 
+void Station::printRow(ostream &os) {
+	os << stationID << " " << name;
+}
+
 ostream &operator<<(ostream &os, Station &st) {
 	os << "//// Station ////" << endl;
 	os << "ID: " << st.stationID << endl;

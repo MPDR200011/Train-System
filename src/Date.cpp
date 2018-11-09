@@ -87,6 +87,10 @@ std::string Date::getDateString() const {
 	return string(str);
 }
 
+std::string Date::getDateStringWithoutHours() const {
+	return getDateString().substr(0, 10);
+}
+
 std::ostream& operator <<(std::ostream& o, Date& d) {
 	o << d.getDateString();
 	return o;

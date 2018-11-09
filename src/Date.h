@@ -18,6 +18,7 @@ public:
 	bool operator> (Date &d);
 	bool operator>= (Date &d);
 	std::string getDateString() const;
+	std::string getDateStringWithoutHours() const;
 	int getYear() const;
 	int getMonth() const;
 	int getDay() const;

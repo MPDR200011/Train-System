@@ -76,6 +76,12 @@ bool Trip::bookSeat() {
 	}
 }
 
+void Trip::printRow(ostream &os) {
+	os << tripID << " " << basePrice << " " << source->getName() << " " << departureDate.getDateString()
+	<< " " << destination->getName() << " " << arrivalDate.getDateString() 
+	<< " " << train->getID() << " " << occupiedSeats; 
+}
+
 ostream &operator<<(ostream &os, Trip &tr) {
 	os << "//// Trip ////" << endl;
 	os << "Base price: " << tr.basePrice << endl;

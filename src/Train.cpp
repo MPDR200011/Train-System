@@ -17,6 +17,10 @@ uint Train::getMaxSeats() {
 	return maxSeats;
 }
 
+void Train::printRow(ostream &os){
+	os << trainID << " " << maxSeats;
+}
+
 ostream &operator<<(ostream &os, Train &tr) {
 	os << "//// Train ////" << endl;
 	os << "ID: " << tr.trainID << endl;

@@ -22,6 +22,7 @@ public:
 	const std::vector<Trip*> & getTrips() const;
 	bool addTrip(Trip* trip);
 
+	void printRow(std::ostream &os);
 	friend std::ostream & operator<<(std::ostream &os, Passenger &p);
 
 private:

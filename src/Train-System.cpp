@@ -7,11 +7,144 @@
 
 using namespace std;
 
+void prompt();
+bool processCommand(string command);
+void createTask(vector<string> arguments);
+void deleteTask(vector<string> arguments);
+void searchTask(vector<string> arguments);
+void purchaseTask(vector<string> arguments);
+void listTask(vector<string> arguments);
+
 vector<string> splitArgumets(string&);
+
 void loadPassengers();
 void loadStations();
 void loadTrains();
 void loadTrips();
+
+void prompt() {
+	cout << "Train System $ ";
+}
+
+bool processCommand(string command) {
+	vector<string> arguments = splitArgumets(command);
+	if (arguments.size() == 0) {
+		cout << "Command is empty." << endl;
+		return false;
+	}
+	string task = arguments[0];
+	if (task == "create") {
+		createTask(vector<string>(arguments.begin()+1, arguments.end()));
+	} else if (task == "delete") {
+		//deleteTask(vector<string>(arguments.begin()+1, arguments.end()));
+	} else if (task == "search") {
+		//searchTask(vector<string>(arguments.begin()+1, arguments.end()));
+	} else if (task == "purchase") {
+		purchaseTask(vector<string>(arguments.begin()+1, arguments.end()));
+	} else if (task == "list") {
+		listTask(vector<string>(arguments.begin()+1, arguments.end()));
+	} else if (task == "exit") {
+		return true;
+	} else {
+		cout << task << " command does not exist." << endl;
+	}
+	return false;
+}
+
+void createTask(vector<string> arguments) {
+	if (arguments.size() == 0) {
+		cout << "No arguments." << endl;
+		return;
+	}
+	string type = arguments[0];
+	if (type == "passenger") {
+		if (arguments.size() == 3) {
+			if (!System::instance.createPassenger(vector<string>(arguments.begin()+1,arguments.end()))) {
+				return;
+			}
+		} else {
+			cout << "Invalid number of arguments." << endl;
+			return;
+		}
+	} else if (type == "station") {
+		if (arguments.size() == 2) {
+			if(!System::instance.createStation(vector<string>(arguments.begin()+1,arguments.end()))) {
+				return;
+			}
+		} else {
+			cout << "Invalid number of arguments." << endl;
+			return;
+		}
+	} else if (type == "train") {
+		if (arguments.size() == 2) {
+			if (!System::instance.createTrain(vector<string>(arguments.begin()+1,arguments.end()))) {
+				return;
+			}
+		} else {
+			cout << "Invalid number of arguments." << endl;
+			return;
+		}
+	} else if (type == "trip") {
+		if (arguments.size() == 7) {
+			if (!System::instance.createTrip(vector<string>(arguments.begin()+1,arguments.end()))) {
+				return;
+			}
+		} else {
+			cout << "Invalid number of arguments." << endl;
+			return;
+		}
+	} else {
+		cout << "Invalid type " << type << "." << endl;
+		return;
+	}
+	cout << "Successfully created " << type << "." << endl;
+}
+
+void purchaseTask(vector<string> arguments) {
+	if (arguments.size() != 2) {
+		cout << "Invalid number of arguments. Must be two." << endl;
+		return;
+	}
+	id_t passengerID = stoi(arguments[0]);
+	id_t tripID = stoi(arguments[1]);
+	
+	try {
+		Passenger *p = System::instance.getPassenger(passengerID);
+		Trip *tr = System::instance.getTrip(tripID);
+		
+		TicketPurchaseRequest pr(p,tr);
+
+		if (System::instance.processTicketPurchaseRequest(pr)) {
+			pr.printInvoice(cout);
+			cout << endl;
+		} else {
+			cout << "Trip has no free seats." << endl;
+		}
+	
+	} catch (exception &e) {
+		cout << "Exception caught: " << endl;
+		cout << e.what() << endl;
+	}
+}
+
+void listTask(vector<string> arguments) {
+	if (arguments.size() != 1) {
+		cout << "Invalid number of arguments. Must be one." << endl;
+		return;
+	}
+	string type = arguments[0];
+	if (type == "passengers") {
+		System::instance.listPassengers(cout);
+	} else if (type == "stations") {
+		System::instance.listStations(cout);
+	} else if (type == "trains") {
+		System::instance.listTrains(cout);
+	} else if (type == "trips") {
+		System::instance.listTrips(cout);
+	} else {
+		cout << "Invalid type." << endl;
+	}
+}
 
 vector<string> splitArgumets(string& command) {
 	vector<string> v;
@@ -100,7 +233,19 @@ int main() {
 	loadTrains();
 	loadTrips();
 
-	cout << System::instance;
+	//cout << System::instance << endl;
+
+	bool programRunning = true;
+	while (programRunning) {
+		prompt();
+
+		string command;
+		getline(cin, command);
+
+		if (processCommand(command)) {
+			programRunning = false;
+		}
+	}
 
 	return 0;
 }

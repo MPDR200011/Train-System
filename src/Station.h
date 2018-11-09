@@ -13,6 +13,7 @@ public:
 	id_t getID() const;
 	std::string getName() const;
 
+	void printRow(std::ostream &os);
 	friend std::ostream &operator <<(std::ostream &os, Station &st);
 
 private:

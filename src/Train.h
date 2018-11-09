@@ -12,6 +12,7 @@ public:
 	id_t getID();
 	uint getMaxSeats();
 
+	void printRow(std::ostream &os);
 	friend std::ostream & operator<<(std::ostream &os, Train &tr);
 
 private:

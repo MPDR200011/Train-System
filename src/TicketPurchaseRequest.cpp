@@ -2,10 +2,10 @@
 
 using namespace std;
 
-TicketPurchaseRequest::TicketPurchaseRequest(Passenger* p, Trip* t) : 
-	invoice(p,t) {
-	this->passenger = p;
-	this->trip = trip;
+TicketPurchaseRequest::TicketPurchaseRequest(Passenger* passenger, Trip* t) : 
+	invoice(passenger,t) {
+	this->passenger = passenger;
+	this->trip = t;
 }
 
 TicketPurchaseRequest::~TicketPurchaseRequest() {

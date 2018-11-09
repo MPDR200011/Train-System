@@ -38,6 +38,11 @@ public:
 
 	bool processTicketPurchaseRequest(TicketPurchaseRequest &request);
 
+	void listPassengers(std::ostream &os);
+	void listStations(std::ostream &os);
+	void listTrains(std::ostream &os);
+	void listTrips(std::ostream &os);
+
 	void printPassengers(std::ostream &os) const;
 	void printStations(std::ostream &os) const;
 	void printTrains(std::ostream &os) const;

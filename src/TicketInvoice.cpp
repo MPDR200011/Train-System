@@ -38,6 +38,6 @@ ostream & operator<<(ostream &os, TicketInvoice &in) {
     os << in.sourceName << " -> " << in.destName << endl;
     os << "Partida: " << in.departureDate << endl;
     os << "Chegada: " << in.arrivalDate << endl;
-    os << "Preco: " << in.getPriceString();
+    os << "Preco: " << in.getPriceString() << " euros";
     return os;
 }

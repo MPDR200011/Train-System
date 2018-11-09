@@ -25,6 +25,7 @@ public:
 
 	bool bookSeat();
 
+	void printRow(std::ostream &os);
 	friend std::ostream &operator<<(std::ostream &os, Trip &tr);
 
 private:

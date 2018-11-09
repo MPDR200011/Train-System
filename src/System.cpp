@@ -135,7 +135,7 @@ bool System::createTrip(const vector<string> &arguments) {
 	} catch (out_of_range &e) {
 		cerr << "Invalid number of arguments." << endl;
 		return false;
-	} catch (exception &e) {
+	} catch (TrainSystemException &e) {
 		cerr << e.what() << endl;
 		return false;
 	}
@@ -175,6 +175,42 @@ bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 	} else {
 		return false;
 	}
+}
+
+void System::listPassengers(ostream &os){
+	cout << "id - name - birthdate" << endl;
+	for (Passenger *p: passengers) {
+		p->printRow(cout);
+		cout << endl;
+	}
+	cout << endl;
+}
+
+void System::listStations(ostream &os) {
+	cout << "id - name" << endl;
+	for (Station *st: stations) {
+		st->printRow(cout);
+		cout << endl;
+	}
+	cout << endl;
+}
+
+void System::listTrains(ostream &os) {
+	cout << "id - max seats" << endl;
+	for (Train *tr: trains) {
+		tr->printRow(cout);
+		cout << endl;
+	}
+	cout << endl;
+}
+
+void System::listTrips(ostream &os){
+	cout << "id - base price - source name - departure date - destination name - arrival date - train id - occupied seats" << endl;
+	for (Trip *tr: trips) {
+		tr->printRow(cout);
+		cout << endl;
+	}
+	cout << endl;
 }
 
 void System::printPassengers(ostream &os) const {
