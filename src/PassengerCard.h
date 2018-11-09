@@ -11,12 +11,13 @@ public:
 	static id_t currentID;
 
 public:
-	PassengerCard(CardType type, std::string pName);
+	PassengerCard(CardType type, id_t passengerID, std::string pName);
 
 	int getDiscount() const;
 
 private:
 	id_t cardID;
+	id_t passengerID;
 	CardType cardType;
 	std::string passengerName;
 };

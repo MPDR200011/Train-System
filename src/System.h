@@ -31,6 +31,11 @@ public:
 	bool addTrain(Train* train);
 	bool addStation(Station* station);
 
+	bool removePassenger(id_t id);
+	bool removeTrip(id_t id);	
+	bool removeStation(id_t id);
+	bool removeTrain(id_t id);
+
 	bool createPassenger(const std::vector<std::string> &arguments);
 	bool createStation(const std::vector<std::string> &arguments);
 	bool createTrain(const std::vector<std::string> &arguments);

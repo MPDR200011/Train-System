@@ -26,6 +26,12 @@ void prompt() {
 	cout << "Train System $ ";
 }
 
+//TODO delete task
+//TODO search task
+//TODO create card
+//TODO card payments management
+
+
 bool processCommand(string command) {
 	vector<string> arguments = splitArgumets(command);
 	if (arguments.size() == 0) {
@@ -36,7 +42,7 @@ bool processCommand(string command) {
 	if (task == "create") {
 		createTask(vector<string>(arguments.begin()+1, arguments.end()));
 	} else if (task == "delete") {
-		//deleteTask(vector<string>(arguments.begin()+1, arguments.end()));
+		deleteTask(vector<string>(arguments.begin()+1, arguments.end()));
 	} else if (task == "search") {
 		//searchTask(vector<string>(arguments.begin()+1, arguments.end()));
 	} else if (task == "purchase") {
@@ -98,6 +104,13 @@ void createTask(vector<string> arguments) {
 		return;
 	}
 	cout << "Successfully created " << type << "." << endl;
+}
+
+void deleteTask(vector<string> arguments) {
+	if (arguments.size() != 1) {
+		cout << "Invalid number of arguments. Must be one." << endl;
+	}
+	
 }
 
 void purchaseTask(vector<string> arguments) {
