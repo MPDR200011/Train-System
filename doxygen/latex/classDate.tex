@@ -1,0 +1,315 @@
+\hypertarget{classDate}{}\section{Date Class Reference}
+\label{classDate}\index{Date@{Date}}
+
+
+{\ttfamily \#include $<$Date.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDate_aa29ee0f04162437b91b758be0a4b75fc}{Date}} (int year, int month, int day, int hour=0, int minute=0)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classDate}{Date}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDate_abaa8b0cf93eb1ad9206be4ff78ed2a3b}{Date}} (const std\+::string \&date\+String)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classDate}{Date}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDate_a91ccc0361527f5f68785c5460d750a12}{operator==}} (\mbox{\hyperlink{classDate}{Date}} \&d)
+\begin{DoxyCompactList}\small\item\em Check eqaulity between \mbox{\hyperlink{classDate}{Date}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDate_a51d1dadde23783adc9a2ae12d877803c}{operator$<$}} (\mbox{\hyperlink{classDate}{Date}} \&d)
+\begin{DoxyCompactList}\small\item\em Check if \mbox{\hyperlink{classDate}{Date}} object happens before argument. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDate_a49b4e0ed6752c928164fd483720423da}{operator$<$=}} (\mbox{\hyperlink{classDate}{Date}} \&d)
+\begin{DoxyCompactList}\small\item\em Check if \mbox{\hyperlink{classDate}{Date}} object happens before or at same time as argument. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDate_a0c2a1a6f890da1f9a360fab87e7109a3}{operator$>$}} (\mbox{\hyperlink{classDate}{Date}} \&d)
+\begin{DoxyCompactList}\small\item\em Check if \mbox{\hyperlink{classDate}{Date}} object happens after argument. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDate_a3dd4c3c4818d69669927bec072ff85ce}{operator$>$=}} (\mbox{\hyperlink{classDate}{Date}} \&d)
+\begin{DoxyCompactList}\small\item\em Check if \mbox{\hyperlink{classDate}{Date}} object happens after or at same time as argument. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDate_a733c89177097f0d7f5cc2f68f5593856}{get\+Date\+String}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classDate}{Date}} String. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDate_a54b53336c8ba897fae4d2bbb0aa84a99}{get\+Date\+String\+Without\+Hours}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classDate}{Date}} String Without Hours. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDate_a8b0869f34c2b38d108ab83ee2e770e5d}{get\+Year}} () const
+\begin{DoxyCompactList}\small\item\em Get the Year. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDate_a332f6e3a2f6a40d73742b6dab7be0f64}{get\+Month}} () const
+\begin{DoxyCompactList}\small\item\em Get the Month. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDate_a0f253815240e70f4c39cb93cc68bd3f4}{get\+Day}} () const
+\begin{DoxyCompactList}\small\item\em Get the Day. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDate_ab8ea9e1aafa6cb95be7b82cda0c53cfe}{get\+Hour}} () const
+\begin{DoxyCompactList}\small\item\em Get the Hour. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDate_a55251df891f43b9f19419cd79ce69876}{get\+Minutes}} () const
+\begin{DoxyCompactList}\small\item\em Get the Minutes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classDate_a2f114c7aa1398dac0f21b888bcb40f3e}{operator$<$$<$}} (std\+::ostream \&o, \mbox{\hyperlink{classDate}{Date}} \&d)
+\begin{DoxyCompactList}\small\item\em ouput \mbox{\hyperlink{classDate}{Date}} object into an output stream \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for representing dates in the program. Works as a further abstraction of C++\textquotesingle{}s ctime library. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDate_aa29ee0f04162437b91b758be0a4b75fc}\label{classDate_aa29ee0f04162437b91b758be0a4b75fc}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\subsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day,  }\item[{int}]{hour = {\ttfamily 0},  }\item[{int}]{minute = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classDate}{Date}} object. 
+
+Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws \mbox{\hyperlink{classInvalidDateException}{Invalid\+Date\+Exception}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & \mbox{\hyperlink{classDate}{Date}}\textquotesingle{}s year \\
+\hline
+{\em month} & \mbox{\hyperlink{classDate}{Date}}\textquotesingle{}s month \\
+\hline
+{\em day} & \mbox{\hyperlink{classDate}{Date}}\textquotesingle{}s day in month \\
+\hline
+{\em hour} & \mbox{\hyperlink{classDate}{Date}}\textquotesingle{}s hour of day (24h format) \\
+\hline
+{\em minute} & \mbox{\hyperlink{classDate}{Date}}\textquotesingle{}s minutes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDate_abaa8b0cf93eb1ad9206be4ff78ed2a3b}\label{classDate_abaa8b0cf93eb1ad9206be4ff78ed2a3b}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\subsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{date\+String }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classDate}{Date}} object. 
+
+Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws \mbox{\hyperlink{classInvalidDateException}{Invalid\+Date\+Exception}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+String} & \mbox{\hyperlink{classDate}{Date}} in form of a string in format \char`\"{}dd-\/mm-\/yyyy H\+H\+:\+M\+M\char`\"{}. Day, month, year, hour and minutes must be two digits (\textquotesingle{}02\textquotesingle{}, \textquotesingle{}08\textquotesingle{}, \textquotesingle{}12\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDate_a733c89177097f0d7f5cc2f68f5593856}\label{classDate_a733c89177097f0d7f5cc2f68f5593856}} 
+\index{Date@{Date}!get\+Date\+String@{get\+Date\+String}}
+\index{get\+Date\+String@{get\+Date\+String}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Date\+String()}{getDateString()}}
+{\footnotesize\ttfamily std\+::string Date\+::get\+Date\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classDate}{Date}} String. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string a string in the format\+: \char`\"{}dd-\/mm-\/yyyy H\+H\+:\+M\+M\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a54b53336c8ba897fae4d2bbb0aa84a99}\label{classDate_a54b53336c8ba897fae4d2bbb0aa84a99}} 
+\index{Date@{Date}!get\+Date\+String\+Without\+Hours@{get\+Date\+String\+Without\+Hours}}
+\index{get\+Date\+String\+Without\+Hours@{get\+Date\+String\+Without\+Hours}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Date\+String\+Without\+Hours()}{getDateStringWithoutHours()}}
+{\footnotesize\ttfamily std\+::string Date\+::get\+Date\+String\+Without\+Hours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classDate}{Date}} String Without Hours. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string s tring in the format\+: \char`\"{}dd-\/mm-\/yyyy\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a0f253815240e70f4c39cb93cc68bd3f4}\label{classDate_a0f253815240e70f4c39cb93cc68bd3f4}} 
+\index{Date@{Date}!get\+Day@{get\+Day}}
+\index{get\+Day@{get\+Day}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Day()}{getDay()}}
+{\footnotesize\ttfamily int Date\+::get\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Day. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_ab8ea9e1aafa6cb95be7b82cda0c53cfe}\label{classDate_ab8ea9e1aafa6cb95be7b82cda0c53cfe}} 
+\index{Date@{Date}!get\+Hour@{get\+Hour}}
+\index{get\+Hour@{get\+Hour}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Hour()}{getHour()}}
+{\footnotesize\ttfamily int Date\+::get\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Hour. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a55251df891f43b9f19419cd79ce69876}\label{classDate_a55251df891f43b9f19419cd79ce69876}} 
+\index{Date@{Date}!get\+Minutes@{get\+Minutes}}
+\index{get\+Minutes@{get\+Minutes}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Minutes()}{getMinutes()}}
+{\footnotesize\ttfamily int Date\+::get\+Minutes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Minutes. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a332f6e3a2f6a40d73742b6dab7be0f64}\label{classDate_a332f6e3a2f6a40d73742b6dab7be0f64}} 
+\index{Date@{Date}!get\+Month@{get\+Month}}
+\index{get\+Month@{get\+Month}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Month()}{getMonth()}}
+{\footnotesize\ttfamily int Date\+::get\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Month. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a8b0869f34c2b38d108ab83ee2e770e5d}\label{classDate_a8b0869f34c2b38d108ab83ee2e770e5d}} 
+\index{Date@{Date}!get\+Year@{get\+Year}}
+\index{get\+Year@{get\+Year}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Year()}{getYear()}}
+{\footnotesize\ttfamily int Date\+::get\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Year. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a51d1dadde23783adc9a2ae12d877803c}\label{classDate_a51d1dadde23783adc9a2ae12d877803c}} 
+\index{Date@{Date}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Date@{Date}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Date\+::operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{d }\end{DoxyParamCaption})}
+
+
+
+Check if \mbox{\hyperlink{classDate}{Date}} object happens before argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{classDate}{Date}} object to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if object happens before argument 
+
+false if otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a49b4e0ed6752c928164fd483720423da}\label{classDate_a49b4e0ed6752c928164fd483720423da}} 
+\index{Date@{Date}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Date@{Date}}
+\subsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool Date\+::operator$<$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{d }\end{DoxyParamCaption})}
+
+
+
+Check if \mbox{\hyperlink{classDate}{Date}} object happens before or at same time as argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{classDate}{Date}} object to compare with self \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if object happens before or at same time of argument 
+
+false if otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a91ccc0361527f5f68785c5460d750a12}\label{classDate_a91ccc0361527f5f68785c5460d750a12}} 
+\index{Date@{Date}!operator==@{operator==}}
+\index{operator==@{operator==}!Date@{Date}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Date\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{d }\end{DoxyParamCaption})}
+
+
+
+Check eqaulity between \mbox{\hyperlink{classDate}{Date}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{classDate}{Date}} object to compare with self \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if equal 
+
+false if not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a0c2a1a6f890da1f9a360fab87e7109a3}\label{classDate_a0c2a1a6f890da1f9a360fab87e7109a3}} 
+\index{Date@{Date}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Date@{Date}}
+\subsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Date\+::operator$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{d }\end{DoxyParamCaption})}
+
+
+
+Check if \mbox{\hyperlink{classDate}{Date}} object happens after argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{classDate}{Date}} object to compare with self \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if object happens after argument 
+
+false if otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a3dd4c3c4818d69669927bec072ff85ce}\label{classDate_a3dd4c3c4818d69669927bec072ff85ce}} 
+\index{Date@{Date}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Date@{Date}}
+\subsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool Date\+::operator$>$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{d }\end{DoxyParamCaption})}
+
+
+
+Check if \mbox{\hyperlink{classDate}{Date}} object happens after or at same time as argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{classDate}{Date}} object to compare with self \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if object happens after or at same time of argument 
+
+false if otherwise 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classDate_a2f114c7aa1398dac0f21b888bcb40f3e}\label{classDate_a2f114c7aa1398dac0f21b888bcb40f3e}} 
+\index{Date@{Date}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Date@{Date}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{o,  }\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+ouput \mbox{\hyperlink{classDate}{Date}} object into an output stream 
+
+Passes a string of the date, to the output stream, in the following format\+: \char`\"{}dd-\/mm-\/yyyy H\+H\+:\+M\+M\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & ouput stream \\
+\hline
+{\em d} & date object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& reference to the output stream passed as argument 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Date.\+h\item 
+Date.\+cpp\end{DoxyCompactItemize}
