@@ -53,3 +53,9 @@ Debug/src/NoSuchTripException.d
 Debug/src/NoSuchTripException.o
 Debug/src/TicketInvoice.d
 Debug/src/TicketInvoice.o
+Debug/trains.txt
+Debug/stations.txt
+Debug/trips.txt
+src/.vscode/launch.json
+src/.vscode/settings.json
+.vscode/settings.json
