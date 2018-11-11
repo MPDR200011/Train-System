@@ -4,6 +4,10 @@
 #include "TrainSystemException.h"
 #include "project_types.h"
 
+/**
+ * @brief Exception reporting that a trip ID does not exist in the system
+ * 
+ */
 class NoSuchTripException: public TrainSystemException {
 public:
 	NoSuchTripException(id_t id);

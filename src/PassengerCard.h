@@ -4,6 +4,10 @@
 #include "project_types.h"
 #include <string>
 
+/**
+ * @brief Class for representing the card of a passenger in the system
+ * 
+ */
 class PassengerCard {
 
 public:

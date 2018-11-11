@@ -6,9 +6,11 @@
 #include <string>
 
 /**
- * Class for representing dates in the program.
- * Works as a further abstraction of C++'s ctime library. 
-*/
+ * @brief Class for representing dates in the program.
+ * 
+ * Works as an abstraction of C++'s ctime library. 
+ * 
+ */
 class Date {
 public:
 	/**

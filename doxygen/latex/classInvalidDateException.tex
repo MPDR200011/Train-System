@@ -1,5 +1,14 @@
 \hypertarget{classInvalidDateException}{}\section{Invalid\+Date\+Exception Class Reference}
 \label{classInvalidDateException}\index{Invalid\+Date\+Exception@{Invalid\+Date\+Exception}}
+
+
+Exception reporting an invalid date.  
+
+
+
+
+{\ttfamily \#include $<$Invalid\+Date\+Exception.\+h$>$}
+
 Inheritance diagram for Invalid\+Date\+Exception\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,9 +18,8 @@ Inheritance diagram for Invalid\+Date\+Exception\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classInvalidDateException_a0ae7a8a97c0442fc025cb63e3b86bee8}\label{classInvalidDateException_a0ae7a8a97c0442fc025cb63e3b86bee8}} 
-{\bfseries Invalid\+Date\+Exception} (std\+::string date\+String)
-\item 
+\mbox{\hyperlink{classInvalidDateException_a0ae7a8a97c0442fc025cb63e3b86bee8}{Invalid\+Date\+Exception}} (std\+::string \mbox{\hyperlink{classInvalidDateException_a70664a8f1fe8853eed11199c5c0f0060}{date\+String}})
+\begin{DoxyCompactList}\small\item\em Construct a new Invalid \mbox{\hyperlink{classDate}{Date}} Exception object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classInvalidDateException_a518618417b66ea59ef6d5a40aad7d045}\label{classInvalidDateException_a518618417b66ea59ef6d5a40aad7d045}} 
 std\+::string {\bfseries what} ()
 \end{DoxyCompactItemize}
@@ -19,8 +27,31 @@ std\+::string {\bfseries what} ()
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classInvalidDateException_a70664a8f1fe8853eed11199c5c0f0060}\label{classInvalidDateException_a70664a8f1fe8853eed11199c5c0f0060}} 
-std\+::string {\bfseries date\+String}
-\end{DoxyCompactItemize}
+std\+::string \mbox{\hyperlink{classInvalidDateException_a70664a8f1fe8853eed11199c5c0f0060}{date\+String}}
+\begin{DoxyCompactList}\small\item\em String representing invalid \mbox{\hyperlink{classDate}{Date}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Exception reporting an invalid date. 
+
+Reports that a \mbox{\hyperlink{classDate}{Date}} does not follow gregorian calendar standards 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInvalidDateException_a0ae7a8a97c0442fc025cb63e3b86bee8}\label{classInvalidDateException_a0ae7a8a97c0442fc025cb63e3b86bee8}} 
+\index{Invalid\+Date\+Exception@{Invalid\+Date\+Exception}!Invalid\+Date\+Exception@{Invalid\+Date\+Exception}}
+\index{Invalid\+Date\+Exception@{Invalid\+Date\+Exception}!Invalid\+Date\+Exception@{Invalid\+Date\+Exception}}
+\subsubsection{\texorpdfstring{Invalid\+Date\+Exception()}{InvalidDateException()}}
+{\footnotesize\ttfamily Invalid\+Date\+Exception\+::\+Invalid\+Date\+Exception (\begin{DoxyParamCaption}\item[{std\+::string}]{date\+String }\end{DoxyParamCaption})}
+
+
+
+Construct a new Invalid \mbox{\hyperlink{classDate}{Date}} Exception object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+String} & String of the \mbox{\hyperlink{classDate}{Date}} in question \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
