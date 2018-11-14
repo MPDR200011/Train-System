@@ -34,13 +34,15 @@ const Date& Passenger::getBirthDate() const {
 }
 
 bool Passenger::addTrip(Trip* trip) {
+	bool isAlready = false;
 	for (Trip* t: trips) {
 		if (t->getID() == trip->getID()) {
-			return false;
+			isAlready = true;
+			break;
 		}
 	}
 	trips.push_back(trip);
-	return true;
+	return isAlready;
 }
 
 void Passenger::printRow(ostream &os) {

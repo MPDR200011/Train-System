@@ -3,6 +3,7 @@
 #include "NoSuchStationException.h"
 #include "NoSuchTrainException.h"
 #include "NoSuchTripException.h"
+#include "TripPastException.h"
 
 using namespace std;
 
@@ -180,14 +181,23 @@ bool System::removeTrain(id_t id){
 }
 
 bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
+	
+	time_t currTime = time(nullptr);
+	time_t tripTime = request.trip->getDepartureDate().getTimeStamp();
+	int timeDelta = tripTime - currTime;
+	if (timeDelta < 0) {
+		throw TripPastException();
+	}
+	
 	if (request.trip->bookSeat()) {
-		request.passenger->addTrip(request.trip);
-		uint basePrice = request.trip->getBasePrice();
-		PassengerCard* card = request.passenger->getCard();
-		if (card != nullptr) {
-			basePrice -= basePrice*(card->getDiscount()/100.0);
+		uint price = request.trip->getCurrentPrice();
+		if (!request.passenger->addTrip(request.trip)) {
+			PassengerCard* card = request.passenger->getCard();
+			if (card != nullptr) {
+				price *= 1-(card->getDiscount()/100.0);
+			}
 		}
-		request.setPrice(basePrice);
+		request.setInvoicePrice(price);
 		return true;
 	} else {
 		return false;

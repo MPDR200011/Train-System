@@ -43,8 +43,20 @@ uint Trip::getNumberOfFreeSeats() const {
 	return train->getMaxSeats() - occupiedSeats;
 }
 
-float Trip::getBasePrice() const {
+uint Trip::getBasePrice() const {
 	return basePrice;
+}
+
+uint Trip::getCurrentPrice() {
+	time_t currTime = time(nullptr);
+	time_t tripDep = departureDate.getTimeStamp();
+	if (tripDep - currTime < FOURTY_HEIGHT_HOURS) {
+		if (((float)occupiedSeats / (float)train->getMaxSeats()) < 0.5) {
+			return basePrice * 0.3;
+		}
+	} else {
+		return basePrice;
+	}
 }
 
 Station* Trip::getSource() const {
@@ -59,11 +71,11 @@ Train* Trip::getTrain() const {
 	return train;
 }
 
-const Date& Trip::getDepartureDate() const {
+Date& Trip::getDepartureDate() {
 	return departureDate;
 }
 
-const Date& Trip::getArrivalDate() const {
+Date& Trip::getArrivalDate() {
 	return arrivalDate;
 }
 
@@ -77,7 +89,7 @@ bool Trip::bookSeat() {
 }
 
 void Trip::printRow(ostream &os) {
-	os << tripID << " " << basePrice << " " << source->getName() << " " << departureDate.getDateString()
+	os << tripID << " " << basePrice << " " << getCurrentPrice() << " " << source->getName() << " " << departureDate.getDateString()
 	<< " " << destination->getName() << " " << arrivalDate.getDateString() 
 	<< " " << train->getID() << " " << occupiedSeats; 
 }
@@ -85,6 +97,7 @@ void Trip::printRow(ostream &os) {
 ostream &operator<<(ostream &os, Trip &tr) {
 	os << "//// Trip ////" << endl;
 	os << "Base price: " << tr.basePrice << endl;
+	os << "Current Price: " << tr.getCurrentPrice() << endl;
 	os << "Source: " << tr.source->getName() << endl;
 	os << "Departure date: " << tr.departureDate << endl;
 	os << "Destination: " << tr.destination->getName() << endl;

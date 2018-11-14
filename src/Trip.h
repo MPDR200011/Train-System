@@ -16,12 +16,13 @@ public:
 	~Trip();
 
 	id_t getID() const;
-	float getBasePrice() const;
+	uint getBasePrice() const;
+	uint getCurrentPrice();
 	Station* getSource() const;
 	Station* getDest() const;
 	Train* getTrain() const;
-	const Date & getDepartureDate() const;
-	const Date & getArrivalDate() const;
+	Date & getDepartureDate();
+	Date & getArrivalDate();
 
 	bool bookSeat();
 

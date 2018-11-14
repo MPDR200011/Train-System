@@ -3,7 +3,6 @@
 #include <iomanip>
 #include <sstream>
 #include <algorithm>
-
 using namespace std;
 
 const unsigned int Date::monthsWith31[] = {0, 2, 4, 6, 7, 9, 11};
@@ -89,6 +88,13 @@ std::string Date::getDateString() const {
 
 std::string Date::getDateStringWithoutHours() const {
 	return getDateString().substr(0, 10);
+}
+
+long int Date::getTimeStamp() {
+	date.tm_hour++;
+	long int timeStamp = mktime(&date);
+	date.tm_hour--;
+	return timeStamp;
 }
 
 std::ostream& operator <<(std::ostream& o, Date& d) {

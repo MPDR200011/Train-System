@@ -130,6 +130,13 @@ public:
 	 */
 	int getMinutes() const;
 
+	/**
+	 * @brief Get the Time Stamp object
+	 * 
+	 * @return long Seconds since epoch at January 1st 1970 00:00
+	 */
+	long int getTimeStamp();
+
 
 private:
 	/**

@@ -21,7 +21,7 @@ const Trip* TicketPurchaseRequest::getTrip() const {
 	return trip;
 }
 
-void TicketPurchaseRequest::setPrice(uint price) {
+void TicketPurchaseRequest::setInvoicePrice(uint price) {
 	invoice.setPrice(price);
 }
 

@@ -15,7 +15,7 @@ public:
 	const Passenger* getPassenger() const;
 	const Trip* getTrip() const;
 
-	void setPrice(uint price);
+	void setInvoicePrice(uint price);
 	void printInvoice(std::ostream &os);
 
 private:

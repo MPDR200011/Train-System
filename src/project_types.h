@@ -1,3 +1,5 @@
+#define FOURTY_HEIGHT_HOURS 172800
+
 /**
  * @brief Abreviation for unsigned ints
  * 
