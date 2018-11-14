@@ -13,30 +13,78 @@ Class for representing the card of a passenger in the system.
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classPassengerCard_ac30388c823af514403463a797e2878af}\label{classPassengerCard_ac30388c823af514403463a797e2878af}} 
-enum {\bfseries Card\+Type} \{ {\bfseries twenty\+Five} =25, 
+enum \mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card\+Type}} \{ {\bfseries twenty\+Five} =25, 
 {\bfseries fifty} =50, 
 {\bfseries hundred} =100
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Card Type enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPassengerCard_a1ebc730da7c0820350024f29c37ce9d9}\label{classPassengerCard_a1ebc730da7c0820350024f29c37ce9d9}} 
-{\bfseries Passenger\+Card} (Card\+Type type, id\+\_\+t passenger\+ID, std\+::string p\+Name)
-\item 
-\mbox{\Hypertarget{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}\label{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}} 
-int {\bfseries get\+Discount} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classPassengerCard_a1ebc730da7c0820350024f29c37ce9d9}{Passenger\+Card}} (\mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card\+Type}} type, id\+\_\+t passenger\+ID, std\+::string p\+Name)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classPassenger}{Passenger}} Card object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}{get\+Discount}} () const
+\begin{DoxyCompactList}\small\item\em Get the discount percentage provided by the card. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPassengerCard_af557a01fde14b95c0e0b355e777e2aec}\label{classPassengerCard_af557a01fde14b95c0e0b355e777e2aec}} 
-static id\+\_\+t {\bfseries current\+ID} = 0
-\end{DoxyCompactItemize}
+static id\+\_\+t \mbox{\hyperlink{classPassengerCard_af557a01fde14b95c0e0b355e777e2aec}{current\+ID}} = 0
+\begin{DoxyCompactList}\small\item\em Next ID Counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Class for representing the card of a passenger in the system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPassengerCard_a1ebc730da7c0820350024f29c37ce9d9}\label{classPassengerCard_a1ebc730da7c0820350024f29c37ce9d9}} 
+\index{Passenger\+Card@{Passenger\+Card}!Passenger\+Card@{Passenger\+Card}}
+\index{Passenger\+Card@{Passenger\+Card}!Passenger\+Card@{Passenger\+Card}}
+\subsubsection{\texorpdfstring{Passenger\+Card()}{PassengerCard()}}
+{\footnotesize\ttfamily Passenger\+Card\+::\+Passenger\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card\+Type}}}]{type,  }\item[{id\+\_\+t}]{passenger\+ID,  }\item[{std\+::string}]{p\+Name }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classPassenger}{Passenger}} Card object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of the card \\
+\hline
+{\em passenger\+ID} & ID of the passenger \\
+\hline
+{\em p\+Name} & Name of the passenger that owns the card \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}\label{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}} 
+\index{Passenger\+Card@{Passenger\+Card}!get\+Discount@{get\+Discount}}
+\index{get\+Discount@{get\+Discount}!Passenger\+Card@{Passenger\+Card}}
+\subsubsection{\texorpdfstring{get\+Discount()}{getDiscount()}}
+{\footnotesize\ttfamily int Passenger\+Card\+::get\+Discount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the discount percentage provided by the card. 
+
+\begin{DoxyReturn}{Returns}
+int Percentag of discount 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classPassengerCard_af557a01fde14b95c0e0b355e777e2aec}\label{classPassengerCard_af557a01fde14b95c0e0b355e777e2aec}} 
+\index{Passenger\+Card@{Passenger\+Card}!current\+ID@{current\+ID}}
+\index{current\+ID@{current\+ID}!Passenger\+Card@{Passenger\+Card}}
+\subsubsection{\texorpdfstring{current\+ID}{currentID}}
+{\footnotesize\ttfamily id\+\_\+t Passenger\+Card\+::current\+ID = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Next ID Counter. 
+
+Used to set new ID when \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} object is constructed, incremented every time a new \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} object is constructed. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

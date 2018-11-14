@@ -7,10 +7,25 @@
 #include <string>
 #include <iostream>
 
+/**
+ * @brief Class for representing an invoice of a ticket purchase in the system.
+ * 
+ */
 class TicketInvoice {
 public:
+    /**
+     * @brief Construct a new Ticket Invoice object
+     * 
+     * @param p Pointer to the passanger that has done the purchase
+     * @param t Trip to which the ticket has been purchased
+     */
     TicketInvoice(Passenger* p, Trip* t);
 
+    /**
+     * @brief Get the Passenger Name
+     * 
+     * @return const std::string Name of the passenger
+     */
     const std::string getPassengerName() const;
     const std::string getSourceName() const;
     const std::string getDestName() const;

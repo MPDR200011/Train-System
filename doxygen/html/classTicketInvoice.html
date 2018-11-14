@@ -69,14 +69,19 @@ $(function() {
 <div class="title">TicketInvoice Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for representing an invoice of a ticket purchase in the system.  
+ <a href="classTicketInvoice.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="TicketInvoice_8h_source.html">TicketInvoice.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a38b37e5168ce71bbf37aceef8a6f6267"><td class="memItemLeft" align="right" valign="top"><a id="a38b37e5168ce71bbf37aceef8a6f6267"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TicketInvoice</b> (<a class="el" href="classPassenger.html">Passenger</a> *p, <a class="el" href="classTrip.html">Trip</a> *t)</td></tr>
+<tr class="memitem:a38b37e5168ce71bbf37aceef8a6f6267"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTicketInvoice.html#a38b37e5168ce71bbf37aceef8a6f6267">TicketInvoice</a> (<a class="el" href="classPassenger.html">Passenger</a> *p, <a class="el" href="classTrip.html">Trip</a> *t)</td></tr>
+<tr class="memdesc:a38b37e5168ce71bbf37aceef8a6f6267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Ticket Invoice object.  <a href="#a38b37e5168ce71bbf37aceef8a6f6267">More...</a><br /></td></tr>
 <tr class="separator:a38b37e5168ce71bbf37aceef8a6f6267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fdfdcd08ff90480ca85e027f57033e4"><td class="memItemLeft" align="right" valign="top"><a id="a9fdfdcd08ff90480ca85e027f57033e4"></a>
-const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getPassengerName</b> () const</td></tr>
+<tr class="memitem:a9fdfdcd08ff90480ca85e027f57033e4"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTicketInvoice.html#a9fdfdcd08ff90480ca85e027f57033e4">getPassengerName</a> () const</td></tr>
+<tr class="memdesc:a9fdfdcd08ff90480ca85e027f57033e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classPassenger.html" title="Class for representing a passenger in the system. ">Passenger</a> Name.  <a href="#a9fdfdcd08ff90480ca85e027f57033e4">More...</a><br /></td></tr>
 <tr class="separator:a9fdfdcd08ff90480ca85e027f57033e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad692197170d5cb11790dff71150ef891"><td class="memItemLeft" align="right" valign="top"><a id="ad692197170d5cb11790dff71150ef891"></a>
 const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getSourceName</b> () const</td></tr>
@@ -97,6 +102,67 @@ Friends</h2></td></tr>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, <a class="el" href="classTicketInvoice.html">TicketInvoice</a> &amp;in)</td></tr>
 <tr class="separator:ae78ba81ba79ed7e8c9e8cd23a910f00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for representing an invoice of a ticket purchase in the system. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a38b37e5168ce71bbf37aceef8a6f6267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b37e5168ce71bbf37aceef8a6f6267">&#9670;&nbsp;</a></span>TicketInvoice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TicketInvoice::TicketInvoice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPassenger.html">Passenger</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTrip.html">Trip</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new Ticket Invoice object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Pointer to the passanger that has done the purchase </td></tr>
+    <tr><td class="paramname">t</td><td><a class="el" href="classTrip.html">Trip</a> to which the ticket has been purchased </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9fdfdcd08ff90480ca85e027f57033e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fdfdcd08ff90480ca85e027f57033e4">&#9670;&nbsp;</a></span>getPassengerName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string TicketInvoice::getPassengerName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the <a class="el" href="classPassenger.html" title="Class for representing a passenger in the system. ">Passenger</a> Name. </p>
+<dl class="section return"><dt>Returns</dt><dd>const std::string Name of the passenger </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="TicketInvoice_8h_source.html">TicketInvoice.h</a></li>
 <li>TicketInvoice.cpp</li>

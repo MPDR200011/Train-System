@@ -83,13 +83,16 @@ public:
 	/**
 	 * @brief Output the object's attributes in a row fashion
 	 * 
+	 * Outputs the object's information as it was a row in a table.
+	 * Useful for outputing all Passenger objects in the system.
+	 * 
 	 * @param os Output stream to wich object will be output
 	 */
 	void printRow(std::ostream &os);
 	/**
 	 * @brief Output Passenger object in a user friendly fashion
 	 * 
-	 * @param os Output stream
+	 * @param os Output stream to wich Station object will be output
 	 * @param p Passenger object to be output
 	 * @return std::ostream& 
 	 */
