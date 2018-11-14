@@ -52,8 +52,7 @@ bool processCommand(string command) {
 		listTask(vector<string>(arguments.begin()+1, arguments.end()));
 	} else if(task == "help") {
 		helpTask(vector<string>(arguments.begin()+1, arguments.end()));		 
-	
-	else if (task == "exit") {
+	} else if (task == "exit") {
 		return true;
 	} else {
 		cout << task << " command does not exist." << endl;
