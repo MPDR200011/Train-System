@@ -1,0 +1,110 @@
+\hypertarget{classSystem}{}\section{System Class Reference}
+\label{classSystem}\index{System@{System}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSystem_aa4879a70a434d3b879090500b282de0b}\label{classSystem_aa4879a70a434d3b879090500b282de0b}} 
+std\+::vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ \& {\bfseries get\+Passengers} ()
+\item 
+\mbox{\Hypertarget{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}\label{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}} 
+std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& {\bfseries get\+Trips} ()
+\item 
+\mbox{\Hypertarget{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}\label{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}} 
+std\+::vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ \& {\bfseries get\+Trains} ()
+\item 
+\mbox{\Hypertarget{classSystem_a6f27512fba42cc093efd34fe10bf0045}\label{classSystem_a6f27512fba42cc093efd34fe10bf0045}} 
+std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \& {\bfseries get\+Stations} ()
+\item 
+\mbox{\Hypertarget{classSystem_a5a0348802d5cdb666f330b1e10d32727}\label{classSystem_a5a0348802d5cdb666f330b1e10d32727}} 
+\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ {\bfseries get\+Passenger} (const id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}\label{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}} 
+\mbox{\hyperlink{classTrip}{Trip}} $\ast$ {\bfseries get\+Trip} (const id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}\label{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}} 
+\mbox{\hyperlink{classTrain}{Train}} $\ast$ {\bfseries get\+Train} (const id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}\label{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}} 
+\mbox{\hyperlink{classStation}{Station}} $\ast$ {\bfseries get\+Station} (const id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_a933891c246bf870518f334ea5666b95c}\label{classSystem_a933891c246bf870518f334ea5666b95c}} 
+bool {\bfseries add\+Passenger} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$passenger)
+\item 
+\mbox{\Hypertarget{classSystem_ad019d3f8d30be9b2f57842512f0393ed}\label{classSystem_ad019d3f8d30be9b2f57842512f0393ed}} 
+bool {\bfseries add\+Trip} (\mbox{\hyperlink{classTrip}{Trip}} $\ast$trip)
+\item 
+\mbox{\Hypertarget{classSystem_a8022adc1c1f212c138ca9da7995bb422}\label{classSystem_a8022adc1c1f212c138ca9da7995bb422}} 
+bool {\bfseries add\+Train} (\mbox{\hyperlink{classTrain}{Train}} $\ast$train)
+\item 
+\mbox{\Hypertarget{classSystem_abc5bda005d56392c66914ddd4f96e725}\label{classSystem_abc5bda005d56392c66914ddd4f96e725}} 
+bool {\bfseries add\+Station} (\mbox{\hyperlink{classStation}{Station}} $\ast$station)
+\item 
+\mbox{\Hypertarget{classSystem_af31acdda711986978533367ce3a64276}\label{classSystem_af31acdda711986978533367ce3a64276}} 
+bool {\bfseries remove\+Passenger} (id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_ae802cde42ae56b50adc02c76920e9001}\label{classSystem_ae802cde42ae56b50adc02c76920e9001}} 
+bool {\bfseries remove\+Trip} (id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}\label{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}} 
+bool {\bfseries remove\+Station} (id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_acf1d845cdb88b43143b3f738214e866b}\label{classSystem_acf1d845cdb88b43143b3f738214e866b}} 
+bool {\bfseries remove\+Train} (id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classSystem_a9e71afb2e06ab9a315436b17dfc04d69}\label{classSystem_a9e71afb2e06ab9a315436b17dfc04d69}} 
+bool {\bfseries create\+Passenger} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\item 
+\mbox{\Hypertarget{classSystem_a132bfbf3cfb3aab1e9dad1bf1b2710b4}\label{classSystem_a132bfbf3cfb3aab1e9dad1bf1b2710b4}} 
+bool {\bfseries create\+Station} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\item 
+\mbox{\Hypertarget{classSystem_aeead09c522819325eb24ff92d3a37404}\label{classSystem_aeead09c522819325eb24ff92d3a37404}} 
+bool {\bfseries create\+Train} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\item 
+\mbox{\Hypertarget{classSystem_a5d889af9f91d199945425325df56a023}\label{classSystem_a5d889af9f91d199945425325df56a023}} 
+bool {\bfseries create\+Trip} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\item 
+\mbox{\Hypertarget{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}\label{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}} 
+bool {\bfseries process\+Ticket\+Purchase\+Request} (\mbox{\hyperlink{classTicketPurchaseRequest}{Ticket\+Purchase\+Request}} \&request)
+\item 
+\mbox{\Hypertarget{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}\label{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}} 
+void {\bfseries list\+Passengers} (std\+::ostream \&os)
+\item 
+\mbox{\Hypertarget{classSystem_a06041827a7b47ad06eee9d121e42590c}\label{classSystem_a06041827a7b47ad06eee9d121e42590c}} 
+void {\bfseries list\+Stations} (std\+::ostream \&os)
+\item 
+\mbox{\Hypertarget{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}\label{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}} 
+void {\bfseries list\+Trains} (std\+::ostream \&os)
+\item 
+\mbox{\Hypertarget{classSystem_af11f201f6417c2658f35238d98c6f032}\label{classSystem_af11f201f6417c2658f35238d98c6f032}} 
+void {\bfseries list\+Trips} (std\+::ostream \&os)
+\item 
+\mbox{\Hypertarget{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}\label{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}} 
+void {\bfseries print\+Passengers} (std\+::ostream \&os) const
+\item 
+\mbox{\Hypertarget{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}\label{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}} 
+void {\bfseries print\+Stations} (std\+::ostream \&os) const
+\item 
+\mbox{\Hypertarget{classSystem_af4610f38d80e01a18f2083a7c5fbd5ce}\label{classSystem_af4610f38d80e01a18f2083a7c5fbd5ce}} 
+void {\bfseries print\+Trains} (std\+::ostream \&os) const
+\item 
+\mbox{\Hypertarget{classSystem_abaa61b6377abcfc61da32092e5d734d9}\label{classSystem_abaa61b6377abcfc61da32092e5d734d9}} 
+void {\bfseries print\+Trips} (std\+::ostream \&os) const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSystem_a40d348884d1b737ecd26b4bc6509bf48}\label{classSystem_a40d348884d1b737ecd26b4bc6509bf48}} 
+static \mbox{\hyperlink{classSystem}{System}} {\bfseries instance} = \mbox{\hyperlink{classSystem}{System}}()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSystem_a1efa95132e95a7a6b11c3b54916d66ae}\label{classSystem_a1efa95132e95a7a6b11c3b54916d66ae}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classSystem}{System}} \&sys)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+System.\+h\item 
+System.\+cpp\end{DoxyCompactItemize}

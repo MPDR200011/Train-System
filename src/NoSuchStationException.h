@@ -4,6 +4,10 @@
 #include "TrainSystemException.h"
 #include "project_types.h"
 
+/**
+ * @brief Exception reporting that a station ID does not exist in the system
+ * 
+ */
 class NoSuchStationException: public TrainSystemException {
 public:
 	NoSuchStationException(id_t id);

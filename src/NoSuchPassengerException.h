@@ -4,6 +4,10 @@
 #include "TrainSystemException.h"
 #include "project_types.h"
 
+/**
+ * @brief Exception reporting that a passenger ID does not exist in the system
+ * 
+ */
 class NoSuchPassengerException: public TrainSystemException {
 public:
 	NoSuchPassengerException(id_t id);
