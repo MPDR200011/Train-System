@@ -14,7 +14,7 @@ void deleteTask(vector<string> arguments);
 void searchTask(vector<string> arguments);
 void purchaseTask(vector<string> arguments);
 void listTask(vector<string> arguments);
-
+void helpTask(vector<string> arguments);
 vector<string> splitArgumets(string&);
 
 void loadPassengers();
@@ -50,7 +50,10 @@ bool processCommand(string command) {
 		purchaseTask(vector<string>(arguments.begin()+1, arguments.end()));
 	} else if (task == "list") {
 		listTask(vector<string>(arguments.begin()+1, arguments.end()));
-	} else if (task == "exit") {
+	} else if(task == "help") {
+		helpTask(vector<string>(arguments.begin()+1, arguments.end()));		 
+	
+	else if (task == "exit") {
 		return true;
 	} else {
 		cout << task << " command does not exist." << endl;
@@ -158,6 +161,28 @@ void listTask(vector<string> arguments) {
 	} else {
 		cout << "Invalid type." << endl;
 	}
+}
+
+void helpTask(vector<string> arguments) {
+	if (!arguments.size()){
+		cout<<"Available commands:\n create (passenger, train, trip, station)\n delete (passenger, train, trip, station)\n purchase\n list (passengers, trains, stations, trips)"<<endl;
+		cout<<"help (create, delete, purchase, list)"<<endl;
+	} 
+	string type = arguments[0];
+	if (type == "create") {
+		cout<<"Available commands:\n create passenger [Name] [BirthDate DD-MM-YY HH:MM] \n create trip [Base Price] [Source Station ID] [Destination Station ID] [Train ID] [Departure Date] [Arrival Date]"<<endl;
+		cout<<"create train [Max Seats] \n create station [Name]"<<endl;
+	} else if (type == "delete") {
+		cout<<"Available commands:\n delete passenger [id] \n delete trip [id]\n delete train [id] \n delete station [id]"<<endl;
+	} else if (type == "purchase") {
+		cout<<"Available commands:\n purchase [Passenger ID] [Trip ID]"<<endl;
+	} else if (type == "list") {
+		cout<<"Available commands:\n list passengers\n list trips\n list trains\n list stations"<<endl;
+	} else {
+		cout << "Invalid type." << endl;
+	}
+
+
 }
 
 vector<string> splitArgumets(string& command) {
