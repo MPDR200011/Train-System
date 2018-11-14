@@ -32,7 +32,6 @@ void prompt() {
 //TODO create card
 //TODO card payments management
 
-
 bool processCommand(string command) {
 	vector<string> arguments = splitArgumets(command);
 	if (arguments.size() == 0) {
@@ -163,14 +162,15 @@ void listTask(vector<string> arguments) {
 }
 
 void helpTask(vector<string> arguments) {
-	if (!arguments.size()){
+	if (!arguments.size()) {
 		cout<<"Available commands:\n create (passenger, train, trip, station)\n delete (passenger, train, trip, station)\n purchase\n list (passengers, trains, stations, trips)"<<endl;
-		cout<<"help (create, delete, purchase, list)"<<endl;
-	} 
+		cout<<" help (create, delete, purchase, list)"<<endl;
+		return;
+	}
 	string type = arguments[0];
 	if (type == "create") {
 		cout<<"Available commands:\n create passenger [Name] [BirthDate DD-MM-YY HH:MM] \n create trip [Base Price] [Source Station ID] [Destination Station ID] [Train ID] [Departure Date] [Arrival Date]"<<endl;
-		cout<<"create train [Max Seats] \n create station [Name]"<<endl;
+		cout<<" create train [Max Seats] \n create station [Name]"<<endl;
 	} else if (type == "delete") {
 		cout<<"Available commands:\n delete passenger [id] \n delete trip [id]\n delete train [id] \n delete station [id]"<<endl;
 	} else if (type == "purchase") {
@@ -180,8 +180,6 @@ void helpTask(vector<string> arguments) {
 	} else {
 		cout << "Invalid type." << endl;
 	}
-
-
 }
 
 vector<string> splitArgumets(string& command) {
