@@ -59,3 +59,5 @@ Debug/trips.txt
 src/.vscode/launch.json
 src/.vscode/settings.json
 .vscode/settings.json
+
+src/\.vscode/
