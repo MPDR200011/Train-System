@@ -9,7 +9,7 @@ class Train {
 public:
 	Train(uint totalSeats);
 
-	id_t getID();
+	id_t getID() const;
 	uint getMaxSeats();
 
 	void printRow(std::ostream &os);

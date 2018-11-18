@@ -1,4 +1,5 @@
 #include "Station.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -17,7 +18,8 @@ string Station::getName() const {
 }
 
 void Station::printRow(ostream &os) {
-	os << stationID << " " << name;
+	os << setw(5) << stationID 
+	<< setw(35) << name;
 }
 
 ostream &operator<<(ostream &os, Station &st) {

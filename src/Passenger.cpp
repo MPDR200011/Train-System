@@ -1,4 +1,5 @@
 #include "Passenger.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -61,7 +62,10 @@ void Passenger::removeCard() {
 }
 
 void Passenger::printRow(ostream &os) {
-	os << passengerID << " " << name << " " << birthDate.getDateStringWithoutHours();
+	os << setw(5) << passengerID
+	<< setw(35) << name
+	<< setw(15) << birthDate.getDateStringWithoutHours()
+	<< setw(15);
 	if (card == nullptr) {
 		os << " None";
 	} else {

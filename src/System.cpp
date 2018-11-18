@@ -5,6 +5,7 @@
 #include "exceptions/NoSuchTripException.h"
 #include "exceptions/TripPastException.h"
 #include <algorithm>
+#include <iomanip>
 
 using namespace std;
 
@@ -85,6 +86,54 @@ Station* System::getStation(const id_t id) {
 	throw NoSuchStationException(id);
 }
 
+int System::getStationIndex(id_t stationID) {
+	for (uint i = 0; i < stations.size(); i++) {
+		if (stations[i]->getID() == stationID) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+int System::getTrainIndex(id_t trainID) {
+	for (uint i = 0; i < trains.size(); i++) {
+		if (trains[i]->getID() == trainID) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+vector<Trip*> System::searchTrips(Station *src, Station *dest, bool searchByArrivalDate, Date arrivalDate) {
+	
+	if (src == nullptr && dest == nullptr && !searchByArrivalDate) {
+		return trips;
+	}
+
+	vector<Trip*> res;
+
+	for (Trip *tr: trips) {
+		bool srcMatch = src == nullptr;
+		bool destMatch = dest == nullptr;
+		bool arrivalMatch = !searchByArrivalDate;
+		if (!srcMatch) {
+			srcMatch = tr->getSource() == src;
+		}
+		if (!destMatch) {
+			destMatch = tr->getDest() == dest;
+		}
+		if (!arrivalMatch) {
+			arrivalMatch = tr->getArrivalDate() <= arrivalDate;
+		}
+		if (srcMatch && destMatch && arrivalMatch) {
+			res.push_back(tr);
+		}
+	}
+
+	return res;
+
+}
+
 void System::createPassenger(string name, Date birthDate) {
 	Passenger *p = new Passenger(name, birthDate);
 	passengers.push_back(p);
@@ -97,8 +146,11 @@ void System::createCard(Passenger *passenger, string type) {
 		cardType = PassengerCard::twentyFive;
 	} else if (type == "fifty") {
 		cardType = PassengerCard::fifty;
-	} else {
+	} else if (type == "hundred") {
 		cardType = PassengerCard::hundred;
+	} else {
+		cout << "Invalid card type: " << type << endl;
+		return;
 	}
 
 	PassengerCard *pc = new PassengerCard(cardType, passenger->getID(), passenger->getName());
@@ -205,6 +257,30 @@ bool System::removeTrain(id_t id){
 	return false;
 }
 
+void System::sortPassengers() {
+	sort(passengers.begin(), passengers.end(), [](const Passenger *p1, const Passenger *p2)->bool{
+		return p1->getID() < p2->getID();
+	});
+}
+
+void System::sortStations() {
+	sort(stations.begin(), stations.end(), [](const Station *st1, const Station *st2)->bool{
+		return st1->getID() < st2->getID();
+	});
+}
+
+void System::sortTrains() {
+	sort(trains.begin(), trains.end(), [](const Train *tr1, const Train *tr2)->bool{
+		return tr1->getID() < tr2->getID();
+	});
+}
+
+void System::sortTrips(){
+	sort(trips.begin(), trips.end(), [](const Trip *tr1, const Trip *tr2)->bool{
+		return tr1->getID() < tr2->getID();
+	});
+}
+
 bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 	
 	time_t currTime = time(nullptr);
@@ -235,7 +311,6 @@ void System::processCards() {
 		cout << "Passenger " << p->getName() << " of ID " << p->getID()
 		<< " has not payed his/her card, invalidating it." << endl;
 		p->removeCard();
-		cardsToPay.erase(it);
 	}
 	cardsToPay.clear();
 	for (Passenger *p: passengers) {
@@ -263,39 +338,56 @@ bool System::payCard(id_t passengerID) {
 }
 
 void System::listPassengers(ostream &os){
-	cout << "id - name - birthdate - card type" << endl;
+	os << endl 
+	<< setw(5) << "id" 
+	<< setw(35) << "name" 
+	<< setw(15) << "birthdate" 
+	<< setw(15) << "card type" << endl;
 	for (Passenger *p: passengers) {
-		p->printRow(cout);
-		cout << endl;
+		p->printRow(os);
+		os << endl;
 	}
-	cout << endl;
+	os << endl;
 }
 
 void System::listStations(ostream &os) {
-	cout << "id - name" << endl;
+	os << endl
+	<< setw(5) << "id" 
+	<< setw(35) << "name" << endl;
 	for (Station *st: stations) {
-		st->printRow(cout);
-		cout << endl;
+		st->printRow(os);
+		os << endl;
 	}
-	cout << endl;
+	os << endl;
 }
 
 void System::listTrains(ostream &os) {
-	cout << "id - max seats" << endl;
+	os << endl 
+	<< setw(5) << "id"
+	<< setw(12) << "max seats" << endl;
 	for (Train *tr: trains) {
-		tr->printRow(cout);
-		cout << endl;
+		tr->printRow(os);
+		os << endl;
 	}
-	cout << endl;
+	os << endl;
 }
 
 void System::listTrips(ostream &os){
-	cout << "id - base price - source name - departure date - destination name - arrival date - train id - occupied seats" << endl;
+	os << endl 
+	<< setw(5) << "id"
+	<< setw(13) << "base price" 
+	<< setw(16) << "current price" 
+	<< setw(20) << "source name" 
+	<< setw(20) << "departure date" 
+	<< setw(20) << "destination name" 
+	<< setw(20) << "arrival date" 
+	<< setw(10) << "train id" 
+	<< setw(16) << "occupied seats" << endl;
 	for (Trip *tr: trips) {
-		tr->printRow(cout);
-		cout << endl;
+		tr->printRow(os);
+		os << endl;
 	}
-	cout << endl;
+	os << endl;
 }
 
 void System::printPassengers(ostream &os) const {

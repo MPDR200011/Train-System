@@ -137,22 +137,31 @@ void deleteTask();
 void searchTask();
 void purchaseTask();
 void listTask();
-void helpTask(vector<string> arguments);
+void payCard();
+void checkCards();
 vector<string> splitArgumets(string&);
 
 void loadPassengers();
+void loadCards();
 void loadStations();
 void loadTrains();
 void loadTrips();
 
+void savePassengers();
+void saveStations();
+void saveTrains();
+void saveTrips();
+
 void mainMenu() {
 	string menuOptions[] = {
-		"1 - Create a new passenger/station/train/trip.",
-		"2 - Delete a passenger/station/train/trip.",
-		"3 - Search for trips.",
-		"4 - Process a ticket purchase.",
-		"5 - List all passengers/stations/trains/trips.",
-		"6 - exit"
+		"  1 - Create a new passenger/station/train/trip.",
+		"  2 - Delete a passenger/station/train/trip.",
+		"  3 - Search for trips.",
+		"  4 - Process a ticket purchase.",
+		"  5 - List all passengers/stations/trains/trips.",
+		"  6 - Process card payment.",
+		"  7 - End of month card processing.",
+		"100 - exit"
 	};
 	cout << endl << "Train System Interface" << endl;
 	cout << endl;
@@ -163,11 +172,9 @@ void mainMenu() {
 	cout << "Choose what to do - ";
 }
 
-//TODO card load functions
 //TODO purchase load functions
-//TODO save functions
-//TODO search task
-//TODO card payments management
+//TODO purchase save functions
+//TODO format print rows
 
 void createTask() {
 	cout << endl << "Choose what you want to create:" << endl << endl;
@@ -405,6 +412,84 @@ void deleteTask() {
 }
 
 void searchTask() {
+	cout << "Specify a source restraint? (y/n) - ";
+	bool searchBySrc;
+	string choice;
+	do {
+		readLine(choice);
+		if (choice != "y" && choice != "n") {
+			cout << "Invalid choice, try again - ";
+		} else {
+			searchBySrc = choice == "y";
+		}
+	} while (choice != "y" && choice != "n");
+
+	Station *src = nullptr;
+	if (searchBySrc) {
+		id_t id;
+		cout << "Please input the ID of the source station - ";
+		readVar(id);
+		try {
+			src = System::instance.getStation(id);
+		} catch (NoSuchStationException &e) {
+			cout << "Station ID does not exist." << endl;
+			return;
+		}
+	}
+
+	cout << "Specify a destination restraint? (y/n) - ";
+	bool searchByDest;
+	do {
+		readLine(choice);
+		if (choice != "y" && choice != "n") {
+			cout << "Invalid choice, try again - ";
+		} else {
+			searchByDest = choice == "y";
+		}
+	} while (choice != "y" && choice != "n");
+
+	Station *dest = nullptr;
+	if (searchByDest) {
+		id_t id;
+		cout << "Please input the ID of the destination station - ";
+		readVar(id);
+		try {
+			dest = System::instance.getStation(id);
+		} catch (NoSuchStationException &e) {
+			cout << "Station ID does not exist." << endl;
+			return;
+		}
+	}
+
+	cout << "Specify a arrival date restraint? (y/n) - ";
+	bool searchByArrivalDate;
+	do {
+		readLine(choice);
+		if (choice != "y" && choice != "n") {
+			cout << "Invalid choice, try again - ";
+		} else {
+			searchByArrivalDate = choice == "y";
+		}
+	} while (choice != "y" && choice != "n");
+
+	Date arrivalDate("01-01-1970 00:00");
+	if (searchByArrivalDate) {
+		arrivalDate = readDate();
+	}
+
+	vector<Trip*> trips = System::instance.searchTrips(src, dest, searchByArrivalDate, arrivalDate);
+
+	cout << endl;
+
+	if (trips.size() == 0) {
+		cout << "There are no trips that match these constraints." << endl;
+		return;
+	}
+
+	for (Trip *tr: trips) {
+		tr->printRow(cout);
+		cout << endl;
+	}
 
 }
 
@@ -466,25 +551,28 @@ void listTask() {
 	}
 }
 
-void helpTask(vector<string> arguments) {
-	if (!arguments.size()) {
-		cout<<"Available commands:\n create (passenger, train, trip, station)\n delete (passenger, train, trip, station)\n purchase\n list (passengers, trains, stations, trips)"<<endl;
-		cout<<" help (create, delete, purchase, list)"<<endl;
+void payCard() {
+	cout << "Please enter the ID of the passenger whose card is being paid - ";
+	id_t passengerID;
+	readVar(passengerID);
+
+	try {
+		if (!System::instance.payCard(passengerID)) {
+			cout << "Passenger doesn't have a card." << endl;
+			return;
+		}
+	} catch (NoSuchPassengerException &e) {
+		cout << "Passenger Id doesn't exists." << endl;
 		return;
 	}
-	string type = arguments[0];
-	if (type == "create") {
-		cout<<"Available commands:\n create passenger [Name] [BirthDate DD-MM-YY HH:MM] \n create trip [Base Price] [Source Station ID] [Destination Station ID] [Train ID] [Departure Date] [Arrival Date]"<<endl;
-		cout<<" create train [Max Seats] \n create station [Name]"<<endl;
-	} else if (type == "delete") {
-		cout<<"Available commands:\n delete passenger [id] \n delete trip [id]\n delete train [id] \n delete station [id]"<<endl;
-	} else if (type == "purchase") {
-		cout<<"Available commands:\n purchase [Passenger ID] [Trip ID]"<<endl;
-	} else if (type == "list") {
-		cout<<"Available commands:\n list passengers\n list trips\n list trains\n list stations"<<endl;
-	} else {
-		cout << "Invalid type." << endl;
-	}
+
+	cout << "Done." << endl;
+}
+
+void checkCards() {
+	System::instance.processCards();
+
+	cout << "Done." << endl;
 }
 
 vector<string> splitArgumets(string& command) {
@@ -525,20 +613,45 @@ vector<string> splitArgumets(string& command) {
 
 void loadPassengers() {
 	ifstream passengers("passengers.txt");
-	string line;
-	while (getline(passengers, line)) {
-		vector<string> arguments = splitArgumets(line);
+	if (passengers.is_open()) {
+		string line;
+		while (getline(passengers, line)) {
+			vector<string> arguments = splitArgumets(line);
 
-		if (arguments.size() != 2) {
-			continue;
-		}
+			if (arguments.size() != 2) {
+				continue;
+			}
 
-		try {
-			Date birthDate(arguments[1]);
-			System::instance.createPassenger(arguments[0], birthDate);
-		} catch (exception &e) {
-			continue;
+			try {
+				Date birthDate(arguments[1]);
+				System::instance.createPassenger(arguments[0], birthDate);
+			} catch (exception &e) {
+				continue;
+			}
 		}
+		passengers.close();
+	}
+}
+
+void loadCards() {
+	ifstream cards("cards.txt");
+	if (cards.is_open()) {
+		string line;
+		while (getline(cards, line)) {
+			vector<string> arguments = splitArgumets(line);
+
+			if (arguments.size() != 2) {
+				continue;
+			}
+
+			try {
+				Passenger *p = System::instance.getPassenger(stoi(arguments[0]));
+				System::instance.createCard(p, arguments[1]);
+			} catch (exception &e) {
+				continue;
+			}
+		}
+		cards.close();
 	}
 }
 
@@ -599,12 +712,81 @@ void loadTrips() {
 	}
 }
 
+void savePassengers() {
+	System::instance.sortPassengers();
+	ofstream passengers("passengers.txt", ofstream::out | ofstream::trunc);
+	ofstream cards("cards.txt", ofstream::out | ofstream::trunc);
+	vector<Passenger*> vec = System::instance.getPassengers();
+	for (uint i = 0; i < vec.size(); i++) {
+		passengers << "\"" << vec[i]->getName() << "\" \"" << vec[i]->getBirthDate().getDateString() << "\"" << endl;
+		
+		if (vec[i]->getCard() != nullptr) {
+			cards << i << " \"";
+			switch (vec[i]->getCard()->getType()){
+				case PassengerCard::twentyFive:
+					cards << "twenty five";
+					break;
+				case PassengerCard::fifty:
+					cards << "fifty";
+					break;
+				case PassengerCard::hundred:
+					cards << "hundred";
+					break;
+			}
+			cards << "\"" << endl;
+		}
+	}
+	passengers.close();
+	cards.close();
+}
+
+void saveStations() {
+	System::instance.sortStations();
+	ofstream stations("stations.txt", ofstream::out | ofstream::trunc);
+	vector<Station*> vec = System::instance.getStations();
+	for(uint i = 0; i < vec.size(); i++) {
+		stations << "\"" << vec[i]->getName() << "\"" << endl;
+	}
+	stations.close();
+}
+
+void saveTrains() {
+	System::instance.sortTrains();
+	ofstream trains("trains.txt", ofstream::out | ofstream::trunc);
+	vector<Train*> vec = System::instance.getTrains();
+	for(uint i = 0; i < vec.size(); i++) {
+		trains << vec[i]->getMaxSeats() << endl;
+	}
+	trains.close();
+}
+
+void saveTrips() {
+	System::instance.sortTrips();
+	ofstream trips("trips.txt", ofstream::out | ofstream::trunc);
+	vector<Trip*> vec = System::instance.getTrips();
+
+	for (uint i = 0; i < vec.size(); i++) {
+		int srcIndex = System::instance.getStationIndex(vec[i]->getSource()->getID());
+		int destIndex = System::instance.getStationIndex(vec[i]->getDest()->getID());
+		int trainIndex = System::instance.getTrainIndex(vec[i]->getTrain()->getID());
+		if (srcIndex == -1 || destIndex == -1 || trainIndex == -1) {
+			continue;
+		}
+		trips << vec[i]->getBasePrice() << " "
+		<< srcIndex << " " << destIndex << " " << trainIndex << " "
+		<< "\"" << vec[i]->getDepartureDate().getDateString() << "\" \""
+		<< vec[i]->getDepartureDate().getDateString() << "\"" << endl;
+	}
+}
+
 int main() {
 
 	loadPassengers();
+	loadCards();
 	loadStations();
 	loadTrains();
 	loadTrips();
+	System::instance.processCards();
 
 	bool programmRunning = true;
 	while (programmRunning) {
@@ -646,6 +828,16 @@ int main() {
 					break;
 				}
 				case 6:{
+					payCard();
+					validChoice = true;
+					break;
+				}
+				case 7:{
+					checkCards();
+					validChoice = true;
+					break;
+				}
+				case 100:{
 					programmRunning=false;
 					validChoice = true;
 					break;
@@ -657,7 +849,16 @@ int main() {
 				}
 			}
 		}
+		if (programmRunning) {
+			cout << "Press ENTER to contiune to main menu." << endl;
+			getchar();
+		}
 	}
+
+	savePassengers();
+	saveStations();
+	saveTrains();
+	saveTrips();
 
 	return 0;
 }

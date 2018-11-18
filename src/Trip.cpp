@@ -1,6 +1,7 @@
 #include "Trip.h"
 #include "exceptions/IdenticalDestinationException.h"
 #include "exceptions/ReverseDatesException.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -91,9 +92,15 @@ bool Trip::bookSeat() {
 }
 
 void Trip::printRow(ostream &os) {
-	os << tripID << " " << basePrice << " " << getCurrentPrice() << " " << source->getName() << " " << departureDate.getDateString()
-	<< " " << destination->getName() << " " << arrivalDate.getDateString() 
-	<< " " << train->getID() << " " << occupiedSeats; 
+	os << setw(5) << tripID
+	<< setw(13) << basePrice
+	<< setw(16) << getCurrentPrice() 
+	<< setw(20) << source->getName() 
+	<< setw(20) << departureDate.getDateString()
+	<< setw(20) << destination->getName() 
+	<< setw(20) << arrivalDate.getDateString() 
+	<< setw(10) << train->getID() 
+	<< setw(16) << occupiedSeats; 
 }
 
 ostream &operator<<(ostream &os, Trip &tr) {

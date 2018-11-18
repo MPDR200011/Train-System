@@ -1,4 +1,5 @@
 #include "Train.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ Train::Train(uint totalSeats) {
 	this->maxSeats = totalSeats;
 }
 
-id_t Train::getID() {
+id_t Train::getID() const {
 	return trainID;
 }
 
@@ -18,7 +19,8 @@ uint Train::getMaxSeats() {
 }
 
 void Train::printRow(ostream &os){
-	os << trainID << " " << maxSeats;
+	os << setw(5) << trainID 
+	<< setw(12) << maxSeats;
 }
 
 ostream &operator<<(ostream &os, Train &tr) {
