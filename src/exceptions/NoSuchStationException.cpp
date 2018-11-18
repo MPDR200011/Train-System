@@ -7,9 +7,9 @@ NoSuchStationException::NoSuchStationException(id_t id) {
 	this->id = id;
 }
 
-string NoSuchStationException::what() {
+const char* NoSuchStationException::what() {
 	stringstream ss;
 	ss << "Non existant station id: " << id;
-	return ss.str();
+	return ss.str().c_str();
 }
 

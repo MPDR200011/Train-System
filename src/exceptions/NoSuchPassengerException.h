@@ -1,17 +1,17 @@
 #ifndef NOSUCHPASSENGEREXCEPTION_H_
 #define NOSUCHPASSENGEREXCEPTION_H_
 
-#include "TrainSystemException.h"
-#include "project_types.h"
+#include "../project_types.h"
+#include <exception>
 
 /**
  * @brief Exception reporting that a passenger ID does not exist in the system
  * 
  */
-class NoSuchPassengerException: public TrainSystemException {
+class NoSuchPassengerException: public std::exception {
 public:
 	NoSuchPassengerException(id_t id);
-	std::string what();
+	const char* what();
 private:
 	id_t id;
 };

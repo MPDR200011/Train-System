@@ -12,7 +12,7 @@ class Trip {
 	static id_t currentID;
 public:
 	Trip(uint basePrice, Station* source, Station* destination,
-			Train* train, const std::string dapartureDate, const std::string arrivalDate);
+			Train* train, const Date dapartureDate, const Date arrivalDate);
 	~Trip();
 
 	id_t getID() const;

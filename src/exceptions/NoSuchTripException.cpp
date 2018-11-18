@@ -7,8 +7,8 @@ NoSuchTripException::NoSuchTripException(id_t id) {
 	this->id = id;
 }
 
-string NoSuchTripException::what() {
+const char* NoSuchTripException::what() {
 	stringstream ss;
 	ss << "Non existant trip id: " << id;
-	return ss.str();
+	return ss.str().c_str();
 }

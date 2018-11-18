@@ -2,7 +2,7 @@
 #define INVALIDDATEEXCEPTION_H_
 
 #include <string>
-#include "TrainSystemException.h"
+#include <exception>
 
 /**
  * @brief Exception reporting an invalid date.
@@ -10,7 +10,7 @@
  * Reports that a Date does not follow gregorian calendar standards
  * 
  */
-class InvalidDateException: public TrainSystemException {
+class InvalidDateException: public std::exception {
 public:
 	/**
 	 * @brief Construct a new Invalid Date Exception object
@@ -18,7 +18,7 @@ public:
 	 * @param dateString String of the Date in question
 	 */
 	InvalidDateException(std::string dateString);
-	std::string what();
+	const char* what();
 
 public:
 	/**

@@ -42,6 +42,27 @@ public:
 	 */
 	int getDiscount() const;
 
+	/**
+	 * @brief Get the Type object
+	 * 
+	 * @return CardType 
+	 */
+	CardType getType();
+
+	/**
+	 * @brief Get the monthly cost of the card
+	 * 
+	 * @return uint Monthly cost of the card in cents
+	 */
+	uint getCost();
+
+	/**
+	 * @brief Set the typeof the card
+	 * 
+	 * @param type 
+	 */
+	void setType(CardType type);
+
 private:
 	/**
 	 * @brief ID of the card

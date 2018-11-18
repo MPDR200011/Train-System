@@ -7,8 +7,8 @@ InvalidDateException::InvalidDateException(string dateString) :
 		dateString(dateString) {
 }
 
-std::string InvalidDateException::what() {
+const char* InvalidDateException::what() {
 	stringstream ss;
 	ss << "Invalid date: " << dateString;
-	return ss.str();
+	return ss.str().c_str();
 }

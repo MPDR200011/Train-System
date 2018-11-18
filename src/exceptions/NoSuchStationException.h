@@ -1,17 +1,17 @@
 #ifndef NOSUCHSTATIONEXCEPTION_H_
 #define NOSUCHSTATIONEXCEPTION_H_
 
-#include "TrainSystemException.h"
-#include "project_types.h"
+#include <exception>
+#include "../project_types.h"
 
 /**
  * @brief Exception reporting that a station ID does not exist in the system
  * 
  */
-class NoSuchStationException: public TrainSystemException {
+class NoSuchStationException: public std::exception {
 public:
 	NoSuchStationException(id_t id);
-	std::string what();
+	const char* what();
 private:
 	id_t id;
 };

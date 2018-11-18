@@ -1,9 +1,10 @@
 #include "System.h"
-#include "NoSuchPassengerException.h"
-#include "NoSuchStationException.h"
-#include "NoSuchTrainException.h"
-#include "NoSuchTripException.h"
-#include "TripPastException.h"
+#include "exceptions/NoSuchPassengerException.h"
+#include "exceptions/NoSuchStationException.h"
+#include "exceptions/NoSuchTrainException.h"
+#include "exceptions/NoSuchTripException.h"
+#include "exceptions/TripPastException.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -84,63 +85,40 @@ Station* System::getStation(const id_t id) {
 	throw NoSuchStationException(id);
 }
 
-bool System::createPassenger(const vector<string> &arguments) {
-	try {
-		Passenger *p = new Passenger(arguments[0], arguments[1]);
-		addPassenger(p);
-	}catch (out_of_range &e) {
-		cerr << "Invalid number of arguments." << endl;
-		return false;
-	} catch (exception &e) {
-		cerr << e.what() << endl;;
-		return false;
-	}
-	return true;
+void System::createPassenger(string name, Date birthDate) {
+	Passenger *p = new Passenger(name, birthDate);
+	passengers.push_back(p);
 }
 
-bool System::createStation(const vector<string> &arguments) {
-	try {
-		Station *st = new Station(arguments[0]);
-		addStation(st);
-	} catch (out_of_range &e) {
-		cerr << "Invalid number of arguments." << endl;
-		return false;
-	} catch (exception &e) {
-		cerr << e.what() << endl;
-		return false;
+void System::createCard(Passenger *passenger, string type) {
+
+	PassengerCard::CardType cardType;
+	if (type == "twenty five") {
+		cardType = PassengerCard::twentyFive;
+	} else if (type == "fifty") {
+		cardType = PassengerCard::fifty;
+	} else {
+		cardType = PassengerCard::hundred;
 	}
-	return true;
+
+	PassengerCard *pc = new PassengerCard(cardType, passenger->getID(), passenger->getName());
+	passenger->setCard(pc);
 }
 
-bool System::createTrain(const vector<string> &arguments) {
-	try {
-		Train *tr = new Train(stoi(arguments[0]));
-		addTrain(tr);
-	} catch (out_of_range &e) {
-		cerr << "Invalid number of arguments." << endl;
-		return false;
-	} catch (exception &e) {
-		cerr << e.what() << endl;
-		return false;
-	}
-	return true;
+void System::createStation(string name) {
+	Station *st = new Station(name);
+	stations.push_back(st);
 }
 
-bool System::createTrip(const vector<string> &arguments) {
-	try {
-		Station *src = getStation(stoi(arguments[1]));
-		Station *dest = getStation(stoi(arguments[2]));
-		Train *train = getTrain(stoi(arguments[3]));
-		Trip *tr = new Trip(stoi(arguments[0]), src, dest, train, arguments[4], arguments[5]);
-		addTrip(tr);
-	} catch (out_of_range &e) {
-		cerr << "Invalid number of arguments." << endl;
-		return false;
-	} catch (TrainSystemException &e) {
-		cerr << e.what() << endl;
-		return false;
-	}
-	return true;
+void System::createTrain(uint maxSeats) {
+	Train *tr = new Train(maxSeats);
+	trains.push_back(tr);
+}
+
+void System::createTrip(uint basePrice, Station* source, Station* destination,
+			Train* train, const Date dapartureDate, const Date arrivalDate) {
+	Trip *tr = new Trip(basePrice, source, destination, train, dapartureDate, arrivalDate);
+	trips.push_back(tr);
 }
 
 bool System::addPassenger(Passenger* passenger) {
@@ -164,20 +142,67 @@ bool System::addStation(Station* station) {
 }
 
 bool System::removePassenger(id_t id){
-
-	return 0;
+	for (auto it = passengers.begin(); it != passengers.end(); it++) {
+		if ((*it)->getID() == id) {
+			Passenger* temp = *it;
+			passengers.erase(it);
+			delete temp;
+			return true;
+		}
+	}
+	return false;
 }
 
 bool System::removeTrip(id_t id){
-	return 0;
+	for (auto it = trips.begin(); it != trips.end(); it++) {
+		if ((*it)->getID() == id) {
+			Trip* temp = *it;
+			trips.erase(it);
+			delete temp;
+			return true;
+		}
+	}
+	return false;
 }
 
-bool System::removeStation(id_t id){
-	return 0;
+bool System::removeStation(id_t id) {
+	for (auto it = trips.begin(); it != trips.end(); it++) {
+		Trip *tr = *it;
+		if (tr->getSource()->getID() == id || tr->getDest()->getID() == id) {
+			trips.erase(it);
+			delete tr;
+		}
+	}
+
+	for (auto it = stations.begin(); it != stations.end(); it++) {
+		if ((*it)->getID() == id) {
+			Station* temp = *it;
+			stations.erase(it);
+			delete temp;
+			return true;
+		}
+	}
+	return false;
 }
 
 bool System::removeTrain(id_t id){
-	return 0;
+	for (auto it = trips.begin(); it != trips.end(); it++) {
+		Trip *tr = *it;
+		if (tr->getTrain()->getID() == id) {
+			trips.erase(it);
+			delete tr;
+		}
+	}
+
+	for (auto it = trains.begin(); it != trains.end(); it++) {
+		if ((*it)->getID() == id) {
+			Train* temp = *it;
+			trains.erase(it);
+			delete temp;
+			return true;
+		}
+	}
+	return false;
 }
 
 bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
@@ -204,8 +229,41 @@ bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 	}
 }
 
+void System::processCards() {
+	for (auto it = cardsToPay.begin(); it != cardsToPay.end(); it++) {
+		Passenger *p = *it;
+		cout << "Passenger " << p->getName() << " of ID " << p->getID()
+		<< " has not payed his/her card, invalidating it." << endl;
+		p->removeCard();
+		cardsToPay.erase(it);
+	}
+	cardsToPay.clear();
+	for (Passenger *p: passengers) {
+		if (p->getCard() != nullptr) {
+			cardsToPay.push_back(p);
+		}
+	}
+}
+
+bool System::payCard(id_t passengerID) {
+	
+	for (Passenger *p: passengers) {
+		if (p->getID() == passengerID) {
+			auto it = find(cardsToPay.begin(), cardsToPay.end(), p);
+			if (it != cardsToPay.end()) {
+				cardsToPay.erase(it);
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	throw NoSuchPassengerException(passengerID);
+}
+
 void System::listPassengers(ostream &os){
-	cout << "id - name - birthdate" << endl;
+	cout << "id - name - birthdate - card type" << endl;
 	for (Passenger *p: passengers) {
 		p->printRow(cout);
 		cout << endl;

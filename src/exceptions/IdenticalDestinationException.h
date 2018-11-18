@@ -1,15 +1,15 @@
 #ifndef IDENTICALDESTINATIONEXCEPTION_H_
 #define IDENTICALDESTINATIONEXCEPTION_H_
 
-#include "TrainSystemException.h"
+#include <exception>
 
 /**
  * @brief Exception reporting when a trip has destination identical to source
  * 
  */
-class IdenticalDestinationException: public TrainSystemException {
+class IdenticalDestinationException: public std::exception {
 public:
-	std::string what();
+	const char* what();
 };
 
 #endif /* IDENTICALDESTINATIONEXCEPTION_H_ */

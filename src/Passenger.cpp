@@ -4,7 +4,7 @@ using namespace std;
 
 id_t Passenger::currentID = 0;
 
-Passenger::Passenger(string name, string birthDate): name(name), birthDate(birthDate) {
+Passenger::Passenger(string name, Date birthDate): name(name), birthDate(birthDate) {
 	this->passengerID = currentID++;
 	this->card = nullptr;
 }
@@ -19,6 +19,16 @@ id_t Passenger::getID() const {
 
 const vector<Trip*> & Passenger::getTrips() const {
 	return trips;
+}
+
+bool Passenger::setCard(PassengerCard *c) {
+	if (card == nullptr) {
+		card = c;
+		return true;
+	} else {
+		card->setType(c->getType());
+		return false;
+	}
 }
 
 std::string Passenger::getName() const {
@@ -43,6 +53,11 @@ bool Passenger::addTrip(Trip* trip) {
 	}
 	trips.push_back(trip);
 	return isAlready;
+}
+
+void Passenger::removeCard() {
+	delete card;
+	card = nullptr;
 }
 
 void Passenger::printRow(ostream &os) {

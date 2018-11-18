@@ -5,8 +5,8 @@ ReverseDatesException::ReverseDatesException(const std::string date1,
 		const std::string date2) : date1(date1), date2(date2){
 }
 
-std::string ReverseDatesException::what() {
+const char* ReverseDatesException::what() {
 	std::stringstream ss("Dates not in right order: ");
 	ss << date1 << ", " << date2;
-	return ss.str();
+	return ss.str().c_str();
 }

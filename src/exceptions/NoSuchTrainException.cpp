@@ -7,9 +7,9 @@ NoSuchTrainException::NoSuchTrainException(id_t id) {
 	this->id = id;
 }
 
-string NoSuchTrainException::what() {
+const char* NoSuchTrainException::what() {
 	stringstream ss;
 	ss << "Non existant train id: " << id;
-	return ss.str();
+	return ss.str().c_str();
 }
 

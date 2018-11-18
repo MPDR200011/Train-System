@@ -7,9 +7,9 @@ NoSuchPassengerException::NoSuchPassengerException(id_t id) {
 	this->id = id;
 }
 
-string NoSuchPassengerException::what() {
+const char* NoSuchPassengerException::what() {
 	stringstream ss;
 	ss << "Non existant passenger id: " << id;
-	return ss.str();
+	return ss.str().c_str();
 }
 

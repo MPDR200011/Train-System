@@ -1,5 +1,5 @@
 #include "IdenticalDestinationException.h"
 
-std::string IdenticalDestinationException::what() {
+const char* IdenticalDestinationException::what() {
 	return "Trip has identical source and destination.";
 }

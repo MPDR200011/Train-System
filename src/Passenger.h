@@ -32,7 +32,7 @@ public:
 	 * @param name Passenger name
 	 * @param birthDate Passenger date of birth string in the format: "dd-mm-yyyy HH:MM"
 	 */
-	Passenger(std::string name, std::string birthDate);
+	Passenger(std::string name, Date birthDate);
 	/**
 	 * @brief Destroy the Passenger object
 	 * 
@@ -71,6 +71,19 @@ public:
 	 * @return const std::vector<Trip*>& Reference to the 
 	 */
 	const std::vector<Trip*> & getTrips() const;
+
+	/**
+	 * @brief Set the passenger's card
+	 * 
+	 * Sets the passenger card wether he has one or not.
+	 * If the passenger already has one, it is treated as changing the type of the card.
+	 * 
+	 * @param card Pointer to the PassengerCard object
+	 * @return true If the Passenger didn't have a card
+	 * @return false If the Passenger didn't have a card
+	 */
+	bool setCard(PassengerCard *c);
+
 	/**
 	 * @brief Add a Trip to the trips vector
 	 * 
@@ -81,6 +94,12 @@ public:
 	bool addTrip(Trip* trip);
 
 	/**
+	 * @brief Remove the passenger's card;
+	 * 
+	 */
+	void removeCard();
+
+	/**
 	 * @brief Output the object's attributes in a row fashion
 	 * 
 	 * Outputs the object's information as it was a row in a table.
@@ -89,6 +108,7 @@ public:
 	 * @param os Output stream to wich object will be output
 	 */
 	void printRow(std::ostream &os);
+
 	/**
 	 * @brief Output Passenger object in a user friendly fashion
 	 * 

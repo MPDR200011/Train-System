@@ -9,7 +9,7 @@
 #include "Station.h"
 #include "TicketPurchaseRequest.h"
 #include "Date.h"
-#include "InvalidDateException.h"
+#include "exceptions/InvalidDateException.h"
 #include "project_types.h"
 
 class System {
@@ -36,12 +36,17 @@ public:
 	bool removeStation(id_t id);
 	bool removeTrain(id_t id);
 
-	bool createPassenger(const std::vector<std::string> &arguments);
-	bool createStation(const std::vector<std::string> &arguments);
-	bool createTrain(const std::vector<std::string> &arguments);
-	bool createTrip(const std::vector<std::string> &arguments);
+	void createPassenger(std::string name, Date birthDate);
+	void createCard(Passenger *p, std::string type);
+	void createStation(std::string name);
+	void createTrain(uint maxSeats);
+	void createTrip(uint basePrice, Station* source, Station* destination,
+			Train* train, const Date dapartureDate, const Date arrivalDate);
 
 	bool processTicketPurchaseRequest(TicketPurchaseRequest &request);
+
+	void processCards();
+	bool payCard(id_t passengerID);
 
 	void listPassengers(std::ostream &os);
 	void listStations(std::ostream &os);
@@ -59,6 +64,8 @@ private:
 	std::vector<Trip*> trips;
 	std::vector<Train*> trains;
 	std::vector<Station*> stations;
+
+	std::vector<Passenger*> cardsToPay;
 
 public:
 	static System instance;

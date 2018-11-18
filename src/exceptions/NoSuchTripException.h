@@ -1,17 +1,17 @@
 #ifndef NOSUCHTRIPEXCEPTION_H_
 #define NOSUCHTRIPEXCEPTION_H_
 
-#include "TrainSystemException.h"
-#include "project_types.h"
+#include <exception>
+#include "../project_types.h"
 
 /**
  * @brief Exception reporting that a trip ID does not exist in the system
  * 
  */
-class NoSuchTripException: public TrainSystemException {
+class NoSuchTripException: public std::exception {
 public:
 	NoSuchTripException(id_t id);
-	std::string what();
+	const char* what();
 private:
 	id_t id;
 };

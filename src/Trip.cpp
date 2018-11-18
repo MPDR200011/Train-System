@@ -1,13 +1,13 @@
 #include "Trip.h"
-#include "IdenticalDestinationException.h"
-#include "ReverseDatesException.h"
+#include "exceptions/IdenticalDestinationException.h"
+#include "exceptions/ReverseDatesException.h"
 
 using namespace std;
 
 id_t Trip::currentID = 0;
 
 Trip::Trip(uint basePrice, Station* source, Station* destination,
-		Train* train, const std::string departureDate, const std::string arrivalDate):
+		Train* train, const Date departureDate, const Date arrivalDate):
 		departureDate(departureDate), arrivalDate(arrivalDate){
 	this->tripID = currentID++;
 	this->occupiedSeats = 0;
@@ -50,13 +50,15 @@ uint Trip::getBasePrice() const {
 uint Trip::getCurrentPrice() {
 	time_t currTime = time(nullptr);
 	time_t tripDep = departureDate.getTimeStamp();
+
 	if (tripDep - currTime < FOURTY_HEIGHT_HOURS) {
 		if (((float)occupiedSeats / (float)train->getMaxSeats()) < 0.5) {
 			return basePrice * 0.3;
 		}
-	} else {
-		return basePrice;
 	}
+
+	return basePrice;
+
 }
 
 Station* Trip::getSource() const {
