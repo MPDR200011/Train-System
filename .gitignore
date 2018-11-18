@@ -61,3 +61,23 @@ src/.vscode/settings.json
 .vscode/settings.json
 
 src/\.vscode/
+Debug/src/exceptions/InvalidDateException.d
+Debug/cards.txt
+Debug/src/TripPastException.d
+Debug/src/TripPastException.o
+Debug/src/exceptions/IdenticalDestinationException.d
+Debug/src/exceptions/IdenticalDestinationException.o
+Debug/src/exceptions/InvalidDateException.o
+Debug/src/exceptions/NoSuchPassengerException.d
+Debug/src/exceptions/NoSuchPassengerException.o
+Debug/src/exceptions/NoSuchStationException.d
+Debug/src/exceptions/NoSuchStationException.o
+Debug/src/exceptions/NoSuchTrainException.d
+Debug/src/exceptions/NoSuchTrainException.o
+Debug/src/exceptions/NoSuchTripException.d
+Debug/src/exceptions/NoSuchTripException.o
+Debug/src/exceptions/ReverseDatesException.d
+Debug/src/exceptions/ReverseDatesException.o
+Debug/src/exceptions/TripPastException.d
+Debug/src/exceptions/TripPastException.o
+Debug/src/exceptions/subdir.mk

@@ -174,7 +174,6 @@ void mainMenu() {
 
 //TODO purchase load functions
 //TODO purchase save functions
-//TODO format print rows
 
 void createTask() {
 	cout << endl << "Choose what you want to create:" << endl << endl;
@@ -713,7 +712,6 @@ void loadTrips() {
 }
 
 void savePassengers() {
-	System::instance.sortPassengers();
 	ofstream passengers("passengers.txt", ofstream::out | ofstream::trunc);
 	ofstream cards("cards.txt", ofstream::out | ofstream::trunc);
 	vector<Passenger*> vec = System::instance.getPassengers();
@@ -741,7 +739,6 @@ void savePassengers() {
 }
 
 void saveStations() {
-	System::instance.sortStations();
 	ofstream stations("stations.txt", ofstream::out | ofstream::trunc);
 	vector<Station*> vec = System::instance.getStations();
 	for(uint i = 0; i < vec.size(); i++) {
@@ -751,7 +748,6 @@ void saveStations() {
 }
 
 void saveTrains() {
-	System::instance.sortTrains();
 	ofstream trains("trains.txt", ofstream::out | ofstream::trunc);
 	vector<Train*> vec = System::instance.getTrains();
 	for(uint i = 0; i < vec.size(); i++) {
@@ -761,7 +757,6 @@ void saveTrains() {
 }
 
 void saveTrips() {
-	System::instance.sortTrips();
 	ofstream trips("trips.txt", ofstream::out | ofstream::trunc);
 	vector<Trip*> vec = System::instance.getTrips();
 
@@ -777,6 +772,7 @@ void saveTrips() {
 		<< "\"" << vec[i]->getDepartureDate().getDateString() << "\" \""
 		<< vec[i]->getDepartureDate().getDateString() << "\"" << endl;
 	}
+	trips.close();
 }
 
 int main() {
@@ -854,6 +850,11 @@ int main() {
 			getchar();
 		}
 	}
+
+	System::instance.sortPassengers();
+	System::instance.sortStations();
+	System::instance.sortTrains();
+	System::instance.sortTrips();
 
 	savePassengers();
 	saveStations();
