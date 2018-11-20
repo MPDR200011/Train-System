@@ -100,6 +100,13 @@ public:
 	void removeCard();
 
 	/**
+	 * @brief Remove a trip from the trips vector
+	 * 
+	 * @param it ID of the trip to remove
+	 */
+	void removeTrip(id_t it);
+
+	/**
 	 * @brief Output the object's attributes in a row fashion
 	 * 
 	 * Outputs the object's information as it was a row in a table.

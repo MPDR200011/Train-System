@@ -61,6 +61,14 @@ void Passenger::removeCard() {
 	card = nullptr;
 }
 
+void Passenger::removeTrip(id_t id) {
+	for (auto it = trips.begin(); it != trips.end(); it++) {
+		if ((*it)->getID() == id) {
+			it = --trips.erase(it);
+		}
+	}
+}
+
 void Passenger::printRow(ostream &os) {
 	os << setw(5) << passengerID
 	<< setw(35) << name

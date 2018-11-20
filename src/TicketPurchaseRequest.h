@@ -14,6 +14,7 @@ public:
 
 	const Passenger* getPassenger() const;
 	const Trip* getTrip() const;
+	const TicketInvoice getInvoice() const;
 
 	void setInvoicePrice(uint price);
 	void printInvoice(std::ostream &os);

@@ -29,12 +29,17 @@ const string TicketInvoice::getPriceString() const {
     return priceString;
 }
 
+const uint TicketInvoice::getPrice() const {
+    return price;
+}
+
 void TicketInvoice::setPrice(uint price) {
     this->price = price;
 }
 
 ostream & operator<<(ostream &os, TicketInvoice &in) {
     os << "\\\\\\\\\\\\\\\\\\CP - COMBOIOS DE PORTUGAL/////////" << endl;
+    os << "Nome do passageiro: " << in.passengerName << endl;
     os << in.sourceName << " -> " << in.destName << endl;
     os << "Partida: " << in.departureDate << endl;
     os << "Chegada: " << in.arrivalDate << endl;

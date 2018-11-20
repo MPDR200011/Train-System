@@ -28,6 +28,7 @@ public:
 
 	int getStationIndex(id_t stationID);
 	int getTrainIndex(id_t trainID);
+	int getTripIndex(id_t tripID);
 
 	std::vector<Trip*> searchTrips(Station *src, Station *dest, bool searchByArrivalDate, Date arrivalDate);
 
@@ -67,6 +68,9 @@ public:
 	void printStations(std::ostream &os) const;
 	void printTrains(std::ostream &os) const;
 	void printTrips(std::ostream &os) const;
+
+	void printSales(std::ostream &os) const;
+
 	friend std::ostream &operator<<(std::ostream &os, System &sys);
 
 private:
@@ -76,6 +80,8 @@ private:
 	std::vector<Station*> stations;
 
 	std::vector<Passenger*> cardsToPay;
+
+	std::vector<TicketInvoice> sales;
 
 public:
 	static System instance;

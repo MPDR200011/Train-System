@@ -104,6 +104,15 @@ int System::getTrainIndex(id_t trainID) {
 	return -1;
 }
 
+int System::getTripIndex(id_t tripID) {
+	for (uint i = 0; i < trips.size(); i++) {
+		if (trips[i]->getID() == tripID) {
+			return i;
+		}
+	}
+	return -1;
+}
+
 vector<Trip*> System::searchTrips(Station *src, Station *dest, bool searchByArrivalDate, Date arrivalDate) {
 	
 	if (src == nullptr && dest == nullptr && !searchByArrivalDate) {
@@ -197,7 +206,7 @@ bool System::removePassenger(id_t id){
 	for (auto it = passengers.begin(); it != passengers.end(); it++) {
 		if ((*it)->getID() == id) {
 			Passenger* temp = *it;
-			passengers.erase(it);
+			it = --passengers.erase(it);
 			delete temp;
 			return true;
 		}
@@ -209,7 +218,7 @@ bool System::removeTrip(id_t id){
 	for (auto it = trips.begin(); it != trips.end(); it++) {
 		if ((*it)->getID() == id) {
 			Trip* temp = *it;
-			trips.erase(it);
+			it = --trips.erase(it);
 			delete temp;
 			return true;
 		}
@@ -221,15 +230,14 @@ bool System::removeStation(id_t id) {
 	for (auto it = trips.begin(); it != trips.end(); it++) {
 		Trip *tr = *it;
 		if (tr->getSource()->getID() == id || tr->getDest()->getID() == id) {
-			trips.erase(it);
-			delete tr;
+			removeTrip(tr->getID());
 		}
 	}
 
 	for (auto it = stations.begin(); it != stations.end(); it++) {
 		if ((*it)->getID() == id) {
 			Station* temp = *it;
-			stations.erase(it);
+			it = --stations.erase(it);
 			delete temp;
 			return true;
 		}
@@ -241,15 +249,14 @@ bool System::removeTrain(id_t id){
 	for (auto it = trips.begin(); it != trips.end(); it++) {
 		Trip *tr = *it;
 		if (tr->getTrain()->getID() == id) {
-			trips.erase(it);
-			delete tr;
+			removeTrip(tr->getID());
 		}
 	}
 
 	for (auto it = trains.begin(); it != trains.end(); it++) {
 		if ((*it)->getID() == id) {
 			Train* temp = *it;
-			trains.erase(it);
+			it = --trains.erase(it);
 			delete temp;
 			return true;
 		}
@@ -299,6 +306,7 @@ bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 			}
 		}
 		request.setInvoicePrice(price);
+		sales.push_back(request.getInvoice());
 		return true;
 	} else {
 		return false;
@@ -326,7 +334,7 @@ bool System::payCard(id_t passengerID) {
 		if (p->getID() == passengerID) {
 			auto it = find(cardsToPay.begin(), cardsToPay.end(), p);
 			if (it != cardsToPay.end()) {
-				cardsToPay.erase(it);
+				it = --cardsToPay.erase(it);
 				return true;
 			} else {
 				return false;
@@ -396,21 +404,27 @@ void System::printPassengers(ostream &os) const {
 	}
 }
 
-void System::printStations(std::ostream &os) const {
+void System::printStations(ostream &os) const {
 	for (Station *st: stations) {
 		os << *st << endl;
 	}
 }
 
-void System::printTrains(std::ostream &os) const {
+void System::printTrains(ostream &os) const {
 	for (Train *tr: trains) {
 		os << *tr << endl;
 	}
 }
 
-void System::printTrips(std::ostream &os) const {
+void System::printTrips(ostream &os) const {
 	for (Trip *tr: trips) {
 		os << *tr << endl;
+	}
+}
+
+void System::printSales(ostream &os) const {
+	for (TicketInvoice invoice: sales) {
+		os << endl << invoice << endl;
 	}
 }
 

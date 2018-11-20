@@ -30,6 +30,7 @@ public:
     const std::string getSourceName() const;
     const std::string getDestName() const;
     const std::string getPriceString() const;
+    const uint getPrice() const;
     void setPrice(uint price);
 
     friend std::ostream & operator<<(std::ostream &os, TicketInvoice &in);

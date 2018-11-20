@@ -146,11 +146,13 @@ void loadCards();
 void loadStations();
 void loadTrains();
 void loadTrips();
+void loadPurchases();
 
 void savePassengers();
 void saveStations();
 void saveTrains();
 void saveTrips();
+void savePurchases();
 
 void mainMenu() {
 	string menuOptions[] = {
@@ -160,7 +162,8 @@ void mainMenu() {
 		"  4 - Process a ticket purchase.",
 		"  5 - List all passengers/stations/trains/trips.",
 		"  6 - Process card payment.",
-		"  7 - End of month card processing.",
+		"  7 - Print Sales",
+		" 50 - End of month card processing.",
 		"100 - exit"
 	};
 	cout << endl << "Train System Interface" << endl;
@@ -171,9 +174,6 @@ void mainMenu() {
 	cout << endl;
 	cout << "Choose what to do - ";
 }
-
-//TODO purchase load functions
-//TODO purchase save functions
 
 void createTask() {
 	cout << endl << "Choose what you want to create:" << endl << endl;
@@ -509,7 +509,7 @@ void purchaseTask() {
 	id_t tripID;
 	readVar(tripID);
 	try {
-		tr = System::instance.getTrip(passengerID);
+		tr = System::instance.getTrip(tripID);
 	} catch (NoSuchTripException &e) {
 		cout << "Trip id does not exist, returning to main menu.";
 		return;
@@ -657,57 +657,89 @@ void loadCards() {
 void loadStations() {
 	ifstream stations("stations.txt");
 	string line;
-	while (getline(stations, line)) {
-		vector<string> arguments = splitArgumets(line);
-		if (arguments.size() != 1) {
-			continue;
-		}
+	if (stations.is_open()) {
+		while (getline(stations, line)) {
+			vector<string> arguments = splitArgumets(line);
+			if (arguments.size() != 1) {
+				continue;
+			}
 
-		try {
-			System::instance.createStation(arguments[0]);
-		} catch (exception &e) {
-			continue;
+			try {
+				System::instance.createStation(arguments[0]);
+			} catch (exception &e) {
+				continue;
+			}
 		}
+		stations.close();
 	}
 }
 
 void loadTrains() {
 	ifstream trains("trains.txt");
 	string line;
-	while (getline(trains, line)) {
-		vector<string> arguments = splitArgumets(line);
-		
-		if (arguments.size() != 1) {
-			continue;
-		}
+	if (trains.is_open()) {
+		while (getline(trains, line)) {
+			vector<string> arguments = splitArgumets(line);
+			
+			if (arguments.size() != 1) {
+				continue;
+			}
 
-		try {
-			System::instance.createTrain(stoi(arguments[0]));
-		} catch (exception &e) {
-			continue;
+			try {
+				System::instance.createTrain(stoi(arguments[0]));
+			} catch (exception &e) {
+				continue;
+			}
 		}
+		trains.close();
 	}
 }
 
 void loadTrips() {
 	ifstream trips("trips.txt");
 	string line;
-	while (getline(trips, line)) {
-		vector<string> arguments = splitArgumets(line);
-		if (arguments.size() != 6) {
-			continue;
-		}
+	if (trips.is_open()) {
+		while (getline(trips, line)) {
+			vector<string> arguments = splitArgumets(line);
+			if (arguments.size() != 6) {
+				continue;
+			}
 
-		try {
-			Station *src = System::instance.getStation(stoi(arguments[1]));
-			Station *dest = System::instance.getStation(stoi(arguments[2]));
-			Train *tr = System::instance.getTrain(stoi(arguments[3]));
-			Date dep(arguments[4]);
-			Date arr(arguments[5]);
-			System::instance.createTrip(stoi(arguments[0]), src, dest, tr, dep, arr);
-		} catch (exception &e) {
-			continue;
+			try {
+				Station *src = System::instance.getStation(stoi(arguments[1]));
+				Station *dest = System::instance.getStation(stoi(arguments[2]));
+				Train *tr = System::instance.getTrain(stoi(arguments[3]));
+				Date dep(arguments[4]);
+				Date arr(arguments[5]);
+				System::instance.createTrip(stoi(arguments[0]), src, dest, tr, dep, arr);
+			} catch (exception &e) {
+				continue;
+			}
 		}
+		trips.close();
+	}
+}
+
+void loadPurchases() {
+	ifstream purchases("purchases.txt");
+	if (purchases.is_open()) {
+		string line;
+		while (getline(purchases, line)) {
+			vector<string> arguments = splitArgumets(line);
+			if (arguments.size() != 2) {
+				continue;
+			}
+
+			try {
+				Passenger *p = System::instance.getPassenger(stoi(arguments[0]));
+				Trip *tr = System::instance.getTrip(stoi(arguments[1]));
+				TicketPurchaseRequest pr(p,tr);
+				System::instance.processTicketPurchaseRequest(pr);
+			} catch (exception &e) {
+				continue;
+			}
+		}
+		purchases.close();
 	}
 }
 
@@ -775,6 +807,22 @@ void saveTrips() {
 	trips.close();
 }
 
+void savePurchases() {
+	ofstream purchases("purchases.txt", ofstream::out | ofstream::trunc);
+	vector<Passenger*> vec = System::instance.getPassengers();
+
+	for(uint i = 0; i < vec.size(); i++) {
+		for (Trip *tr: vec[i]->getTrips()) {
+			int tripID = System::instance.getTripIndex(tr->getID());
+			if (tripID == -1) {
+				continue;
+			}
+			purchases << i << " " << tripID;
+		}
+	}
+	
+}
+
 int main() {
 
 	loadPassengers();
@@ -782,6 +830,7 @@ int main() {
 	loadStations();
 	loadTrains();
 	loadTrips();
+	loadPurchases();
 	System::instance.processCards();
 
 	bool programmRunning = true;
@@ -828,7 +877,12 @@ int main() {
 					validChoice = true;
 					break;
 				}
-				case 7:{
+				case 7: {
+					System::instance.printSales(cout);
+					validChoice = true;
+					break;
+				}
+				case 50:{
 					checkCards();
 					validChoice = true;
 					break;
@@ -860,6 +914,7 @@ int main() {
 	saveStations();
 	saveTrains();
 	saveTrips();
+	savePurchases();
 
 	return 0;
 }
