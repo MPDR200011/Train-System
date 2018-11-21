@@ -1,150 +1,798 @@
 \hypertarget{classSystem}{}\section{System Class Reference}
 \label{classSystem}\index{System@{System}}
+
+
+Class to represent the central system.  
+
+
+
+
+{\ttfamily \#include $<$System.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSystem_aa4879a70a434d3b879090500b282de0b}\label{classSystem_aa4879a70a434d3b879090500b282de0b}} 
-std\+::vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ \& {\bfseries get\+Passengers} ()
-\item 
-\mbox{\Hypertarget{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}\label{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}} 
-std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& {\bfseries get\+Trips} ()
-\item 
-\mbox{\Hypertarget{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}\label{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}} 
-std\+::vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ \& {\bfseries get\+Trains} ()
-\item 
-\mbox{\Hypertarget{classSystem_a6f27512fba42cc093efd34fe10bf0045}\label{classSystem_a6f27512fba42cc093efd34fe10bf0045}} 
-std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \& {\bfseries get\+Stations} ()
-\item 
-\mbox{\Hypertarget{classSystem_a5a0348802d5cdb666f330b1e10d32727}\label{classSystem_a5a0348802d5cdb666f330b1e10d32727}} 
-\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ {\bfseries get\+Passenger} (const id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}\label{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}} 
-\mbox{\hyperlink{classTrip}{Trip}} $\ast$ {\bfseries get\+Trip} (const id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}\label{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}} 
-\mbox{\hyperlink{classTrain}{Train}} $\ast$ {\bfseries get\+Train} (const id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}\label{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}} 
-\mbox{\hyperlink{classStation}{Station}} $\ast$ {\bfseries get\+Station} (const id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_a231710db7f31b3fec68f90fd90b292eb}\label{classSystem_a231710db7f31b3fec68f90fd90b292eb}} 
-int {\bfseries get\+Station\+Index} (id\+\_\+t station\+ID)
-\item 
-\mbox{\Hypertarget{classSystem_a15d033a2efda45b83bbe0800698ae712}\label{classSystem_a15d033a2efda45b83bbe0800698ae712}} 
-int {\bfseries get\+Train\+Index} (id\+\_\+t train\+ID)
-\item 
-\mbox{\Hypertarget{classSystem_aa431fdc152458fc39efb9a60e9f62f01}\label{classSystem_aa431fdc152458fc39efb9a60e9f62f01}} 
-int {\bfseries get\+Trip\+Index} (id\+\_\+t trip\+ID)
-\item 
-\mbox{\Hypertarget{classSystem_a293b247432ab577c9bf0ba7285a6eeda}\label{classSystem_a293b247432ab577c9bf0ba7285a6eeda}} 
-std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ {\bfseries search\+Trips} (\mbox{\hyperlink{classStation}{Station}} $\ast$src, \mbox{\hyperlink{classStation}{Station}} $\ast$dest, bool search\+By\+Arrival\+Date, \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
-\item 
-\mbox{\Hypertarget{classSystem_a933891c246bf870518f334ea5666b95c}\label{classSystem_a933891c246bf870518f334ea5666b95c}} 
-bool {\bfseries add\+Passenger} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$passenger)
-\item 
-\mbox{\Hypertarget{classSystem_ad019d3f8d30be9b2f57842512f0393ed}\label{classSystem_ad019d3f8d30be9b2f57842512f0393ed}} 
-bool {\bfseries add\+Trip} (\mbox{\hyperlink{classTrip}{Trip}} $\ast$trip)
-\item 
-\mbox{\Hypertarget{classSystem_a8022adc1c1f212c138ca9da7995bb422}\label{classSystem_a8022adc1c1f212c138ca9da7995bb422}} 
-bool {\bfseries add\+Train} (\mbox{\hyperlink{classTrain}{Train}} $\ast$train)
-\item 
-\mbox{\Hypertarget{classSystem_abc5bda005d56392c66914ddd4f96e725}\label{classSystem_abc5bda005d56392c66914ddd4f96e725}} 
-bool {\bfseries add\+Station} (\mbox{\hyperlink{classStation}{Station}} $\ast$station)
-\item 
-\mbox{\Hypertarget{classSystem_af31acdda711986978533367ce3a64276}\label{classSystem_af31acdda711986978533367ce3a64276}} 
-bool {\bfseries remove\+Passenger} (id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_ae802cde42ae56b50adc02c76920e9001}\label{classSystem_ae802cde42ae56b50adc02c76920e9001}} 
-bool {\bfseries remove\+Trip} (id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}\label{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}} 
-bool {\bfseries remove\+Station} (id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_acf1d845cdb88b43143b3f738214e866b}\label{classSystem_acf1d845cdb88b43143b3f738214e866b}} 
-bool {\bfseries remove\+Train} (id\+\_\+t id)
-\item 
-\mbox{\Hypertarget{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}\label{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}} 
-void {\bfseries create\+Passenger} (std\+::string name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
-\item 
-\mbox{\Hypertarget{classSystem_a9e317da5b607c6dee850089f340dd9e7}\label{classSystem_a9e317da5b607c6dee850089f340dd9e7}} 
-void {\bfseries create\+Card} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$p, std\+::string type)
-\item 
-\mbox{\Hypertarget{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}\label{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}} 
-void {\bfseries create\+Station} (std\+::string name)
-\item 
-\mbox{\Hypertarget{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}\label{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}} 
-void {\bfseries create\+Train} (uint max\+Seats)
-\item 
-\mbox{\Hypertarget{classSystem_aea8519bf009400085f8e499891b7eb37}\label{classSystem_aea8519bf009400085f8e499891b7eb37}} 
-void {\bfseries create\+Trip} (uint base\+Price, \mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, \mbox{\hyperlink{classTrain}{Train}} $\ast$train, const \mbox{\hyperlink{classDate}{Date}} daparture\+Date, const \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
-\item 
+\mbox{\Hypertarget{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}\label{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}} 
+\mbox{\hyperlink{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}{System}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classSystem}{System}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSystem_a3be70bb338e3f062f821173fd15680d0}{$\sim$\+System}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classSystem}{System}} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_aa4879a70a434d3b879090500b282de0b}{get\+Passengers}} ()
+\begin{DoxyCompactList}\small\item\em Get the Passengers vector. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}{get\+Trips}} ()
+\begin{DoxyCompactList}\small\item\em Get the Trips vector. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}{get\+Trains}} ()
+\begin{DoxyCompactList}\small\item\em Get the Trains vector. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_a6f27512fba42cc093efd34fe10bf0045}{get\+Stations}} ()
+\begin{DoxyCompactList}\small\item\em Get the Stations vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ \mbox{\hyperlink{classSystem_a5a0348802d5cdb666f330b1e10d32727}{get\+Passenger}} (const id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classPassenger}{Passenger}} pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTrip}{Trip}} $\ast$ \mbox{\hyperlink{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}{get\+Trip}} (const id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classTrip}{Trip}} pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTrain}{Train}} $\ast$ \mbox{\hyperlink{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}{get\+Train}} (const id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrain}{Train}} pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}{get\+Station}} (const id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classStation}{Station}} pointer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSystem_a231710db7f31b3fec68f90fd90b292eb}{get\+Station\+Index}} (id\+\_\+t station\+ID)
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classStation}{Station}} Index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSystem_a15d033a2efda45b83bbe0800698ae712}{get\+Train\+Index}} (id\+\_\+t train\+ID)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrain}{Train}} Index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSystem_aa431fdc152458fc39efb9a60e9f62f01}{get\+Trip\+Index}} (id\+\_\+t trip\+ID)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrip}{Trip}} Index. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a293b247432ab577c9bf0ba7285a6eeda}{search\+Trips}} (\mbox{\hyperlink{classStation}{Station}} $\ast$src, \mbox{\hyperlink{classStation}{Station}} $\ast$dest, bool search\+By\+Arrival\+Date, \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
+\begin{DoxyCompactList}\small\item\em Get a vector of \mbox{\hyperlink{classTrip}{Trip}} respecting constraints. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_af31acdda711986978533367ce3a64276}{remove\+Passenger}} (id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classPassenger}{Passenger}} from the system. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_ae802cde42ae56b50adc02c76920e9001}{remove\+Trip}} (id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classTrip}{Trip}} from the system. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}{remove\+Station}} (id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classStation}{Station}} from the system. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_acf1d845cdb88b43143b3f738214e866b}{remove\+Train}} (id\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classTrain}{Train}} from the system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}{create\+Passenger}} (std\+::string name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classPassenger}{Passenger}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a9e317da5b607c6dee850089f340dd9e7}{create\+Card}} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$p, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Create a Card object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}{create\+Station}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classStation}{Station}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}{create\+Train}} (uint max\+Seats)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classTrain}{Train}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_aea8519bf009400085f8e499891b7eb37}{create\+Trip}} (uint base\+Price, \mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, \mbox{\hyperlink{classTrain}{Train}} $\ast$train, const \mbox{\hyperlink{classDate}{Date}} daparture\+Date, const \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classTrip}{Trip}} object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classSystem_a360f9d625dbc649d567249642c1db53c}\label{classSystem_a360f9d625dbc649d567249642c1db53c}} 
-void {\bfseries sort\+Passengers} ()
-\item 
+void \mbox{\hyperlink{classSystem_a360f9d625dbc649d567249642c1db53c}{sort\+Passengers}} ()
+\begin{DoxyCompactList}\small\item\em Sort passenger in vector by id. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classSystem_ae3b7301dda5863379777c863df0b976e}\label{classSystem_ae3b7301dda5863379777c863df0b976e}} 
-void {\bfseries sort\+Passengers\+By\+Name} ()
-\item 
+void \mbox{\hyperlink{classSystem_ae3b7301dda5863379777c863df0b976e}{sort\+Passengers\+By\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Sort passengers in vector by name. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}\label{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}} 
-void {\bfseries sort\+Stations} ()
-\item 
+void \mbox{\hyperlink{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}{sort\+Stations}} ()
+\begin{DoxyCompactList}\small\item\em Sort stations in vector by id. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classSystem_a3961bbb1e8a309ef37c4366731bbb813}\label{classSystem_a3961bbb1e8a309ef37c4366731bbb813}} 
-void {\bfseries sort\+Trains} ()
-\item 
+void \mbox{\hyperlink{classSystem_a3961bbb1e8a309ef37c4366731bbb813}{sort\+Trains}} ()
+\begin{DoxyCompactList}\small\item\em Sort trains in vector by id. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}\label{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}} 
-void {\bfseries sort\+Trips} ()
-\item 
+void \mbox{\hyperlink{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}{sort\+Trips}} ()
+\begin{DoxyCompactList}\small\item\em Sort trips in vecotr by id. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}\label{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}} 
-void {\bfseries sort\+Trips\+By\+Date} ()
-\item 
-\mbox{\Hypertarget{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}\label{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}} 
-bool {\bfseries process\+Ticket\+Purchase\+Request} (\mbox{\hyperlink{classTicketPurchaseRequest}{Ticket\+Purchase\+Request}} \&request)
-\item 
-\mbox{\Hypertarget{classSystem_aebffe11376f68cb17175f30ea517c10b}\label{classSystem_aebffe11376f68cb17175f30ea517c10b}} 
-void {\bfseries process\+Cards} ()
-\item 
-\mbox{\Hypertarget{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}\label{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}} 
-bool {\bfseries pay\+Card} (id\+\_\+t passenger\+ID)
-\item 
-\mbox{\Hypertarget{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}\label{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}} 
-void {\bfseries list\+Passengers} (std\+::ostream \&os)
-\item 
-\mbox{\Hypertarget{classSystem_a06041827a7b47ad06eee9d121e42590c}\label{classSystem_a06041827a7b47ad06eee9d121e42590c}} 
-void {\bfseries list\+Stations} (std\+::ostream \&os)
-\item 
-\mbox{\Hypertarget{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}\label{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}} 
-void {\bfseries list\+Trains} (std\+::ostream \&os)
-\item 
-\mbox{\Hypertarget{classSystem_af11f201f6417c2658f35238d98c6f032}\label{classSystem_af11f201f6417c2658f35238d98c6f032}} 
-void {\bfseries list\+Trips} (std\+::ostream \&os)
-\item 
-\mbox{\Hypertarget{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}\label{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}} 
-void {\bfseries print\+Passengers} (std\+::ostream \&os) const
-\item 
-\mbox{\Hypertarget{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}\label{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}} 
-void {\bfseries print\+Stations} (std\+::ostream \&os) const
-\item 
-\mbox{\Hypertarget{classSystem_af4610f38d80e01a18f2083a7c5fbd5ce}\label{classSystem_af4610f38d80e01a18f2083a7c5fbd5ce}} 
-void {\bfseries print\+Trains} (std\+::ostream \&os) const
-\item 
-\mbox{\Hypertarget{classSystem_abaa61b6377abcfc61da32092e5d734d9}\label{classSystem_abaa61b6377abcfc61da32092e5d734d9}} 
-void {\bfseries print\+Trips} (std\+::ostream \&os) const
-\item 
-\mbox{\Hypertarget{classSystem_aaad47fd0e1bf746a0bed32feb9553e53}\label{classSystem_aaad47fd0e1bf746a0bed32feb9553e53}} 
-void {\bfseries print\+Sales} (std\+::ostream \&os) const
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}{sort\+Trips\+By\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Sort trips in vector by time of departure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}{process\+Ticket\+Purchase\+Request}} (\mbox{\hyperlink{classTicketPurchaseRequest}{Ticket\+Purchase\+Request}} \&request)
+\begin{DoxyCompactList}\small\item\em Process a request for a ticket purchase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_aebffe11376f68cb17175f30ea517c10b}{process\+Cards}} ()
+\begin{DoxyCompactList}\small\item\em End of month card processing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}{pay\+Card}} (id\+\_\+t passenger\+ID)
+\begin{DoxyCompactList}\small\item\em Process card monthly fee payment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}{list\+Passengers}} (std\+::ostream \&os)
+\begin{DoxyCompactList}\small\item\em Print a table of passengers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a06041827a7b47ad06eee9d121e42590c}{list\+Stations}} (std\+::ostream \&os)
+\begin{DoxyCompactList}\small\item\em Print a table of stations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}{list\+Trains}} (std\+::ostream \&os)
+\begin{DoxyCompactList}\small\item\em Print a table of trains. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_af11f201f6417c2658f35238d98c6f032}{list\+Trips}} (std\+::ostream \&os)
+\begin{DoxyCompactList}\small\item\em Print a table of trip. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}{print\+Passengers}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print all passengers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}{print\+Stations}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print all stations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_af4610f38d80e01a18f2083a7c5fbd5ce}{print\+Trains}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print all train. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_abaa61b6377abcfc61da32092e5d734d9}{print\+Trips}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print all trips. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_aaad47fd0e1bf746a0bed32feb9553e53}{print\+Sales}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Print all invoices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSystem_a40d348884d1b737ecd26b4bc6509bf48}\label{classSystem_a40d348884d1b737ecd26b4bc6509bf48}} 
-static \mbox{\hyperlink{classSystem}{System}} {\bfseries instance} = \mbox{\hyperlink{classSystem}{System}}()
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{classSystem}{System}} \mbox{\hyperlink{classSystem_a40d348884d1b737ecd26b4bc6509bf48}{instance}} = \mbox{\hyperlink{classSystem}{System}}()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSystem}{System}} class instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSystem_a1efa95132e95a7a6b11c3b54916d66ae}\label{classSystem_a1efa95132e95a7a6b11c3b54916d66ae}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classSystem}{System}} \&sys)
-\end{DoxyCompactItemize}
+std\+::ostream \& \mbox{\hyperlink{classSystem_a1efa95132e95a7a6b11c3b54916d66ae}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classSystem}{System}} \&sys)
+\begin{DoxyCompactList}\small\item\em Print everything. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Class to represent the central system. 
+
+Contains A listing of every passenger, station, train and trip. Is responsible for handling queries and outputing information that is requested. Also handles ticket purchasing. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSystem_a3be70bb338e3f062f821173fd15680d0}\label{classSystem_a3be70bb338e3f062f821173fd15680d0}} 
+\index{System@{System}!````~System@{$\sim$\+System}}
+\index{````~System@{$\sim$\+System}!System@{System}}
+\subsubsection{\texorpdfstring{$\sim$\+System()}{~System()}}
+{\footnotesize\ttfamily System\+::$\sim$\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classSystem}{System}} object. 
+
+Since the listings are handled using pointers, the destructor is in charge od freeing the space occupied by them. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSystem_a9e317da5b607c6dee850089f340dd9e7}\label{classSystem_a9e317da5b607c6dee850089f340dd9e7}} 
+\index{System@{System}!create\+Card@{create\+Card}}
+\index{create\+Card@{create\+Card}!System@{System}}
+\subsubsection{\texorpdfstring{create\+Card()}{createCard()}}
+{\footnotesize\ttfamily void System\+::create\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$}]{p,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Create a Card object. 
+
+Creates a passenger card object and adds it to the respective passenger.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}\label{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}} 
+\index{System@{System}!create\+Passenger@{create\+Passenger}}
+\index{create\+Passenger@{create\+Passenger}!System@{System}}
+\subsubsection{\texorpdfstring{create\+Passenger()}{createPassenger()}}
+{\footnotesize\ttfamily void System\+::create\+Passenger (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{birth\+Date }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classPassenger}{Passenger}} object. 
+
+Creates a passenger object and adds it to the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em birth\+Date} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}\label{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}} 
+\index{System@{System}!create\+Station@{create\+Station}}
+\index{create\+Station@{create\+Station}!System@{System}}
+\subsubsection{\texorpdfstring{create\+Station()}{createStation()}}
+{\footnotesize\ttfamily void System\+::create\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classStation}{Station}} object. 
+
+Creates a station object and adds it to the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}\label{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}} 
+\index{System@{System}!create\+Train@{create\+Train}}
+\index{create\+Train@{create\+Train}!System@{System}}
+\subsubsection{\texorpdfstring{create\+Train()}{createTrain()}}
+{\footnotesize\ttfamily void System\+::create\+Train (\begin{DoxyParamCaption}\item[{uint}]{max\+Seats }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classTrain}{Train}} object. 
+
+Creates a train object and adds it to the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Seats} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_aea8519bf009400085f8e499891b7eb37}\label{classSystem_aea8519bf009400085f8e499891b7eb37}} 
+\index{System@{System}!create\+Trip@{create\+Trip}}
+\index{create\+Trip@{create\+Trip}!System@{System}}
+\subsubsection{\texorpdfstring{create\+Trip()}{createTrip()}}
+{\footnotesize\ttfamily void System\+::create\+Trip (\begin{DoxyParamCaption}\item[{uint}]{base\+Price,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{classTrain}{Train}} $\ast$}]{train,  }\item[{const \mbox{\hyperlink{classDate}{Date}}}]{daparture\+Date,  }\item[{const \mbox{\hyperlink{classDate}{Date}}}]{arrival\+Date }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classTrip}{Trip}} object. 
+
+Creates a station object and adds it to the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+Price} & \\
+\hline
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+{\em train} & \\
+\hline
+{\em daparture\+Date} & \\
+\hline
+{\em arrival\+Date} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_a5a0348802d5cdb666f330b1e10d32727}\label{classSystem_a5a0348802d5cdb666f330b1e10d32727}} 
+\index{System@{System}!get\+Passenger@{get\+Passenger}}
+\index{get\+Passenger@{get\+Passenger}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Passenger()}{getPassenger()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ System\+::get\+Passenger (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{classPassenger}{Passenger}} pointer. 
+
+Returns the pointer to the passenger object with id specified in the parameter. If there is no such object, throws No\+Such\+Passenger\+Exception.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Passenger$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_aa4879a70a434d3b879090500b282de0b}\label{classSystem_aa4879a70a434d3b879090500b282de0b}} 
+\index{System@{System}!get\+Passengers@{get\+Passengers}}
+\index{get\+Passengers@{get\+Passengers}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Passengers()}{getPassengers()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ \& System\+::get\+Passengers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Passengers vector. 
+
+Returns the vector of passengers.
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Passenger$\ast$$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}\label{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}} 
+\index{System@{System}!get\+Station@{get\+Station}}
+\index{get\+Station@{get\+Station}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Station()}{getStation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStation}{Station}} $\ast$ System\+::get\+Station (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classStation}{Station}} pointer. 
+
+Returns the pointer to the station object with id specified in the parameter. If there is no such object, throws No\+Such\+Stationxception.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Station$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a231710db7f31b3fec68f90fd90b292eb}\label{classSystem_a231710db7f31b3fec68f90fd90b292eb}} 
+\index{System@{System}!get\+Station\+Index@{get\+Station\+Index}}
+\index{get\+Station\+Index@{get\+Station\+Index}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Station\+Index()}{getStationIndex()}}
+{\footnotesize\ttfamily int System\+::get\+Station\+Index (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{station\+ID }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{classStation}{Station}} Index. 
+
+Returns the index of the station object, with id specified in the parameter, in the respective vector. If there is no such object, returns -\/1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em station\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a6f27512fba42cc093efd34fe10bf0045}\label{classSystem_a6f27512fba42cc093efd34fe10bf0045}} 
+\index{System@{System}!get\+Stations@{get\+Stations}}
+\index{get\+Stations@{get\+Stations}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Stations()}{getStations()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \& System\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Stations vector. 
+
+Returns the vector of stations.
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Station$\ast$$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}\label{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}} 
+\index{System@{System}!get\+Train@{get\+Train}}
+\index{get\+Train@{get\+Train}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Train()}{getTrain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrain}{Train}} $\ast$ System\+::get\+Train (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classTrain}{Train}} pointer. 
+
+Returns the pointer to the train object with id specified in the parameter. If there is no such object, throws No\+Such\+Train\+Exception.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Train$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a15d033a2efda45b83bbe0800698ae712}\label{classSystem_a15d033a2efda45b83bbe0800698ae712}} 
+\index{System@{System}!get\+Train\+Index@{get\+Train\+Index}}
+\index{get\+Train\+Index@{get\+Train\+Index}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Train\+Index()}{getTrainIndex()}}
+{\footnotesize\ttfamily int System\+::get\+Train\+Index (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{train\+ID }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classTrain}{Train}} Index. 
+
+Returns the index of the train object, with id specified in the parameter, in the respective vector. If there is no such object, returns -\/1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em train\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}\label{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}} 
+\index{System@{System}!get\+Trains@{get\+Trains}}
+\index{get\+Trains@{get\+Trains}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Trains()}{getTrains()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ \& System\+::get\+Trains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Trains vector. 
+
+Returns the vector of trains.
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Train$\ast$$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}\label{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}} 
+\index{System@{System}!get\+Trip@{get\+Trip}}
+\index{get\+Trip@{get\+Trip}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Trip()}{getTrip()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrip}{Trip}} $\ast$ System\+::get\+Trip (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{classTrip}{Trip}} pointer. 
+
+Returns the pointer to the trip object with id specified in the parameter. If there is no such object, throws No\+Such\+Trip\+Exception.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Trip$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_aa431fdc152458fc39efb9a60e9f62f01}\label{classSystem_aa431fdc152458fc39efb9a60e9f62f01}} 
+\index{System@{System}!get\+Trip\+Index@{get\+Trip\+Index}}
+\index{get\+Trip\+Index@{get\+Trip\+Index}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Trip\+Index()}{getTripIndex()}}
+{\footnotesize\ttfamily int System\+::get\+Trip\+Index (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{trip\+ID }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classTrip}{Trip}} Index. 
+
+Returns the index of the trip object, with id specified in the parameter, in the respective vector. If there is no such object, returns -\/1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trip\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}\label{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}} 
+\index{System@{System}!get\+Trips@{get\+Trips}}
+\index{get\+Trips@{get\+Trips}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Trips()}{getTrips()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& System\+::get\+Trips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Trips vector. 
+
+Returns the vector of trips.
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Trip$\ast$$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}\label{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}} 
+\index{System@{System}!list\+Passengers@{list\+Passengers}}
+\index{list\+Passengers@{list\+Passengers}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Passengers()}{listPassengers()}}
+{\footnotesize\ttfamily void System\+::list\+Passengers (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Print a table of passengers. 
+
+Prints all passengers\textquotesingle{} information in a formated table
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_a06041827a7b47ad06eee9d121e42590c}\label{classSystem_a06041827a7b47ad06eee9d121e42590c}} 
+\index{System@{System}!list\+Stations@{list\+Stations}}
+\index{list\+Stations@{list\+Stations}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Stations()}{listStations()}}
+{\footnotesize\ttfamily void System\+::list\+Stations (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Print a table of stations. 
+
+Prints all stations\textquotesingle{} information in a formated table
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}\label{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}} 
+\index{System@{System}!list\+Trains@{list\+Trains}}
+\index{list\+Trains@{list\+Trains}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Trains()}{listTrains()}}
+{\footnotesize\ttfamily void System\+::list\+Trains (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Print a table of trains. 
+
+Prints all trains\textquotesingle{} information in a formated table
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_af11f201f6417c2658f35238d98c6f032}\label{classSystem_af11f201f6417c2658f35238d98c6f032}} 
+\index{System@{System}!list\+Trips@{list\+Trips}}
+\index{list\+Trips@{list\+Trips}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Trips()}{listTrips()}}
+{\footnotesize\ttfamily void System\+::list\+Trips (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Print a table of trip. 
+
+Prints all trips\textquotesingle{} information in a formated table
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}\label{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}} 
+\index{System@{System}!pay\+Card@{pay\+Card}}
+\index{pay\+Card@{pay\+Card}!System@{System}}
+\subsubsection{\texorpdfstring{pay\+Card()}{payCard()}}
+{\footnotesize\ttfamily bool System\+::pay\+Card (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{passenger\+ID }\end{DoxyParamCaption})}
+
+
+
+Process card monthly fee payment. 
+
+Emulates a card payment. Looks for passenger object of id specified in the arguments, and removes it\textquotesingle{}s pointer from the cards\+To\+Pay vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em passenger\+ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If passenger has successfully payed card 
+
+false If passenger pointer wasn\textquotesingle{}t on the cards\+To\+Pay vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}\label{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}} 
+\index{System@{System}!print\+Passengers@{print\+Passengers}}
+\index{print\+Passengers@{print\+Passengers}!System@{System}}
+\subsubsection{\texorpdfstring{print\+Passengers()}{printPassengers()}}
+{\footnotesize\ttfamily void System\+::print\+Passengers (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Print all passengers. 
+
+Prints all passanger objects in a user friendly way
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_aaad47fd0e1bf746a0bed32feb9553e53}\label{classSystem_aaad47fd0e1bf746a0bed32feb9553e53}} 
+\index{System@{System}!print\+Sales@{print\+Sales}}
+\index{print\+Sales@{print\+Sales}!System@{System}}
+\subsubsection{\texorpdfstring{print\+Sales()}{printSales()}}
+{\footnotesize\ttfamily void System\+::print\+Sales (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Print all invoices. 
+
+Prints the invoices of all processed ticket purchase requests that where validated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & pending \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}\label{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}} 
+\index{System@{System}!print\+Stations@{print\+Stations}}
+\index{print\+Stations@{print\+Stations}!System@{System}}
+\subsubsection{\texorpdfstring{print\+Stations()}{printStations()}}
+{\footnotesize\ttfamily void System\+::print\+Stations (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Print all stations. 
+
+Prints all station objects in a user friendly way
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_af4610f38d80e01a18f2083a7c5fbd5ce}\label{classSystem_af4610f38d80e01a18f2083a7c5fbd5ce}} 
+\index{System@{System}!print\+Trains@{print\+Trains}}
+\index{print\+Trains@{print\+Trains}!System@{System}}
+\subsubsection{\texorpdfstring{print\+Trains()}{printTrains()}}
+{\footnotesize\ttfamily void System\+::print\+Trains (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Print all train. 
+
+Prints all train objects in a user friendly way
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_abaa61b6377abcfc61da32092e5d734d9}\label{classSystem_abaa61b6377abcfc61da32092e5d734d9}} 
+\index{System@{System}!print\+Trips@{print\+Trips}}
+\index{print\+Trips@{print\+Trips}!System@{System}}
+\subsubsection{\texorpdfstring{print\+Trips()}{printTrips()}}
+{\footnotesize\ttfamily void System\+::print\+Trips (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Print all trips. 
+
+Prints all trip objects in a user friendly way
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_aebffe11376f68cb17175f30ea517c10b}\label{classSystem_aebffe11376f68cb17175f30ea517c10b}} 
+\index{System@{System}!process\+Cards@{process\+Cards}}
+\index{process\+Cards@{process\+Cards}!System@{System}}
+\subsubsection{\texorpdfstring{process\+Cards()}{processCards()}}
+{\footnotesize\ttfamily void System\+::process\+Cards (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+End of month card processing. 
+
+Works as a complement of the \mbox{\hyperlink{classTrain}{Train}} system abstraction, it\textquotesingle{}s purpose is to emulate an end of the month card processing\+: The \mbox{\hyperlink{classSystem}{System}} class has a vector with passenger object pointers that specifies the passengers that have cards and have not yet payed the monthly fee. \char`\"{}\+At the end of the month\char`\"{}, this method scans through the vector, removing the card pointer of any passenger object that is still in it, signifying that it was invalidated due to not being payed, and repopulates with the passengers that still have cards. \mbox{\Hypertarget{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}\label{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}} 
+\index{System@{System}!process\+Ticket\+Purchase\+Request@{process\+Ticket\+Purchase\+Request}}
+\index{process\+Ticket\+Purchase\+Request@{process\+Ticket\+Purchase\+Request}!System@{System}}
+\subsubsection{\texorpdfstring{process\+Ticket\+Purchase\+Request()}{processTicketPurchaseRequest()}}
+{\footnotesize\ttfamily bool System\+::process\+Ticket\+Purchase\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTicketPurchaseRequest}{Ticket\+Purchase\+Request}} \&}]{request }\end{DoxyParamCaption})}
+
+
+
+Process a request for a ticket purchase. 
+
+Receives a request for a ticket purchase and processes it. Will throw Trip\+Past\+Exception if the specified trip has already happened.
+
+Checks wether the trip has free seats and, if it does, adds the respective trip to the passenger\textquotesingle{}s vector of booked trips. Also calculates the price to pay based on available discounts. If the passenger has a discount card and is buying the ticket for the second (or more) time the card\textquotesingle{}s discount will not apply.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_af31acdda711986978533367ce3a64276}\label{classSystem_af31acdda711986978533367ce3a64276}} 
+\index{System@{System}!remove\+Passenger@{remove\+Passenger}}
+\index{remove\+Passenger@{remove\+Passenger}!System@{System}}
+\subsubsection{\texorpdfstring{remove\+Passenger()}{removePassenger()}}
+{\footnotesize\ttfamily bool System\+::remove\+Passenger (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{classPassenger}{Passenger}} from the system. 
+
+Removes the passenger object with id specified by the parameter from the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If passenger was successfully removed. 
+
+false If passenger never existed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}\label{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}} 
+\index{System@{System}!remove\+Station@{remove\+Station}}
+\index{remove\+Station@{remove\+Station}!System@{System}}
+\subsubsection{\texorpdfstring{remove\+Station()}{removeStation()}}
+{\footnotesize\ttfamily bool System\+::remove\+Station (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{classStation}{Station}} from the system. 
+
+Removes the station object with id specified by the parameter from the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If station was successfully removed. 
+
+false If station never existed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_acf1d845cdb88b43143b3f738214e866b}\label{classSystem_acf1d845cdb88b43143b3f738214e866b}} 
+\index{System@{System}!remove\+Train@{remove\+Train}}
+\index{remove\+Train@{remove\+Train}!System@{System}}
+\subsubsection{\texorpdfstring{remove\+Train()}{removeTrain()}}
+{\footnotesize\ttfamily bool System\+::remove\+Train (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{classTrain}{Train}} from the system. 
+
+Removes the train object with id specified by the parameter from the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If train was successfully removed. 
+
+false If train never existed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_ae802cde42ae56b50adc02c76920e9001}\label{classSystem_ae802cde42ae56b50adc02c76920e9001}} 
+\index{System@{System}!remove\+Trip@{remove\+Trip}}
+\index{remove\+Trip@{remove\+Trip}!System@{System}}
+\subsubsection{\texorpdfstring{remove\+Trip()}{removeTrip()}}
+{\footnotesize\ttfamily bool System\+::remove\+Trip (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{classTrip}{Trip}} from the system. 
+
+Removes the trip object with id specified by the parameter from the respective vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If trip was successfully removed. 
+
+false If trip never existed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a293b247432ab577c9bf0ba7285a6eeda}\label{classSystem_a293b247432ab577c9bf0ba7285a6eeda}} 
+\index{System@{System}!search\+Trips@{search\+Trips}}
+\index{search\+Trips@{search\+Trips}!System@{System}}
+\subsubsection{\texorpdfstring{search\+Trips()}{searchTrips()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ System\+::search\+Trips (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{dest,  }\item[{bool}]{search\+By\+Arrival\+Date,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{arrival\+Date }\end{DoxyParamCaption})}
+
+
+
+Get a vector of \mbox{\hyperlink{classTrip}{Trip}} respecting constraints. 
+
+Creates a vector of trip that match the constraints given in the parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to source station object, if it is a nullptr, the function will ignore this constraint. \\
+\hline
+{\em dest} & Pointer to destination station object, if it is a nullptr, the function will ignore this constraint. \\
+\hline
+{\em search\+By\+Arrival\+Date} & Bool checking wether to restrict the dates to before the date specified. \\
+\hline
+{\em arrival\+Date} & Maximum arrival time desired. It\textquotesingle{}s only considered if search\+By\+Arrival\+Date is set to true. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Trip$\ast$$>$ 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classSystem_a1efa95132e95a7a6b11c3b54916d66ae}\label{classSystem_a1efa95132e95a7a6b11c3b54916d66ae}} 
+\index{System@{System}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!System@{System}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classSystem}{System}} \&}]{sys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Print everything. 
+
+Calls the operators overload in all passengers, stations, trains and trips.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em sys} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classSystem_a40d348884d1b737ecd26b4bc6509bf48}\label{classSystem_a40d348884d1b737ecd26b4bc6509bf48}} 
+\index{System@{System}!instance@{instance}}
+\index{instance@{instance}!System@{System}}
+\subsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSystem}{System}} System\+::instance = \mbox{\hyperlink{classSystem}{System}}()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\mbox{\hyperlink{classSystem}{System}} class instance. 
+
+Since the \mbox{\hyperlink{classSystem}{System}} class only really needs to have an instance per program, a static instance of \mbox{\hyperlink{classSystem}{System}} is held within itself, making it accessible by any part of the program that needs to make a query. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
