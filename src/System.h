@@ -13,29 +13,146 @@
 #include "project_types.h"
 
 /**
- * @brief Class to represent the central system
+ * @brief Class to represent the central system.
  * 
- * Contains A listing of every 
+ * Contains A listing of every passenger, station, train and trip.
+ * Is responsible for handling queries and outputing information that is requested.
+ * Also handles ticket purchasing.
  * 
  */
 class System {
 public:
+	/**
+	 * @brief Construct a new System object.
+	 * 
+	 */
 	System() = default;
+	/**
+	 * @brief Destroy the System object.
+	 * 
+	 * Since the listings are handled using pointers, the destructor is in charge od freeing the 
+	 * space occupied by them.
+	 * 
+	 */
 	~System();
+
+	/**
+	 * @brief Get the Passengers vector.
+	 * 
+	 * Returns the vector of passengers.
+	 * 
+	 * @return std::vector<Passenger*>& 
+	 */
 	std::vector<Passenger*>& getPassengers();
+	/**
+	 * @brief Get the Trips vector.
+	 * 
+	 * Returns the vector of trips.
+	 * 
+	 * @return std::vector<Trip*>& 
+	 */
 	std::vector<Trip*>& getTrips();
+	/**
+	 * @brief Get the Trains vector.
+	 * 
+	 * Returns the vector of trains.
+	 * 
+	 * @return std::vector<Train*>& 
+	 */
 	std::vector<Train*>& getTrains();
+	/**
+	 * @brief Get the Stations vector.
+	 * 
+	 * Returns the vector of stations.
+	 * 
+	 * @return std::vector<Station*>& 
+	 */
 	std::vector<Station*>& getStations();
 
+	/**
+	 * @brief Get Passenger pointer.
+	 * 
+	 * Returns the pointer to the passenger object with id specified in the parameter.
+	 * If there is no such object, throws NoSuchPassengerException. 
+	 * 
+	 * @param id 
+	 * @return Passenger* 
+	 */
 	Passenger* getPassenger(const id_t id);
+	/**
+	 * @brief Get Trip pointer.
+	 * 
+	 * Returns the pointer to the trip object with id specified in the parameter.
+	 * If there is no such object, throws NoSuchTripException. 
+	 * 
+	 * @param id 
+	 * @return Trip* 
+	 */
 	Trip* getTrip(const id_t id);
+	/**
+	 * @brief Get the Train pointer.
+	 * 
+	 * Returns the pointer to the train object with id specified in the parameter.
+	 * If there is no such object, throws NoSuchTrainException. 
+	 * 
+	 * @param id 
+	 * @return Train* 
+	 */
 	Train* getTrain(const id_t id);
+	/**
+	 * @brief Get the Station pointer.
+	 * 
+	 * Returns the pointer to the station object with id specified in the parameter.
+	 * If there is no such object, throws NoSuchStationxception. 
+	 * 
+	 * @param id 
+	 * @return Station* 
+	 */
 	Station* getStation(const id_t id);
 
+	/**
+	 * @brief Get Station Index
+	 * 
+	 * Returns the index of the station object, with id specified in the parameter, 
+	 * in the respective vector.
+	 * If there is no such object, returns -1.
+	 * 
+	 * @param stationID 
+	 * @return int 
+	 */
 	int getStationIndex(id_t stationID);
+	/**
+	 * @brief Get the Train Index
+	 * 
+	 * Returns the index of the train object, with id specified in the parameter, 
+	 * in the respective vector.
+	 * If there is no such object, returns -1.
+	 * 
+	 * @param trainID 
+	 * @return int 
+	 */
 	int getTrainIndex(id_t trainID);
+	/**
+	 * @brief Get the Trip Index 
+	 * 
+	 * Returns the index of the trip object, with id specified in the parameter, 
+	 * in the respective vector.
+	 * If there is no such object, returns -1.
+	 * 
+	 * @param tripID 
+	 * @return int 
+	 */
 	int getTripIndex(id_t tripID);
 
+	/**
+	 * @brief 
+	 * 
+	 * @param src 
+	 * @param dest 
+	 * @param searchByArrivalDate 
+	 * @param arrivalDate 
+	 * @return std::vector<Trip*> 
+	 */
 	std::vector<Trip*> searchTrips(Station *src, Station *dest, bool searchByArrivalDate, Date arrivalDate);
 
 	bool addPassenger(Passenger* passenger);
