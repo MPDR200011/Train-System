@@ -1,1 +1,2 @@
-2 fifty 
+1 "hundred"
+2 "fifty"

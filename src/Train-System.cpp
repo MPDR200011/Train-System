@@ -156,7 +156,7 @@ void savePurchases();
 
 void mainMenu() {
 	string menuOptions[] = {
-		"  1 - Create a new passenger/station/train/trip.",
+		"  1 - Create a new passenger/card/station/train/trip.",
 		"  2 - Delete a passenger/station/train/trip.",
 		"  3 - Search for trips.",
 		"  4 - Process a ticket purchase.",
@@ -569,9 +569,24 @@ void payCard() {
 }
 
 void checkCards() {
-	System::instance.processCards();
+	cout << "This function will invalidate unpayed cards and reset the the cards payment status, do you wish to proceed? (y/n) - ";
+	bool proceed;
+	string choice;
+	do {
+		readLine(choice);
+		if (choice != "y" && choice != "n") {
+			cout << "Invalid choice, try again - ";
+		} else {
+			proceed = choice == "y";
+		}
+	} while (choice != "y" && choice != "n");
 
-	cout << "Done." << endl;
+	if (proceed) {
+		System::instance.processCards();
+		cout << "Done." << endl;
+	} else {
+		cout << "Returning." << endl;
+	}
 }
 
 vector<string> splitArgumets(string& command) {
