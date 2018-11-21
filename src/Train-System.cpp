@@ -11,6 +11,14 @@
 
 using namespace std;
 
+/**
+ * @brief Template function to read any variable from cin.
+ * 
+ * @tparam T 
+ * @param var 
+ * @return true If cin reports EOF.
+ * @return false IF cin doesn't report EOF.
+ */
 template <class T> bool readVar(T &var) {
 	if (!cin.good()) {
 		cin.ignore(INT32_MAX, '\n');
@@ -42,6 +50,13 @@ template <class T> bool readVar(T &var) {
 	return false;
 }
 
+/**
+ * @brief Function to read a string using getline(cin).
+ * 
+ * @param s 
+ * @return true If cin reports EOF.
+ * @return false If cin doesn't report EOF.
+ */
 bool readLine(string &s) {
 	if (!cin.good()) {
 		cin.ignore(INT32_MAX, '\n');
@@ -69,6 +84,13 @@ bool readLine(string &s) {
 	return false;
 }
 
+/**
+ * @brief Read a birthdate
+ * 
+ * Asks user to input a date in the format "dd-mm-yyyy".
+ * 
+ * @return Date 
+ */
 Date readBirthDate() {
 	Date date("01-01-1970 00:00");
 	cout << "Birth Date (dd-mm-yyyy) - ";
@@ -96,6 +118,13 @@ Date readBirthDate() {
 	return date;
 }
 
+/**
+ * @brief Read a date
+ * 
+ * Asks user to input a date in the format "dd-mm-yyyy HH:MM".
+ * 
+ * @return Date 
+ */
 Date readDate() {
 	Date date("01-01-1970 00:00");
 	cout << "Date (dd-mm-yyyy HH:MM) - ";
@@ -123,24 +152,80 @@ Date readDate() {
 	return date;
 }
 
+/**
+ * @brief
+ * 
+ * Prints the main menu and choice prompt.
+ * 
+ */
 void mainMenu();
-bool processCommand(string command);
 
+/**
+ * 
+ * Called when chooses to create a passenger/card/station/trip/train.
+ * 
+ */
 void createTask();
+/**
+ * Called when user chooses to create a passenger.
+ * Starts respective process.
+ */
 void createPassenger();
+/**
+ * Called when user chooses to create a card.
+ * Starts respective process.
+ */
 void createCard();
+/**
+ * Called when user chooses to create a station.
+ * Starts respective process.
+ */
 void createStation();
+/**
+ * Called when user chooses to create a train.
+ * Starts respective process.
+ */
 void createTrain();
+/**
+ * Called when user chooses to create a trip.
+ * Starts respective process.
+ */
 void createTrip();
 
+/**
+ * Called when user chooses to delete a passenger/station/train/trip.
+ */
 void deleteTask();
+/**
+ * Function to generate a query to System to get trips.
+ * Asks for source station, destination station and arrival date constraints, if the user 
+ * wants each of them.
+ */
 void searchTask();
+/**
+ * Called to make a ticket purchase request.
+ */
 void purchaseTask();
+/**
+ * Called to print tables of passengers/stations/trains/trips
+ */
 void listTask();
+/**
+ * Called to process a card payment.
+ */
 void payCard();
+/**
+ * Called to initiate monthly card processing.
+ */
 void checkCards();
-vector<string> splitArgumets(string&);
 
+/**
+ * Splits arguments in a string using the space character as a delimiter.
+ * Strings between quotes are counted as a single argument.
+ * 
+ * @return vector<string> Vector of the sperated arguments.
+ */
+vector<string> splitArgumets(string&);
 void loadPassengers();
 void loadCards();
 void loadStations();
@@ -940,5 +1025,4 @@ int main() {
 }
 
 //TODO doc interface
-//TODO doc system
 //TODO print card invoice
