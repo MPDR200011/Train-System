@@ -182,26 +182,6 @@ void System::createTrip(uint basePrice, Station* source, Station* destination,
 	trips.push_back(tr);
 }
 
-bool System::addPassenger(Passenger* passenger) {
-	passengers.push_back(passenger);
-	return true;
-}
-
-bool System::addTrip(Trip* trip) {
-	trips.push_back(trip);
-	return true;
-}
-
-bool System::addTrain(Train* train) {
-	trains.push_back(train);
-	return true;
-}
-
-bool System::addStation(Station* station) {
-	stations.push_back(station);
-	return true;
-}
-
 bool System::removePassenger(id_t id){
 	for (auto it = passengers.begin(); it != passengers.end(); it++) {
 		if ((*it)->getID() == id) {
@@ -346,7 +326,7 @@ bool System::payCard(id_t passengerID) {
 		if (p->getID() == passengerID) {
 			auto it = find(cardsToPay.begin(), cardsToPay.end(), p);
 			if (it != cardsToPay.end()) {
-				it = --cardsToPay.erase(it);
+				cardsToPay.erase(it);
 				return true;
 			} else {
 				return false;
