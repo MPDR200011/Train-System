@@ -646,7 +646,7 @@ void payCard() {
 	readVar(passengerID);
 
 	try {
-		if (!System::instance.payCard(passengerID)) {
+		if (!System::instance.payCard(passengerID, cout)) {
 			cout << "Passenger doesn't have a card." << endl;
 			return;
 		}
@@ -936,7 +936,6 @@ int main() {
 	loadTrains();
 	loadTrips();
 	loadPurchases();
-	System::instance.processCards();
 
 	bool programmRunning = true;
 	while (programmRunning) {
@@ -1024,5 +1023,4 @@ int main() {
 	return 0;
 }
 
-//TODO doc interface
 //TODO print card invoice

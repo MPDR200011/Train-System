@@ -314,10 +314,11 @@ public:
 	 * pointer from the cardsToPay vector.
 	 * 
 	 * @param passengerID 
+	 * @param os output stream to print the card payment invoice
 	 * @return true If passenger has successfully payed card
 	 * @return false If passenger pointer wasn't on the cardsToPay vector
 	 */
-	bool payCard(id_t passengerID);
+	bool payCard(id_t passengerID, std::ostream &os);
 
 	/**
 	 * @brief Print a table of passengers

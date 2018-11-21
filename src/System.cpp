@@ -164,6 +164,7 @@ void System::createCard(Passenger *passenger, string type) {
 
 	PassengerCard *pc = new PassengerCard(cardType, passenger->getID(), passenger->getName());
 	passenger->setCard(pc);
+	cardsToPay.push_back(passenger);
 }
 
 void System::createStation(string name) {
@@ -320,13 +321,18 @@ void System::processCards() {
 	}
 }
 
-bool System::payCard(id_t passengerID) {
+bool System::payCard(id_t passengerID, ostream &os) {
 	
 	for (Passenger *p: passengers) {
 		if (p->getID() == passengerID) {
 			auto it = find(cardsToPay.begin(), cardsToPay.end(), p);
 			if (it != cardsToPay.end()) {
 				cardsToPay.erase(it);
+				os << endl;
+				os << "Nome: " << p->getName() << endl;
+				string costString = to_string(p->getCard()->getCost());
+				costString.insert(costString.end()-2, ',');
+				os << "Valor do cartao: " << costString << " euros" << endl;
 				return true;
 			} else {
 				return false;
