@@ -12,6 +12,12 @@
 #include "exceptions/InvalidDateException.h"
 #include "project_types.h"
 
+/**
+ * @brief Class to represent the central system
+ * 
+ * Contains A listing of every 
+ * 
+ */
 class System {
 public:
 	System() = default;
@@ -50,9 +56,11 @@ public:
 			Train* train, const Date dapartureDate, const Date arrivalDate);
 
 	void sortPassengers();
+	void sortPassengersByName();
 	void sortStations();
 	void sortTrains();
 	void sortTrips();
+	void sortTripsByDate();
 
 	bool processTicketPurchaseRequest(TicketPurchaseRequest &request);
 

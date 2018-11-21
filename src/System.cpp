@@ -270,6 +270,12 @@ void System::sortPassengers() {
 	});
 }
 
+void System::sortPassengersByName() {
+	sort(passengers.begin(), passengers.end(), [](const Passenger* p1, const Passenger* p2)->bool{
+		return p1->getName() < p2->getName();
+	});
+}
+
 void System::sortStations() {
 	sort(stations.begin(), stations.end(), [](const Station *st1, const Station *st2)->bool{
 		return st1->getID() < st2->getID();
@@ -285,6 +291,12 @@ void System::sortTrains() {
 void System::sortTrips(){
 	sort(trips.begin(), trips.end(), [](const Trip *tr1, const Trip *tr2)->bool{
 		return tr1->getID() < tr2->getID();
+	});
+}
+
+void System::sortTripsByDate() {
+	sort(trips.begin(), trips.end(), [](Trip *tr1, Trip *tr2)->bool{
+		return tr1->getDepartureDate() < tr2->getDepartureDate();
 	});
 }
 
@@ -346,6 +358,7 @@ bool System::payCard(id_t passengerID) {
 }
 
 void System::listPassengers(ostream &os){
+	sortPassengersByName();
 	os << endl 
 	<< setw(5) << "id" 
 	<< setw(35) << "name" 
@@ -381,6 +394,7 @@ void System::listTrains(ostream &os) {
 }
 
 void System::listTrips(ostream &os){
+	sortTripsByDate();
 	os << endl 
 	<< setw(5) << "id"
 	<< setw(13) << "base price" 
@@ -390,7 +404,7 @@ void System::listTrips(ostream &os){
 	<< setw(20) << "destination name" 
 	<< setw(20) << "arrival date" 
 	<< setw(10) << "train id" 
-	<< setw(16) << "occupied seats" << endl;
+	<< setw(16) << "free seats" << endl;
 	for (Trip *tr: trips) {
 		tr->printRow(os);
 		os << endl;

@@ -100,7 +100,7 @@ void Trip::printRow(ostream &os) {
 	<< setw(20) << destination->getName() 
 	<< setw(20) << arrivalDate.getDateString() 
 	<< setw(10) << train->getID() 
-	<< setw(16) << occupiedSeats; 
+	<< setw(16) << getNumberOfFreeSeats(); 
 }
 
 ostream &operator<<(ostream &os, Trip &tr) {

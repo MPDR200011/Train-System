@@ -39,7 +39,9 @@ int \mbox{\hyperlink{classDate_a0f253815240e70f4c39cb93cc68bd3f4}{get\+Day}} () 
 int \mbox{\hyperlink{classDate_ab8ea9e1aafa6cb95be7b82cda0c53cfe}{get\+Hour}} () const
 \begin{DoxyCompactList}\small\item\em Get the Hour. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classDate_a55251df891f43b9f19419cd79ce69876}{get\+Minutes}} () const
-\begin{DoxyCompactList}\small\item\em Get the Minutes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the Minutes. \end{DoxyCompactList}\item 
+long int \mbox{\hyperlink{classDate_af047ef9ca2cf7843b921f36e9883f0a7}{get\+Time\+Stamp}} ()
+\begin{DoxyCompactList}\small\item\em Get the Time Stamp object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,7 +65,7 @@ Works as an abstraction of C++\textquotesingle{}s ctime library.
 
 Construct a new \mbox{\hyperlink{classDate}{Date}} object. 
 
-Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws \mbox{\hyperlink{classInvalidDateException}{Invalid\+Date\+Exception}}.
+Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws Invalid\+Date\+Exception.
 
 
 \begin{DoxyParams}{Parameters}
@@ -88,7 +90,7 @@ Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If va
 
 Construct a new \mbox{\hyperlink{classDate}{Date}} object. 
 
-Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws \mbox{\hyperlink{classInvalidDateException}{Invalid\+Date\+Exception}}.
+Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws Invalid\+Date\+Exception.
 
 
 \begin{DoxyParams}{Parameters}
@@ -175,6 +177,19 @@ Get the Month.
 
 \begin{DoxyReturn}{Returns}
 int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_af047ef9ca2cf7843b921f36e9883f0a7}\label{classDate_af047ef9ca2cf7843b921f36e9883f0a7}} 
+\index{Date@{Date}!get\+Time\+Stamp@{get\+Time\+Stamp}}
+\index{get\+Time\+Stamp@{get\+Time\+Stamp}!Date@{Date}}
+\subsubsection{\texorpdfstring{get\+Time\+Stamp()}{getTimeStamp()}}
+{\footnotesize\ttfamily long int Date\+::get\+Time\+Stamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Time Stamp object. 
+
+\begin{DoxyReturn}{Returns}
+long Seconds since epoch at January 1st 1970 00\+:00 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classDate_a8b0869f34c2b38d108ab83ee2e770e5d}\label{classDate_a8b0869f34c2b38d108ab83ee2e770e5d}} 
 \index{Date@{Date}!get\+Year@{get\+Year}}

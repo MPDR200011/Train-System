@@ -1,26 +1,98 @@
 \hypertarget{classTrain}{}\section{Train Class Reference}
 \label{classTrain}\index{Train@{Train}}
+
+
+Class for representing a train in the system.  
+
+
+
+
+{\ttfamily \#include $<$Train.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTrain_aa965be5e5d076d2743301c5d75ce4401}\label{classTrain_aa965be5e5d076d2743301c5d75ce4401}} 
-{\bfseries Train} (uint total\+Seats)
-\item 
-\mbox{\Hypertarget{classTrain_a7eed03f9e90521e3c5a3dc15fbeb749f}\label{classTrain_a7eed03f9e90521e3c5a3dc15fbeb749f}} 
-id\+\_\+t {\bfseries get\+ID} ()
-\item 
-\mbox{\Hypertarget{classTrain_a93cd372664bac4ba28fa36e40316444a}\label{classTrain_a93cd372664bac4ba28fa36e40316444a}} 
-uint {\bfseries get\+Max\+Seats} ()
-\item 
-\mbox{\Hypertarget{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}\label{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}} 
-void {\bfseries print\+Row} (std\+::ostream \&os)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classTrain_aa965be5e5d076d2743301c5d75ce4401}{Train}} (uint total\+Seats)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classTrain}{Train}} object. \end{DoxyCompactList}\item 
+id\+\_\+t \mbox{\hyperlink{classTrain_a7310ae0bc5b43ea392e4fa62630ee56b}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Get the train ID. \end{DoxyCompactList}\item 
+uint \mbox{\hyperlink{classTrain_a93cd372664bac4ba28fa36e40316444a}{get\+Max\+Seats}} ()
+\begin{DoxyCompactList}\small\item\em Get the max capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}{print\+Row}} (std\+::ostream \&os)
+\begin{DoxyCompactList}\small\item\em Output train information in a row fashion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classTrain_ab4c39558eb319a2f509b128f1fc90bd8}\label{classTrain_ab4c39558eb319a2f509b128f1fc90bd8}} 
 std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classTrain}{Train}} \&tr)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for representing a train in the system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTrain_aa965be5e5d076d2743301c5d75ce4401}\label{classTrain_aa965be5e5d076d2743301c5d75ce4401}} 
+\index{Train@{Train}!Train@{Train}}
+\index{Train@{Train}!Train@{Train}}
+\subsubsection{\texorpdfstring{Train()}{Train()}}
+{\footnotesize\ttfamily Train\+::\+Train (\begin{DoxyParamCaption}\item[{uint}]{total\+Seats }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classTrain}{Train}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em total\+Seats} & Max capacity of train \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTrain_a7310ae0bc5b43ea392e4fa62630ee56b}\label{classTrain_a7310ae0bc5b43ea392e4fa62630ee56b}} 
+\index{Train@{Train}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Train@{Train}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily id\+\_\+t Train\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the train ID. 
+
+\begin{DoxyReturn}{Returns}
+id\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTrain_a93cd372664bac4ba28fa36e40316444a}\label{classTrain_a93cd372664bac4ba28fa36e40316444a}} 
+\index{Train@{Train}!get\+Max\+Seats@{get\+Max\+Seats}}
+\index{get\+Max\+Seats@{get\+Max\+Seats}!Train@{Train}}
+\subsubsection{\texorpdfstring{get\+Max\+Seats()}{getMaxSeats()}}
+{\footnotesize\ttfamily uint Train\+::get\+Max\+Seats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the max capacity. 
+
+\begin{DoxyReturn}{Returns}
+uint 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}\label{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}} 
+\index{Train@{Train}!print\+Row@{print\+Row}}
+\index{print\+Row@{print\+Row}!Train@{Train}}
+\subsubsection{\texorpdfstring{print\+Row()}{printRow()}}
+{\footnotesize\ttfamily void Train\+::print\+Row (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Output train information in a row fashion. 
+
+Outputs the object\textquotesingle{}s information as it was a row in a table. Useful for outputing all train objects in the system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to which the train will be output. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

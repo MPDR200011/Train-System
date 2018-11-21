@@ -16,18 +16,16 @@ Class for representing an invoice of a ticket purchase in the system.
 \begin{DoxyCompactList}\small\item\em Construct a new Ticket Invoice object. \end{DoxyCompactList}\item 
 const std\+::string \mbox{\hyperlink{classTicketInvoice_a9fdfdcd08ff90480ca85e027f57033e4}{get\+Passenger\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classPassenger}{Passenger}} Name. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classTicketInvoice_ad692197170d5cb11790dff71150ef891}\label{classTicketInvoice_ad692197170d5cb11790dff71150ef891}} 
-const std\+::string {\bfseries get\+Source\+Name} () const
-\item 
-\mbox{\Hypertarget{classTicketInvoice_a1db4ffac81e11b765c6204278a3df8ff}\label{classTicketInvoice_a1db4ffac81e11b765c6204278a3df8ff}} 
-const std\+::string {\bfseries get\+Dest\+Name} () const
-\item 
-\mbox{\Hypertarget{classTicketInvoice_a97998091765f01ff9f394210530a89ed}\label{classTicketInvoice_a97998091765f01ff9f394210530a89ed}} 
-const std\+::string {\bfseries get\+Price\+String} () const
-\item 
-\mbox{\Hypertarget{classTicketInvoice_afeed9962f0276861876a001e372d2063}\label{classTicketInvoice_afeed9962f0276861876a001e372d2063}} 
-void {\bfseries set\+Price} (uint price)
-\end{DoxyCompactItemize}
+const std\+::string \mbox{\hyperlink{classTicketInvoice_ad692197170d5cb11790dff71150ef891}{get\+Source\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the Source Name. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classTicketInvoice_a1db4ffac81e11b765c6204278a3df8ff}{get\+Dest\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the Dest Name. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classTicketInvoice_a97998091765f01ff9f394210530a89ed}{get\+Price\+String}} () const
+\begin{DoxyCompactList}\small\item\em Get the Price String. \end{DoxyCompactList}\item 
+const uint \mbox{\hyperlink{classTicketInvoice_a3758bface685702a6229d617691663e1}{get\+Price}} () const
+\begin{DoxyCompactList}\small\item\em Get the Price. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTicketInvoice_afeed9962f0276861876a001e372d2063}{set\+Price}} (uint price)
+\begin{DoxyCompactList}\small\item\em Set the Price. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,6 +58,19 @@ Construct a new Ticket Invoice object.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTicketInvoice_a1db4ffac81e11b765c6204278a3df8ff}\label{classTicketInvoice_a1db4ffac81e11b765c6204278a3df8ff}} 
+\index{Ticket\+Invoice@{Ticket\+Invoice}!get\+Dest\+Name@{get\+Dest\+Name}}
+\index{get\+Dest\+Name@{get\+Dest\+Name}!Ticket\+Invoice@{Ticket\+Invoice}}
+\subsubsection{\texorpdfstring{get\+Dest\+Name()}{getDestName()}}
+{\footnotesize\ttfamily const string Ticket\+Invoice\+::get\+Dest\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Dest Name. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string Name of the destination station 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classTicketInvoice_a9fdfdcd08ff90480ca85e027f57033e4}\label{classTicketInvoice_a9fdfdcd08ff90480ca85e027f57033e4}} 
 \index{Ticket\+Invoice@{Ticket\+Invoice}!get\+Passenger\+Name@{get\+Passenger\+Name}}
 \index{get\+Passenger\+Name@{get\+Passenger\+Name}!Ticket\+Invoice@{Ticket\+Invoice}}
@@ -73,6 +84,60 @@ Get the \mbox{\hyperlink{classPassenger}{Passenger}} Name.
 \begin{DoxyReturn}{Returns}
 const std\+::string Name of the passenger 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classTicketInvoice_a3758bface685702a6229d617691663e1}\label{classTicketInvoice_a3758bface685702a6229d617691663e1}} 
+\index{Ticket\+Invoice@{Ticket\+Invoice}!get\+Price@{get\+Price}}
+\index{get\+Price@{get\+Price}!Ticket\+Invoice@{Ticket\+Invoice}}
+\subsubsection{\texorpdfstring{get\+Price()}{getPrice()}}
+{\footnotesize\ttfamily const uint Ticket\+Invoice\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Price. 
+
+\begin{DoxyReturn}{Returns}
+const uint The price in cents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTicketInvoice_a97998091765f01ff9f394210530a89ed}\label{classTicketInvoice_a97998091765f01ff9f394210530a89ed}} 
+\index{Ticket\+Invoice@{Ticket\+Invoice}!get\+Price\+String@{get\+Price\+String}}
+\index{get\+Price\+String@{get\+Price\+String}!Ticket\+Invoice@{Ticket\+Invoice}}
+\subsubsection{\texorpdfstring{get\+Price\+String()}{getPriceString()}}
+{\footnotesize\ttfamily const string Ticket\+Invoice\+::get\+Price\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Price String. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string A string representing the price in euros(not cents) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTicketInvoice_ad692197170d5cb11790dff71150ef891}\label{classTicketInvoice_ad692197170d5cb11790dff71150ef891}} 
+\index{Ticket\+Invoice@{Ticket\+Invoice}!get\+Source\+Name@{get\+Source\+Name}}
+\index{get\+Source\+Name@{get\+Source\+Name}!Ticket\+Invoice@{Ticket\+Invoice}}
+\subsubsection{\texorpdfstring{get\+Source\+Name()}{getSourceName()}}
+{\footnotesize\ttfamily const string Ticket\+Invoice\+::get\+Source\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Source Name. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string Name of the source station 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTicketInvoice_afeed9962f0276861876a001e372d2063}\label{classTicketInvoice_afeed9962f0276861876a001e372d2063}} 
+\index{Ticket\+Invoice@{Ticket\+Invoice}!set\+Price@{set\+Price}}
+\index{set\+Price@{set\+Price}!Ticket\+Invoice@{Ticket\+Invoice}}
+\subsubsection{\texorpdfstring{set\+Price()}{setPrice()}}
+{\footnotesize\ttfamily void Ticket\+Invoice\+::set\+Price (\begin{DoxyParamCaption}\item[{uint}]{price }\end{DoxyParamCaption})}
+
+
+
+Set the Price. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em price} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

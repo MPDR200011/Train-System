@@ -97,6 +97,18 @@ std::vector&lt; <a class="el" href="classStation.html">Station</a> * &gt; &amp;&
 <tr class="memitem:aaadc55451a0d43b7ba98ff5377de8e02"><td class="memItemLeft" align="right" valign="top"><a id="aaadc55451a0d43b7ba98ff5377de8e02"></a>
 <a class="el" href="classStation.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getStation</b> (const id_t id)</td></tr>
 <tr class="separator:aaadc55451a0d43b7ba98ff5377de8e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231710db7f31b3fec68f90fd90b292eb"><td class="memItemLeft" align="right" valign="top"><a id="a231710db7f31b3fec68f90fd90b292eb"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getStationIndex</b> (id_t stationID)</td></tr>
+<tr class="separator:a231710db7f31b3fec68f90fd90b292eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d033a2efda45b83bbe0800698ae712"><td class="memItemLeft" align="right" valign="top"><a id="a15d033a2efda45b83bbe0800698ae712"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getTrainIndex</b> (id_t trainID)</td></tr>
+<tr class="separator:a15d033a2efda45b83bbe0800698ae712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa431fdc152458fc39efb9a60e9f62f01"><td class="memItemLeft" align="right" valign="top"><a id="aa431fdc152458fc39efb9a60e9f62f01"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getTripIndex</b> (id_t tripID)</td></tr>
+<tr class="separator:aa431fdc152458fc39efb9a60e9f62f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293b247432ab577c9bf0ba7285a6eeda"><td class="memItemLeft" align="right" valign="top"><a id="a293b247432ab577c9bf0ba7285a6eeda"></a>
+std::vector&lt; <a class="el" href="classTrip.html">Trip</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>searchTrips</b> (<a class="el" href="classStation.html">Station</a> *src, <a class="el" href="classStation.html">Station</a> *dest, bool searchByArrivalDate, <a class="el" href="classDate.html">Date</a> arrivalDate)</td></tr>
+<tr class="separator:a293b247432ab577c9bf0ba7285a6eeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a933891c246bf870518f334ea5666b95c"><td class="memItemLeft" align="right" valign="top"><a id="a933891c246bf870518f334ea5666b95c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>addPassenger</b> (<a class="el" href="classPassenger.html">Passenger</a> *passenger)</td></tr>
 <tr class="separator:a933891c246bf870518f334ea5666b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,21 +133,48 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeStation</b> (id
 <tr class="memitem:acf1d845cdb88b43143b3f738214e866b"><td class="memItemLeft" align="right" valign="top"><a id="acf1d845cdb88b43143b3f738214e866b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeTrain</b> (id_t id)</td></tr>
 <tr class="separator:acf1d845cdb88b43143b3f738214e866b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e71afb2e06ab9a315436b17dfc04d69"><td class="memItemLeft" align="right" valign="top"><a id="a9e71afb2e06ab9a315436b17dfc04d69"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>createPassenger</b> (const std::vector&lt; std::string &gt; &amp;arguments)</td></tr>
-<tr class="separator:a9e71afb2e06ab9a315436b17dfc04d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132bfbf3cfb3aab1e9dad1bf1b2710b4"><td class="memItemLeft" align="right" valign="top"><a id="a132bfbf3cfb3aab1e9dad1bf1b2710b4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>createStation</b> (const std::vector&lt; std::string &gt; &amp;arguments)</td></tr>
-<tr class="separator:a132bfbf3cfb3aab1e9dad1bf1b2710b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeead09c522819325eb24ff92d3a37404"><td class="memItemLeft" align="right" valign="top"><a id="aeead09c522819325eb24ff92d3a37404"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>createTrain</b> (const std::vector&lt; std::string &gt; &amp;arguments)</td></tr>
-<tr class="separator:aeead09c522819325eb24ff92d3a37404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d889af9f91d199945425325df56a023"><td class="memItemLeft" align="right" valign="top"><a id="a5d889af9f91d199945425325df56a023"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>createTrip</b> (const std::vector&lt; std::string &gt; &amp;arguments)</td></tr>
-<tr class="separator:a5d889af9f91d199945425325df56a023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623d7369872a9af9b69b24bd2a3c71b1"><td class="memItemLeft" align="right" valign="top"><a id="a623d7369872a9af9b69b24bd2a3c71b1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createPassenger</b> (std::string name, <a class="el" href="classDate.html">Date</a> birthDate)</td></tr>
+<tr class="separator:a623d7369872a9af9b69b24bd2a3c71b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e317da5b607c6dee850089f340dd9e7"><td class="memItemLeft" align="right" valign="top"><a id="a9e317da5b607c6dee850089f340dd9e7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createCard</b> (<a class="el" href="classPassenger.html">Passenger</a> *p, std::string type)</td></tr>
+<tr class="separator:a9e317da5b607c6dee850089f340dd9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8cf1529f497af79b72fe6cc59b08d60"><td class="memItemLeft" align="right" valign="top"><a id="ab8cf1529f497af79b72fe6cc59b08d60"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createStation</b> (std::string name)</td></tr>
+<tr class="separator:ab8cf1529f497af79b72fe6cc59b08d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4cf09119e31e5bdf9d9187a7a60cd1a"><td class="memItemLeft" align="right" valign="top"><a id="aa4cf09119e31e5bdf9d9187a7a60cd1a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createTrain</b> (uint maxSeats)</td></tr>
+<tr class="separator:aa4cf09119e31e5bdf9d9187a7a60cd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea8519bf009400085f8e499891b7eb37"><td class="memItemLeft" align="right" valign="top"><a id="aea8519bf009400085f8e499891b7eb37"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createTrip</b> (uint basePrice, <a class="el" href="classStation.html">Station</a> *source, <a class="el" href="classStation.html">Station</a> *destination, <a class="el" href="classTrain.html">Train</a> *train, const <a class="el" href="classDate.html">Date</a> dapartureDate, const <a class="el" href="classDate.html">Date</a> arrivalDate)</td></tr>
+<tr class="separator:aea8519bf009400085f8e499891b7eb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a360f9d625dbc649d567249642c1db53c"><td class="memItemLeft" align="right" valign="top"><a id="a360f9d625dbc649d567249642c1db53c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sortPassengers</b> ()</td></tr>
+<tr class="separator:a360f9d625dbc649d567249642c1db53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3b7301dda5863379777c863df0b976e"><td class="memItemLeft" align="right" valign="top"><a id="ae3b7301dda5863379777c863df0b976e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sortPassengersByName</b> ()</td></tr>
+<tr class="separator:ae3b7301dda5863379777c863df0b976e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f061c2fa79b7f0e4f175fc68a59246"><td class="memItemLeft" align="right" valign="top"><a id="a94f061c2fa79b7f0e4f175fc68a59246"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sortStations</b> ()</td></tr>
+<tr class="separator:a94f061c2fa79b7f0e4f175fc68a59246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3961bbb1e8a309ef37c4366731bbb813"><td class="memItemLeft" align="right" valign="top"><a id="a3961bbb1e8a309ef37c4366731bbb813"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sortTrains</b> ()</td></tr>
+<tr class="separator:a3961bbb1e8a309ef37c4366731bbb813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9122a0e24a88b5111959fdc87b23bc6b"><td class="memItemLeft" align="right" valign="top"><a id="a9122a0e24a88b5111959fdc87b23bc6b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sortTrips</b> ()</td></tr>
+<tr class="separator:a9122a0e24a88b5111959fdc87b23bc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a2aace3c50cfbf7f9d2354cd858a59b"><td class="memItemLeft" align="right" valign="top"><a id="a3a2aace3c50cfbf7f9d2354cd858a59b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sortTripsByDate</b> ()</td></tr>
+<tr class="separator:a3a2aace3c50cfbf7f9d2354cd858a59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2b6f3d934b64f4fa56ffb1db1d261df"><td class="memItemLeft" align="right" valign="top"><a id="ac2b6f3d934b64f4fa56ffb1db1d261df"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>processTicketPurchaseRequest</b> (<a class="el" href="classTicketPurchaseRequest.html">TicketPurchaseRequest</a> &amp;request)</td></tr>
 <tr class="separator:ac2b6f3d934b64f4fa56ffb1db1d261df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebffe11376f68cb17175f30ea517c10b"><td class="memItemLeft" align="right" valign="top"><a id="aebffe11376f68cb17175f30ea517c10b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>processCards</b> ()</td></tr>
+<tr class="separator:aebffe11376f68cb17175f30ea517c10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5df9c6b2309272f8642cb16dbe5132e"><td class="memItemLeft" align="right" valign="top"><a id="ae5df9c6b2309272f8642cb16dbe5132e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>payCard</b> (id_t passengerID)</td></tr>
+<tr class="separator:ae5df9c6b2309272f8642cb16dbe5132e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23c0b01d0e84fa4665ce85203ce6747b"><td class="memItemLeft" align="right" valign="top"><a id="a23c0b01d0e84fa4665ce85203ce6747b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>listPassengers</b> (std::ostream &amp;os)</td></tr>
 <tr class="separator:a23c0b01d0e84fa4665ce85203ce6747b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,6 +199,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>printTrains</b> (std:
 <tr class="memitem:abaa61b6377abcfc61da32092e5d734d9"><td class="memItemLeft" align="right" valign="top"><a id="abaa61b6377abcfc61da32092e5d734d9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printTrips</b> (std::ostream &amp;os) const</td></tr>
 <tr class="separator:abaa61b6377abcfc61da32092e5d734d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaad47fd0e1bf746a0bed32feb9553e53"><td class="memItemLeft" align="right" valign="top"><a id="aaad47fd0e1bf746a0bed32feb9553e53"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printSales</b> (std::ostream &amp;os) const</td></tr>
+<tr class="separator:aaad47fd0e1bf746a0bed32feb9553e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>

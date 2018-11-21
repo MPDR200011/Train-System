@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['passenger',['Passenger',['../classPassenger.html',1,'Passenger'],['../classPassenger.html#a895d7a9cfd358b566ed78e0d81d37bff',1,'Passenger::Passenger()']]],
-  ['passengercard',['PassengerCard',['../classPassengerCard.html',1,'PassengerCard'],['../classPassengerCard.html#a1ebc730da7c0820350024f29c37ce9d9',1,'PassengerCard::PassengerCard()']]],
-  ['printrow',['printRow',['../classPassenger.html#a72e4042544557a3dd9c02198aa2582d8',1,'Passenger::printRow()'],['../classStation.html#a66c028cdffd79bddd0704235b051ff4e',1,'Station::printRow()']]]
+  ['removecard',['removeCard',['../classPassenger.html#a7afe05c6e57aa998954b878a5b632dac',1,'Passenger']]],
+  ['removetrip',['removeTrip',['../classPassenger.html#a41b476ee8e340a77b697196931f9df7b',1,'Passenger']]]
 ];

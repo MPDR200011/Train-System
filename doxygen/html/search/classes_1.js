@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['identicaldestinationexception',['IdenticalDestinationException',['../classIdenticalDestinationException.html',1,'']]],
-  ['invaliddateexception',['InvalidDateException',['../classInvalidDateException.html',1,'']]]
+  ['passenger',['Passenger',['../classPassenger.html',1,'']]],
+  ['passengercard',['PassengerCard',['../classPassengerCard.html',1,'']]]
 ];

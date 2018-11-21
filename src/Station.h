@@ -13,8 +13,8 @@ class Station {
 	/**
 	 * @brief Next ID counter
 	 * 
-	 * Used to set new ID when Passenger object is constructed, incremented every time a 
-	 * new Passenger object is constructed.
+	 * Used to set new ID when Station object is constructed, incremented every time a 
+	 * new Station object is constructed.
 	 * 
 	 */
 	static id_t currentID;

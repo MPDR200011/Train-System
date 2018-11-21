@@ -69,38 +69,46 @@ $(function() {
 <div class="title">Trip Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for representing a trip in the system.  
+ <a href="classTrip.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Trip_8h_source.html">Trip.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad7244e90c71e27914dab013835883502"><td class="memItemLeft" align="right" valign="top"><a id="ad7244e90c71e27914dab013835883502"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Trip</b> (uint basePrice, <a class="el" href="classStation.html">Station</a> *source, <a class="el" href="classStation.html">Station</a> *destination, <a class="el" href="classTrain.html">Train</a> *train, const std::string dapartureDate, const std::string arrivalDate)</td></tr>
-<tr class="separator:ad7244e90c71e27914dab013835883502"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7770a61e1211789c80b003eeedcaa09c"><td class="memItemLeft" align="right" valign="top"><a id="a7770a61e1211789c80b003eeedcaa09c"></a>
-id_t&#160;</td><td class="memItemRight" valign="bottom"><b>getID</b> () const</td></tr>
+<tr class="memitem:a2f799d60e9d2fa7d0e63a0e96b57f731"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a2f799d60e9d2fa7d0e63a0e96b57f731">Trip</a> (uint basePrice, <a class="el" href="classStation.html">Station</a> *source, <a class="el" href="classStation.html">Station</a> *destination, <a class="el" href="classTrain.html">Train</a> *train, const <a class="el" href="classDate.html">Date</a> departureDate, const <a class="el" href="classDate.html">Date</a> arrivalDate)</td></tr>
+<tr class="memdesc:a2f799d60e9d2fa7d0e63a0e96b57f731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classTrip.html" title="Class for representing a trip in the system. ">Trip</a> object.  <a href="#a2f799d60e9d2fa7d0e63a0e96b57f731">More...</a><br /></td></tr>
+<tr class="separator:a2f799d60e9d2fa7d0e63a0e96b57f731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7770a61e1211789c80b003eeedcaa09c"><td class="memItemLeft" align="right" valign="top">id_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a7770a61e1211789c80b003eeedcaa09c">getID</a> () const</td></tr>
+<tr class="memdesc:a7770a61e1211789c80b003eeedcaa09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">get ID of the trip  <a href="#a7770a61e1211789c80b003eeedcaa09c">More...</a><br /></td></tr>
 <tr class="separator:a7770a61e1211789c80b003eeedcaa09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa356ea90590c617311c911c98aac4093"><td class="memItemLeft" align="right" valign="top"><a id="aa356ea90590c617311c911c98aac4093"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getBasePrice</b> () const</td></tr>
-<tr class="separator:aa356ea90590c617311c911c98aac4093"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65b45d4816c85d47ef743e7c1cfe807f"><td class="memItemLeft" align="right" valign="top"><a id="a65b45d4816c85d47ef743e7c1cfe807f"></a>
-<a class="el" href="classStation.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSource</b> () const</td></tr>
+<tr class="memitem:af2a3a9f9e33b9dd31e9193cf48bec134"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#af2a3a9f9e33b9dd31e9193cf48bec134">getBasePrice</a> () const</td></tr>
+<tr class="memdesc:af2a3a9f9e33b9dd31e9193cf48bec134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Base Price.  <a href="#af2a3a9f9e33b9dd31e9193cf48bec134">More...</a><br /></td></tr>
+<tr class="separator:af2a3a9f9e33b9dd31e9193cf48bec134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9006732aa32a2b098538d48b63f2d276"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a9006732aa32a2b098538d48b63f2d276">getCurrentPrice</a> ()</td></tr>
+<tr class="memdesc:a9006732aa32a2b098538d48b63f2d276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the price with discounts in mind.  <a href="#a9006732aa32a2b098538d48b63f2d276">More...</a><br /></td></tr>
+<tr class="separator:a9006732aa32a2b098538d48b63f2d276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b45d4816c85d47ef743e7c1cfe807f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStation.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a65b45d4816c85d47ef743e7c1cfe807f">getSource</a> () const</td></tr>
+<tr class="memdesc:a65b45d4816c85d47ef743e7c1cfe807f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Source object.  <a href="#a65b45d4816c85d47ef743e7c1cfe807f">More...</a><br /></td></tr>
 <tr class="separator:a65b45d4816c85d47ef743e7c1cfe807f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a459ae85fc25404ba616fabfb4b4165f4"><td class="memItemLeft" align="right" valign="top"><a id="a459ae85fc25404ba616fabfb4b4165f4"></a>
-<a class="el" href="classStation.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getDest</b> () const</td></tr>
+<tr class="memitem:a459ae85fc25404ba616fabfb4b4165f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStation.html">Station</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a459ae85fc25404ba616fabfb4b4165f4">getDest</a> () const</td></tr>
+<tr class="memdesc:a459ae85fc25404ba616fabfb4b4165f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Destination object.  <a href="#a459ae85fc25404ba616fabfb4b4165f4">More...</a><br /></td></tr>
 <tr class="separator:a459ae85fc25404ba616fabfb4b4165f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7595a39e9aa91e321d37b1696da50024"><td class="memItemLeft" align="right" valign="top"><a id="a7595a39e9aa91e321d37b1696da50024"></a>
-<a class="el" href="classTrain.html">Train</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTrain</b> () const</td></tr>
+<tr class="memitem:a7595a39e9aa91e321d37b1696da50024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTrain.html">Train</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a7595a39e9aa91e321d37b1696da50024">getTrain</a> () const</td></tr>
+<tr class="memdesc:a7595a39e9aa91e321d37b1696da50024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the object of the train responsible for the trip.  <a href="#a7595a39e9aa91e321d37b1696da50024">More...</a><br /></td></tr>
 <tr class="separator:a7595a39e9aa91e321d37b1696da50024"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac506905deb66415b2fcee1c89579e628"><td class="memItemLeft" align="right" valign="top"><a id="ac506905deb66415b2fcee1c89579e628"></a>
-const <a class="el" href="classDate.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDepartureDate</b> () const</td></tr>
-<tr class="separator:ac506905deb66415b2fcee1c89579e628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dddee29651df86b5a2c45bd2e1d2fc6"><td class="memItemLeft" align="right" valign="top"><a id="a6dddee29651df86b5a2c45bd2e1d2fc6"></a>
-const <a class="el" href="classDate.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getArrivalDate</b> () const</td></tr>
-<tr class="separator:a6dddee29651df86b5a2c45bd2e1d2fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00e2b65d40562051bfe4124f581a49e1"><td class="memItemLeft" align="right" valign="top"><a id="a00e2b65d40562051bfe4124f581a49e1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>bookSeat</b> ()</td></tr>
+<tr class="memitem:ae7c3b34b692a17737a2b1200060fa479"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDate.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#ae7c3b34b692a17737a2b1200060fa479">getDepartureDate</a> ()</td></tr>
+<tr class="memdesc:ae7c3b34b692a17737a2b1200060fa479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Departure <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object.  <a href="#ae7c3b34b692a17737a2b1200060fa479">More...</a><br /></td></tr>
+<tr class="separator:ae7c3b34b692a17737a2b1200060fa479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821dfd23e37c28f1c0a2dab3f2836799"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDate.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a821dfd23e37c28f1c0a2dab3f2836799">getArrivalDate</a> ()</td></tr>
+<tr class="memdesc:a821dfd23e37c28f1c0a2dab3f2836799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Arrival <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object.  <a href="#a821dfd23e37c28f1c0a2dab3f2836799">More...</a><br /></td></tr>
+<tr class="separator:a821dfd23e37c28f1c0a2dab3f2836799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e2b65d40562051bfe4124f581a49e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a00e2b65d40562051bfe4124f581a49e1">bookSeat</a> ()</td></tr>
+<tr class="memdesc:a00e2b65d40562051bfe4124f581a49e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to book a seat in the trip.  <a href="#a00e2b65d40562051bfe4124f581a49e1">More...</a><br /></td></tr>
 <tr class="separator:a00e2b65d40562051bfe4124f581a49e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a233bab5c803f51ee5e79c611a15699c0"><td class="memItemLeft" align="right" valign="top"><a id="a233bab5c803f51ee5e79c611a15699c0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printRow</b> (std::ostream &amp;os)</td></tr>
+<tr class="memitem:a233bab5c803f51ee5e79c611a15699c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrip.html#a233bab5c803f51ee5e79c611a15699c0">printRow</a> (std::ostream &amp;os)</td></tr>
+<tr class="memdesc:a233bab5c803f51ee5e79c611a15699c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output trip information in a row fashion.  <a href="#a233bab5c803f51ee5e79c611a15699c0">More...</a><br /></td></tr>
 <tr class="separator:a233bab5c803f51ee5e79c611a15699c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -109,6 +117,285 @@ Friends</h2></td></tr>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, <a class="el" href="classTrip.html">Trip</a> &amp;tr)</td></tr>
 <tr class="separator:ad143ba29c1778aa25a53301503c3f2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for representing a trip in the system. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2f799d60e9d2fa7d0e63a0e96b57f731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f799d60e9d2fa7d0e63a0e96b57f731">&#9670;&nbsp;</a></span>Trip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Trip::Trip </td>
+          <td>(</td>
+          <td class="paramtype">uint&#160;</td>
+          <td class="paramname"><em>basePrice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStation.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStation.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>destination</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classTrain.html">Train</a> *&#160;</td>
+          <td class="paramname"><em>train</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDate.html">Date</a>&#160;</td>
+          <td class="paramname"><em>departureDate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classDate.html">Date</a>&#160;</td>
+          <td class="paramname"><em>arrivalDate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classTrip.html" title="Class for representing a trip in the system. ">Trip</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">basePrice</td><td>Base price of the trip in cents </td></tr>
+    <tr><td class="paramname">source</td><td>Pointer to source station </td></tr>
+    <tr><td class="paramname">destination</td><td>Pointer to destination station </td></tr>
+    <tr><td class="paramname">train</td><td>Pointer to train that will be in charge of the trip </td></tr>
+    <tr><td class="paramname">departureDate</td><td><a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object of the time of departure </td></tr>
+    <tr><td class="paramname">arrivalDate</td><td><a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object of the time of arrival </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a00e2b65d40562051bfe4124f581a49e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e2b65d40562051bfe4124f581a49e1">&#9670;&nbsp;</a></span>bookSeat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Trip::bookSeat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Try to book a seat in the trip. </p>
+<p>If the trip has no available seats it doesn't book one.</p>
+<dl class="section return"><dt>Returns</dt><dd>true If it had available seats and has booked one. </dd>
+<dd>
+false If it had no available seats. </dd></dl>
+
+</div>
+</div>
+<a id="a821dfd23e37c28f1c0a2dab3f2836799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a821dfd23e37c28f1c0a2dab3f2836799">&#9670;&nbsp;</a></span>getArrivalDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDate.html">Date</a> &amp; Trip::getArrivalDate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the Arrival <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a>&amp; </dd></dl>
+
+</div>
+</div>
+<a id="af2a3a9f9e33b9dd31e9193cf48bec134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2a3a9f9e33b9dd31e9193cf48bec134">&#9670;&nbsp;</a></span>getBasePrice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint Trip::getBasePrice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the Base Price. </p>
+<dl class="section return"><dt>Returns</dt><dd>uint Price in cents </dd></dl>
+
+</div>
+</div>
+<a id="a9006732aa32a2b098538d48b63f2d276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9006732aa32a2b098538d48b63f2d276">&#9670;&nbsp;</a></span>getCurrentPrice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint Trip::getCurrentPrice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the price with discounts in mind. </p>
+<dl class="section return"><dt>Returns</dt><dd>uint Price with dicounts in cents </dd></dl>
+
+</div>
+</div>
+<a id="ae7c3b34b692a17737a2b1200060fa479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7c3b34b692a17737a2b1200060fa479">&#9670;&nbsp;</a></span>getDepartureDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDate.html">Date</a> &amp; Trip::getDepartureDate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the Departure <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a>&amp; </dd></dl>
+
+</div>
+</div>
+<a id="a459ae85fc25404ba616fabfb4b4165f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a459ae85fc25404ba616fabfb4b4165f4">&#9670;&nbsp;</a></span>getDest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classStation.html">Station</a> * Trip::getDest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the Destination object. </p>
+<dl class="section return"><dt>Returns</dt><dd>Station* </dd></dl>
+
+</div>
+</div>
+<a id="a7770a61e1211789c80b003eeedcaa09c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7770a61e1211789c80b003eeedcaa09c">&#9670;&nbsp;</a></span>getID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">id_t Trip::getID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get ID of the trip </p>
+<dl class="section return"><dt>Returns</dt><dd>id_t </dd></dl>
+
+</div>
+</div>
+<a id="a65b45d4816c85d47ef743e7c1cfe807f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65b45d4816c85d47ef743e7c1cfe807f">&#9670;&nbsp;</a></span>getSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classStation.html">Station</a> * Trip::getSource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the Source object. </p>
+<dl class="section return"><dt>Returns</dt><dd>Station* </dd></dl>
+
+</div>
+</div>
+<a id="a7595a39e9aa91e321d37b1696da50024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7595a39e9aa91e321d37b1696da50024">&#9670;&nbsp;</a></span>getTrain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTrain.html">Train</a> * Trip::getTrain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the object of the train responsible for the trip. </p>
+<dl class="section return"><dt>Returns</dt><dd>Train* </dd></dl>
+
+</div>
+</div>
+<a id="a233bab5c803f51ee5e79c611a15699c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a233bab5c803f51ee5e79c611a15699c0">&#9670;&nbsp;</a></span>printRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Trip::printRow </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Output trip information in a row fashion. </p>
+<p>Outputs the object's information as it was a row in a table. Useful for outputing all <a class="el" href="classTrip.html" title="Class for representing a trip in the system. ">Trip</a> objects in the system.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>The output stream to which the trip will be output. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Trip_8h_source.html">Trip.h</a></li>
 <li>Trip.cpp</li>

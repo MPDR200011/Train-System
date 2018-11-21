@@ -27,6 +27,18 @@ std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \& {\bfseri
 \mbox{\Hypertarget{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}\label{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}} 
 \mbox{\hyperlink{classStation}{Station}} $\ast$ {\bfseries get\+Station} (const id\+\_\+t id)
 \item 
+\mbox{\Hypertarget{classSystem_a231710db7f31b3fec68f90fd90b292eb}\label{classSystem_a231710db7f31b3fec68f90fd90b292eb}} 
+int {\bfseries get\+Station\+Index} (id\+\_\+t station\+ID)
+\item 
+\mbox{\Hypertarget{classSystem_a15d033a2efda45b83bbe0800698ae712}\label{classSystem_a15d033a2efda45b83bbe0800698ae712}} 
+int {\bfseries get\+Train\+Index} (id\+\_\+t train\+ID)
+\item 
+\mbox{\Hypertarget{classSystem_aa431fdc152458fc39efb9a60e9f62f01}\label{classSystem_aa431fdc152458fc39efb9a60e9f62f01}} 
+int {\bfseries get\+Trip\+Index} (id\+\_\+t trip\+ID)
+\item 
+\mbox{\Hypertarget{classSystem_a293b247432ab577c9bf0ba7285a6eeda}\label{classSystem_a293b247432ab577c9bf0ba7285a6eeda}} 
+std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ {\bfseries search\+Trips} (\mbox{\hyperlink{classStation}{Station}} $\ast$src, \mbox{\hyperlink{classStation}{Station}} $\ast$dest, bool search\+By\+Arrival\+Date, \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
+\item 
 \mbox{\Hypertarget{classSystem_a933891c246bf870518f334ea5666b95c}\label{classSystem_a933891c246bf870518f334ea5666b95c}} 
 bool {\bfseries add\+Passenger} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$passenger)
 \item 
@@ -51,20 +63,47 @@ bool {\bfseries remove\+Station} (id\+\_\+t id)
 \mbox{\Hypertarget{classSystem_acf1d845cdb88b43143b3f738214e866b}\label{classSystem_acf1d845cdb88b43143b3f738214e866b}} 
 bool {\bfseries remove\+Train} (id\+\_\+t id)
 \item 
-\mbox{\Hypertarget{classSystem_a9e71afb2e06ab9a315436b17dfc04d69}\label{classSystem_a9e71afb2e06ab9a315436b17dfc04d69}} 
-bool {\bfseries create\+Passenger} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\mbox{\Hypertarget{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}\label{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}} 
+void {\bfseries create\+Passenger} (std\+::string name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
 \item 
-\mbox{\Hypertarget{classSystem_a132bfbf3cfb3aab1e9dad1bf1b2710b4}\label{classSystem_a132bfbf3cfb3aab1e9dad1bf1b2710b4}} 
-bool {\bfseries create\+Station} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\mbox{\Hypertarget{classSystem_a9e317da5b607c6dee850089f340dd9e7}\label{classSystem_a9e317da5b607c6dee850089f340dd9e7}} 
+void {\bfseries create\+Card} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$p, std\+::string type)
 \item 
-\mbox{\Hypertarget{classSystem_aeead09c522819325eb24ff92d3a37404}\label{classSystem_aeead09c522819325eb24ff92d3a37404}} 
-bool {\bfseries create\+Train} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\mbox{\Hypertarget{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}\label{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}} 
+void {\bfseries create\+Station} (std\+::string name)
 \item 
-\mbox{\Hypertarget{classSystem_a5d889af9f91d199945425325df56a023}\label{classSystem_a5d889af9f91d199945425325df56a023}} 
-bool {\bfseries create\+Trip} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\mbox{\Hypertarget{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}\label{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}} 
+void {\bfseries create\+Train} (uint max\+Seats)
+\item 
+\mbox{\Hypertarget{classSystem_aea8519bf009400085f8e499891b7eb37}\label{classSystem_aea8519bf009400085f8e499891b7eb37}} 
+void {\bfseries create\+Trip} (uint base\+Price, \mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, \mbox{\hyperlink{classTrain}{Train}} $\ast$train, const \mbox{\hyperlink{classDate}{Date}} daparture\+Date, const \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
+\item 
+\mbox{\Hypertarget{classSystem_a360f9d625dbc649d567249642c1db53c}\label{classSystem_a360f9d625dbc649d567249642c1db53c}} 
+void {\bfseries sort\+Passengers} ()
+\item 
+\mbox{\Hypertarget{classSystem_ae3b7301dda5863379777c863df0b976e}\label{classSystem_ae3b7301dda5863379777c863df0b976e}} 
+void {\bfseries sort\+Passengers\+By\+Name} ()
+\item 
+\mbox{\Hypertarget{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}\label{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}} 
+void {\bfseries sort\+Stations} ()
+\item 
+\mbox{\Hypertarget{classSystem_a3961bbb1e8a309ef37c4366731bbb813}\label{classSystem_a3961bbb1e8a309ef37c4366731bbb813}} 
+void {\bfseries sort\+Trains} ()
+\item 
+\mbox{\Hypertarget{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}\label{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}} 
+void {\bfseries sort\+Trips} ()
+\item 
+\mbox{\Hypertarget{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}\label{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}} 
+void {\bfseries sort\+Trips\+By\+Date} ()
 \item 
 \mbox{\Hypertarget{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}\label{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}} 
 bool {\bfseries process\+Ticket\+Purchase\+Request} (\mbox{\hyperlink{classTicketPurchaseRequest}{Ticket\+Purchase\+Request}} \&request)
+\item 
+\mbox{\Hypertarget{classSystem_aebffe11376f68cb17175f30ea517c10b}\label{classSystem_aebffe11376f68cb17175f30ea517c10b}} 
+void {\bfseries process\+Cards} ()
+\item 
+\mbox{\Hypertarget{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}\label{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}} 
+bool {\bfseries pay\+Card} (id\+\_\+t passenger\+ID)
 \item 
 \mbox{\Hypertarget{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}\label{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}} 
 void {\bfseries list\+Passengers} (std\+::ostream \&os)
@@ -89,6 +128,9 @@ void {\bfseries print\+Trains} (std\+::ostream \&os) const
 \item 
 \mbox{\Hypertarget{classSystem_abaa61b6377abcfc61da32092e5d734d9}\label{classSystem_abaa61b6377abcfc61da32092e5d734d9}} 
 void {\bfseries print\+Trips} (std\+::ostream \&os) const
+\item 
+\mbox{\Hypertarget{classSystem_aaad47fd0e1bf746a0bed32feb9553e53}\label{classSystem_aaad47fd0e1bf746a0bed32feb9553e53}} 
+void {\bfseries print\+Sales} (std\+::ostream \&os) const
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}

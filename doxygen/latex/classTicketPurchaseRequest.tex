@@ -1,29 +1,135 @@
 \hypertarget{classTicketPurchaseRequest}{}\section{Ticket\+Purchase\+Request Class Reference}
 \label{classTicketPurchaseRequest}\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+
+
+Class to represent a ticket purchase request.  
+
+
+
+
+{\ttfamily \#include $<$Ticket\+Purchase\+Request.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTicketPurchaseRequest_aaa01be19b8a8ef88428f4d1dc3a3c63c}\label{classTicketPurchaseRequest_aaa01be19b8a8ef88428f4d1dc3a3c63c}} 
-{\bfseries Ticket\+Purchase\+Request} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$passenger, \mbox{\hyperlink{classTrip}{Trip}} $\ast$t)
-\item 
-\mbox{\Hypertarget{classTicketPurchaseRequest_a08428a7617aa26c16702420e61ce0312}\label{classTicketPurchaseRequest_a08428a7617aa26c16702420e61ce0312}} 
-const \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ {\bfseries get\+Passenger} () const
-\item 
-\mbox{\Hypertarget{classTicketPurchaseRequest_a7ae48dcccbcddb298fae1bd74048570b}\label{classTicketPurchaseRequest_a7ae48dcccbcddb298fae1bd74048570b}} 
-const \mbox{\hyperlink{classTrip}{Trip}} $\ast$ {\bfseries get\+Trip} () const
-\item 
-\mbox{\Hypertarget{classTicketPurchaseRequest_a289ba4fd54f5a0e5a8e8e4eecbff6b23}\label{classTicketPurchaseRequest_a289ba4fd54f5a0e5a8e8e4eecbff6b23}} 
-void {\bfseries set\+Price} (uint price)
-\item 
-\mbox{\Hypertarget{classTicketPurchaseRequest_a626107dad44c79663d318573e5c6bae2}\label{classTicketPurchaseRequest_a626107dad44c79663d318573e5c6bae2}} 
-void {\bfseries print\+Invoice} (std\+::ostream \&os)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classTicketPurchaseRequest_aaa01be19b8a8ef88428f4d1dc3a3c63c}{Ticket\+Purchase\+Request}} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$passenger, \mbox{\hyperlink{classTrip}{Trip}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Construct a new Ticket Purchase Request object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTicketPurchaseRequest_afdd1e6ed2929ecb81dbefd1aecf22326}\label{classTicketPurchaseRequest_afdd1e6ed2929ecb81dbefd1aecf22326}} 
+\mbox{\hyperlink{classTicketPurchaseRequest_afdd1e6ed2929ecb81dbefd1aecf22326}{$\sim$\+Ticket\+Purchase\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Ticket Purchase Request object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ \mbox{\hyperlink{classTicketPurchaseRequest_a08428a7617aa26c16702420e61ce0312}{get\+Passenger}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classPassenger}{Passenger}} object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classTrip}{Trip}} $\ast$ \mbox{\hyperlink{classTicketPurchaseRequest_a7ae48dcccbcddb298fae1bd74048570b}{get\+Trip}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrip}{Trip}} object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classTicketInvoice}{Ticket\+Invoice}} \mbox{\hyperlink{classTicketPurchaseRequest_a24d2aab14853b8f7c8f5487145f3d26e}{get\+Invoice}} () const
+\begin{DoxyCompactList}\small\item\em Get the Invoice object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTicketPurchaseRequest_a35b5d38bf3d6d00f90041762f2ca93ee}{set\+Invoice\+Price}} (uint price)
+\begin{DoxyCompactList}\small\item\em Set the price of the invoiceof the purchase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTicketPurchaseRequest_a626107dad44c79663d318573e5c6bae2}{print\+Invoice}} (std\+::ostream \&os)
+\begin{DoxyCompactList}\small\item\em Prints the invoice the a specified output buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classTicketPurchaseRequest_af18a9ee98e70982bfe2975391d7221a5}\label{classTicketPurchaseRequest_af18a9ee98e70982bfe2975391d7221a5}} 
 class {\bfseries System}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to represent a ticket purchase request. 
+
+Objects of this class are passed to the system to be processed and validated. Contains a \mbox{\hyperlink{classTicketInvoice}{Ticket\+Invoice}} object with price set to 0, it is later set by the system when the request is processed. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTicketPurchaseRequest_aaa01be19b8a8ef88428f4d1dc3a3c63c}\label{classTicketPurchaseRequest_aaa01be19b8a8ef88428f4d1dc3a3c63c}} 
+\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}!Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}!Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+\subsubsection{\texorpdfstring{Ticket\+Purchase\+Request()}{TicketPurchaseRequest()}}
+{\footnotesize\ttfamily Ticket\+Purchase\+Request\+::\+Ticket\+Purchase\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$}]{passenger,  }\item[{\mbox{\hyperlink{classTrip}{Trip}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Construct a new Ticket Purchase Request object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em passenger} & Pointer to passenger object that purchased the ticket \\
+\hline
+{\em t} & Pointer to trip object which ticket has be bought \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTicketPurchaseRequest_a24d2aab14853b8f7c8f5487145f3d26e}\label{classTicketPurchaseRequest_a24d2aab14853b8f7c8f5487145f3d26e}} 
+\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}!get\+Invoice@{get\+Invoice}}
+\index{get\+Invoice@{get\+Invoice}!Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+\subsubsection{\texorpdfstring{get\+Invoice()}{getInvoice()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classTicketInvoice}{Ticket\+Invoice}} Ticket\+Purchase\+Request\+::get\+Invoice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Invoice object. 
+
+\begin{DoxyReturn}{Returns}
+const \mbox{\hyperlink{classTicketInvoice}{Ticket\+Invoice}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTicketPurchaseRequest_a08428a7617aa26c16702420e61ce0312}\label{classTicketPurchaseRequest_a08428a7617aa26c16702420e61ce0312}} 
+\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}!get\+Passenger@{get\+Passenger}}
+\index{get\+Passenger@{get\+Passenger}!Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+\subsubsection{\texorpdfstring{get\+Passenger()}{getPassenger()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ Ticket\+Purchase\+Request\+::get\+Passenger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classPassenger}{Passenger}} object. 
+
+\begin{DoxyReturn}{Returns}
+const Passenger$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTicketPurchaseRequest_a7ae48dcccbcddb298fae1bd74048570b}\label{classTicketPurchaseRequest_a7ae48dcccbcddb298fae1bd74048570b}} 
+\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}!get\+Trip@{get\+Trip}}
+\index{get\+Trip@{get\+Trip}!Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+\subsubsection{\texorpdfstring{get\+Trip()}{getTrip()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classTrip}{Trip}} $\ast$ Ticket\+Purchase\+Request\+::get\+Trip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classTrip}{Trip}} object. 
+
+\begin{DoxyReturn}{Returns}
+const Trip$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTicketPurchaseRequest_a626107dad44c79663d318573e5c6bae2}\label{classTicketPurchaseRequest_a626107dad44c79663d318573e5c6bae2}} 
+\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}!print\+Invoice@{print\+Invoice}}
+\index{print\+Invoice@{print\+Invoice}!Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+\subsubsection{\texorpdfstring{print\+Invoice()}{printInvoice()}}
+{\footnotesize\ttfamily void Ticket\+Purchase\+Request\+::print\+Invoice (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Prints the invoice the a specified output buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output buffer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTicketPurchaseRequest_a35b5d38bf3d6d00f90041762f2ca93ee}\label{classTicketPurchaseRequest_a35b5d38bf3d6d00f90041762f2ca93ee}} 
+\index{Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}!set\+Invoice\+Price@{set\+Invoice\+Price}}
+\index{set\+Invoice\+Price@{set\+Invoice\+Price}!Ticket\+Purchase\+Request@{Ticket\+Purchase\+Request}}
+\subsubsection{\texorpdfstring{set\+Invoice\+Price()}{setInvoicePrice()}}
+{\footnotesize\ttfamily void Ticket\+Purchase\+Request\+::set\+Invoice\+Price (\begin{DoxyParamCaption}\item[{uint}]{price }\end{DoxyParamCaption})}
+
+
+
+Set the price of the invoiceof the purchase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em price} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

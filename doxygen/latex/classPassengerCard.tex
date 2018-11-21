@@ -24,7 +24,13 @@ enum \mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card
 \mbox{\hyperlink{classPassengerCard_a1ebc730da7c0820350024f29c37ce9d9}{Passenger\+Card}} (\mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card\+Type}} type, id\+\_\+t passenger\+ID, std\+::string p\+Name)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classPassenger}{Passenger}} Card object. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}{get\+Discount}} () const
-\begin{DoxyCompactList}\small\item\em Get the discount percentage provided by the card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the discount percentage provided by the card. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card\+Type}} \mbox{\hyperlink{classPassengerCard_aef682e4bb625ac937c4aec7999c92626}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get the Type object. \end{DoxyCompactList}\item 
+uint \mbox{\hyperlink{classPassengerCard_a8428ca4fc3d4c7b4636be628c2fe5aad}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Get the monthly cost of the card. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPassengerCard_ab0c4c67f185dc1abee907b6cd50413bf}{set\+Type}} (\mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Set the typeof the card. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -58,6 +64,19 @@ Construct a new \mbox{\hyperlink{classPassenger}{Passenger}} Card object.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPassengerCard_a8428ca4fc3d4c7b4636be628c2fe5aad}\label{classPassengerCard_a8428ca4fc3d4c7b4636be628c2fe5aad}} 
+\index{Passenger\+Card@{Passenger\+Card}!get\+Cost@{get\+Cost}}
+\index{get\+Cost@{get\+Cost}!Passenger\+Card@{Passenger\+Card}}
+\subsubsection{\texorpdfstring{get\+Cost()}{getCost()}}
+{\footnotesize\ttfamily uint Passenger\+Card\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the monthly cost of the card. 
+
+\begin{DoxyReturn}{Returns}
+uint Monthly cost of the card in cents 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}\label{classPassengerCard_a62d2651d233d28643d5e0863500c42c4}} 
 \index{Passenger\+Card@{Passenger\+Card}!get\+Discount@{get\+Discount}}
 \index{get\+Discount@{get\+Discount}!Passenger\+Card@{Passenger\+Card}}
@@ -71,6 +90,34 @@ Get the discount percentage provided by the card.
 \begin{DoxyReturn}{Returns}
 int Percentag of discount 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classPassengerCard_aef682e4bb625ac937c4aec7999c92626}\label{classPassengerCard_aef682e4bb625ac937c4aec7999c92626}} 
+\index{Passenger\+Card@{Passenger\+Card}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Passenger\+Card@{Passenger\+Card}}
+\subsubsection{\texorpdfstring{get\+Type()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Passenger\+Card\+::\+Card\+Type}} Passenger\+Card\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Type object. 
+
+\begin{DoxyReturn}{Returns}
+Card\+Type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPassengerCard_ab0c4c67f185dc1abee907b6cd50413bf}\label{classPassengerCard_ab0c4c67f185dc1abee907b6cd50413bf}} 
+\index{Passenger\+Card@{Passenger\+Card}!set\+Type@{set\+Type}}
+\index{set\+Type@{set\+Type}!Passenger\+Card@{Passenger\+Card}}
+\subsubsection{\texorpdfstring{set\+Type()}{setType()}}
+{\footnotesize\ttfamily void Passenger\+Card\+::set\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPassengerCard_ac30388c823af514403463a797e2878af}{Card\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Set the typeof the card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Data Documentation}

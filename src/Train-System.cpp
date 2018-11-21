@@ -382,12 +382,12 @@ void createTrip() {
 }
 
 void deleteTask() {
-	cout << "What do you wnat to delete? (passenger/station/train/trip) - ";
+	cout << "What do you want to delete? (passenger/station/train/trip/-1 to return to main menu) - ";
 	string choice;
 	bool validChoice = false;
 	while (!validChoice) {
 		readLine(choice);
-		if (choice == "passenger" || choice == "station" || choice == "train" || choice == "trip") {
+		if (choice == "passenger" || choice == "station" || choice == "train" || choice == "trip" || choice == "-1") {
 			validChoice = true;
 		} else {
 			cout << "Invalid choice, try again - ";
@@ -402,8 +402,10 @@ void deleteTask() {
 		System::instance.removeStation(id);
 	} else if (choice == "train") {
 		System::instance.removeTrain(id);
-	} else {
+	} else if (choice == "trip"){
 		System::instance.removeTrip(id);
+	} else {
+		return;
 	}
 
 	cout << "Done." << endl;
@@ -411,6 +413,7 @@ void deleteTask() {
 }
 
 void searchTask() {
+	System::instance.sortTripsByDate();
 	cout << "Specify a source restraint? (y/n) - ";
 	bool searchBySrc;
 	string choice;
@@ -528,12 +531,12 @@ void purchaseTask() {
 }
 
 void listTask() {
-	cout << "What to list (passengers/stations/trains/trips) ? ";
+	cout << "What to list (passengers/stations/trains/trips/-1 to return to main menu) ? ";
 	string choice;
 	bool validChoice = false;
 	while (!validChoice) {
 		readLine(choice);
-		if (choice == "passengers" || choice == "stations" || choice == "trains" || choice == "trips") {
+		if (choice == "passengers" || choice == "stations" || choice == "trains" || choice == "trips" || choice == "-1") {
 			validChoice = true;
 		} else {
 			cout << "Invalid choice, try again - ";
@@ -545,8 +548,10 @@ void listTask() {
 		System::instance.listStations(cout);
 	} else if (choice == "trains") {
 		System::instance.listTrains(cout);
-	} else {
+	} else if (choice == "trips"){
 		System::instance.listTrips(cout);
+	} else {
+		return;
 	}
 }
 
@@ -832,7 +837,7 @@ void savePurchases() {
 			if (tripID == -1) {
 				continue;
 			}
-			purchases << i << " " << tripID;
+			purchases << i << " " << tripID << endl;
 		}
 	}
 	
@@ -933,3 +938,6 @@ int main() {
 
 	return 0;
 }
+
+//TODO doc interface
+//TODO doc system

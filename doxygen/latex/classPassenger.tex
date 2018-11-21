@@ -12,7 +12,7 @@ Class for representing a passenger in the system.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classPassenger_a895d7a9cfd358b566ed78e0d81d37bff}{Passenger}} (std\+::string name, std\+::string birth\+Date)
+\mbox{\hyperlink{classPassenger_ac66212e8c1e35bb4423c6e1624ae31d9}{Passenger}} (std\+::string name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classPassenger}{Passenger}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPassenger_a6a6747cafd45d2c85db2ec4e873be3c7}{$\sim$\+Passenger}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classPassenger}{Passenger}} object. \end{DoxyCompactList}\item 
@@ -26,8 +26,15 @@ const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classPassenger_aa21
 \begin{DoxyCompactList}\small\item\em Get the Birth \mbox{\hyperlink{classDate}{Date}} object. \end{DoxyCompactList}\item 
 const std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& \mbox{\hyperlink{classPassenger_a06dfa54524d4ca1a85b1599b278fb871}{get\+Trips}} () const
 \begin{DoxyCompactList}\small\item\em Get the Trips object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}{set\+Card}} (\mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Set the passenger\textquotesingle{}s card. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classPassenger_a2fef29e013c88ba7a75d259cebfa655d}{add\+Trip}} (\mbox{\hyperlink{classTrip}{Trip}} $\ast$trip)
 \begin{DoxyCompactList}\small\item\em Add a \mbox{\hyperlink{classTrip}{Trip}} to the trips vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPassenger_a7afe05c6e57aa998954b878a5b632dac}\label{classPassenger_a7afe05c6e57aa998954b878a5b632dac}} 
+void \mbox{\hyperlink{classPassenger_a7afe05c6e57aa998954b878a5b632dac}{remove\+Card}} ()
+\begin{DoxyCompactList}\small\item\em Remove the passenger\textquotesingle{}s card;. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPassenger_a41b476ee8e340a77b697196931f9df7b}{remove\+Trip}} (id\+\_\+t it)
+\begin{DoxyCompactList}\small\item\em Remove a trip from the trips vector. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPassenger_a72e4042544557a3dd9c02198aa2582d8}{print\+Row}} (std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Output the object\textquotesingle{}s attributes in a row fashion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
@@ -43,11 +50,11 @@ Class for representing a passenger in the system.
 Holds his ID, name, pointer to a \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} object (if he has one), a \mbox{\hyperlink{classDate}{Date}} object representing his date of birth and a vector of pointers to trips he has bought tickets for. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classPassenger_a895d7a9cfd358b566ed78e0d81d37bff}\label{classPassenger_a895d7a9cfd358b566ed78e0d81d37bff}} 
+\mbox{\Hypertarget{classPassenger_ac66212e8c1e35bb4423c6e1624ae31d9}\label{classPassenger_ac66212e8c1e35bb4423c6e1624ae31d9}} 
 \index{Passenger@{Passenger}!Passenger@{Passenger}}
 \index{Passenger@{Passenger}!Passenger@{Passenger}}
 \subsubsection{\texorpdfstring{Passenger()}{Passenger()}}
-{\footnotesize\ttfamily Passenger\+::\+Passenger (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{birth\+Date }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Passenger\+::\+Passenger (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{birth\+Date }\end{DoxyParamCaption})}
 
 
 
@@ -175,6 +182,43 @@ Outputs the object\textquotesingle{}s information as it was a row in a table. Us
 {\em os} & Output stream to wich object will be output \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classPassenger_a41b476ee8e340a77b697196931f9df7b}\label{classPassenger_a41b476ee8e340a77b697196931f9df7b}} 
+\index{Passenger@{Passenger}!remove\+Trip@{remove\+Trip}}
+\index{remove\+Trip@{remove\+Trip}!Passenger@{Passenger}}
+\subsubsection{\texorpdfstring{remove\+Trip()}{removeTrip()}}
+{\footnotesize\ttfamily void Passenger\+::remove\+Trip (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{it }\end{DoxyParamCaption})}
+
+
+
+Remove a trip from the trips vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em it} & ID of the trip to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}\label{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}} 
+\index{Passenger@{Passenger}!set\+Card@{set\+Card}}
+\index{set\+Card@{set\+Card}!Passenger@{Passenger}}
+\subsubsection{\texorpdfstring{set\+Card()}{setCard()}}
+{\footnotesize\ttfamily bool Passenger\+::set\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Set the passenger\textquotesingle{}s card. 
+
+Sets the passenger card wether he has one or not. If the passenger already has one, it is treated as changing the type of the card.
+
+
+\begin{DoxyParams}{Parameters}
+{\em card} & Pointer to the \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the \mbox{\hyperlink{classPassenger}{Passenger}} didn\textquotesingle{}t have a card 
+
+false If the \mbox{\hyperlink{classPassenger}{Passenger}} didn\textquotesingle{}t have a card 
+\end{DoxyReturn}
 
 
 \subsection{Friends And Related Function Documentation}
