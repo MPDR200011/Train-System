@@ -4,13 +4,18 @@ using namespace std;
 
 id_t PurchaseLog::currentId = 0;
 
-PurchaseLog::PurchaseLog(string passengerName, string sourceName, string destName, string departureDate, string price):
+PurchaseLog::PurchaseLog(int tripID, string passengerName, string sourceName, string destName, string departureDate, string price):
     passengerName(passengerName), sourceName(sourceName), destName(destName), departureDate(departureDate), price(price) {
         this->logID = currentId++;
+        this->tripID = tripID;
 }
 
 const id_t PurchaseLog::getID() const {
     return logID;
+}
+
+const int PurchaseLog::getTripID() const {
+    return tripID;
 }
 
 const string PurchaseLog::getPassengerName() const {

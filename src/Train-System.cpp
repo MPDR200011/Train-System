@@ -478,16 +478,34 @@ void deleteTask() {
 			cout << "Invalid choice, try again - ";
 		}
 	}
-	cout << "ID - ";
-	id_t id;
-	readVar(id);
+	
 	if (choice == "passenger") {
+		System::instance.listPassengers(cout);
+		cout << endl;
+		cout << "ID - ";
+		id_t id;
+		readVar(id);
 		System::instance.removePassenger(id);
 	} else if (choice == "station") {
+		System::instance.listStations(cout);
+		cout << endl;
+		cout << "ID - ";
+		id_t id;
+		readVar(id);
 		System::instance.removeStation(id);
 	} else if (choice == "train") {
+		System::instance.listTrains(cout);
+		cout << endl;
+		cout << "ID - ";
+		id_t id;
+		readVar(id);
 		System::instance.removeTrain(id);
 	} else if (choice == "trip"){
+		System::instance.listTrips(cout);
+		cout << endl;
+		cout << "ID - ";
+		id_t id;
+		readVar(id);
 		System::instance.removeTrip(id);
 	} else {
 		return;
@@ -513,6 +531,8 @@ void searchTask() {
 
 	Station *src = nullptr;
 	if (searchBySrc) {
+		System::instance.listStations(cout);
+		cout << endl;
 		id_t id;
 		cout << "Please input the ID of the source station - ";
 		readVar(id);
@@ -581,6 +601,8 @@ void searchTask() {
 }
 
 void purchaseTask() {
+	System::instance.listPassengers(cout);
+	cout << endl;
 	cout << "ID of passenger - ";
 	Passenger *passenger;
 	id_t passengerID;
@@ -592,6 +614,8 @@ void purchaseTask() {
 		return;
 	}
 
+	System::instance.listTrips(cout);
+	cout << endl;
 	cout << "ID of the trip - ";
 	Trip *tr;
 	id_t tripID;
@@ -641,6 +665,8 @@ void listTask() {
 }
 
 void payCard() {
+	System::instance.listPassengers(cout);
+	cout << endl;
 	cout << "Please enter the ID of the passenger whose card is being paid - ";
 	id_t passengerID;
 	readVar(passengerID);
@@ -831,17 +857,31 @@ void loadPurchases() {
 		string line;
 		while (getline(purchases, line)) {
 			vector<string> arguments = splitArgumets(line);
-			if (arguments.size() == 6) {
+			if (arguments.size() == 7) {
 				try {
 					Passenger *p = System::instance.getPassenger(stoi(arguments[0]));
-					PurchaseLog log(arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
+					if (stoi(arguments[6]) != -1) {
+						Trip *tr = System::instance.getTrip(stoi(arguments[6]));
+						tr->bookSeat();
+					}
+					PurchaseLog log(stoi(arguments[6]), arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
 					System::instance.logPurchase(log);
 					p->logTrip(log);
-				} catch (exception &e) {
+				} catch (NoSuchPassengerException &e) {
+					continue;
+				} catch (NoSuchTripException &e) {
 					continue;
 				}
-			} else if (arguments.size() == 5) {
-				PurchaseLog log(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+			} else if (arguments.size() == 6) {
+				if (stoi(arguments[5]) != -1) {
+					try {
+						Trip *tr = System::instance.getTrip(stoi(arguments[5]));
+						tr->bookSeat();
+					} catch (NoSuchTripException &e) {
+						continue;
+					}
+				}
+				PurchaseLog log(stoi(arguments[5]),arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
 				System::instance.logPurchase(log);
 			} else {
 				continue;
@@ -910,7 +950,7 @@ void saveTrips() {
 		trips << vec[i]->getBasePrice() << " "
 		<< srcIndex << " " << destIndex << " " << trainIndex << " "
 		<< "\"" << vec[i]->getDepartureDate().getDateString() << "\" \""
-		<< vec[i]->getDepartureDate().getDateString() << "\"" << endl;
+		<< vec[i]->getArrivalDate().getDateString() << "\"" << endl;
 	}
 	trips.close();
 }
@@ -929,7 +969,12 @@ void savePurchases() {
 			purchases << "\"" << log.getSourceName() << "\" ";
 			purchases << "\"" << log.getDestName() << "\" ";
 			purchases << "\"" << log.getDepartureDate() << "\" ";
-			purchases << "\"" << log.getPrice() << "\"" << endl;
+			purchases << "\"" << log.getPrice() << "\" ";
+			if (log.getTripID() == -1){
+				purchases << -1 << endl;
+			} else {
+				purchases << System::instance.getTripIndex(log.getTripID()) << endl;
+			}
 		}
 	}
 
@@ -939,7 +984,12 @@ void savePurchases() {
 			purchases << "\"" << log.getSourceName() << "\" ";
 			purchases << "\"" << log.getDestName() << "\" ";
 			purchases << "\"" << log.getDepartureDate() << "\" ";
-			purchases << "\"" << log.getPrice() << "\"" << endl;
+			purchases << "\"" << log.getPrice() << "\" " << endl;
+			if (log.getTripID() == -1){
+				purchases << -1 << endl;
+			} else {
+				purchases << System::instance.getTripIndex(log.getTripID()) << endl;
+			}
 		}
 	}
 	

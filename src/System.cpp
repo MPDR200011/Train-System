@@ -297,7 +297,7 @@ bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 			price *= 1-(card->getDiscount()/100.0);
 		}
 		request.setInvoicePrice(price);
-		PurchaseLog log(request.passenger->getName(), 
+		PurchaseLog log(request.trip->getID(),request.passenger->getName(), 
 			request.trip->getSource()->getName(),
 			request.trip->getDest()->getName(),
 			request.trip->getDepartureDate().getDateString(),

@@ -8,9 +8,10 @@
 class PurchaseLog {
 public:
     static id_t currentId;
-    PurchaseLog(std::string passengerName, std::string sourceName, std::string destName, std::string departureDate, std::string price);
+    PurchaseLog(int tripID, std::string passengerName, std::string sourceName, std::string destName, std::string departureDate, std::string price);
 
     const id_t getID() const;
+    const int getTripID() const;
     const std::string getPassengerName() const;
     const std::string getSourceName() const;
     const std::string getDestName() const;
@@ -21,6 +22,7 @@ public:
 
 private:
     id_t logID;
+    int tripID;
     std::string passengerName;
     std::string sourceName;
     std::string destName;
