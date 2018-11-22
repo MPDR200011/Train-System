@@ -79,9 +79,14 @@ void \mbox{\hyperlink{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}{sort\+Trips
 \begin{DoxyCompactList}\small\item\em Sort trips in vector by time of departure. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}{process\+Ticket\+Purchase\+Request}} (\mbox{\hyperlink{classTicketPurchaseRequest}{Ticket\+Purchase\+Request}} \&request)
 \begin{DoxyCompactList}\small\item\em Process a request for a ticket purchase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a3d823d755bcbc5843dd261b88693bc69}{log\+Purchase}} (\mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} log)
+\begin{DoxyCompactList}\small\item\em Log a purchase request. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSystem_af8aa6900656b6e81c7f13db29782baa4}\label{classSystem_af8aa6900656b6e81c7f13db29782baa4}} 
+const std\+::vector$<$ \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} $>$ \& {\bfseries get\+Logs} () const
+\item 
 void \mbox{\hyperlink{classSystem_aebffe11376f68cb17175f30ea517c10b}{process\+Cards}} ()
 \begin{DoxyCompactList}\small\item\em End of month card processing. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}{pay\+Card}} (id\+\_\+t passenger\+ID)
+bool \mbox{\hyperlink{classSystem_a93e28750e7677d09a7eb2acfc2590209}{pay\+Card}} (id\+\_\+t passenger\+ID, std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Process card monthly fee payment. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}{list\+Passengers}} (std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Print a table of passengers. \end{DoxyCompactList}\item 
@@ -499,11 +504,26 @@ Prints all trips\textquotesingle{} information in a formated table
 {\em os} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}\label{classSystem_ae5df9c6b2309272f8642cb16dbe5132e}} 
+\mbox{\Hypertarget{classSystem_a3d823d755bcbc5843dd261b88693bc69}\label{classSystem_a3d823d755bcbc5843dd261b88693bc69}} 
+\index{System@{System}!log\+Purchase@{log\+Purchase}}
+\index{log\+Purchase@{log\+Purchase}!System@{System}}
+\subsubsection{\texorpdfstring{log\+Purchase()}{logPurchase()}}
+{\footnotesize\ttfamily void System\+::log\+Purchase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}}}]{log }\end{DoxyParamCaption})}
+
+
+
+Log a purchase request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_a93e28750e7677d09a7eb2acfc2590209}\label{classSystem_a93e28750e7677d09a7eb2acfc2590209}} 
 \index{System@{System}!pay\+Card@{pay\+Card}}
 \index{pay\+Card@{pay\+Card}!System@{System}}
 \subsubsection{\texorpdfstring{pay\+Card()}{payCard()}}
-{\footnotesize\ttfamily bool System\+::pay\+Card (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{passenger\+ID }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool System\+::pay\+Card (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{passenger\+ID,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
 
 
 
@@ -514,6 +534,8 @@ Emulates a card payment. Looks for passenger object of id specified in the argum
 
 \begin{DoxyParams}{Parameters}
 {\em passenger\+ID} & \\
+\hline
+{\em os} & output stream to print the card payment invoice \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -628,7 +650,7 @@ Process a request for a ticket purchase.
 
 Receives a request for a ticket purchase and processes it. Will throw Trip\+Past\+Exception if the specified trip has already happened.
 
-Checks wether the trip has free seats and, if it does, adds the respective trip to the passenger\textquotesingle{}s vector of booked trips. Also calculates the price to pay based on available discounts. If the passenger has a discount card and is buying the ticket for the second (or more) time the card\textquotesingle{}s discount will not apply.
+Checks wether the trip has free seats and, if it does, adds the respective trip to the passenger\textquotesingle{}s vector of booked trips. Also calculates the price to pay based on available discounts.
 
 
 \begin{DoxyParams}{Parameters}

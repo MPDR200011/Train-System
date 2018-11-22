@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['addtrip',['addTrip',['../classPassenger.html#a2fef29e013c88ba7a75d259cebfa655d',1,'Passenger']]]
+  ['bookseat',['bookSeat',['../classTrip.html#a00e2b65d40562051bfe4124f581a49e1',1,'Trip']]]
 ];

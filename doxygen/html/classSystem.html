@@ -175,12 +175,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ac2b6f3d934b64f4fa56ffb1db1d261df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystem.html#ac2b6f3d934b64f4fa56ffb1db1d261df">processTicketPurchaseRequest</a> (<a class="el" href="classTicketPurchaseRequest.html">TicketPurchaseRequest</a> &amp;request)</td></tr>
 <tr class="memdesc:ac2b6f3d934b64f4fa56ffb1db1d261df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a request for a ticket purchase.  <a href="#ac2b6f3d934b64f4fa56ffb1db1d261df">More...</a><br /></td></tr>
 <tr class="separator:ac2b6f3d934b64f4fa56ffb1db1d261df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d823d755bcbc5843dd261b88693bc69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystem.html#a3d823d755bcbc5843dd261b88693bc69">logPurchase</a> (<a class="el" href="classPurchaseLog.html">PurchaseLog</a> log)</td></tr>
+<tr class="memdesc:a3d823d755bcbc5843dd261b88693bc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a purchase request.  <a href="#a3d823d755bcbc5843dd261b88693bc69">More...</a><br /></td></tr>
+<tr class="separator:a3d823d755bcbc5843dd261b88693bc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8aa6900656b6e81c7f13db29782baa4"><td class="memItemLeft" align="right" valign="top"><a id="af8aa6900656b6e81c7f13db29782baa4"></a>
+const std::vector&lt; <a class="el" href="classPurchaseLog.html">PurchaseLog</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLogs</b> () const</td></tr>
+<tr class="separator:af8aa6900656b6e81c7f13db29782baa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebffe11376f68cb17175f30ea517c10b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystem.html#aebffe11376f68cb17175f30ea517c10b">processCards</a> ()</td></tr>
 <tr class="memdesc:aebffe11376f68cb17175f30ea517c10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">End of month card processing.  <a href="#aebffe11376f68cb17175f30ea517c10b">More...</a><br /></td></tr>
 <tr class="separator:aebffe11376f68cb17175f30ea517c10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5df9c6b2309272f8642cb16dbe5132e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystem.html#ae5df9c6b2309272f8642cb16dbe5132e">payCard</a> (id_t passengerID)</td></tr>
-<tr class="memdesc:ae5df9c6b2309272f8642cb16dbe5132e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process card monthly fee payment.  <a href="#ae5df9c6b2309272f8642cb16dbe5132e">More...</a><br /></td></tr>
-<tr class="separator:ae5df9c6b2309272f8642cb16dbe5132e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93e28750e7677d09a7eb2acfc2590209"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystem.html#a93e28750e7677d09a7eb2acfc2590209">payCard</a> (id_t passengerID, std::ostream &amp;os)</td></tr>
+<tr class="memdesc:a93e28750e7677d09a7eb2acfc2590209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process card monthly fee payment.  <a href="#a93e28750e7677d09a7eb2acfc2590209">More...</a><br /></td></tr>
+<tr class="separator:a93e28750e7677d09a7eb2acfc2590209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23c0b01d0e84fa4665ce85203ce6747b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystem.html#a23c0b01d0e84fa4665ce85203ce6747b">listPassengers</a> (std::ostream &amp;os)</td></tr>
 <tr class="memdesc:a23c0b01d0e84fa4665ce85203ce6747b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a table of passengers.  <a href="#a23c0b01d0e84fa4665ce85203ce6747b">More...</a><br /></td></tr>
 <tr class="separator:a23c0b01d0e84fa4665ce85203ce6747b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -830,8 +836,34 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ae5df9c6b2309272f8642cb16dbe5132e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5df9c6b2309272f8642cb16dbe5132e">&#9670;&nbsp;</a></span>payCard()</h2>
+<a id="a3d823d755bcbc5843dd261b88693bc69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d823d755bcbc5843dd261b88693bc69">&#9670;&nbsp;</a></span>logPurchase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void System::logPurchase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPurchaseLog.html">PurchaseLog</a>&#160;</td>
+          <td class="paramname"><em>log</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log a purchase request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">log</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a93e28750e7677d09a7eb2acfc2590209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e28750e7677d09a7eb2acfc2590209">&#9670;&nbsp;</a></span>payCard()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -840,8 +872,18 @@ Friends</h2></td></tr>
           <td class="memname">bool System::payCard </td>
           <td>(</td>
           <td class="paramtype">id_t&#160;</td>
-          <td class="paramname"><em>passengerID</em></td><td>)</td>
+          <td class="paramname"><em>passengerID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -851,6 +893,7 @@ Friends</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">passengerID</td><td></td></tr>
+    <tr><td class="paramname">os</td><td>output stream to print the card payment invoice </td></tr>
   </table>
   </dd>
 </dl>
@@ -1033,7 +1076,7 @@ false If passenger pointer wasn't on the cardsToPay vector </dd></dl>
 
 <p>Process a request for a ticket purchase. </p>
 <p>Receives a request for a ticket purchase and processes it. Will throw TripPastException if the specified trip has already happened.</p>
-<p>Checks wether the trip has free seats and, if it does, adds the respective trip to the passenger's vector of booked trips. Also calculates the price to pay based on available discounts. If the passenger has a discount card and is buying the ticket for the second (or more) time the card's discount will not apply.</p>
+<p>Checks wether the trip has free seats and, if it does, adds the respective trip to the passenger's vector of booked trips. Also calculates the price to pay based on available discounts.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">request</td><td></td></tr>

@@ -24,17 +24,15 @@ std\+::string \mbox{\hyperlink{classPassenger_a7c919f6947817ff1c6a4ee51923c116f}
 \begin{DoxyCompactList}\small\item\em Get the Card object. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classPassenger_aa2101584d2f0daf83ef58e0491754395}{get\+Birth\+Date}} () const
 \begin{DoxyCompactList}\small\item\em Get the Birth \mbox{\hyperlink{classDate}{Date}} object. \end{DoxyCompactList}\item 
-const std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& \mbox{\hyperlink{classPassenger_a06dfa54524d4ca1a85b1599b278fb871}{get\+Trips}} () const
+const std\+::vector$<$ \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} $>$ \& \mbox{\hyperlink{classPassenger_a4d8911ca0e8fe1d9226594674bd04af4}{get\+Trip\+Logs}} () const
 \begin{DoxyCompactList}\small\item\em Get the Trips object. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}{set\+Card}} (\mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} $\ast$c)
 \begin{DoxyCompactList}\small\item\em Set the passenger\textquotesingle{}s card. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classPassenger_a2fef29e013c88ba7a75d259cebfa655d}{add\+Trip}} (\mbox{\hyperlink{classTrip}{Trip}} $\ast$trip)
-\begin{DoxyCompactList}\small\item\em Add a \mbox{\hyperlink{classTrip}{Trip}} to the trips vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPassenger_ad61aeee59fcdb0084a6cc12d16305d12}{log\+Trip}} (\mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} log)
+\begin{DoxyCompactList}\small\item\em Logs a trip the passenger has purchased. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPassenger_a7afe05c6e57aa998954b878a5b632dac}\label{classPassenger_a7afe05c6e57aa998954b878a5b632dac}} 
 void \mbox{\hyperlink{classPassenger_a7afe05c6e57aa998954b878a5b632dac}{remove\+Card}} ()
 \begin{DoxyCompactList}\small\item\em Remove the passenger\textquotesingle{}s card;. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classPassenger_a41b476ee8e340a77b697196931f9df7b}{remove\+Trip}} (id\+\_\+t it)
-\begin{DoxyCompactList}\small\item\em Remove a trip from the trips vector. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPassenger_a72e4042544557a3dd9c02198aa2582d8}{print\+Row}} (std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Output the object\textquotesingle{}s attributes in a row fashion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
@@ -80,26 +78,6 @@ Destroy the \mbox{\hyperlink{classPassenger}{Passenger}} object.
 Sole purpose is to free memory occupied by \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} pointer, if it has a card. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classPassenger_a2fef29e013c88ba7a75d259cebfa655d}\label{classPassenger_a2fef29e013c88ba7a75d259cebfa655d}} 
-\index{Passenger@{Passenger}!add\+Trip@{add\+Trip}}
-\index{add\+Trip@{add\+Trip}!Passenger@{Passenger}}
-\subsubsection{\texorpdfstring{add\+Trip()}{addTrip()}}
-{\footnotesize\ttfamily bool Passenger\+::add\+Trip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTrip}{Trip}} $\ast$}]{trip }\end{DoxyParamCaption})}
-
-
-
-Add a \mbox{\hyperlink{classTrip}{Trip}} to the trips vector. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em trip} & The pointer to trip trip to be added \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true If trip was successefully added 
-
-false If vector already has a trip with the same ID as the parameter\textquotesingle{}s 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classPassenger_aa2101584d2f0daf83ef58e0491754395}\label{classPassenger_aa2101584d2f0daf83ef58e0491754395}} 
 \index{Passenger@{Passenger}!get\+Birth\+Date@{get\+Birth\+Date}}
 \index{get\+Birth\+Date@{get\+Birth\+Date}!Passenger@{Passenger}}
@@ -152,11 +130,11 @@ Get the Name object.
 \begin{DoxyReturn}{Returns}
 std\+::string The \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s name 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classPassenger_a06dfa54524d4ca1a85b1599b278fb871}\label{classPassenger_a06dfa54524d4ca1a85b1599b278fb871}} 
-\index{Passenger@{Passenger}!get\+Trips@{get\+Trips}}
-\index{get\+Trips@{get\+Trips}!Passenger@{Passenger}}
-\subsubsection{\texorpdfstring{get\+Trips()}{getTrips()}}
-{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& Passenger\+::get\+Trips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{classPassenger_a4d8911ca0e8fe1d9226594674bd04af4}\label{classPassenger_a4d8911ca0e8fe1d9226594674bd04af4}} 
+\index{Passenger@{Passenger}!get\+Trip\+Logs@{get\+Trip\+Logs}}
+\index{get\+Trip\+Logs@{get\+Trip\+Logs}!Passenger@{Passenger}}
+\subsubsection{\texorpdfstring{get\+Trip\+Logs()}{getTripLogs()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} $>$ \& Passenger\+::get\+Trip\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -164,6 +142,26 @@ Get the Trips object.
 
 \begin{DoxyReturn}{Returns}
 const std\+::vector$<$\+Trip$\ast$$>$\& Reference to the 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPassenger_ad61aeee59fcdb0084a6cc12d16305d12}\label{classPassenger_ad61aeee59fcdb0084a6cc12d16305d12}} 
+\index{Passenger@{Passenger}!log\+Trip@{log\+Trip}}
+\index{log\+Trip@{log\+Trip}!Passenger@{Passenger}}
+\subsubsection{\texorpdfstring{log\+Trip()}{logTrip()}}
+{\footnotesize\ttfamily void Passenger\+::log\+Trip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}}}]{log }\end{DoxyParamCaption})}
+
+
+
+Logs a trip the passenger has purchased. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log} & Object with the trip information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classPassenger_a72e4042544557a3dd9c02198aa2582d8}\label{classPassenger_a72e4042544557a3dd9c02198aa2582d8}} 
 \index{Passenger@{Passenger}!print\+Row@{print\+Row}}
@@ -180,21 +178,6 @@ Outputs the object\textquotesingle{}s information as it was a row in a table. Us
 
 \begin{DoxyParams}{Parameters}
 {\em os} & Output stream to wich object will be output \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classPassenger_a41b476ee8e340a77b697196931f9df7b}\label{classPassenger_a41b476ee8e340a77b697196931f9df7b}} 
-\index{Passenger@{Passenger}!remove\+Trip@{remove\+Trip}}
-\index{remove\+Trip@{remove\+Trip}!Passenger@{Passenger}}
-\subsubsection{\texorpdfstring{remove\+Trip()}{removeTrip()}}
-{\footnotesize\ttfamily void Passenger\+::remove\+Trip (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{it }\end{DoxyParamCaption})}
-
-
-
-Remove a trip from the trips vector. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em it} & ID of the trip to remove \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}\label{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}} 
