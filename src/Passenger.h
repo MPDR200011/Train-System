@@ -151,4 +151,4 @@ private:
 	std::vector<PurchaseLog> tripLogs;
 };
 
-#endif /* PASSENGER_H_ */
+#endif
