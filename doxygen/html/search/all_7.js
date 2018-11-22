@@ -12,5 +12,5 @@ var searchData=
   ['printtrips',['printTrips',['../classSystem.html#abaa61b6377abcfc61da32092e5d734d9',1,'System']]],
   ['processcards',['processCards',['../classSystem.html#aebffe11376f68cb17175f30ea517c10b',1,'System']]],
   ['processticketpurchaserequest',['processTicketPurchaseRequest',['../classSystem.html#ac2b6f3d934b64f4fa56ffb1db1d261df',1,'System']]],
-  ['purchaselog',['PurchaseLog',['../classPurchaseLog.html',1,'']]]
+  ['purchaselog',['PurchaseLog',['../classPurchaseLog.html',1,'PurchaseLog'],['../classPurchaseLog.html#a383409dbd9d038ce4cc2a9a8ef2184c8',1,'PurchaseLog::PurchaseLog()']]]
 ];

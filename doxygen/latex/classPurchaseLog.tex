@@ -1,35 +1,38 @@
 \hypertarget{classPurchaseLog}{}\section{Purchase\+Log Class Reference}
 \label{classPurchaseLog}\index{Purchase\+Log@{Purchase\+Log}}
+
+
+A class representing the log of a trip tiket purchase.  
+
+
+
+
+{\ttfamily \#include $<$Purchase\+Log.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPurchaseLog_a506a4e57eb23f36769c5dee6a4ec6fa0}\label{classPurchaseLog_a506a4e57eb23f36769c5dee6a4ec6fa0}} 
-{\bfseries Purchase\+Log} (std\+::string passenger\+Name, std\+::string source\+Name, std\+::string dest\+Name, std\+::string departure\+Date, std\+::string price)
-\item 
-\mbox{\Hypertarget{classPurchaseLog_a0320e9136e01de2a9652db55c1739d6f}\label{classPurchaseLog_a0320e9136e01de2a9652db55c1739d6f}} 
-const id\+\_\+t {\bfseries get\+ID} () const
-\item 
-\mbox{\Hypertarget{classPurchaseLog_a53f354f530d3179139eff0dbcf7aa67b}\label{classPurchaseLog_a53f354f530d3179139eff0dbcf7aa67b}} 
-const std\+::string {\bfseries get\+Passenger\+Name} () const
-\item 
-\mbox{\Hypertarget{classPurchaseLog_a5c994361a33f18ad521a2af034a6cd8f}\label{classPurchaseLog_a5c994361a33f18ad521a2af034a6cd8f}} 
-const std\+::string {\bfseries get\+Source\+Name} () const
-\item 
-\mbox{\Hypertarget{classPurchaseLog_a1ced321455e51202b4fbc962a2ab4398}\label{classPurchaseLog_a1ced321455e51202b4fbc962a2ab4398}} 
-const std\+::string {\bfseries get\+Dest\+Name} () const
-\item 
-\mbox{\Hypertarget{classPurchaseLog_a55fd3400a7c03a09a276bfc015f75415}\label{classPurchaseLog_a55fd3400a7c03a09a276bfc015f75415}} 
-const std\+::string {\bfseries get\+Departure\+Date} () const
-\item 
-\mbox{\Hypertarget{classPurchaseLog_a5fc1010f824f9ce26c309f9682d1b5ff}\label{classPurchaseLog_a5fc1010f824f9ce26c309f9682d1b5ff}} 
-const std\+::string {\bfseries get\+Price} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classPurchaseLog_a383409dbd9d038ce4cc2a9a8ef2184c8}{Purchase\+Log}} (int trip\+ID, std\+::string passenger\+Name, std\+::string source\+Name, std\+::string dest\+Name, std\+::string departure\+Date, std\+::string price)
+\begin{DoxyCompactList}\small\item\em Construct a new Purchase Log object. \end{DoxyCompactList}\item 
+const id\+\_\+t \mbox{\hyperlink{classPurchaseLog_a0320e9136e01de2a9652db55c1739d6f}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Get the log ID. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classPurchaseLog_ac50b5fd8eb060b67405e5234e3cc604b}{get\+Trip\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrip}{Trip}} ID. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classPurchaseLog_a53f354f530d3179139eff0dbcf7aa67b}{get\+Passenger\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classPassenger}{Passenger}} Name. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classPurchaseLog_a5c994361a33f18ad521a2af034a6cd8f}{get\+Source\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the Source Name. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classPurchaseLog_a1ced321455e51202b4fbc962a2ab4398}{get\+Dest\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the Dest Name. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classPurchaseLog_a55fd3400a7c03a09a276bfc015f75415}{get\+Departure\+Date}} () const
+\begin{DoxyCompactList}\small\item\em Get the Departure \mbox{\hyperlink{classDate}{Date}} String. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classPurchaseLog_a5fc1010f824f9ce26c309f9682d1b5ff}{get\+Price}} () const
+\begin{DoxyCompactList}\small\item\em Get the Price String in cents. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPurchaseLog_a175b76f4fd112806badc0ea294bccca5}\label{classPurchaseLog_a175b76f4fd112806badc0ea294bccca5}} 
-static id\+\_\+t {\bfseries current\+Id} = 0
-\end{DoxyCompactItemize}
+static id\+\_\+t \mbox{\hyperlink{classPurchaseLog_a175b76f4fd112806badc0ea294bccca5}{current\+Id}} = 0
+\begin{DoxyCompactList}\small\item\em Current ID counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,6 +40,144 @@ static id\+\_\+t {\bfseries current\+Id} = 0
 std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} \&pl)
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A class representing the log of a trip tiket purchase. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPurchaseLog_a383409dbd9d038ce4cc2a9a8ef2184c8}\label{classPurchaseLog_a383409dbd9d038ce4cc2a9a8ef2184c8}} 
+\index{Purchase\+Log@{Purchase\+Log}!Purchase\+Log@{Purchase\+Log}}
+\index{Purchase\+Log@{Purchase\+Log}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{Purchase\+Log()}{PurchaseLog()}}
+{\footnotesize\ttfamily Purchase\+Log\+::\+Purchase\+Log (\begin{DoxyParamCaption}\item[{int}]{trip\+ID,  }\item[{std\+::string}]{passenger\+Name,  }\item[{std\+::string}]{source\+Name,  }\item[{std\+::string}]{dest\+Name,  }\item[{std\+::string}]{departure\+Date,  }\item[{std\+::string}]{price }\end{DoxyParamCaption})}
+
+
+
+Construct a new Purchase Log object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trip\+ID} & \\
+\hline
+{\em passenger\+Name} & \\
+\hline
+{\em source\+Name} & \\
+\hline
+{\em dest\+Name} & \\
+\hline
+{\em departure\+Date} & \\
+\hline
+{\em price} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPurchaseLog_a55fd3400a7c03a09a276bfc015f75415}\label{classPurchaseLog_a55fd3400a7c03a09a276bfc015f75415}} 
+\index{Purchase\+Log@{Purchase\+Log}!get\+Departure\+Date@{get\+Departure\+Date}}
+\index{get\+Departure\+Date@{get\+Departure\+Date}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{get\+Departure\+Date()}{getDepartureDate()}}
+{\footnotesize\ttfamily const string Purchase\+Log\+::get\+Departure\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Departure \mbox{\hyperlink{classDate}{Date}} String. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPurchaseLog_a1ced321455e51202b4fbc962a2ab4398}\label{classPurchaseLog_a1ced321455e51202b4fbc962a2ab4398}} 
+\index{Purchase\+Log@{Purchase\+Log}!get\+Dest\+Name@{get\+Dest\+Name}}
+\index{get\+Dest\+Name@{get\+Dest\+Name}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{get\+Dest\+Name()}{getDestName()}}
+{\footnotesize\ttfamily const string Purchase\+Log\+::get\+Dest\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Dest Name. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPurchaseLog_a0320e9136e01de2a9652db55c1739d6f}\label{classPurchaseLog_a0320e9136e01de2a9652db55c1739d6f}} 
+\index{Purchase\+Log@{Purchase\+Log}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily const id\+\_\+t Purchase\+Log\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the log ID. 
+
+\begin{DoxyReturn}{Returns}
+const id\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPurchaseLog_a53f354f530d3179139eff0dbcf7aa67b}\label{classPurchaseLog_a53f354f530d3179139eff0dbcf7aa67b}} 
+\index{Purchase\+Log@{Purchase\+Log}!get\+Passenger\+Name@{get\+Passenger\+Name}}
+\index{get\+Passenger\+Name@{get\+Passenger\+Name}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{get\+Passenger\+Name()}{getPassengerName()}}
+{\footnotesize\ttfamily const string Purchase\+Log\+::get\+Passenger\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classPassenger}{Passenger}} Name. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPurchaseLog_a5fc1010f824f9ce26c309f9682d1b5ff}\label{classPurchaseLog_a5fc1010f824f9ce26c309f9682d1b5ff}} 
+\index{Purchase\+Log@{Purchase\+Log}!get\+Price@{get\+Price}}
+\index{get\+Price@{get\+Price}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{get\+Price()}{getPrice()}}
+{\footnotesize\ttfamily const string Purchase\+Log\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Price String in cents. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPurchaseLog_a5c994361a33f18ad521a2af034a6cd8f}\label{classPurchaseLog_a5c994361a33f18ad521a2af034a6cd8f}} 
+\index{Purchase\+Log@{Purchase\+Log}!get\+Source\+Name@{get\+Source\+Name}}
+\index{get\+Source\+Name@{get\+Source\+Name}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{get\+Source\+Name()}{getSourceName()}}
+{\footnotesize\ttfamily const string Purchase\+Log\+::get\+Source\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Source Name. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPurchaseLog_ac50b5fd8eb060b67405e5234e3cc604b}\label{classPurchaseLog_ac50b5fd8eb060b67405e5234e3cc604b}} 
+\index{Purchase\+Log@{Purchase\+Log}!get\+Trip\+ID@{get\+Trip\+ID}}
+\index{get\+Trip\+ID@{get\+Trip\+ID}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{get\+Trip\+I\+D()}{getTripID()}}
+{\footnotesize\ttfamily const int Purchase\+Log\+::get\+Trip\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classTrip}{Trip}} ID. 
+
+\begin{DoxyReturn}{Returns}
+const int 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classPurchaseLog_a175b76f4fd112806badc0ea294bccca5}\label{classPurchaseLog_a175b76f4fd112806badc0ea294bccca5}} 
+\index{Purchase\+Log@{Purchase\+Log}!current\+Id@{current\+Id}}
+\index{current\+Id@{current\+Id}!Purchase\+Log@{Purchase\+Log}}
+\subsubsection{\texorpdfstring{current\+Id}{currentId}}
+{\footnotesize\ttfamily id\+\_\+t Purchase\+Log\+::current\+Id = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Current ID counter. 
+
+Used to set the id of the purchase object when it is created. It\textquotesingle{}s incremented every time a new object is created. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
