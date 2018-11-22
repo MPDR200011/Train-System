@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "PurchaseLog.h"
 
 /**
  * @brief Class for representing a passenger in the system
@@ -70,7 +71,7 @@ public:
 	 * 
 	 * @return const std::vector<Trip*>& Reference to the 
 	 */
-	const std::vector<Trip*> & getTrips() const;
+	const std::vector<PurchaseLog> & getTripLogs() const;
 
 	/**
 	 * @brief Set the passenger's card
@@ -85,26 +86,19 @@ public:
 	bool setCard(PassengerCard *c);
 
 	/**
-	 * @brief Add a Trip to the trips vector
+	 * @brief Logs a trip the passenger has purchased
 	 * 
-	 * @param trip The pointer to trip trip to be added
-	 * @return true If trip was successefully added
-	 * @return false If vector already has a trip with the same ID as the parameter's
+	 * @param log Object with the trip information
+	 * @return true 
+	 * @return false 
 	 */
-	bool addTrip(Trip* trip);
+	void logTrip(PurchaseLog log);
 
 	/**
 	 * @brief Remove the passenger's card;
 	 * 
 	 */
 	void removeCard();
-
-	/**
-	 * @brief Remove a trip from the trips vector
-	 * 
-	 * @param it ID of the trip to remove
-	 */
-	void removeTrip(id_t it);
 
 	/**
 	 * @brief Output the object's attributes in a row fashion
@@ -149,10 +143,12 @@ private:
 	 */
 	Date birthDate;
 	/**
-	 * @brief Vector with trips Passenger has bought tckets for.
+	 * @brief Vector of trip logs.
+	 * 
+	 * Contains objects with information about the trips the passenger has reserved.
 	 * 
 	 */
-	std::vector<Trip*> trips;
+	std::vector<PurchaseLog> tripLogs;
 };
 
 #endif /* PASSENGER_H_ */

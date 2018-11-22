@@ -1,7 +1,2 @@
-2 2
-2 2
-2 2
-2 13
-2 2
-2 2
-2 13
+1 "Carlos Nova" "Porto-Campanha" "Viana do Castelo" "05-12-2018 12:00" "500"
+"Geronimo Soares" "Porto-Campanha" "Viana do Castelo" "05-12-2018 12:00" "1000"

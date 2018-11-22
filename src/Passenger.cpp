@@ -18,8 +18,8 @@ id_t Passenger::getID() const {
 	return passengerID;
 }
 
-const vector<Trip*> & Passenger::getTrips() const {
-	return trips;
+const vector<PurchaseLog> & Passenger::getTripLogs() const {
+	return tripLogs;
 }
 
 bool Passenger::setCard(PassengerCard *c) {
@@ -44,29 +44,13 @@ const Date& Passenger::getBirthDate() const {
 	return birthDate;
 }
 
-bool Passenger::addTrip(Trip* trip) {
-	bool isAlready = false;
-	for (Trip* t: trips) {
-		if (t->getID() == trip->getID()) {
-			isAlready = true;
-			break;
-		}
-	}
-	trips.push_back(trip);
-	return isAlready;
+void Passenger::logTrip(PurchaseLog log) {
+	tripLogs.push_back(log);
 }
 
 void Passenger::removeCard() {
 	delete card;
 	card = nullptr;
-}
-
-void Passenger::removeTrip(id_t id) {
-	for (auto it = trips.begin(); it != trips.end(); it++) {
-		if ((*it)->getID() == id) {
-			it = --trips.erase(it);
-		}
-	}
 }
 
 void Passenger::printRow(ostream &os) {

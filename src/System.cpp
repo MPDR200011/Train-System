@@ -292,18 +292,30 @@ bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 	
 	if (request.trip->bookSeat()) {
 		uint price = request.trip->getCurrentPrice();
-		if (!request.passenger->addTrip(request.trip)) {
-			PassengerCard* card = request.passenger->getCard();
-			if (card != nullptr) {
-				price *= 1-(card->getDiscount()/100.0);
-			}
+		PassengerCard* card = request.passenger->getCard();
+		if (card != nullptr) {
+			price *= 1-(card->getDiscount()/100.0);
 		}
 		request.setInvoicePrice(price);
-		sales.push_back(request.getInvoice());
+		PurchaseLog log(request.passenger->getName(), 
+			request.trip->getSource()->getName(),
+			request.trip->getDest()->getName(),
+			request.trip->getDepartureDate().getDateString(),
+			to_string(price));
+		request.passenger->logTrip(log);
+		logPurchase(log);
 		return true;
 	} else {
 		return false;
 	}
+}
+
+void System::logPurchase(PurchaseLog log) {
+	sales.push_back(log);
+}
+
+const vector<PurchaseLog> & System::getLogs() const {
+	return sales;
 }
 
 void System::processCards() {
@@ -423,8 +435,8 @@ void System::printTrips(ostream &os) const {
 }
 
 void System::printSales(ostream &os) const {
-	for (TicketInvoice invoice: sales) {
-		os << endl << invoice << endl;
+	for (PurchaseLog log: sales) {
+		os << endl << log << endl;
 	}
 }
 

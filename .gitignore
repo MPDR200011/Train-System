@@ -81,3 +81,5 @@ Debug/src/exceptions/ReverseDatesException.o
 Debug/src/exceptions/TripPastException.d
 Debug/src/exceptions/TripPastException.o
 Debug/src/exceptions/subdir.mk
+Debug/src/PurchaseLog.d
+Debug/src/PurchaseLog.o

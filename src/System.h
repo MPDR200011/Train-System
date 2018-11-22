@@ -11,6 +11,7 @@
 #include "Date.h"
 #include "exceptions/InvalidDateException.h"
 #include "project_types.h"
+#include "PurchaseLog.h"
 
 /**
  * @brief Class to represent the central system.
@@ -286,13 +287,21 @@ public:
 	 * 
 	 * Checks wether the trip has free seats and, if it does, adds the respective trip to the
 	 * passenger's vector of booked trips. Also calculates the price to pay based on available discounts.
-	 * If the passenger has a discount card and is buying the ticket for the second (or more) time the card's discount will not apply.
 	 * 
 	 * @param request 
 	 * @return true 
 	 * @return false 
 	 */
 	bool processTicketPurchaseRequest(TicketPurchaseRequest &request);
+
+	/**
+	 * @brief Log a purchase request
+	 * 
+	 * @param log 
+	 */
+	void logPurchase(PurchaseLog log);
+
+	const std::vector<PurchaseLog> & getLogs() const;
 
 	/**
 	 * @brief End of month card processing.
@@ -439,7 +448,7 @@ private:
 	 * @brief All processed ticket sales invoices
 	 * 
 	 */
-	std::vector<TicketInvoice> sales;
+	std::vector<PurchaseLog> sales;
 
 public:
 	/**

@@ -831,16 +831,19 @@ void loadPurchases() {
 		string line;
 		while (getline(purchases, line)) {
 			vector<string> arguments = splitArgumets(line);
-			if (arguments.size() != 2) {
-				continue;
-			}
-
-			try {
-				Passenger *p = System::instance.getPassenger(stoi(arguments[0]));
-				Trip *tr = System::instance.getTrip(stoi(arguments[1]));
-				TicketPurchaseRequest pr(p,tr);
-				System::instance.processTicketPurchaseRequest(pr);
-			} catch (exception &e) {
+			if (arguments.size() == 6) {
+				try {
+					Passenger *p = System::instance.getPassenger(stoi(arguments[0]));
+					PurchaseLog log(arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
+					System::instance.logPurchase(log);
+					p->logTrip(log);
+				} catch (exception &e) {
+					continue;
+				}
+			} else if (arguments.size() == 5) {
+				PurchaseLog log(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+				System::instance.logPurchase(log);
+			} else {
 				continue;
 			}
 		}
@@ -914,15 +917,29 @@ void saveTrips() {
 
 void savePurchases() {
 	ofstream purchases("purchases.txt", ofstream::out | ofstream::trunc);
-	vector<Passenger*> vec = System::instance.getPassengers();
+	vector<PurchaseLog> logVec = System::instance.getLogs();
+	bool savedLogs[logVec.size()];
+	vector<Passenger*> passVec = System::instance.getPassengers();
 
-	for(uint i = 0; i < vec.size(); i++) {
-		for (Trip *tr: vec[i]->getTrips()) {
-			int tripID = System::instance.getTripIndex(tr->getID());
-			if (tripID == -1) {
-				continue;
-			}
-			purchases << i << " " << tripID << endl;
+	for(uint i = 0; i < passVec.size(); i++) {
+		for (const PurchaseLog &log: passVec[i]->getTripLogs()) {
+			savedLogs[log.getID()] = true;
+			purchases << i << " ";
+			purchases << "\"" << log.getPassengerName() << "\" ";
+			purchases << "\"" << log.getSourceName() << "\" ";
+			purchases << "\"" << log.getDestName() << "\" ";
+			purchases << "\"" << log.getDepartureDate() << "\" ";
+			purchases << "\"" << log.getPrice() << "\"" << endl;
+		}
+	}
+
+	for (PurchaseLog &log : logVec) {
+		if (!savedLogs[log.getID()]) {
+			purchases << "\"" << log.getPassengerName() << "\" ";
+			purchases << "\"" << log.getSourceName() << "\" ";
+			purchases << "\"" << log.getDestName() << "\" ";
+			purchases << "\"" << log.getDepartureDate() << "\" ";
+			purchases << "\"" << log.getPrice() << "\"" << endl;
 		}
 	}
 	
@@ -1022,5 +1039,3 @@ int main() {
 
 	return 0;
 }
-
-//TODO print card invoice
