@@ -444,7 +444,7 @@ void createTrip() {
 		return;
 	}
 
-	System::instance.listTrips(cout);
+	System::instance.listTrains(cout);
 	cout << endl;
 	cout << "ID of train that will be doing trip - ";
 	id_t trainID;

@@ -184,11 +184,16 @@ void System::createTrip(uint basePrice, Station* source, Station* destination,
 }
 
 bool System::removePassenger(id_t id){
+	for (auto it = cardsToPay.begin(); it != cardsToPay.end(); it++) {
+		if ((*it)->getID() == id) {
+			cardsToPay.erase(it);
+			break;
+		}
+	}
+
 	for (auto it = passengers.begin(); it != passengers.end(); it++) {
 		if ((*it)->getID() == id) {
-			Passenger* temp = *it;
-			it = --passengers.erase(it);
-			delete temp;
+			passengers.erase(it);
 			return true;
 		}
 	}
@@ -198,9 +203,7 @@ bool System::removePassenger(id_t id){
 bool System::removeTrip(id_t id){
 	for (auto it = trips.begin(); it != trips.end(); it++) {
 		if ((*it)->getID() == id) {
-			Trip* temp = *it;
-			it = --trips.erase(it);
-			delete temp;
+			trips.erase(it);
 			return true;
 		}
 	}
@@ -211,15 +214,13 @@ bool System::removeStation(id_t id) {
 	for (auto it = trips.begin(); it != trips.end(); it++) {
 		Trip *tr = *it;
 		if (tr->getSource()->getID() == id || tr->getDest()->getID() == id) {
-			removeTrip(tr->getID());
+			it = --trips.erase(it);
 		}
 	}
 
 	for (auto it = stations.begin(); it != stations.end(); it++) {
 		if ((*it)->getID() == id) {
-			Station* temp = *it;
-			it = --stations.erase(it);
-			delete temp;
+			stations.erase(it);
 			return true;
 		}
 	}
@@ -230,15 +231,13 @@ bool System::removeTrain(id_t id){
 	for (auto it = trips.begin(); it != trips.end(); it++) {
 		Trip *tr = *it;
 		if (tr->getTrain()->getID() == id) {
-			removeTrip(tr->getID());
+			it = --trips.erase(it);
 		}
 	}
 
 	for (auto it = trains.begin(); it != trains.end(); it++) {
 		if ((*it)->getID() == id) {
-			Train* temp = *it;
-			it = --trains.erase(it);
-			delete temp;
+			trains.erase(it);
 			return true;
 		}
 	}
