@@ -81,9 +81,14 @@ int Date::getMinutes() const {
 }
 
 std::string Date::getDateString() const {
-	char str[80];
-	strftime(str, 80, dateFormat, &date);
-	return string(str);
+	stringstream ss;
+	ss << setfill('0') << setw(2) << date.tm_mday << "-"
+	<< setfill('0') << setw(2) << date.tm_mon+1 << "-"
+	<< setfill('0') << setw(4) << date.tm_year+1900 << " "
+	<< setfill('0') << setw(2) << date.tm_hour << ":"
+	<< setfill('0') << setw(2) << date.tm_min;
+
+	return ss.str();
 }
 
 std::string Date::getDateStringWithoutHours() const {
@@ -117,7 +122,7 @@ bool Date::operator ==(Date& d) {
 	return false;
 }
 
-bool Date::operator <(Date& d) {
+bool Date::operator <(Date& d) const {
 	if (date.tm_year == d.date.tm_year) {
 		if (date.tm_mon == d.date.tm_mon) {
 			if (date.tm_mday == d.date.tm_mday) {

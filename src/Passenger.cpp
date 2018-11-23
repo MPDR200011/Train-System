@@ -5,7 +5,7 @@ using namespace std;
 
 id_t Passenger::currentID = 0;
 
-Passenger::Passenger(string name, Date birthDate): name(name), birthDate(birthDate) {
+Passenger::Passenger(string name, Date birthDate): name(name), birthDate(birthDate.getDateString()) {
 	this->passengerID = currentID++;
 	this->card = nullptr;
 }
@@ -40,7 +40,7 @@ PassengerCard* Passenger::getCard() const {
 	return card;
 }
 
-const Date& Passenger::getBirthDate() const {
+Date& Passenger::getBirthDate() {
 	return birthDate;
 }
 

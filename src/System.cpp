@@ -392,7 +392,6 @@ void System::listTrains(ostream &os) {
 }
 
 void System::listTrips(ostream &os){
-	sortTripsByDate();
 	os << endl 
 	<< setw(5) << "id"
 	<< setw(13) << "base price" 

@@ -8,6 +8,7 @@
 #include "exceptions/NoSuchTrainException.h"
 #include "exceptions/NoSuchTripException.h"
 #include "exceptions/TripPastException.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -516,7 +517,6 @@ void deleteTask() {
 }
 
 void searchTask() {
-	System::instance.sortTripsByDate();
 	cout << "Specify a source restraint? (y/n) - ";
 	bool searchBySrc;
 	string choice;
@@ -568,23 +568,23 @@ void searchTask() {
 		}
 	}
 
-	cout << "Specify a arrival date restraint? (y/n) - ";
-	bool searchByArrivalDate;
-	do {
-		readLine(choice);
-		if (choice != "y" && choice != "n") {
-			cout << "Invalid choice, try again - ";
-		} else {
-			searchByArrivalDate = choice == "y";
-		}
-	} while (choice != "y" && choice != "n");
+	// cout << "Specify a arrival date restraint? (y/n) - ";
+	bool searchByArrivalDate = false;
+	// do {
+	// 	readLine(choice);
+	// 	if (choice != "y" && choice != "n") {
+	// 		cout << "Invalid choice, try again - ";
+	// 	} else {
+	// 		searchByArrivalDate = choice == "y";
+	// 	}
+	// } while (choice != "y" && choice != "n");
 
 	Date arrivalDate("01-01-1970 00:00");
 	if (searchByArrivalDate) {
 		arrivalDate = readDate();
 	}
 
-	vector<Trip*> trips = System::instance.searchTrips(src, dest, searchByArrivalDate, arrivalDate);
+	vector<Trip*> trips = System::instance.searchTrips(src, dest, false, arrivalDate);
 
 	cout << endl;
 
@@ -593,6 +593,16 @@ void searchTask() {
 		return;
 	}
 
+	cout << endl 
+	<< setw(5) << "id"
+	<< setw(13) << "base price" 
+	<< setw(16) << "current price" 
+	<< setw(20) << "source name" 
+	<< setw(20) << "departure date" 
+	<< setw(20) << "destination name" 
+	<< setw(20) << "arrival date" 
+	<< setw(10) << "train id" 
+	<< setw(16) << "free seats" << endl;
 	for (Trip *tr: trips) {
 		tr->printRow(cout);
 		cout << endl;
@@ -996,6 +1006,8 @@ void savePurchases() {
 }
 
 int main() {
+	Date d("12-12-2018 11:00");
+	cout << d << endl;
 
 	loadPassengers();
 	loadCards();

@@ -65,7 +65,7 @@ public:
 	 * 
 	 * @return const Date& The Date object representing the Passenger's date of birth
 	 */
-	const Date & getBirthDate() const;
+	Date & getBirthDate();
 	/**
 	 * @brief Get the Trips object
 	 * 

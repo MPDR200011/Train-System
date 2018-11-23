@@ -62,7 +62,7 @@ public:
 	 * @return true if object happens before argument
 	 * @return false if otherwise
 	 */
-	bool operator< (Date &d);
+	bool operator< (Date &d) const;
 	/**
 	 * @brief Check if Date object happens before or at same time as argument
 	 * 

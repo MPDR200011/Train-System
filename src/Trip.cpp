@@ -9,7 +9,7 @@ id_t Trip::currentID = 0;
 
 Trip::Trip(uint basePrice, Station* source, Station* destination,
 		Train* train, const Date departureDate, const Date arrivalDate):
-		departureDate(departureDate), arrivalDate(arrivalDate){
+		departureDate(departureDate.getDateString()), arrivalDate(arrivalDate.getDateString()){
 	this->tripID = currentID++;
 	this->occupiedSeats = 0;
 	this->basePrice = basePrice;
