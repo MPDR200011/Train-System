@@ -2,7 +2,7 @@ var searchData=
 [
   ['getarrivaldate',['getArrivalDate',['../classTrip.html#a821dfd23e37c28f1c0a2dab3f2836799',1,'Trip']]],
   ['getbaseprice',['getBasePrice',['../classTrip.html#af2a3a9f9e33b9dd31e9193cf48bec134',1,'Trip']]],
-  ['getbirthdate',['getBirthDate',['../classPassenger.html#aa2101584d2f0daf83ef58e0491754395',1,'Passenger']]],
+  ['getbirthdate',['getBirthDate',['../classPassenger.html#a23e16eaaf1c1927240380aa02e9d44a4',1,'Passenger']]],
   ['getcard',['getCard',['../classPassenger.html#ae8d5310db80438702dec5f4d649289f1',1,'Passenger']]],
   ['getcost',['getCost',['../classPassengerCard.html#a8428ca4fc3d4c7b4636be628c2fe5aad',1,'PassengerCard']]],
   ['getcurrentprice',['getCurrentPrice',['../classTrip.html#a9006732aa32a2b098538d48b63f2d276',1,'Trip']]],

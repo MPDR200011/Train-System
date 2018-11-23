@@ -420,6 +420,8 @@ void createTrip() {
 	uint basePrice;
 	readVar(basePrice);
 
+	System::instance.listStations(cout);
+	cout << endl;
 	cout << "Source station ID - ";
 	id_t sourceID;
 	readVar(sourceID);
@@ -442,6 +444,8 @@ void createTrip() {
 		return;
 	}
 
+	System::instance.listTrips(cout);
+	cout << endl;
 	cout << "ID of train that will be doing trip - ";
 	id_t trainID;
 	readVar(trainID);
