@@ -341,6 +341,9 @@ void createCard() {
 		return;
 	}
 
+	System::instance.listPassengers(cout);
+	cout << endl;
+
 	Passenger *passenger;
 	cout << "Enter the id of the passenger who will own the card - ";
 	id_t passengerID;
