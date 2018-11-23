@@ -178,8 +178,8 @@ void System::createTrain(uint maxSeats) {
 }
 
 void System::createTrip(uint basePrice, Station* source, Station* destination,
-			Train* train, const Date dapartureDate, const Date arrivalDate) {
-	Trip *tr = new Trip(basePrice, source, destination, train, dapartureDate, arrivalDate);
+			Train* train, const Date departureDate, const Date arrivalDate) {
+	Trip *tr = new Trip(basePrice, source, destination, train, departureDate, arrivalDate);
 	trips.push_back(tr);
 }
 

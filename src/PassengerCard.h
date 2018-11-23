@@ -75,7 +75,7 @@ private:
 	 */
 	id_t passengerID;
 	/**
-	 * @brief Type od discount provided by the card
+	 * @brief Type of discount provided by the card
 	 * 
 	 */
 	CardType cardType;
