@@ -571,23 +571,23 @@ void searchTask() {
 		}
 	}
 
-	// cout << "Specify a arrival date restraint? (y/n) - ";
-	bool searchByArrivalDate = false;
-	// do {
-	// 	readLine(choice);
-	// 	if (choice != "y" && choice != "n") {
-	// 		cout << "Invalid choice, try again - ";
-	// 	} else {
-	// 		searchByArrivalDate = choice == "y";
-	// 	}
-	// } while (choice != "y" && choice != "n");
+	cout << "Specify a arrival date restraint? (y/n) - ";
+	bool searchByArrivalDate;
+	do {
+		readLine(choice);
+		if (choice != "y" && choice != "n") {
+			cout << "Invalid choice, try again - ";
+		} else {
+			searchByArrivalDate = choice == "y";
+		}
+	} while (choice != "y" && choice != "n");
 
 	Date arrivalDate("01-01-1970 00:00");
 	if (searchByArrivalDate) {
 		arrivalDate = readDate();
 	}
 
-	vector<Trip*> trips = System::instance.searchTrips(src, dest, false, arrivalDate);
+	vector<Trip*> trips = System::instance.searchTrips(src, dest, searchByArrivalDate, arrivalDate);
 
 	cout << endl;
 
