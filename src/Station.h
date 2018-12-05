@@ -10,14 +10,7 @@
  * 
  */
 class Station {
-	/**
-	 * @brief Next ID counter
-	 * 
-	 * Used to set new ID when Station object is constructed, incremented every time a 
-	 * new Station object is constructed.
-	 * 
-	 */
-	static id_t currentID;
+
 public:
 	/**
 	 * @brief Construct a new Station object
@@ -25,6 +18,13 @@ public:
 	 * @param name Name of the station.
 	 */
 	Station(std::string name);
+
+	/**
+	 * Set the station ID
+	 *
+	 * @param stationID
+	 */
+	void setID(id_t stationID);
 
 	/**
 	 * @brief Get the station ID

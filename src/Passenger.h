@@ -18,14 +18,7 @@
  * 
  */
 class Passenger {
-	/**
-	 * @brief Next ID counter
-	 * 
-	 * Used to set new ID when Passenger object is constructed, incremented every time a 
-	 * new Passenger object is constructed.
-	 *  
-	 */
-	static id_t currentID;
+
 public:
 	/**
 	 * @brief Construct a new Passenger object
@@ -42,6 +35,10 @@ public:
 	 */
 	~Passenger();
 
+	/**
+	 * Set the passenger's ID;
+	 */
+	void setID(id_t id);
 	/**
 	 * @brief Get the Passenger's ID
 	 * 

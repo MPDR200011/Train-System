@@ -12,6 +12,10 @@
 
 using namespace std;
 
+//TODO finish load/save
+//TODO Stop removing stuff, just mark it as disabled
+//TODO Check out sorts
+
 /**
  * @brief Template function to read any variable from cin.
  * 
@@ -881,7 +885,8 @@ void loadPurchases() {
 						Trip *tr = System::instance.getTrip(stoi(arguments[6]));
 						tr->bookSeat();
 					}
-					PurchaseLog log(stoi(arguments[6]), arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
+					PurchaseLog log(stoi(arguments[6]), arguments[1], arguments[2], arguments[3], arguments[4],
+									arguments[5]);
 					System::instance.logPurchase(log);
 					p->logTrip(log);
 				} catch (NoSuchPassengerException &e) {
@@ -898,7 +903,8 @@ void loadPurchases() {
 						continue;
 					}
 				}
-				PurchaseLog log(stoi(arguments[5]),arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+				PurchaseLog log(stoi(arguments[5]), arguments[0], arguments[1], arguments[2], arguments[3],
+								arguments[4]);
 				System::instance.logPurchase(log);
 			} else {
 				continue;
@@ -906,110 +912,6 @@ void loadPurchases() {
 		}
 		purchases.close();
 	}
-}
-
-void savePassengers() {
-	ofstream passengers("passengers.txt", ofstream::out | ofstream::trunc);
-	ofstream cards("cards.txt", ofstream::out | ofstream::trunc);
-	vector<Passenger*> vec = System::instance.getPassengers();
-	for (uint i = 0; i < vec.size(); i++) {
-		passengers << "\"" << vec[i]->getName() << "\" \"" << vec[i]->getBirthDate().getDateString() << "\"" << endl;
-		
-		if (vec[i]->getCard() != nullptr) {
-			cards << i << " \"";
-			switch (vec[i]->getCard()->getType()){
-				case PassengerCard::twentyFive:
-					cards << "twenty five";
-					break;
-				case PassengerCard::fifty:
-					cards << "fifty";
-					break;
-				case PassengerCard::hundred:
-					cards << "hundred";
-					break;
-			}
-			cards << "\"" << endl;
-		}
-	}
-	passengers.close();
-	cards.close();
-}
-
-void saveStations() {
-	ofstream stations("stations.txt", ofstream::out | ofstream::trunc);
-	vector<Station*> vec = System::instance.getStations();
-	for(uint i = 0; i < vec.size(); i++) {
-		stations << "\"" << vec[i]->getName() << "\"" << endl;
-	}
-	stations.close();
-}
-
-void saveTrains() {
-	ofstream trains("trains.txt", ofstream::out | ofstream::trunc);
-	vector<Train*> vec = System::instance.getTrains();
-	for(uint i = 0; i < vec.size(); i++) {
-		trains << vec[i]->getMaxSeats() << endl;
-	}
-	trains.close();
-}
-
-void saveTrips() {
-	ofstream trips("trips.txt", ofstream::out | ofstream::trunc);
-	vector<Trip*> vec = System::instance.getTrips();
-
-	for (uint i = 0; i < vec.size(); i++) {
-		int srcIndex = System::instance.getStationIndex(vec[i]->getSource()->getID());
-		int destIndex = System::instance.getStationIndex(vec[i]->getDest()->getID());
-		int trainIndex = System::instance.getTrainIndex(vec[i]->getTrain()->getID());
-		if (srcIndex == -1 || destIndex == -1 || trainIndex == -1) {
-			continue;
-		}
-		trips << vec[i]->getBasePrice() << " "
-		<< srcIndex << " " << destIndex << " " << trainIndex << " "
-		<< "\"" << vec[i]->getDepartureDate().getDateString() << "\" \""
-		<< vec[i]->getArrivalDate().getDateString() << "\"" << endl;
-	}
-	trips.close();
-}
-
-void savePurchases() {
-	ofstream purchases("purchases.txt", ofstream::out | ofstream::trunc);
-	vector<PurchaseLog> logVec = System::instance.getLogs();
-	bool savedLogs[logVec.size()];
-	vector<Passenger*> passVec = System::instance.getPassengers();
-
-	for(uint i = 0; i < passVec.size(); i++) {
-		for (const PurchaseLog &log: passVec[i]->getTripLogs()) {
-			savedLogs[log.getID()] = true;
-			purchases << i << " ";
-			purchases << "\"" << log.getPassengerName() << "\" ";
-			purchases << "\"" << log.getSourceName() << "\" ";
-			purchases << "\"" << log.getDestName() << "\" ";
-			purchases << "\"" << log.getDepartureDate() << "\" ";
-			purchases << "\"" << log.getPrice() << "\" ";
-			if (log.getTripID() == -1){
-				purchases << -1 << endl;
-			} else {
-				purchases << System::instance.getTripIndex(log.getTripID()) << endl;
-			}
-		}
-	}
-
-	for (PurchaseLog &log : logVec) {
-		if (!savedLogs[log.getID()]) {
-			purchases << "\"" << log.getPassengerName() << "\" ";
-			purchases << "\"" << log.getSourceName() << "\" ";
-			purchases << "\"" << log.getDestName() << "\" ";
-			purchases << "\"" << log.getDepartureDate() << "\" ";
-			purchases << "\"" << log.getPrice() << "\" " << endl;
-			if (log.getTripID() == -1){
-				purchases << -1 << endl;
-			} else {
-				purchases << System::instance.getTripIndex(log.getTripID()) << endl;
-			}
-		}
-	}
-	
 }
 
 int main() {
@@ -1094,12 +996,12 @@ int main() {
 			getchar();
 		}
 	}
-
+/*
 	System::instance.sortPassengers();
 	System::instance.sortStations();
 	System::instance.sortTrains();
 	System::instance.sortTrips();
-
+*/
 	savePassengers();
 	saveStations();
 	saveTrains();

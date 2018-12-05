@@ -13,14 +13,7 @@
  * 
  */
 class Trip {
-	/**
-	 * @brief Next ID counter
-	 * 
-	 * Used to set new ID when Trip object is constructed, incremented every time a 
-	 * new Trip object is constructed.
-	 * 
-	 */
-	static id_t currentID;
+
 public:
 	/**
 	 * @brief Construct a new Trip object
@@ -35,6 +28,13 @@ public:
 	Trip(uint basePrice, Station* source, Station* destination,
 			Train* train, const Date departureDate, const Date arrivalDate);
 	~Trip();
+
+	/**
+	 * Set the trip ID
+	 *
+	 * @param id
+	 */
+	void setID(id_t id);
 
 	/**
 	 * @brief get ID of the trip
@@ -100,7 +100,7 @@ public:
 	 * 
 	 * Outputs the object's information as it was a row in a table.
 	 * Useful for outputing all Trip objects in the system.
-	 * 
+	 *
 	 * @param os The output stream to which the trip will be output.
 	 * 
 	 */

@@ -2,48 +2,36 @@
 
 using namespace std;
 
-id_t PurchaseLog::currentId = 0;
+id_t PurchaseLog::currentID = 0;
 
-PurchaseLog::PurchaseLog(int tripID, string passengerName, string sourceName, string destName, string departureDate, string price):
-    passengerName(passengerName), sourceName(sourceName), destName(destName), departureDate(departureDate), price(price) {
-        this->logID = currentId++;
-        this->tripID = tripID;
+PurchaseLog::PurchaseLog(id_t tripID, id_t passengerID, uint price) {
+    this->logID = currentID++;
+    this->tripID = tripID;
+    this->passengerID = passengerID;
+    this->price = price;
 }
 
-const id_t PurchaseLog::getID() const {
+id_t PurchaseLog::getID() const {
     return logID;
 }
 
-const int PurchaseLog::getTripID() const {
+id_t PurchaseLog::getTripID() const {
     return tripID;
 }
 
-const string PurchaseLog::getPassengerName() const {
-    return passengerName;
-}
-
-const string PurchaseLog::getSourceName() const {
-    return sourceName;
-}
-
-const string PurchaseLog::getDestName() const {
-    return destName;
-}
-
-const string PurchaseLog::getDepartureDate() const {
-    return departureDate;
-}
-
-const string PurchaseLog::getPrice() const {
-    return price;
+id_t PurchaseLog::getPassengerID() const {
+    return passengerID;
 }
 
 ostream &operator<< (ostream &os, PurchaseLog &pl) {
     os << endl;
-    os << "Passenger Name: " << pl.passengerName << endl;
-    os << "Source Name: " << pl.sourceName << endl;
-    os << "Destination Name: " << pl.destName << endl;
-    os << "Date: " << pl.departureDate << endl;
-    os << "Price (cents): " << pl.price << endl;
+    os << "Passenger ID: " << pl.passengerID << endl;
+    os << "Trip ID: " << pl.tripID << endl;
+    os << "Price : " << pl.price << endl;
+
     return os;
+}
+
+uint PurchaseLog::getPrice() const {
+    return price;
 }

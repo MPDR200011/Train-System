@@ -3,11 +3,12 @@
 
 using namespace std;
 
-id_t Train::currentID = 0;
-
 Train::Train(uint totalSeats) {
-	this->trainID = currentID++;
 	this->maxSeats = totalSeats;
+}
+
+void Train::setID(id_t id) {
+	this->trainID = id;
 }
 
 id_t Train::getID() const {

@@ -1,6 +1,7 @@
 #ifndef SYSTEM_H_
 #define SYSTEM_H_
 
+#include <map>
 #include <vector>
 #include <iostream>
 #include "Passenger.h"
@@ -12,6 +13,7 @@
 #include "exceptions/InvalidDateException.h"
 #include "project_types.h"
 #include "PurchaseLog.h"
+#include "exceptions/NoSuchPassengerException.h"
 
 /**
  * @brief Class to represent the central system.
@@ -44,31 +46,31 @@ public:
 	 * 
 	 * @return std::vector<Passenger*>& 
 	 */
-	std::vector<Passenger*>& getPassengers();
+	std::map<id_t, Passenger*>& getPassengers();
 	/**
-	 * @brief Get the Trips vector.
+	 * @brief Get the Trips map.
 	 * 
-	 * Returns the vector of trips.
+	 * Returns the map of trips.
 	 * 
-	 * @return std::vector<Trip*>& 
+	 * @return std::map<id_t, Trip*>&
 	 */
-	std::vector<Trip*>& getTrips();
+	std::map<id_t, Trip*>& getTrips();
 	/**
-	 * @brief Get the Trains vector.
+	 * @brief Get the Trains map.
 	 * 
-	 * Returns the vector of trains.
+	 * Returns the map of trains.
 	 * 
-	 * @return std::vector<Train*>& 
+	 * @return std::map<id_t, Train*>&
 	 */
-	std::vector<Train*>& getTrains();
+	std::map<id_t, Train*>& getTrains();
 	/**
-	 * @brief Get the Stations vector.
+	 * @brief Get the Stations map.
 	 * 
-	 * Returns the vector of stations.
+	 * Returns the map of stations.
 	 * 
-	 * @return std::vector<Station*>& 
+	 * @return std::map<id_t, Station*>&
 	 */
-	std::vector<Station*>& getStations();
+	std::map<id_t, Station*>& getStations();
 
 	/**
 	 * @brief Get Passenger pointer.
@@ -79,7 +81,7 @@ public:
 	 * @param id 
 	 * @return Passenger* 
 	 */
-	Passenger* getPassenger(const id_t id);
+	Passenger* getPassenger(id_t id);
 	/**
 	 * @brief Get Trip pointer.
 	 * 
@@ -89,7 +91,7 @@ public:
 	 * @param id 
 	 * @return Trip* 
 	 */
-	Trip* getTrip(const id_t id);
+	Trip* getTrip(id_t id);
 	/**
 	 * @brief Get the Train pointer.
 	 * 
@@ -99,7 +101,7 @@ public:
 	 * @param id 
 	 * @return Train* 
 	 */
-	Train* getTrain(const id_t id);
+	Train* getTrain(id_t id);
 	/**
 	 * @brief Get the Station pointer.
 	 * 
@@ -109,7 +111,7 @@ public:
 	 * @param id 
 	 * @return Station* 
 	 */
-	Station* getStation(const id_t id);
+	Station* getStation(id_t id);
 
 	/**
 	 * @brief Get Station Index
@@ -167,7 +169,7 @@ public:
 	 * @return true If passenger was successfully removed.
 	 * @return false If passenger never existed.
 	 */
-	bool removePassenger(id_t id);
+	void removePassenger(id_t id);
 	/**
 	 * @brief Remove Trip from the system
 	 * 
@@ -177,7 +179,7 @@ public:
 	 * @return true If trip was successfully removed.
 	 * @return false If trip never existed.
 	 */
-	bool removeTrip(id_t id);
+	void removeTrip(id_t id);
 	/**
 	 * @brief Remove Station from the system
 	 * 
@@ -187,7 +189,7 @@ public:
 	 * @return true If station was successfully removed.
 	 * @return false If station never existed.
 	 */
-	bool removeStation(id_t id);
+	void removeStation(id_t id);
 	/**
 	 * @brief Remove Train from the system
 	 * 
@@ -197,7 +199,7 @@ public:
 	 * @return true If train was successfully removed.
 	 * @return false If train never existed.
 	 */
-	bool removeTrain(id_t id);
+	void removeTrain(id_t id);
 
 	/**
 	 * @brief Create a Passenger object
@@ -362,6 +364,19 @@ public:
 	 */
 	void listTrips(std::ostream &os);
 
+	void savePassengers();
+	void saveStations();
+	void saveTrains();
+	void saveTrips();
+	void savePurchases();
+
+	void loadPassengers();
+	void loadCards();
+	void loadStations();
+	void loadTrains();
+	void loadTrips();
+	void loadPurchases();
+
 	/**
 	 * @brief Print all passengers
 	 * 
@@ -421,22 +436,22 @@ private:
 	 * @brief Passengers vector
 	 * 
 	 */
-	std::vector<Passenger*> passengers;
+	std::map<id_t, Passenger*> passengers;
 	/**
 	 * @brief Trips vector
 	 * 
 	 */
-	std::vector<Trip*> trips;
+	std::map<id_t, Trip*> trips;
 	/**
-	 * @brief Trains vector
+	 * @brief Trains map
 	 * 
 	 */
-	std::vector<Train*> trains;
+	std::map<id_t, Train*> trains;
 	/**
-	 * @brief Stations vector
+	 * @brief Stations map
 	 * 
 	 */
-	std::vector<Station*> stations;
+	std::map<id_t, Station*> stations;
 
 	/**
 	 * @brief Vector of passengers with pending monthly card fee 

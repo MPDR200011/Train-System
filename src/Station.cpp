@@ -3,10 +3,8 @@
 
 using namespace std;
 
-id_t Station::currentID = 0;
 
 Station::Station(string name) : name(name){
-	this->stationID = currentID++;
 }
 
 id_t Station::getID() const {
@@ -28,4 +26,8 @@ ostream &operator<<(ostream &os, Station &st) {
 	os << "Name: " << st.name << endl;
 
 	return os;
+}
+
+void Station::setID(id_t stationID) {
+    this->stationID = stationID;
 }

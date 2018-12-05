@@ -9,14 +9,7 @@
  * 
  */
 class Train {
-	/**
-	 * @brief Next ID counter
-	 * 
-	 * Used to set new ID when Train object is constructed, incremented every time a 
-	 * new Train object is constructed.
-	 * 
-	 */
-	static id_t currentID;
+
 public:
 	/**
 	 * @brief Construct a new Train object
@@ -24,6 +17,13 @@ public:
 	 * @param totalSeats Max capacity of train
 	 */
 	Train(uint totalSeats);
+
+	/**
+	 * Set the train ID
+	 *
+	 * @param id
+	 */
+	void setID (id_t id);
 
 	/**
 	 * @brief Get the train ID

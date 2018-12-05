@@ -3,15 +3,16 @@
 
 using namespace std;
 
-id_t Passenger::currentID = 0;
-
 Passenger::Passenger(string name, Date birthDate): name(name), birthDate(birthDate.getDateString()) {
-	this->passengerID = currentID++;
 	this->card = nullptr;
 }
 
 Passenger::~Passenger() {
 	delete card;
+}
+
+void Passenger::setID(id_t id) {
+	this->passengerID = id;
 }
 
 id_t Passenger::getID() const {

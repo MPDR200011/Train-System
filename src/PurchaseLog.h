@@ -10,80 +10,52 @@
  * 
  */
 class PurchaseLog {
-public:
     /**
-     * @brief Current ID counter
-     * 
-     * Used to set the id of the purchase object when it is created.
-     * It's incremented every time a new object is created.
-     * 
+     * Current id counter, used to set id on object construction
+     * Incremented every time an object is constructed
      */
-    static id_t currentId;
+    static id_t currentID;
+public:
     /**
      * @brief Construct a new Purchase Log object
      * 
      * @param tripID 
-     * @param passengerName 
-     * @param sourceName 
-     * @param destName 
-     * @param departureDate 
-     * @param price 
+     * @param passengerID
      */
-    PurchaseLog(int tripID, std::string passengerName, std::string sourceName, std::string destName, std::string departureDate, std::string price);
+    PurchaseLog(id_t tripID, id_t passengerID, uint price);
 
     /**
      * @brief Get the log ID
      * 
      * @return const id_t 
      */
-    const id_t getID() const;
+    id_t getID() const;
     /**
      * @brief Get the Trip ID 
      * 
      * @return const int 
      */
-    const int getTripID() const;
+    id_t getTripID() const;
     /**
-     * @brief Get the Passenger Name
-     * 
-     * @return const std::string 
+     * Get the passenger ID
+     *
+     * @return
      */
-    const std::string getPassengerName() const;
+    id_t getPassengerID() const;
+
     /**
-     * @brief Get the Source Name
-     * 
-     * @return const std::string 
+     * Get the price
+     * @return
      */
-    const std::string getSourceName() const;
-    /**
-     * @brief Get the Dest Name
-     * 
-     * @return const std::string 
-     */
-    const std::string getDestName() const;
-    /**
-     * @brief Get the Departure Date String
-     * 
-     * @return const std::string 
-     */
-    const std::string getDepartureDate() const;
-    /**
-     * @brief Get the Price String in cents
-     * 
-     * @return const std::string 
-     */
-    const std::string getPrice() const;
+    uint getPrice() const;
 
     friend std::ostream &operator<< (std::ostream &os, PurchaseLog &pl);
 
 private:
     id_t logID;
-    int tripID;
-    std::string passengerName;
-    std::string sourceName;
-    std::string destName;
-    std::string departureDate;
-    std::string price;
+    id_t tripID;
+    id_t passengerID;
+    uint price;
 };
 
 #endif

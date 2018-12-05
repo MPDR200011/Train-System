@@ -1,3 +1,4 @@
+#include <fstream>
 #include "System.h"
 #include "exceptions/NoSuchPassengerException.h"
 #include "exceptions/NoSuchStationException.h"
@@ -6,23 +7,24 @@
 #include "exceptions/TripPastException.h"
 #include <algorithm>
 #include <iomanip>
+#include <ctime>
 
 using namespace std;
 
 System System::instance = System();
 
 System::~System() {
-	for (Passenger* p: passengers) {
-		delete p;
+	for (auto &p: passengers) {
+		delete p.second;
 	}
-	for (Trip* t: trips) {
-		delete t;
+	for (auto &t: trips) {
+		delete t.second;
 	}
-	for (Train* tr: trains) {
-		delete tr;
+	for (auto &tr: trains) {
+		delete tr.second;
 	}
-	for (Station* st: stations) {
-		delete st;
+	for (auto &st: stations) {
+		delete st.second;
 	}
 	passengers.clear();
 	trips.clear();
@@ -30,60 +32,56 @@ System::~System() {
 	stations.clear();
 }
 
-std::vector<Passenger*>& System::getPassengers() {
+std::map<id_t, Passenger*>& System::getPassengers() {
 	return passengers;
 }
 
-std::vector<Station*>& System::getStations() {
+std::map<id_t, Station*>& System::getStations() {
 	return stations;
 }
 
-std::vector<Train*>& System::getTrains() {
+std::map<id_t, Train*>& System::getTrains() {
 	return trains;
 }
 
-std::vector<Trip*>& System::getTrips() {
+std::map<id_t, Trip*>& System::getTrips() {
 	return trips;
 }
 
 Passenger* System::getPassenger(const id_t id) {
-	for (Passenger* p: passengers) {
-		if (p->getID() == id) {
-			return p;
-		}
+	try {
+		Passenger* p = passengers.at(id);
+		return p;
+	} catch (out_of_range &e) {
+		throw NoSuchPassengerException(id);
 	}
-
-	throw NoSuchPassengerException(id);
 }
 	
 Trip* System::getTrip(const id_t id) {
-	for (Trip* t: trips) {
-		if (t->getID() == id) {
-			return t;
-		}
+	try {
+		Trip *tr = trips.at(id);
+		return tr;
+	} catch (out_of_range &e) {
+		throw NoSuchTripException(id);
 	}
-
-	throw NoSuchTripException(id);
 }
 
 Train* System::getTrain(const id_t id) {
-	for (Train* t: trains) {
-		if (t->getID() == id) {
-			return t;
-		}
+	try {
+		Train *tr = trains.at(id);
+		return tr;
+	} catch (out_of_range &e) {
+		throw NoSuchTrainException(id);
 	}
-
-	throw NoSuchTrainException(id);
 }
 
 Station* System::getStation(const id_t id) {
-	for (Station* st: stations) {
-		if (st->getID() == id) {
-			return st;
-		}
+	try {
+		Station *st = stations.at(id);
+		return st;
+	} catch (out_of_range &e) {
+		throw NoSuchStationException(id);
 	}
-
-	throw NoSuchStationException(id);
 }
 
 int System::getStationIndex(id_t stationID) {
@@ -114,28 +112,32 @@ int System::getTripIndex(id_t tripID) {
 }
 
 vector<Trip*> System::searchTrips(Station *src, Station *dest, bool searchByArrivalDate, Date arrivalDate) {
-	
-	if (src == nullptr && dest == nullptr && !searchByArrivalDate) {
-		return trips;
-	}
 
 	vector<Trip*> res;
+	if (src == nullptr && dest == nullptr && !searchByArrivalDate) {
+	    for (auto &item: trips) {
+	    	res.push_back(item.second);
+	    }
+		return res;
+	}
 
-	for (Trip *tr: trips) {
+
+
+	for (auto &item: trips) {
 		bool srcMatch = src == nullptr;
 		bool destMatch = dest == nullptr;
 		bool arrivalMatch = !searchByArrivalDate;
 		if (!srcMatch) {
-			srcMatch = tr->getSource() == src;
+			srcMatch = item.second->getSource() == src;
 		}
 		if (!destMatch) {
-			destMatch = tr->getDest() == dest;
+			destMatch = item.second->getDest() == dest;
 		}
 		if (!arrivalMatch) {
-			arrivalMatch = tr->getArrivalDate() <= arrivalDate;
+			arrivalMatch = item.second->getArrivalDate() <= arrivalDate;
 		}
 		if (srcMatch && destMatch && arrivalMatch) {
-			res.push_back(tr);
+			res.push_back(item.second);
 		}
 	}
 
@@ -145,7 +147,14 @@ vector<Trip*> System::searchTrips(Station *src, Station *dest, bool searchByArri
 
 void System::createPassenger(string name, Date birthDate) {
 	Passenger *p = new Passenger(name, birthDate);
-	passengers.push_back(p);
+	srand(time(nullptr));
+	id_t id = rand();
+	auto result = passengers.insert(pair<id_t, Passenger*>(id, p));
+	while (!result.second) {
+		id = rand();
+		result = passengers.insert(pair<id_t, Passenger*>(id, p));
+	}
+	p->setID(id);
 }
 
 void System::createCard(Passenger *passenger, string type) {
@@ -169,81 +178,85 @@ void System::createCard(Passenger *passenger, string type) {
 
 void System::createStation(string name) {
 	Station *st = new Station(name);
-	stations.push_back(st);
+	srand(time(nullptr));
+	id_t id = rand();
+	auto result = stations.insert(pair<id_t, Station*>(id, st));
+	while (!result.second) {
+		id = rand();
+		result = stations.insert(pair<id_t, Station*>(id, st));
+	}
+	st->setID(id);
 }
 
 void System::createTrain(uint maxSeats) {
 	Train *tr = new Train(maxSeats);
-	trains.push_back(tr);
+	srand(time(nullptr));
+	id_t id = rand();
+	auto result = trains.insert(pair<id_t, Train*>(id,tr));
+	while (!result.second) {
+		id = rand();
+		result = trains.insert(pair<id_t, Train*>(id,tr));
+	}
+	tr->setID(id);
 }
 
 void System::createTrip(uint basePrice, Station* source, Station* destination,
 			Train* train, const Date departureDate, const Date arrivalDate) {
 	Trip *tr = new Trip(basePrice, source, destination, train, departureDate, arrivalDate);
-	trips.push_back(tr);
+    srand(time(nullptr));
+	id_t id = rand();
+	auto result = trips.insert(pair<id_t, Trip*>(id,tr));
+	while (!result.second) {
+		id = rand();
+		result = trips.insert(pair<id_t, Trip*>(id,tr));
+	}
+	tr->setID(id);
 }
 
-bool System::removePassenger(id_t id){
+void System::removePassenger(id_t id){
 	for (auto it = cardsToPay.begin(); it != cardsToPay.end(); it++) {
 		if ((*it)->getID() == id) {
 			cardsToPay.erase(it);
 			break;
 		}
 	}
-
-	for (auto it = passengers.begin(); it != passengers.end(); it++) {
-		if ((*it)->getID() == id) {
-			passengers.erase(it);
-			return true;
-		}
-	}
-	return false;
+	passengers.erase(id);
 }
 
-bool System::removeTrip(id_t id){
-	for (auto it = trips.begin(); it != trips.end(); it++) {
-		if ((*it)->getID() == id) {
-			trips.erase(it);
-			return true;
-		}
-	}
-	return false;
+void System::removeTrip(id_t id){
+	trips.erase(id);
 }
 
-bool System::removeStation(id_t id) {
-	for (auto it = trips.begin(); it != trips.end(); it++) {
-		Trip *tr = *it;
+void System::removeStation(id_t id) {
+	vector<id_t> tripIds;
+	for (auto &item: trips) {
+		Trip *tr = item.second;
 		if (tr->getSource()->getID() == id || tr->getDest()->getID() == id) {
-			it = --trips.erase(it);
+		    tripIds.push_back(tr->getID());
 		}
 	}
+	for_each(tripIds.begin(), tripIds.end(), [this](id_t id){
+		trips.erase(id);
+	});
 
-	for (auto it = stations.begin(); it != stations.end(); it++) {
-		if ((*it)->getID() == id) {
-			stations.erase(it);
-			return true;
-		}
-	}
-	return false;
+	stations.erase(id);
 }
 
-bool System::removeTrain(id_t id){
-	for (auto it = trips.begin(); it != trips.end(); it++) {
-		Trip *tr = *it;
+void System::removeTrain(id_t id){
+    vector<id_t> tripIds;
+	for (auto &item: trips) {
+		Trip *tr = item.second;
 		if (tr->getTrain()->getID() == id) {
-			it = --trips.erase(it);
+		    tripIds.push_back(tr->getID());
 		}
 	}
+	for_each(tripIds.begin(), tripIds.end(), [this](id_t id){
+		trips.erase(id);
+	});
 
-	for (auto it = trains.begin(); it != trains.end(); it++) {
-		if ((*it)->getID() == id) {
-			trains.erase(it);
-			return true;
-		}
-	}
-	return false;
+	trains.erase(id);
 }
-
+/*
 void System::sortPassengers() {
 	sort(passengers.begin(), passengers.end(), [](const Passenger *p1, const Passenger *p2)->bool{
 		return p1->getID() < p2->getID();
@@ -278,7 +291,7 @@ void System::sortTripsByDate() {
 	sort(trips.begin(), trips.end(), [](Trip *tr1, Trip *tr2)->bool{
 		return tr1->getDepartureDate() < tr2->getDepartureDate();
 	});
-}
+}*/
 
 bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 	
@@ -293,14 +306,10 @@ bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 		uint price = request.trip->getCurrentPrice();
 		PassengerCard* card = request.passenger->getCard();
 		if (card != nullptr) {
-			price *= 1-(card->getDiscount()/100.0);
+			price *= 1.0F-(card->getDiscount()/100.0F);
 		}
 		request.setInvoicePrice(price);
-		PurchaseLog log(request.trip->getID(),request.passenger->getName(), 
-			request.trip->getSource()->getName(),
-			request.trip->getDest()->getName(),
-			request.trip->getDepartureDate().getDateString(),
-			to_string(price));
+		PurchaseLog log(request.trip->getID(), request.passenger->getID(), price);
 		request.passenger->logTrip(log);
 		logPurchase(log);
 		return true;
@@ -318,40 +327,33 @@ const vector<PurchaseLog> & System::getLogs() const {
 }
 
 void System::processCards() {
-	for (auto it = cardsToPay.begin(); it != cardsToPay.end(); it++) {
-		Passenger *p = *it;
+	for (Passenger *p: cardsToPay) {
 		cout << "Passenger " << p->getName() << " of ID " << p->getID()
 		<< " has not payed his/her card, invalidating it." << endl;
 		p->removeCard();
 	}
 	cardsToPay.clear();
-	for (Passenger *p: passengers) {
-		if (p->getCard() != nullptr) {
-			cardsToPay.push_back(p);
+	for (auto &item: passengers) {
+		if (item.second->getCard() != nullptr) {
+			cardsToPay.push_back(item.second);
 		}
 	}
 }
 
 bool System::payCard(id_t passengerID, ostream &os) {
-	
-	for (Passenger *p: passengers) {
-		if (p->getID() == passengerID) {
-			auto it = find(cardsToPay.begin(), cardsToPay.end(), p);
-			if (it != cardsToPay.end()) {
-				cardsToPay.erase(it);
-				os << endl;
-				os << "Nome: " << p->getName() << endl;
-				string costString = to_string(p->getCard()->getCost());
-				costString.insert(costString.end()-2, ',');
-				os << "Valor do cartao: " << costString << " euros" << endl;
-				return true;
-			} else {
-				return false;
-			}
-		}
+	Passenger *p = getPassenger(passengerID);
+	auto it = find(cardsToPay.begin(), cardsToPay.end(), p);
+	if (it != cardsToPay.end()) {
+		cardsToPay.erase(it);
+        os << endl;
+        os << "Nome: " << p->getName() << endl;
+        string costString = to_string(p->getCard()->getCost());
+        costString.insert(costString.end()-2, ',');
+        os << "Valor do cartao: " << costString << " euros" << endl;
+        return true;
+	} else {
+		return false;
 	}
-
-	throw NoSuchPassengerException(passengerID);
 }
 
 void System::listPassengers(ostream &os){
@@ -361,8 +363,8 @@ void System::listPassengers(ostream &os){
 	<< setw(35) << "name" 
 	<< setw(15) << "birthdate" 
 	<< setw(15) << "card type" << endl;
-	for (Passenger *p: passengers) {
-		p->printRow(os);
+	for (auto &item: passengers) {
+		item.second->printRow(os);
 		os << endl;
 	}
 	os << endl;
@@ -372,8 +374,8 @@ void System::listStations(ostream &os) {
 	os << endl
 	<< setw(5) << "id" 
 	<< setw(35) << "name" << endl;
-	for (Station *st: stations) {
-		st->printRow(os);
+	for (auto &item : stations) {
+		item.second->printRow(os);
 		os << endl;
 	}
 	os << endl;
@@ -383,8 +385,8 @@ void System::listTrains(ostream &os) {
 	os << endl 
 	<< setw(5) << "id"
 	<< setw(12) << "max seats" << endl;
-	for (Train *tr: trains) {
-		tr->printRow(os);
+	for (auto &item: trains) {
+		item.second->printRow(os);
 		os << endl;
 	}
 	os << endl;
@@ -401,34 +403,34 @@ void System::listTrips(ostream &os){
 	<< setw(20) << "arrival date" 
 	<< setw(10) << "train id" 
 	<< setw(16) << "free seats" << endl;
-	for (Trip *tr: trips) {
-		tr->printRow(os);
+	for (auto &item: trips) {
+		item.second->printRow(os);
 		os << endl;
 	}
 	os << endl;
 }
 
 void System::printPassengers(ostream &os) const {
-	for (Passenger *p: passengers) {
-		os << *p << endl;
+	for (auto &item: passengers) {
+		os << *item.second << endl;
 	}
 }
 
 void System::printStations(ostream &os) const {
-	for (Station *st: stations) {
-		os << *st << endl;
+	for (auto &item: stations) {
+		os << *item.second << endl;
 	}
 }
 
 void System::printTrains(ostream &os) const {
-	for (Train *tr: trains) {
-		os << *tr << endl;
+	for (auto &item: trains) {
+		os << *item.second << endl;
 	}
 }
 
 void System::printTrips(ostream &os) const {
-	for (Trip *tr: trips) {
-		os << *tr << endl;
+	for (auto &item: trips) {
+		os << *item.second << endl;
 	}
 }
 
@@ -444,4 +446,89 @@ ostream &operator<< (ostream &os, System &sys) {
 	sys.printTrains(os);
 	sys.printTrips(os);
 	return os;
+}
+
+void System::savePassengers() {
+	ofstream passengersFile("passengers.txt", ofstream::out | ofstream::trunc);
+	ofstream cardsFile("cards.txt", ofstream::out | ofstream::trunc);
+	for (auto &item: passengers) {
+		Passenger *p = item.second;
+		passengersFile << p->getID() << " \"" << p->getName() << "\" \"" << p->getBirthDate().getDateString() << "\"" << endl;
+
+		if (p->getCard() != nullptr) {
+			cardsFile << p->getID() << " \"";
+			switch (p->getCard()->getType()){
+				case PassengerCard::twentyFive:
+					cardsFile << "twenty five";
+					break;
+				case PassengerCard::fifty:
+					cardsFile << "fifty";
+					break;
+				case PassengerCard::hundred:
+					cardsFile << "hundred";
+					break;
+			}
+			cardsFile << "\"" << endl;
+		}
+	}
+	passengersFile.close();
+	cardsFile.close();
+}
+
+void System::saveStations() {
+	ofstream stationsFile("stations.txt", ofstream::out | ofstream::trunc);
+	for(auto &item: stations) {
+		Station *st = item.second;
+		stationsFile << st->getID() << " \"" << tr->getName() << "\"" << endl;
+	}
+	stationsFile.close();
+}
+
+void System::saveTrains() {
+	ofstream trainsFile("trains.txt", ofstream::out | ofstream::trunc);
+	for(auto &item: trains) {
+		Train *tr = item.second;
+		trainsFile << tr->getID() << " " << tr->getMaxSeats() << endl;
+	}
+	trainsFile.close();
+}
+
+void System::saveTrips() {
+	ofstream tripsFile("trips.txt", ofstream::out | ofstream::trunc);
+	for (auto &item: trips) {
+	    Trip *tr = item.second;
+		tripsFile << tr->getID() << " " << tr->getBasePrice() << " "
+		<< tr->getSource()->getID() << " " << tr->getDest()->getID() << " " << tr->getTrain()->getID() << " "
+		<< "\"" << tr->getDepartureDate().getDateString() << "\" \""
+		<< tr->getArrivalDate().getDateString() << "\"" << endl;
+	}
+	tripsFile.close();
+}
+
+void System::savePurchases() {
+	ofstream purchasesFile("purchases.txt", ofstream::out | ofstream::trunc);
+	for (PurchaseLog &pl: sales) {
+		purchasesFile << pl.getTripID() << " " << pl.getPassengerID() << " " << pl.getPrice() << endl;
+	}
+	purchasesFile.clear();
+}
+
+void System::loadPassengers() {
+
+}
+
+void System::loadCards() {
+
+}
+
+void System::loadStations() {
+
+}
+
+void System::loadTrains() {
+
+}
+
+void System::loadTrips() {
+
 }

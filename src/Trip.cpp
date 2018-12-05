@@ -36,6 +36,10 @@ void Trip::validate() {
 	}
 }
 
+void Trip::setID(id_t id) {
+	this->tripID = id;
+}
+
 id_t Trip::getID() const {
 	return tripID;
 }
