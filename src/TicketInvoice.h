@@ -1,8 +1,8 @@
 #ifndef TICKETINVOICE_H_
 #define TICKETINVOICE_H_
 
-#include "Passenger.h"
-#include "Trip.h"
+#include "system_elements/Passenger.h"
+#include "system_elements/Trip.h"
 #include "project_utils.h"
 #include <string>
 #include <iostream>

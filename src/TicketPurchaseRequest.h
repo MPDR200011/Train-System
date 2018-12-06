@@ -1,9 +1,9 @@
 #ifndef TICKETPURCHASEREQUEST_H_
 #define TICKETPURCHASEREQUEST_H_
 
-#include "Passenger.h"
+#include "system_elements/Passenger.h"
 #include "TicketInvoice.h"
-#include "Trip.h"
+#include "system_elements/Trip.h"
 #include <iostream>
 
 /**

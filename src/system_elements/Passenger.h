@@ -2,14 +2,14 @@
 #define PASSENGER_H_
 
 #include "SystemElement.h"
-#include "Date.h"
+#include "../Date.h"
 #include "Trip.h"
 #include "PassengerCard.h"
-#include "project_utils.h"
+#include "../project_utils.h"
 #include <string>
 #include <vector>
 #include <iostream>
-#include "PurchaseLog.h"
+#include "../PurchaseLog.h"
 
 /**
  * @brief Class for representing a passenger in the system

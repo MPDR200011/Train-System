@@ -4,10 +4,10 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include "Passenger.h"
-#include "Trip.h"
-#include "Train.h"
-#include "Station.h"
+#include "system_elements/Passenger.h"
+#include "system_elements/Trip.h"
+#include "system_elements/Train.h"
+#include "system_elements/Station.h"
 #include "TicketPurchaseRequest.h"
 #include "Date.h"
 #include "exceptions/InvalidDateException.h"

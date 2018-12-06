@@ -1,6 +1,6 @@
 #include "Trip.h"
-#include "exceptions/IdenticalDestinationException.h"
-#include "exceptions/ReverseDatesException.h"
+#include "../exceptions/IdenticalDestinationException.h"
+#include "../exceptions/ReverseDatesException.h"
 #include <iomanip>
 
 using namespace std;
