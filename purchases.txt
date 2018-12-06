@@ -1,4 +1,2 @@
-1 "Carlos Nova" "Porto-Campanha" "Lisboa-Oriente" "15-12-2018 11:00" "1000" -1
-2 "Joao Macedo" "Porto-Campanha" "Viana do Castelo" "30-11-2018 10:00" "150" 8
-6 "Jeronimo" "Viana do Castelo" "Porto-Campanha" "10-12-2018 10:00" "500" 29
-6 "Jeronimo" "Porto-Campanha" "Viana do Castelo" "30-11-2018 10:00" "150" 8
+0 1 500
+2 6 5000

@@ -35,7 +35,7 @@ public:
 	 * 
 	 * @param dateString Date in form of a string in format "dd-mm-yyyy HH:MM". Day, month, year, hour and minutes must be two digits ('02', '08', '12')
 	 */
-	Date(const std::string &dateString);
+	explicit Date(const std::string &dateString);
 
 	/**
 	 * @brief ouput Date object into an output stream

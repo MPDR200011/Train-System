@@ -1,18 +1,19 @@
 #ifndef TRIP_H_
 #define TRIP_H_
 
+#include "SystemElement.h"
 #include <string>
 #include "Station.h"
 #include "Train.h"
 #include "Date.h"
-#include "project_types.h"
+#include "project_utils.h"
 #include <iostream>
 
 /**
  * @brief Class for representing a trip in the system
  * 
  */
-class Trip {
+class Trip : public SystemElement{
 
 public:
 	/**
@@ -26,7 +27,7 @@ public:
 	 * @param arrivalDate Date object of the time of arrival
 	 */
 	Trip(uint basePrice, Station* source, Station* destination,
-			Train* train, const Date departureDate, const Date arrivalDate);
+			Train* train, Date departureDate, Date arrivalDate);
 	~Trip();
 
 	/**

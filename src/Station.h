@@ -1,7 +1,8 @@
 #ifndef STATION_H_
 #define STATION_H_
 
-#include "project_types.h"
+#include "SystemElement.h"
+#include "project_utils.h"
 #include <string>
 #include <iostream>
 
@@ -9,7 +10,7 @@
  * @brief Class for representing a station in the system
  * 
  */
-class Station {
+class Station : public SystemElement {
 
 public:
 	/**
@@ -17,7 +18,7 @@ public:
 	 * 
 	 * @param name Name of the station.
 	 */
-	Station(std::string name);
+	explicit Station(std::string name);
 
 	/**
 	 * Set the station ID

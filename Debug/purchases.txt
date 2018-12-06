@@ -1,2 +1,2 @@
-1 "Carlos Nova" "Porto-Campanha" "Lisboa-Oriente" "15-12-2018 11:00" "1000" 47
-3 "Josefina" "Porto-Campanha" "Lisboa-Oriente" "15-12-2018 10:00" "0" 47
+0 1 500
+2 6 5000

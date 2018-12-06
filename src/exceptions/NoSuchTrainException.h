@@ -2,7 +2,7 @@
 #define NOSUCHTRAINEXCEPTION_H_
 
 #include <exception>
-#include "../project_types.h"
+#include "../project_utils.h"
 
 /**
  * @brief Exception reporting that a train ID does not exist in the system

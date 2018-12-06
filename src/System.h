@@ -11,7 +11,7 @@
 #include "TicketPurchaseRequest.h"
 #include "Date.h"
 #include "exceptions/InvalidDateException.h"
-#include "project_types.h"
+#include "project_utils.h"
 #include "PurchaseLog.h"
 #include "exceptions/NoSuchPassengerException.h"
 
@@ -46,7 +46,7 @@ public:
 	 * 
 	 * @return std::vector<Passenger*>& 
 	 */
-	std::map<id_t, Passenger*>& getPassengers();
+    std::vector<Passenger *> getPassengers();
 	/**
 	 * @brief Get the Trips map.
 	 * 
@@ -54,7 +54,7 @@ public:
 	 * 
 	 * @return std::map<id_t, Trip*>&
 	 */
-	std::map<id_t, Trip*>& getTrips();
+    std::vector<Trip *> getTrips();
 	/**
 	 * @brief Get the Trains map.
 	 * 
@@ -62,7 +62,7 @@ public:
 	 * 
 	 * @return std::map<id_t, Train*>&
 	 */
-	std::map<id_t, Train*>& getTrains();
+	std::vector<Train *> getTrains();
 	/**
 	 * @brief Get the Stations map.
 	 * 
@@ -70,7 +70,7 @@ public:
 	 * 
 	 * @return std::map<id_t, Station*>&
 	 */
-	std::map<id_t, Station*>& getStations();
+	std::vector<Station *> getStations();
 
 	/**
 	 * @brief Get Passenger pointer.
@@ -112,40 +112,6 @@ public:
 	 * @return Station* 
 	 */
 	Station* getStation(id_t id);
-
-	/**
-	 * @brief Get Station Index
-	 * 
-	 * Returns the index of the station object, with id specified in the parameter, 
-	 * in the respective vector.
-	 * If there is no such object, returns -1.
-	 * 
-	 * @param stationID 
-	 * @return int 
-	 */
-	int getStationIndex(id_t stationID);
-	/**
-	 * @brief Get the Train Index
-	 * 
-	 * Returns the index of the train object, with id specified in the parameter, 
-	 * in the respective vector.
-	 * If there is no such object, returns -1.
-	 * 
-	 * @param trainID 
-	 * @return int 
-	 */
-	int getTrainIndex(id_t trainID);
-	/**
-	 * @brief Get the Trip Index 
-	 * 
-	 * Returns the index of the trip object, with id specified in the parameter, 
-	 * in the respective vector.
-	 * If there is no such object, returns -1.
-	 * 
-	 * @param tripID 
-	 * @return int 
-	 */
-	int getTripIndex(id_t tripID);
 
 	/**
 	 * @brief Get a vector of Trip respecting constraints
@@ -209,7 +175,7 @@ public:
 	 * @param name 
 	 * @param birthDate 
 	 */
-	void createPassenger(std::string name, Date birthDate);
+	void createPassenger(std::string &name, Date birthDate);
 	/**
 	 * @brief Create a Card object
 	 * 
@@ -218,7 +184,7 @@ public:
 	 * @param p 
 	 * @param type 
 	 */
-	void createCard(Passenger *p, std::string type);
+	void createCard(Passenger *p, std::string &type);
 	/**
 	 * @brief Create a Station object
 	 * 
@@ -226,7 +192,7 @@ public:
 	 * 
 	 * @param name 
 	 */
-	void createStation(std::string name);
+	void createStation(std::string &name);
 	/**
 	 * @brief Create a Train object
 	 * 
@@ -248,38 +214,7 @@ public:
 	 * @param arrivalDate 
 	 */
 	void createTrip(uint basePrice, Station* source, Station* destination,
-			Train* train, const Date dapartureDate, const Date arrivalDate);
-
-	/**
-	 * @brief Sort passenger in vector by id
-	 * 
-	 */
-	void sortPassengers();
-	/**
-	 * @brief Sort passengers in vector by name
-	 * 
-	 */
-	void sortPassengersByName();
-	/**
-	 * @brief Sort stations in vector by id
-	 * 
-	 */
-	void sortStations();
-	/**
-	 * @brief Sort trains in vector by id
-	 * 
-	 */
-	void sortTrains();
-	/**
-	 * @brief Sort trips in vecotr by id
-	 * 
-	 */
-	void sortTrips();
-	/**
-	 * @brief Sort trips in vector by time of departure
-	 * 
-	 */
-	void sortTripsByDate();
+			Train* train, Date departureDate, Date arrivalDate);
 
 	/**
 	 * @brief Process a request for a ticket purchase
@@ -377,60 +312,6 @@ public:
 	void loadTrips();
 	void loadPurchases();
 
-	/**
-	 * @brief Print all passengers
-	 * 
-	 * Prints all passanger objects in a user friendly way
-	 * 
-	 * @param os 
-	 */
-	void printPassengers(std::ostream &os) const;
-	/**
-	 * @brief Print all stations
-	 * 
-	 * Prints all station objects in a user friendly way
-	 * 
-	 * @param os 
-	 */
-	void printStations(std::ostream &os) const;
-	/**
-	 * @brief Print all train
-	 * 
-	 * Prints all train objects in a user friendly way
-	 * 
-	 * @param os 
-	 */
-	void printTrains(std::ostream &os) const;
-	/**
-	 * @brief Print all trips
-	 * 
-	 * Prints all trip objects in a user friendly way
-	 * 
-	 * @param os 
-	 */
-	void printTrips(std::ostream &os) const;
-
-	/**
-	 * @brief Print all invoices
-	 * 
-	 * Prints the invoices of all processed ticket purchase requests
-	 * that where validated.
-	 * 
-	 * @param os pending
-	 */
-	void printSales(std::ostream &os) const;
-
-	/**
-	 * @brief Print everything.
-	 * 
-	 * Calls the operators overload in all passengers, stations, trains and trips.
-	 * 
-	 * @param os 
-	 * @param sys 
-	 * @return std::ostream& 
-	 */
-	friend std::ostream &operator<<(std::ostream &os, System &sys);
-
 private:
 	/**
 	 * @brief Passengers vector
@@ -475,6 +356,61 @@ public:
 	 * 
 	 */
 	static System instance;
+
+public:
+	/**
+	 * @brief Print all passengers
+	 *
+	 * Prints all passanger objects in a user friendly way
+	 *
+	 * @param os
+	 */
+	void printPassengers(std::ostream &os) const;
+	/**
+	 * @brief Print all stations
+	 *
+	 * Prints all station objects in a user friendly way
+	 *
+	 * @param os
+	 */
+	void printStations(std::ostream &os) const;
+	/**
+	 * @brief Print all train
+	 *
+	 * Prints all train objects in a user friendly way
+	 *
+	 * @param os
+	 */
+	void printTrains(std::ostream &os) const;
+	/**
+	 * @brief Print all trips
+	 *
+	 * Prints all trip objects in a user friendly way
+	 *
+	 * @param os
+	 */
+	void printTrips(std::ostream &os) const;
+
+	/**
+	 * @brief Print all invoices
+	 *
+	 * Prints the invoices of all processed ticket purchase requests
+	 * that where validated.
+	 *
+	 * @param os pending
+	 */
+	void printSales(std::ostream &os) const;
+
+	/**
+	 * @brief Print everything.
+	 *
+	 * Calls the operators overload in all passengers, stations, trains and trips.
+	 *
+	 * @param os
+	 * @param sys
+	 * @return std::ostream&
+	 */
+	friend std::ostream &operator<<(std::ostream &os, System &sys);
 };
 
 #endif /* SYSTEM_H_ */

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "project_types.h"
+#include "project_utils.h"
 
 /**
  * @brief A class representing the log of a trip tiket purchase

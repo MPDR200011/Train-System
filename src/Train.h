@@ -1,14 +1,15 @@
 #ifndef TRAIN_H_
 #define TRAIN_H_
 
-#include "project_types.h"
+#include "SystemElement.h"
+#include "project_utils.h"
 #include <iostream>
 
 /**
  * @brief Class for representing a train in the system
  * 
  */
-class Train {
+class Train : public SystemElement{
 
 public:
 	/**
@@ -16,7 +17,7 @@ public:
 	 * 
 	 * @param totalSeats Max capacity of train
 	 */
-	Train(uint totalSeats);
+	explicit Train(uint totalSeats);
 
 	/**
 	 * Set the train ID

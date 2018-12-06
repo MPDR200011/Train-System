@@ -1,10 +1,11 @@
 #ifndef PASSENGER_H_
 #define PASSENGER_H_
 
+#include "SystemElement.h"
 #include "Date.h"
 #include "Trip.h"
 #include "PassengerCard.h"
-#include "project_types.h"
+#include "project_utils.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -17,7 +18,7 @@
  * a Date object representing his date of birth and a vector of pointers to trips he has bought tickets for.
  * 
  */
-class Passenger {
+class Passenger : public SystemElement{
 
 public:
 	/**

@@ -2,7 +2,7 @@
 #define NOSUCHTRIPEXCEPTION_H_
 
 #include <exception>
-#include "../project_types.h"
+#include "../project_utils.h"
 
 /**
  * @brief Exception reporting that a trip ID does not exist in the system

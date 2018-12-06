@@ -12,151 +12,6 @@
 
 using namespace std;
 
-//TODO finish load/save
-//TODO Stop removing stuff, just mark it as disabled
-//TODO Check out sorts
-
-/**
- * @brief Template function to read any variable from cin.
- * 
- * @tparam T 
- * @param var 
- * @return true If cin reports EOF.
- * @return false IF cin doesn't report EOF.
- */
-template <class T> bool readVar(T &var) {
-	if (!cin.good()) {
-		cin.ignore(INT32_MAX, '\n');
-		cin.clear();
-	}
-
-	bool validInput = false;
-	while (!validInput) {
-		cin >> var;
-		if (!cin.good()) {
-			if (cin.eof()) {
-				cin.clear();
-				cin.ignore(INT32_MAX, '\n');
-				cin.clear();
-				return true;
-			} else {
-				cout << "Invalid input, try again - ";
-				cin.clear();
-				cin.ignore(INT32_MAX, '\n');
-				cin.clear();
-			}
-		} else {
-			cin.clear();
-			cin.ignore(INT32_MAX, '\n');
-			cin.clear();
-			validInput = true;
-		}
-	}
-	return false;
-}
-
-/**
- * @brief Function to read a string using getline(cin).
- * 
- * @param s 
- * @return true If cin reports EOF.
- * @return false If cin doesn't report EOF.
- */
-bool readLine(string &s) {
-	if (!cin.good()) {
-		cin.ignore(INT32_MAX, '\n');
-		cin.clear();
-	}
-
-	bool validInput = false;
-	while (!validInput) {
-		cin.clear();
-		getline(cin, s);
-		
-		if (!cin.good()) {
-			if (cin.eof()) {
-				cin.clear();
-				cin.ignore(INT32_MAX, '\n');
-				cin.clear();
-				return true;
-			} else {
-				cin.clear();
-			}
-		} else {
-			validInput = true;
-		}
-	}
-	return false;
-}
-
-/**
- * @brief Read a birthdate
- * 
- * Asks user to input a date in the format "dd-mm-yyyy".
- * 
- * @return Date 
- */
-Date readBirthDate() {
-	Date date("01-01-1970 00:00");
-	cout << "Birth Date (dd-mm-yyyy) - ";
-	bool validDate = true;
-	do {
-		string dateString;
-		readLine(dateString);
-
-		if (dateString.length() != 10) {
-			cout << "Date has to be in the exact format (dd-mm-yyyy), try again - ";
-			validDate = false;
-			continue;
-		} 
-		dateString += " 00:00";
-
-		try {
-			date = Date(dateString);
-		} catch (InvalidDateException &e) {
-			cout << "The date you entered is not valid, try again - ";
-			validDate = false;
-			continue;
-		}
-		validDate = true;
-	} while (!validDate);
-	return date;
-}
-
-/**
- * @brief Read a date
- * 
- * Asks user to input a date in the format "dd-mm-yyyy HH:MM".
- * 
- * @return Date 
- */
-Date readDate() {
-	Date date("01-01-1970 00:00");
-	cout << "Date (dd-mm-yyyy HH:MM) - ";
-	bool validDate = true;
-	do {
-		string dateString;
-		readLine(dateString);
-
-		if (dateString.length() != 16) {
-			cout << "Date has to be in the exact format (dd-mm-yyyy HH:MM), try again - ";
-			validDate = false;
-			continue;
-		}
-
-		try {
-			date = Date(dateString);
-		} catch (InvalidDateException &e) {
-			cout << "The date you entered is not valid, try again - ";
-			validDate = false;
-			continue;
-		}
-
-		validDate = true;
-	} while (!validDate);
-	return date;
-}
-
 /**
  * @brief
  * 
@@ -224,26 +79,6 @@ void payCard();
  */
 void checkCards();
 
-/**
- * Splits arguments in a string using the space character as a delimiter.
- * Strings between quotes are counted as a single argument.
- * 
- * @return vector<string> Vector of the sperated arguments.
- */
-vector<string> splitArgumets(string&);
-void loadPassengers();
-void loadCards();
-void loadStations();
-void loadTrains();
-void loadTrips();
-void loadPurchases();
-
-void savePassengers();
-void saveStations();
-void saveTrains();
-void saveTrips();
-void savePurchases();
-
 void mainMenu() {
 	string menuOptions[] = {
 		"  1 - Create a new passenger/card/station/train/trip.",
@@ -258,7 +93,7 @@ void mainMenu() {
 	};
 	cout << endl << "Train System Interface" << endl;
 	cout << endl;
-	for (string s: menuOptions) {
+	for (const string &s: menuOptions) {
 		cout << s << endl;
 	}
 	cout << endl;
@@ -278,13 +113,12 @@ void createTask() {
 	bool validChoice = false;
 	while (!validChoice) {
 		int choice;
-		if (readVar(choice)) {
+		if (project_utils::readVar(choice)) {
 			return;
 		}
 		switch (choice) {
 			case -1:
 				return;
-				break;
 			case 1: {
 				validChoice = true;
 				createPassenger();
@@ -312,7 +146,7 @@ void createTask() {
 			}
 			default: {
 				validChoice = false;
-				cout << "Ivalid choice, try again - ";
+				cout << "Invalid choice, try again - ";
 				break;
 			}
 		}
@@ -323,15 +157,15 @@ void createTask() {
 void createPassenger() {
 	string name;
 	cout << "Name - ";
-	readLine(name);
+	project_utils::readLine(name);
 
-	Date birthDate = readBirthDate();
+	Date birthDate = project_utils::readBirthDate();
 
 	try {
 		System::instance.createPassenger(name, birthDate);
-	} catch (exception *e) {
+	} catch (exception &e) {
 		cout << "A problem has ocurred creating passenger:" << endl;
-		cout << e->what() << endl;
+		cout << e.what() << endl;
 		return;
 	}
  
@@ -340,7 +174,7 @@ void createPassenger() {
 
 void createCard() {
 
-	if (System::instance.getPassengers().size() == 0) {
+	if (System::instance.getPassengers().empty()) {
 		cout << "There are no passengers to get a card." << endl;
 		return;
 	}
@@ -351,7 +185,7 @@ void createCard() {
 	Passenger *passenger;
 	cout << "Enter the id of the passenger who will own the card - ";
 	id_t passengerID;
-	readVar(passengerID);
+	project_utils::readVar(passengerID);
 	try {
 		passenger = System::instance.getPassenger(passengerID);
 	} catch (NoSuchPassengerException &e) {
@@ -363,7 +197,7 @@ void createCard() {
 	cout << "Card type (twenty five/fifty/hundred) - ";
 	bool validType = false;
 	while (!validType) {
-		readLine(type);
+		project_utils::readLine(type);
 		if (type != "twenty five" && type != "fifty" && type != "hundred") {
 			cout << "Not a valid type, try again - ";
 		} else {
@@ -373,9 +207,9 @@ void createCard() {
 
 	try {
 		System::instance.createCard(passenger,type);
-	} catch (exception *e) {
+	} catch (exception &e) {
 		cout << "A problem has ocurred creating card:" << endl;
-		cout << e->what() << endl;
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -387,13 +221,13 @@ void createStation() {
 
 	cout << "Please enter the name of the station - ";
 	string name;
-	readLine(name);
+	project_utils::readLine(name);
 
 	try {
 		System::instance.createStation(name);
-	} catch (exception *e) {
+	} catch (exception &e) {
 		cout << "A problem has ocurred creating station:" << endl;
-		cout << e->what() << endl;
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -404,13 +238,13 @@ void createTrain() {
 
 	cout << "Please enter the amount of seats in the train - ";
 	uint maxSeats;
-	readVar(maxSeats);
+	project_utils::readVar(maxSeats);
 
 	try {
 		System::instance.createTrain(maxSeats);
-	} catch (exception *e) {
+	} catch (exception &e) {
 		cout << "A problem has ocurred creating train:" << endl;
-		cout << e->what() << endl;
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -422,13 +256,13 @@ void createTrip() {
 
 	cout << "Please enter base price of the trip - ";
 	uint basePrice;
-	readVar(basePrice);
+	project_utils::readVar(basePrice);
 
 	System::instance.listStations(cout);
 	cout << endl;
 	cout << "Source station ID - ";
 	id_t sourceID;
-	readVar(sourceID);
+	project_utils::readVar(sourceID);
 	Station *src;
 	try {
 		src = System::instance.getStation(sourceID);
@@ -439,7 +273,7 @@ void createTrip() {
 
 	cout << "Destination station ID - ";
 	id_t destID;
-	readVar(destID);
+	project_utils::readVar(destID);
 	Station *dest;
 	try {
 		dest = System::instance.getStation(destID);
@@ -452,7 +286,7 @@ void createTrip() {
 	cout << endl;
 	cout << "ID of train that will be doing trip - ";
 	id_t trainID;
-	readVar(trainID);
+	project_utils::readVar(trainID);
 	Train *tr;
 	try {
 		tr = System::instance.getTrain(trainID);
@@ -462,15 +296,15 @@ void createTrip() {
 	}
 
 	cout << "Departure ";
-	Date dep = readDate();
+	Date dep = project_utils::readDate();
 	cout << "Arrival ";
-	Date arr = readDate();
+	Date arr = project_utils::readDate();
 
 	try {
 		System::instance.createTrip(basePrice, src, dest, tr, dep, arr);
-	} catch (exception *e) {
+	} catch (exception &e) {
 		cout << "A problem has ocurred creating trip:" << endl;
-		cout << e->what() << endl;
+		cout << e.what() << endl;
 		return;
 	}
 
@@ -483,7 +317,7 @@ void deleteTask() {
 	string choice;
 	bool validChoice = false;
 	while (!validChoice) {
-		readLine(choice);
+		project_utils::readLine(choice);
 		if (choice == "passenger" || choice == "station" || choice == "train" || choice == "trip" || choice == "-1") {
 			validChoice = true;
 		} else {
@@ -496,28 +330,28 @@ void deleteTask() {
 		cout << endl;
 		cout << "ID - ";
 		id_t id;
-		readVar(id);
+		project_utils::readVar(id);
 		System::instance.removePassenger(id);
 	} else if (choice == "station") {
 		System::instance.listStations(cout);
 		cout << endl;
 		cout << "ID - ";
 		id_t id;
-		readVar(id);
+		project_utils::readVar(id);
 		System::instance.removeStation(id);
 	} else if (choice == "train") {
 		System::instance.listTrains(cout);
 		cout << endl;
 		cout << "ID - ";
 		id_t id;
-		readVar(id);
+		project_utils::readVar(id);
 		System::instance.removeTrain(id);
 	} else if (choice == "trip"){
 		System::instance.listTrips(cout);
 		cout << endl;
 		cout << "ID - ";
 		id_t id;
-		readVar(id);
+		project_utils::readVar(id);
 		System::instance.removeTrip(id);
 	} else {
 		return;
@@ -529,10 +363,10 @@ void deleteTask() {
 
 void searchTask() {
 	cout << "Specify a source restraint? (y/n) - ";
-	bool searchBySrc;
+	bool searchBySrc = false;
 	string choice;
 	do {
-		readLine(choice);
+		project_utils::readLine(choice);
 		if (choice != "y" && choice != "n") {
 			cout << "Invalid choice, try again - ";
 		} else {
@@ -546,7 +380,7 @@ void searchTask() {
 		cout << endl;
 		id_t id;
 		cout << "Please input the ID of the source station - ";
-		readVar(id);
+		project_utils::readVar(id);
 		try {
 			src = System::instance.getStation(id);
 		} catch (NoSuchStationException &e) {
@@ -556,9 +390,9 @@ void searchTask() {
 	}
 
 	cout << "Specify a destination restraint? (y/n) - ";
-	bool searchByDest;
+	bool searchByDest = false;
 	do {
-		readLine(choice);
+		project_utils::readLine(choice);
 		if (choice != "y" && choice != "n") {
 			cout << "Invalid choice, try again - ";
 		} else {
@@ -570,7 +404,7 @@ void searchTask() {
 	if (searchByDest) {
 		id_t id;
 		cout << "Please input the ID of the destination station - ";
-		readVar(id);
+		project_utils::readVar(id);
 		try {
 			dest = System::instance.getStation(id);
 		} catch (NoSuchStationException &e) {
@@ -580,9 +414,9 @@ void searchTask() {
 	}
 
 	cout << "Specify a arrival date restraint? (y/n) - ";
-	bool searchByArrivalDate;
+	bool searchByArrivalDate = false;
 	do {
-		readLine(choice);
+		project_utils::readLine(choice);
 		if (choice != "y" && choice != "n") {
 			cout << "Invalid choice, try again - ";
 		} else {
@@ -592,14 +426,14 @@ void searchTask() {
 
 	Date arrivalDate("01-01-1970 00:00");
 	if (searchByArrivalDate) {
-		arrivalDate = readDate();
+		arrivalDate = project_utils::readDate();
 	}
 
 	vector<Trip*> trips = System::instance.searchTrips(src, dest, searchByArrivalDate, arrivalDate);
 
 	cout << endl;
 
-	if (trips.size() == 0) {
+	if (trips.empty()) {
 		cout << "There are no trips that match these constraints." << endl;
 		return;
 	}
@@ -627,7 +461,7 @@ void purchaseTask() {
 	cout << "ID of passenger - ";
 	Passenger *passenger;
 	id_t passengerID;
-	readVar(passengerID);
+	project_utils::readVar(passengerID);
 	try {
 		passenger = System::instance.getPassenger(passengerID);
 	} catch (NoSuchPassengerException &e) {
@@ -640,7 +474,7 @@ void purchaseTask() {
 	cout << "ID of the trip - ";
 	Trip *tr;
 	id_t tripID;
-	readVar(tripID);
+	project_utils::readVar(tripID);
 	try {
 		tr = System::instance.getTrip(tripID);
 	} catch (NoSuchTripException &e) {
@@ -665,7 +499,7 @@ void listTask() {
 	string choice;
 	bool validChoice = false;
 	while (!validChoice) {
-		readLine(choice);
+		project_utils::readLine(choice);
 		if (choice == "passengers" || choice == "stations" || choice == "trains" || choice == "trips" || choice == "-1") {
 			validChoice = true;
 		} else {
@@ -690,7 +524,7 @@ void payCard() {
 	cout << endl;
 	cout << "Please enter the ID of the passenger whose card is being paid - ";
 	id_t passengerID;
-	readVar(passengerID);
+	project_utils::readVar(passengerID);
 
 	try {
 		if (!System::instance.payCard(passengerID, cout)) {
@@ -707,10 +541,10 @@ void payCard() {
 
 void checkCards() {
 	cout << "This function will invalidate unpayed cards and reset the the cards payment status, do you wish to proceed? (y/n) - ";
-	bool proceed;
+	bool proceed = false;
 	string choice;
 	do {
-		readLine(choice);
+		project_utils::readLine(choice);
 		if (choice != "y" && choice != "n") {
 			cout << "Invalid choice, try again - ";
 		} else {
@@ -726,204 +560,16 @@ void checkCards() {
 	}
 }
 
-vector<string> splitArgumets(string& command) {
-	vector<string> v;
-	string temp;
-	bool isString = false;
-	for (const char c: command) {
-		if (c == ' ') {
-			if (!isString) {
-				if (!temp.empty()) {
-					v.push_back(temp);
-					temp.clear();
-				}
-			} else {
-				temp.push_back(c);
-			}
-		} else {
-			if (c == '\"') {
-				if (!isString) {
-					isString = true;
-				} else {
-					v.push_back(temp);
-					temp.clear();
-					isString = false;
-				}
-			} else {
-				temp.push_back(c);
-			}
-		}
-	}
-
-	if (!temp.empty()) {
-		v.push_back(temp);
-	}
-
-	return v;
-}
-
-void loadPassengers() {
-	ifstream passengers("passengers.txt");
-	if (passengers.is_open()) {
-		string line;
-		while (getline(passengers, line)) {
-			vector<string> arguments = splitArgumets(line);
-
-			if (arguments.size() != 2) {
-				continue;
-			}
-
-			try {
-				Date birthDate(arguments[1]);
-				System::instance.createPassenger(arguments[0], birthDate);
-			} catch (exception &e) {
-				continue;
-			}
-		}
-		passengers.close();
-	}
-}
-
-void loadCards() {
-	ifstream cards("cards.txt");
-	if (cards.is_open()) {
-		string line;
-		while (getline(cards, line)) {
-			vector<string> arguments = splitArgumets(line);
-
-			if (arguments.size() != 2) {
-				continue;
-			}
-
-			try {
-				Passenger *p = System::instance.getPassenger(stoi(arguments[0]));
-				System::instance.createCard(p, arguments[1]);
-			} catch (exception &e) {
-				continue;
-			}
-		}
-		cards.close();
-	}
-}
-
-void loadStations() {
-	ifstream stations("stations.txt");
-	string line;
-	if (stations.is_open()) {
-		while (getline(stations, line)) {
-			vector<string> arguments = splitArgumets(line);
-			if (arguments.size() != 1) {
-				continue;
-			}
-
-			try {
-				System::instance.createStation(arguments[0]);
-			} catch (exception &e) {
-				continue;
-			}
-		}
-		stations.close();
-	}
-}
-
-void loadTrains() {
-	ifstream trains("trains.txt");
-	string line;
-	if (trains.is_open()) {
-		while (getline(trains, line)) {
-			vector<string> arguments = splitArgumets(line);
-			
-			if (arguments.size() != 1) {
-				continue;
-			}
-
-			try {
-				System::instance.createTrain(stoi(arguments[0]));
-			} catch (exception &e) {
-				continue;
-			}
-		}
-		trains.close();
-	}
-}
-
-void loadTrips() {
-	ifstream trips("trips.txt");
-	string line;
-	if (trips.is_open()) {
-		while (getline(trips, line)) {
-			vector<string> arguments = splitArgumets(line);
-			if (arguments.size() != 6) {
-				continue;
-			}
-
-			try {
-				Station *src = System::instance.getStation(stoi(arguments[1]));
-				Station *dest = System::instance.getStation(stoi(arguments[2]));
-				Train *tr = System::instance.getTrain(stoi(arguments[3]));
-				Date dep(arguments[4]);
-				Date arr(arguments[5]);
-				System::instance.createTrip(stoi(arguments[0]), src, dest, tr, dep, arr);
-			} catch (exception &e) {
-				continue;
-			}
-		}
-		trips.close();
-	}
-}
-
-void loadPurchases() {
-	ifstream purchases("purchases.txt");
-	if (purchases.is_open()) {
-		string line;
-		while (getline(purchases, line)) {
-			vector<string> arguments = splitArgumets(line);
-			if (arguments.size() == 7) {
-				try {
-					Passenger *p = System::instance.getPassenger(stoi(arguments[0]));
-					if (stoi(arguments[6]) != -1) {
-						Trip *tr = System::instance.getTrip(stoi(arguments[6]));
-						tr->bookSeat();
-					}
-					PurchaseLog log(stoi(arguments[6]), arguments[1], arguments[2], arguments[3], arguments[4],
-									arguments[5]);
-					System::instance.logPurchase(log);
-					p->logTrip(log);
-				} catch (NoSuchPassengerException &e) {
-					continue;
-				} catch (NoSuchTripException &e) {
-					continue;
-				}
-			} else if (arguments.size() == 6) {
-				if (stoi(arguments[5]) != -1) {
-					try {
-						Trip *tr = System::instance.getTrip(stoi(arguments[5]));
-						tr->bookSeat();
-					} catch (NoSuchTripException &e) {
-						continue;
-					}
-				}
-				PurchaseLog log(stoi(arguments[5]), arguments[0], arguments[1], arguments[2], arguments[3],
-								arguments[4]);
-				System::instance.logPurchase(log);
-			} else {
-				continue;
-			}
-		}
-		purchases.close();
-	}
-}
-
 int main() {
 	Date d("12-12-2018 11:00");
 	cout << d << endl;
 
-	loadPassengers();
-	loadCards();
-	loadStations();
-	loadTrains();
-	loadTrips();
-	loadPurchases();
+	System::instance.loadPassengers();
+	System::instance.loadCards();
+	System::instance.loadStations();
+	System::instance.loadTrains();
+	System::instance.loadTrips();
+	System::instance.loadPurchases();
 
 	bool programmRunning = true;
 	while (programmRunning) {
@@ -931,8 +577,7 @@ int main() {
 		mainMenu();
 
 		int choice;
-		if (readVar(choice)) {
-			programmRunning = false;
+		if (project_utils::readVar(choice)) {
 			break;
 		}
 
@@ -992,21 +637,16 @@ int main() {
 			}
 		}
 		if (programmRunning) {
-			cout << "Press ENTER to contiune to main menu." << endl;
+			cout << "Press ENTER to continue to main menu." << endl;
 			getchar();
 		}
 	}
-/*
-	System::instance.sortPassengers();
-	System::instance.sortStations();
-	System::instance.sortTrains();
-	System::instance.sortTrips();
-*/
-	savePassengers();
-	saveStations();
-	saveTrains();
-	saveTrips();
-	savePurchases();
+
+	System::instance.savePassengers();
+	System::instance.saveStations();
+	System::instance.saveTrains();
+	System::instance.saveTrips();
+	System::instance.savePurchases();
 
 	return 0;
 }

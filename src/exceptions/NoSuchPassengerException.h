@@ -1,7 +1,7 @@
 #ifndef NOSUCHPASSENGEREXCEPTION_H_
 #define NOSUCHPASSENGEREXCEPTION_H_
 
-#include "../project_types.h"
+#include "../project_utils.h"
 #include <exception>
 
 /**
