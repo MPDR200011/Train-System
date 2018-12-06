@@ -203,10 +203,10 @@ void System::createStation(string &name) {
 void System::createTrain(uint maxSeats) {
 	Train *tr = new Train(maxSeats);
 	srand((uint)time(nullptr));
-	id_t id = rand();
+	id_t id = (id_t) rand();
 	auto result = trains.insert(pair<id_t, Train*>(id,tr));
 	while (!result.second) {
-		id = rand();
+		id = (id_t) rand();
 		result = trains.insert(pair<id_t, Train*>(id,tr));
 	}
 	tr->setID(id);
@@ -457,7 +457,8 @@ void System::savePassengers() {
 	ofstream cardsFile("cards.txt", ofstream::out | ofstream::trunc);
 	for (auto &item: passengers) {
 		Passenger *p = item.second;
-		passengersFile << p->getID() << " \"" << p->getName() << "\" \"" << p->getBirthDate().getDateString() << "\"" << endl;
+		passengersFile << p->getID() << " " << p->isActive()
+		<< " \"" << p->getName() << "\" \"" << p->getBirthDate().getDateString() << "\"" << endl;
 
 		if (p->getCard() != nullptr) {
 			cardsFile << p->getID() << " \"";
@@ -483,7 +484,7 @@ void System::saveStations() {
 	ofstream stationsFile("stations.txt", ofstream::out | ofstream::trunc);
 	for(auto &item: stations) {
 		Station *st = item.second;
-		stationsFile << st->getID() << " \"" << st->getName() << "\"" << endl;
+		stationsFile << st->getID() << " " << st->isActive() << " \"" << st->getName() << "\"" << endl;
 	}
 	stationsFile.close();
 }
@@ -492,7 +493,7 @@ void System::saveTrains() {
 	ofstream trainsFile("trains.txt", ofstream::out | ofstream::trunc);
 	for(auto &item: trains) {
 		Train *tr = item.second;
-		trainsFile << tr->getID() << " " << tr->getMaxSeats() << endl;
+		trainsFile << tr->getID() << " " << tr->isActive() << " " << tr->getMaxSeats() << endl;
 	}
 	trainsFile.close();
 }
@@ -501,7 +502,7 @@ void System::saveTrips() {
 	ofstream tripsFile("trips.txt", ofstream::out | ofstream::trunc);
 	for (auto &item: trips) {
 	    Trip *tr = item.second;
-		tripsFile << tr->getID() << " " << tr->getBasePrice() << " "
+		tripsFile << tr->getID() << " " << tr->isActive() << " " << tr->getBasePrice() << " "
 		<< tr->getSource()->getID() << " " << tr->getDest()->getID() << " " << tr->getTrain()->getID() << " "
 		<< "\"" << tr->getDepartureDate().getDateString() << "\" \""
 		<< tr->getArrivalDate().getDateString() << "\"" << endl;
@@ -525,14 +526,17 @@ void System::loadPassengers() {
 		while (getline(passengersFile, line)) {
 			vector<string> arguments = project_utils::splitArguments(line);
 
-			if (arguments.size() != 3) {
+			if (arguments.size() != 4) {
 				continue;
 			}
 
 			try {
-				Date birthDate(arguments[2]);
-				Passenger *p = new Passenger(arguments[1], birthDate);
+				Date birthDate(arguments[3]);
+				Passenger *p = new Passenger(arguments[2], birthDate);
 				p->setID((id_t)stoul(arguments[0]));
+				if (!stoi(arguments[1])) {
+					p->setInactive();
+				}
 				passengers.insert(pair<id_t, Passenger*>(p->getID(),p));
 			} catch (...) {
 				continue;
@@ -570,13 +574,16 @@ void System::loadStations() {
 	if (stationsFile.is_open()) {
 		while (getline(stationsFile, line)) {
 			vector<string> arguments = project_utils::splitArguments(line);
-			if (arguments.size() != 2) {
+			if (arguments.size() != 3) {
 				continue;
 			}
 
 			try {
-				Station *st = new Station(arguments[1]);
+				Station *st = new Station(arguments[2]);
 				st->setID((id_t) stoul( arguments[0] ));
+				if (!stoi(arguments[1])) {
+					st->setInactive();
+				}
 				stations.insert(pair<id_t,Station*>(st->getID(),st));
 			} catch (...) {
 				continue;
@@ -593,13 +600,16 @@ void System::loadTrains() {
 		while (getline(trainsFile, line)) {
 			vector<string> arguments = project_utils::splitArguments(line);
 
-			if (arguments.size() != 2) {
+			if (arguments.size() != 3) {
 				continue;
 			}
 
 			try {
-				Train *tr = new Train((uint)stoul(arguments[1]));
+				Train *tr = new Train((uint)stoul(arguments[2]));
 				tr->setID((id_t)stoul(arguments[0]));
+				if (!stoi(arguments[1])){
+					tr->setInactive();
+				}
 				trains.insert(pair<id_t, Train*>(tr->getID(), tr));
 			} catch (...) {
 				continue;
@@ -615,18 +625,21 @@ void System::loadTrips() {
 	if (tripsFile.is_open()) {
 		while (getline(tripsFile, line)) {
 			vector<string> arguments = project_utils::splitArguments(line);
-			if (arguments.size() != 7) {
+			if (arguments.size() != 8) {
 				continue;
 			}
 
 			try {
-				Station *src = System::instance.getStation((id_t)stoul(arguments[2]));
-				Station *dest = System::instance.getStation((id_t)stoul(arguments[3]));
-				Train *tr = System::instance.getTrain((id_t)stoul(arguments[4]));
-				Date dep(arguments[5]);
-				Date arr(arguments[6]);
-				Trip *trip = new Trip((uint) stoul(arguments[1]), src, dest, tr, dep, arr);
+				Station *src = System::instance.getStation((id_t)stoul(arguments[3]));
+				Station *dest = System::instance.getStation((id_t)stoul(arguments[4]));
+				Train *tr = System::instance.getTrain((id_t)stoul(arguments[5]));
+				Date dep(arguments[6]);
+				Date arr(arguments[7]);
+				Trip *trip = new Trip((uint) stoul(arguments[2]), src, dest, tr, dep, arr);
 				trip->setID((id_t)stoul(arguments[0]));
+				if (!stoi(arguments[1])) {
+					tr->setInactive();
+				}
 				trips.insert(pair<id_t,Trip*>(trip->getID(),trip));
 			} catch (...) {
 				continue;
