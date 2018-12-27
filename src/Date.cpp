@@ -8,6 +8,7 @@ using namespace std;
 const unsigned int Date::monthsWith31[] = {0, 2, 4, 6, 7, 9, 11};
 const unsigned int Date::monthsWith30[] = {3, 5, 8, 10};
 const char* Date::dateFormat = "%d-%m-%Y %H:%M";
+const char* Date::defaultDateString = "01-01-1970 00:00";
 
 Date::Date(int year, int month, int day,
 		int hour, int minutes) {

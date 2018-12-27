@@ -13,6 +13,8 @@
  */
 class Date {
 public:
+	static const char* defaultDateString;
+public:
 	/**
 	 * @brief Construct a new Date object
 	 * 

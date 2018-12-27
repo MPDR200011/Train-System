@@ -6,13 +6,14 @@
 using namespace std;
 
 Trip::Trip(uint basePrice, Station* source, Station* destination,
-		Train* train, const Date departureDate, const Date arrivalDate):
+		Train* train, Engineer* engy, const Date departureDate, const Date arrivalDate):
 		departureDate(departureDate.getDateString()), arrivalDate(arrivalDate.getDateString()){
 	this->occupiedSeats = 0;
 	this->basePrice = basePrice;
 	this->source = source;
 	this->destination = destination;
 	this->train = train;
+	this->engineer = engy;
 
 	validate();
 }
@@ -115,5 +116,9 @@ ostream &operator<<(ostream &os, Trip &tr) {
 	os << "Train ID: " << tr.train->getID() << endl;
 	os << "Occupied Seats: " << tr.occupiedSeats << endl;
 	return os;
+}
+
+Engineer *Trip::getEngineer() const {
+	return engineer;
 }
 

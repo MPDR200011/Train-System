@@ -1,7 +1,7 @@
 #ifndef PASSENGER_H_
 #define PASSENGER_H_
 
-#include "SystemElement.h"
+#include "Person.h"
 #include "../Date.h"
 #include "Trip.h"
 #include "PassengerCard.h"
@@ -18,7 +18,7 @@
  * a Date object representing his date of birth and a vector of pointers to trips he has bought tickets for.
  * 
  */
-class Passenger : public SystemElement{
+class Passenger : public Person{
 
 public:
 	/**
@@ -47,23 +47,11 @@ public:
 	 */
 	id_t getID() const;
 	/**
-	 * @brief Get the Name object
-	 * 
-	 * @return std::string The Passenger's name
-	 */
-	std::string getName() const;
-	/**
 	 * @brief Get the Card object
 	 * 
 	 * @return PassengerCard* The pointer to the PassengerCard object
 	 */
 	PassengerCard* getCard() const;
-	/**
-	 * @brief Get the Birth Date object
-	 * 
-	 * @return const Date& The Date object representing the Passenger's date of birth
-	 */
-	Date & getBirthDate();
 	/**
 	 * @brief Get the Trips object
 	 * 
@@ -124,22 +112,12 @@ private:
 	 */
 	id_t passengerID;
 	/**
-	 * @brief Passenger's name
-	 * 
-	 */
-	std::string name;
-	/**
 	 * @brief Pointer to Passenger's PassengerCard
 	 * 
 	 * If Passenger does not have acard, it will be nullptr
 	 * 
 	 */
 	PassengerCard* card;
-	/**
-	 * @brief Date object representing Passenger's date of birth
-	 * 
-	 */
-	Date birthDate;
 	/**
 	 * @brief Vector of trip logs.
 	 * 

@@ -8,7 +8,7 @@ public:
     void setActive();
     void setInactive();
 
-    bool isActive();
+    bool isActive() const;
 
 private:
     bool active;

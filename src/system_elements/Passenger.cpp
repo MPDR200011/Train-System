@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Passenger::Passenger(string name, Date birthDate): name(name), birthDate(birthDate.getDateString()) {
+Passenger::Passenger(string name, Date birthDate): Person(name, birthDate) {
 	this->card = nullptr;
 }
 
@@ -33,16 +33,8 @@ bool Passenger::setCard(PassengerCard *c) {
 	}
 }
 
-std::string Passenger::getName() const {
-	return name;
-}
-
 PassengerCard* Passenger::getCard() const {
 	return card;
-}
-
-Date& Passenger::getBirthDate() {
-	return birthDate;
 }
 
 void Passenger::logTrip(PurchaseLog log) {

@@ -12,6 +12,6 @@ void SystemElement::setInactive() {
     this->active = false;
 }
 
-bool SystemElement::isActive() {
+bool SystemElement::isActive() const {
     return active;
 }

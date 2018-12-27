@@ -7,6 +7,10 @@
 #include "Train.h"
 #include "../Date.h"
 #include "../project_utils.h"
+#ifdef TRAIN_SYSTEM_ENGINEER_H
+class Engineer;
+#endif
+#include "Engineer.h"
 #include <iostream>
 
 /**
@@ -23,11 +27,12 @@ public:
 	 * @param source Pointer to source station
 	 * @param destination Pointer to destination station
 	 * @param train Pointer to train that will be in charge of the trip
+	 * @param engy engineer that is going to drive the train
 	 * @param departureDate Date object of the time of departure 
 	 * @param arrivalDate Date object of the time of arrival
 	 */
 	Trip(uint basePrice, Station* source, Station* destination,
-			Train* train, Date departureDate, Date arrivalDate);
+			Train* train, Engineer* engy, Date departureDate, Date arrivalDate);
 	~Trip();
 
 	/**
@@ -73,6 +78,7 @@ public:
 	 * @return Train* 
 	 */
 	Train* getTrain() const;
+	Engineer* getEngineer() const;
 	/**
 	 * @brief Get the Departure Date object
 	 * 
@@ -155,6 +161,7 @@ private:
 	 * 
 	 */
 	Train* train;
+	Engineer* engineer;
 	/**
 	 * @brief Time of departure
 	 * 

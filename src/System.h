@@ -4,6 +4,7 @@
 #include <map>
 #include <vector>
 #include <iostream>
+#include <unordered_set>
 #include "system_elements/Passenger.h"
 #include "system_elements/Trip.h"
 #include "system_elements/Train.h"
@@ -14,6 +15,7 @@
 #include "project_utils.h"
 #include "PurchaseLog.h"
 #include "exceptions/NoSuchPassengerException.h"
+#include "system_elements/Engineer.h"
 
 /**
  * @brief Class to represent the central system.
@@ -71,6 +73,8 @@ public:
 	 * @return std::map<id_t, Station*>&
 	 */
 	std::vector<Station *> getStations();
+	std::vector<Engineer*> getEngineers();
+	std::vector<Engineer*> getPastEngineers();
 
 	/**
 	 * @brief Get Passenger pointer.
@@ -112,6 +116,7 @@ public:
 	 * @return Station* 
 	 */
 	Station* getStation(id_t id);
+	Engineer* getEngineer(id_t id);
 
 	/**
 	 * @brief Get a vector of Trip respecting constraints
@@ -166,6 +171,7 @@ public:
 	 * @return false If train never existed.
 	 */
 	void removeTrain(id_t id);
+	void removeEngineer(id_t id);
 
 	/**
 	 * @brief Create a Passenger object
@@ -214,7 +220,9 @@ public:
 	 * @param arrivalDate 
 	 */
 	void createTrip(uint basePrice, Station* source, Station* destination,
-			Train* train, Date departureDate, Date arrivalDate);
+			Train* train, Engineer* engy, Date departureDate, Date arrivalDate);
+	void createEngineer(std::string name, Date birthDate);
+	void hireEnginner(id_t id);
 
 	/**
 	 * @brief Process a request for a ticket purchase
@@ -298,14 +306,18 @@ public:
 	 * @param os 
 	 */
 	void listTrips(std::ostream &os);
+	void listEngineers(std::ostream &os);
+	void listPastEngineers(std::ostream &os);
 
 	void savePassengers();
+	void saveEngineers();
 	void saveStations();
 	void saveTrains();
 	void saveTrips();
 	void savePurchases();
 
 	void loadPassengers();
+	void loadEngineers();
 	void loadCards();
 	void loadStations();
 	void loadTrains();
@@ -333,6 +345,8 @@ private:
 	 * 
 	 */
 	std::map<id_t, Station*> stations;
+
+	std::unordered_set<Engineer*, Engineer::EngineerHashUtils, Engineer::EngineerHashUtils> engineers;
 
 	/**
 	 * @brief Vector of passengers with pending monthly card fee 

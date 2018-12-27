@@ -8,22 +8,28 @@
 #include "exceptions/NoSuchTrainException.h"
 #include "exceptions/NoSuchTripException.h"
 #include "exceptions/TripPastException.h"
+#include "exceptions/NoSuchEngineerException.h"
 #include <iomanip>
+
+//TODO engineer hiring interface
+//TODO engineer listing interface
+//TODO engineer deletion interface
+
 
 using namespace std;
 
 /**
  * @brief
- * 
+ *
  * Prints the main menu and choice prompt.
- * 
+ *
  */
 void mainMenu();
 
 /**
- * 
+ *
  * Called when chooses to create a passenger/card/station/trip/train.
- * 
+ *
  */
 void createTask();
 /**
@@ -51,6 +57,11 @@ void createTrain();
  * Starts respective process.
  */
 void createTrip();
+/**
+ * Called when user chooses to hire an enginner.
+ * Starts respective process;
+ */
+void createEngineer();
 
 /**
  * Called when user chooses to delete a passenger/station/train/trip.
@@ -107,6 +118,7 @@ void createTask() {
 	cout << "3 - Station" << endl;
 	cout << "4 - Train" << endl;
 	cout << "5 - Trip" << endl;
+	cout << "6 - Engineer(hire)" << endl;
 	cout << endl;
 	cout << "Choice (-1 to return to main menu) - ";
 
@@ -142,6 +154,11 @@ void createTask() {
 			case 5: {
 				validChoice = true;
 				createTrip();
+				break;
+			}
+			case 6: {
+				validChoice = true;
+				createEngineer();
 				break;
 			}
 			default: {
@@ -295,21 +312,52 @@ void createTrip() {
 		return;
 	}
 
+	System::instance.listEngineers(cout);
+	cout << endl;
+	cout << "ID of engineer that will be driving the train - ";
+	id_t engineerID;
+	project_utils::readVar(engineerID);
+	Engineer *eng;
+	try {
+		eng = System::instance.getEngineer(engineerID);
+	} catch (NoSuchEngineerException &e) {
+		cout << e.what() << ", returning to main menu." << endl;
+		return;
+	}
+
 	cout << "Departure ";
 	Date dep = project_utils::readDate();
 	cout << "Arrival ";
 	Date arr = project_utils::readDate();
 
 	try {
-		System::instance.createTrip(basePrice, src, dest, tr, dep, arr);
+		System::instance.createTrip(basePrice, src, dest, tr, eng, dep, arr);
 	} catch (exception &e) {
-		cout << "A problem has ocurred creating trip:" << endl;
+		cout << "A problem has occurred creating trip:" << endl;
 		cout << e.what() << endl;
 		return;
 	}
 
 	cout << "Successfully created trip." << endl;
 
+}
+
+void createEngineer() {
+	if (!System::instance.getPastEngineers().empty()) {
+		cout << "There are engineers that have already worked in the company." << endl
+		<< "Please choose which one you want to re-hire: ";
+		System::instance.listPastEngineers(cout);
+		cout << endl << "Choice - ";
+		id_t id;
+		project_utils::readVar(id);
+		Engineer* eng;
+		try {
+			eng = System::instance.getEngineer(id);
+		} catch (NoSuchEngineerException &e) {
+			cout << e.what() << ", returning to main menu." << endl;
+			return;
+		}
+	}
 }
 
 void deleteTask() {
@@ -565,6 +613,7 @@ int main() {
 	cout << d << endl;
 
 	System::instance.loadPassengers();
+	System::instance.loadEngineers();
 	System::instance.loadCards();
 	System::instance.loadStations();
 	System::instance.loadTrains();
@@ -643,6 +692,7 @@ int main() {
 	}
 
 	System::instance.savePassengers();
+	System::instance.saveEngineers();
 	System::instance.saveStations();
 	System::instance.saveTrains();
 	System::instance.saveTrips();

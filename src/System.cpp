@@ -5,6 +5,7 @@
 #include "exceptions/NoSuchTrainException.h"
 #include "exceptions/NoSuchTripException.h"
 #include "exceptions/TripPastException.h"
+#include "exceptions/NoSuchEngineerException.h"
 #include <algorithm>
 #include <iomanip>
 #include <ctime>
@@ -213,8 +214,9 @@ void System::createTrain(uint maxSeats) {
 }
 
 void System::createTrip(uint basePrice, Station* source, Station* destination,
-			Train* train, const Date departureDate, const Date arrivalDate) {
-	Trip *tr = new Trip(basePrice, source, destination, train, departureDate, arrivalDate);
+			Train* train, Engineer* engy, const Date departureDate, const Date arrivalDate) {
+	Trip *tr = new Trip(basePrice, source, destination, train, engy, departureDate, arrivalDate);
+	engy->addTrip(tr);
     srand((uint)time(nullptr));
 	id_t id = rand();
 	auto result = trips.insert(pair<id_t, Trip*>(id,tr));
@@ -504,6 +506,7 @@ void System::saveTrips() {
 	    Trip *tr = item.second;
 		tripsFile << tr->getID() << " " << tr->isActive() << " " << tr->getBasePrice() << " "
 		<< tr->getSource()->getID() << " " << tr->getDest()->getID() << " " << tr->getTrain()->getID() << " "
+		<< tr->getEngineer()->getID() << " "
 		<< "\"" << tr->getDepartureDate().getDateString() << "\" \""
 		<< tr->getArrivalDate().getDateString() << "\"" << endl;
 	}
@@ -630,13 +633,15 @@ void System::loadTrips() {
 			}
 
 			try {
-				Station *src = System::instance.getStation((id_t)stoul(arguments[3]));
-				Station *dest = System::instance.getStation((id_t)stoul(arguments[4]));
-				Train *tr = System::instance.getTrain((id_t)stoul(arguments[5]));
-				Date dep(arguments[6]);
-				Date arr(arguments[7]);
-				Trip *trip = new Trip((uint) stoul(arguments[2]), src, dest, tr, dep, arr);
+				Station *src = getStation((id_t)stoul(arguments[3]));
+				Station *dest = getStation((id_t)stoul(arguments[4]));
+				Train *tr = getTrain((id_t)stoul(arguments[5]));
+				Engineer *eng = getEngineer((id_t)stoul(arguments[6]));
+				Date dep(arguments[7]);
+				Date arr(arguments[8]);
+				Trip *trip = new Trip((uint) stoul(arguments[2]), src, dest, tr, eng, dep, arr);
 				trip->setID((id_t)stoul(arguments[0]));
+				eng->addTrip(trip);
 				if (!stoi(arguments[1])) {
 					tr->setInactive();
 				}
@@ -669,4 +674,144 @@ void System::loadPurchases() {
 			}
 		}
 	}
+}
+
+std::vector<Engineer *> System::getEngineers() {
+    vector<Engineer*> res;
+
+    for (auto it = engineers.begin(); it != engineers.end(); it++) {
+    	if ((*it)->isActive()){
+    		res.push_back((*it));
+    	}
+    }
+
+	return res;
+}
+
+Engineer *System::getEngineer(id_t id) {
+    for (auto it = engineers.begin(); it != engineers.end(); it++) {
+    	if ((*it)->isActive()){
+    	    if ((*it)->getID() == id) {
+    	    	return *it;
+    	    }
+    	}
+    }
+
+    throw NoSuchEngineerException(id);
+}
+
+void System::removeEngineer(id_t id) {
+	for (auto it = engineers.begin(); it != engineers.end(); it++) {
+        if ((*it)->getID() == id && (*it)->isActive()) {
+            return (*it)->setInactive();
+        }
+    }
+}
+
+void System::createEngineer(std::string name, Date birthDate) {
+	Engineer *eng = new Engineer(name, birthDate);
+	srand((uint)time(nullptr));
+	id_t id = rand();
+	eng->setID(id);
+	auto result = engineers.insert(eng);
+	while (!result.second) {
+		id = rand();
+		eng->setID(id);
+		result = engineers.insert(eng);
+	}
+}
+
+void System::saveEngineers() {
+	ofstream engysFile("engineers.txt");
+	for (Engineer* eng: engineers) {
+		engysFile << eng->getID() << " "
+		<< eng->isActive() << " "
+		<< "\"" << eng->getName() << "\" "
+		<< "\"" << eng->getBirthDate().getDateString() << "\"" << endl;
+	}
+}
+
+void System::loadEngineers() {
+	ifstream engysFile("engineers.txt");
+	if (engysFile.is_open()) {
+		string line;
+		while (getline(engysFile, line)) {
+			try {
+				vector<string> args = project_utils::splitArguments(line);
+				id_t ID = (id_t) stoul(args[0]);
+				Date birth(args[3]);
+				Engineer* eng = new Engineer(args[2], birth);
+				eng->setID(ID);
+				if (!stoul(args[1])) {
+					eng->setInactive();
+				}
+				engineers.insert(eng);
+			} catch (...) {
+				continue;
+			}
+		}
+	}
+}
+
+std::vector<Engineer *> System::getPastEngineers() {
+	vector<Engineer*> res;
+
+	for (auto it = engineers.begin(); it != engineers.end(); it++) {
+		if (!(*it)->isActive()){
+			res.push_back((*it));
+		}
+	}
+
+	return res;
+}
+
+void System::listPastEngineers(std::ostream &os) {
+    vector<Engineer*> vec = getPastEngineers();
+    sort(vec.begin(), vec.end(), [](const Engineer* p1, Engineer* p2)->bool{
+		return p1->getName() < p2->getName();
+	});
+	os << endl
+	<< setw(5) << "id"
+	<< setw(35) << "name"
+	<< setw(15) << "birthdate" << endl;
+	for (auto item: vec) {
+		item->printRow(os);
+		os << endl;
+	}
+	os << endl;
+}
+
+void System::listEngineers(std::ostream &os) {
+	vector<Engineer*> vec = getEngineers();
+	sort(vec.begin(), vec.end(), [](const Engineer* p1, Engineer* p2)->bool{
+		return p1->getName() < p2->getName();
+	});
+	os << endl
+	   << setw(5) << "id"
+	   << setw(35) << "name"
+	   << setw(15) << "birthdate" << endl;
+	for (auto item: vec) {
+		item->printRow(os);
+		os << endl;
+	}
+	os << endl;
+}
+
+void System::hireEnginner(id_t id) {
+    Engineer *toHire = nullptr;
+	Engineer *search = new Engineer("",Date(Date::defaultDateString));
+    search->setID(id);
+	auto it = engineers.find(search);
+	if (it != engineers.end()) {
+		toHire = *it;
+	}
+
+    if (toHire == nullptr) {
+		throw NoSuchEngineerException(id);
+    } else if (toHire->isActive()) {
+		throw NoSuchEngineerException(id);
+    }
+
+    toHire->setActive();
+
 }
