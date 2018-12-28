@@ -7,7 +7,6 @@
 #include <unordered_set>
 #include "system_elements/Passenger.h"
 #include "system_elements/Trip.h"
-#include "system_elements/Train.h"
 #include "system_elements/Station.h"
 #include "TicketPurchaseRequest.h"
 #include "Date.h"
@@ -201,12 +200,13 @@ public:
 	void createStation(std::string &name);
 	/**
 	 * @brief Create a Train object
-	 * 
+	 *
 	 * Creates a train object and adds it to the respective vector.
-	 * 
-	 * @param maxSeats 
+	 *
+	 * @param maxSeats
+	 * @param type tpe of the train AP/IC
 	 */
-	void createTrain(uint maxSeats);
+	void createTrain(uint maxSeats, std::string type);
 	/**
 	 * @brief Create a Trip object
 	 * 
@@ -222,7 +222,7 @@ public:
 	void createTrip(uint basePrice, Station* source, Station* destination,
 			Train* train, Engineer* engy, Date departureDate, Date arrivalDate);
 	void createEngineer(std::string name, Date birthDate);
-	void hireEnginner(id_t id);
+	void hireEngineer(id_t id);
 
 	/**
 	 * @brief Process a request for a ticket purchase

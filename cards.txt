@@ -1,3 +1,0 @@
-1 "twenty five"
-2 "fifty"
-3 "hundred"

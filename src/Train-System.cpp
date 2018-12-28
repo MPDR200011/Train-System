@@ -9,12 +9,10 @@
 #include "exceptions/NoSuchTripException.h"
 #include "exceptions/TripPastException.h"
 #include "exceptions/NoSuchEngineerException.h"
+#include "exceptions/InvalidTrainTypeException.h"
 #include <iomanip>
 
-//TODO engineer hiring interface
-//TODO engineer listing interface
-//TODO engineer deletion interface
-
+//TODO ask for train type in interface
 
 using namespace std;
 
@@ -92,11 +90,11 @@ void checkCards();
 
 void mainMenu() {
 	string menuOptions[] = {
-		"  1 - Create a new passenger/card/station/train/trip.",
-		"  2 - Delete a passenger/station/train/trip.",
+		"  1 - Create a new passenger/card/station/train/trip/engineers.",
+		"  2 - Delete a passenger/station/train/trip/engineers.",
 		"  3 - Search for trips.",
 		"  4 - Process a ticket purchase.",
-		"  5 - List all passengers/stations/trains/trips.",
+		"  5 - List all passengers/stations/trains/trips/engineers.",
 		"  6 - Process card payment.",
 		"  7 - Print Sales",
 		" 50 - End of month card processing.",
@@ -180,9 +178,8 @@ void createPassenger() {
 
 	try {
 		System::instance.createPassenger(name, birthDate);
-	} catch (exception &e) {
+	} catch (...) {
 		cout << "A problem has ocurred creating passenger:" << endl;
-		cout << e.what() << endl;
 		return;
 	}
  
@@ -224,9 +221,8 @@ void createCard() {
 
 	try {
 		System::instance.createCard(passenger,type);
-	} catch (exception &e) {
+	} catch (...) {
 		cout << "A problem has ocurred creating card:" << endl;
-		cout << e.what() << endl;
 		return;
 	}
 
@@ -242,9 +238,8 @@ void createStation() {
 
 	try {
 		System::instance.createStation(name);
-	} catch (exception &e) {
+	} catch (...) {
 		cout << "A problem has ocurred creating station:" << endl;
-		cout << e.what() << endl;
 		return;
 	}
 
@@ -257,11 +252,14 @@ void createTrain() {
 	uint maxSeats;
 	project_utils::readVar(maxSeats);
 
+	cout << "Type of the train (AP/IC) - ";
+	string type;
+	project_utils::readVar(type);
+
 	try {
-		System::instance.createTrain(maxSeats);
-	} catch (exception &e) {
-		cout << "A problem has ocurred creating train:" << endl;
-		cout << e.what() << endl;
+		System::instance.createTrain(maxSeats, type);
+	} catch (InvalidTrainTypeException &e) {
+		cout << e.what() << ", returning to main menu." << endl;
 		return;
 	}
 
@@ -332,9 +330,8 @@ void createTrip() {
 
 	try {
 		System::instance.createTrip(basePrice, src, dest, tr, eng, dep, arr);
-	} catch (exception &e) {
+	} catch (...) {
 		cout << "A problem has occurred creating trip:" << endl;
-		cout << e.what() << endl;
 		return;
 	}
 
@@ -350,61 +347,78 @@ void createEngineer() {
 		cout << endl << "Choice - ";
 		id_t id;
 		project_utils::readVar(id);
-		Engineer* eng;
 		try {
-			eng = System::instance.getEngineer(id);
+			System::instance.hireEngineer(id);
 		} catch (NoSuchEngineerException &e) {
 			cout << e.what() << ", returning to main menu." << endl;
 			return;
 		}
+	} else {
+		string name;
+		cout << "Name - ";
+		project_utils::readLine(name);
+
+		Date birthDate = project_utils::readBirthDate();
+
+		try {
+			System::instance.createEngineer(name, birthDate);
+		} catch (...) {
+			cout << "A problem has occurred creating passenger:" << endl;
+			return;
+		}
+
+		cout << "Successfully hired engineer." << endl;
 	}
 }
 
 void deleteTask() {
-	cout << "What do you want to delete? (passenger/station/train/trip/-1 to return to main menu) - ";
+	cout << "What do you want to delete? (passenger/station/train/trip/engineer/-1 to return to main menu) - ";
 	string choice;
 	bool validChoice = false;
 	while (!validChoice) {
+		validChoice = true;
 		project_utils::readLine(choice);
-		if (choice == "passenger" || choice == "station" || choice == "train" || choice == "trip" || choice == "-1") {
-			validChoice = true;
-		} else {
-			cout << "Invalid choice, try again - ";
-		}
+        if (choice == "passenger") {
+            System::instance.listPassengers(cout);
+            cout << endl;
+            cout << "ID - ";
+            id_t id;
+            project_utils::readVar(id);
+            System::instance.removePassenger(id);
+        } else if (choice == "station") {
+            System::instance.listStations(cout);
+            cout << endl;
+            cout << "ID - ";
+            id_t id;
+            project_utils::readVar(id);
+            System::instance.removeStation(id);
+        } else if (choice == "train") {
+            System::instance.listTrains(cout);
+            cout << endl;
+            cout << "ID - ";
+            id_t id;
+            project_utils::readVar(id);
+            System::instance.removeTrain(id);
+        } else if (choice == "trip"){
+            System::instance.listTrips(cout);
+            cout << endl;
+            cout << "ID - ";
+            id_t id;
+            project_utils::readVar(id);
+            System::instance.removeTrip(id);
+        } else if (choice == "engineer") {
+            System::instance.listEngineers(cout);
+            cout << endl;
+            cout << "ID - ";
+            id_t id;
+            project_utils::readVar(id);
+            System::instance.removeEngineer(id);
+        } else {
+            cout << "Invalid choice, try again - ";
+            validChoice = false;
+        }
 	}
 	
-	if (choice == "passenger") {
-		System::instance.listPassengers(cout);
-		cout << endl;
-		cout << "ID - ";
-		id_t id;
-		project_utils::readVar(id);
-		System::instance.removePassenger(id);
-	} else if (choice == "station") {
-		System::instance.listStations(cout);
-		cout << endl;
-		cout << "ID - ";
-		id_t id;
-		project_utils::readVar(id);
-		System::instance.removeStation(id);
-	} else if (choice == "train") {
-		System::instance.listTrains(cout);
-		cout << endl;
-		cout << "ID - ";
-		id_t id;
-		project_utils::readVar(id);
-		System::instance.removeTrain(id);
-	} else if (choice == "trip"){
-		System::instance.listTrips(cout);
-		cout << endl;
-		cout << "ID - ";
-		id_t id;
-		project_utils::readVar(id);
-		System::instance.removeTrip(id);
-	} else {
-		return;
-	}
-
 	cout << "Done." << endl;
 	
 }
@@ -543,27 +557,26 @@ void purchaseTask() {
 }
 
 void listTask() {
-	cout << "What to list (passengers/stations/trains/trips/-1 to return to main menu) ? ";
+	cout << "What to list (passengers/stations/trains/trips/engineers/-1 to return to main menu) ? ";
 	string choice;
 	bool validChoice = false;
 	while (!validChoice) {
+	    validChoice = true;
 		project_utils::readLine(choice);
-		if (choice == "passengers" || choice == "stations" || choice == "trains" || choice == "trips" || choice == "-1") {
-			validChoice = true;
+		if (choice == "passengers") {
+			System::instance.listPassengers(cout);
+		} else if (choice == "stations") {
+			System::instance.listStations(cout);
+		} else if (choice == "trains") {
+			System::instance.listTrains(cout);
+		} else if (choice == "trips"){
+			System::instance.listTrips(cout);
+		} else if (choice == "engineers") {
+			System::instance.listEngineers(cout);
 		} else {
 			cout << "Invalid choice, try again - ";
+			validChoice = false;
 		}
-	}
-	if (choice == "passengers") {
-		System::instance.listPassengers(cout);
-	} else if (choice == "stations") {
-		System::instance.listStations(cout);
-	} else if (choice == "trains") {
-		System::instance.listTrains(cout);
-	} else if (choice == "trips"){
-		System::instance.listTrips(cout);
-	} else {
-		return;
 	}
 }
 

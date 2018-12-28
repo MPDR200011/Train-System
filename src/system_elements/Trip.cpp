@@ -54,13 +54,15 @@ uint Trip::getCurrentPrice() {
 	time_t currTime = time(nullptr);
 	time_t tripDep = departureDate.getTimeStamp();
 
+	float mult = train->getPriceMultiplyer();
+
 	if (tripDep - currTime < FOURTY_HEIGHT_HOURS) {
 		if (((float)occupiedSeats / (float)train->getMaxSeats()) < 0.5) {
-			return basePrice * 0.3;
+			return basePrice * 0.3 * mult;
 		}
 	}
 
-	return basePrice;
+	return basePrice * mult;
 
 }
 

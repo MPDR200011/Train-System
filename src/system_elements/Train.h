@@ -39,6 +39,9 @@ public:
 	 */
 	uint getMaxSeats();
 
+	virtual float getPriceMultiplyer() const = 0;
+	virtual const char* getType() const = 0;
+
 	/**
 	 * @brief Output train information in a row fashion
 	 * 
@@ -48,10 +51,10 @@ public:
 	 * @param os The output stream to which the train will be output.
 	 *
 	 */
-	void printRow(std::ostream &os);
+	virtual void printRow(std::ostream &os) = 0;
 	friend std::ostream & operator<<(std::ostream &os, Train &tr);
 
-private:
+protected:
 	/**
 	 * @brief Id of the train
 	 * 

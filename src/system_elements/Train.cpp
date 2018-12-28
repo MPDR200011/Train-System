@@ -20,8 +20,6 @@ uint Train::getMaxSeats() {
 }
 
 void Train::printRow(ostream &os){
-	os << setw(5) << trainID 
-	<< setw(12) << maxSeats;
 }
 
 ostream &operator<<(ostream &os, Train &tr) {

@@ -6,6 +6,9 @@
 #include "exceptions/NoSuchTripException.h"
 #include "exceptions/TripPastException.h"
 #include "exceptions/NoSuchEngineerException.h"
+#include "system_elements/AlfaPendular.h"
+#include "system_elements/InterCidades.h"
+#include "exceptions/InvalidTrainTypeException.h"
 #include <algorithm>
 #include <iomanip>
 #include <ctime>
@@ -201,8 +204,15 @@ void System::createStation(string &name) {
 	st->setID(id);
 }
 
-void System::createTrain(uint maxSeats) {
-	Train *tr = new Train(maxSeats);
+void System::createTrain(uint maxSeats, string type) {
+	Train *tr;
+	if (type == "AP") {
+		tr = new AlfaPendular(maxSeats);
+	} else if (type == "IC") {
+		tr = new InterCidades(maxSeats);
+	} else {
+        throw InvalidTrainTypeException(type);
+	}
 	srand((uint)time(nullptr));
 	id_t id = (id_t) rand();
 	auto result = trains.insert(pair<id_t, Train*>(id,tr));
@@ -386,7 +396,8 @@ void System::listStations(ostream &os) {
 void System::listTrains(ostream &os) {
 	os << endl 
 	<< setw(5) << "id"
-	<< setw(12) << "max seats" << endl;
+	<< setw(12) << "max seats"
+	<< setw(8) << "type" << endl;
 	for (auto item: getTrains()) {
 		item->printRow(os);
 		os << endl;
@@ -495,7 +506,7 @@ void System::saveTrains() {
 	ofstream trainsFile("trains.txt", ofstream::out | ofstream::trunc);
 	for(auto &item: trains) {
 		Train *tr = item.second;
-		trainsFile << tr->getID() << " " << tr->isActive() << " " << tr->getMaxSeats() << endl;
+		trainsFile << tr->getID() << " " << tr->isActive() << " " << tr->getMaxSeats() << " " << tr->getType() << endl;
 	}
 	trainsFile.close();
 }
@@ -561,8 +572,8 @@ void System::loadCards() {
 			}
 
 			try {
-				Passenger *p = System::instance.getPassenger((id_t)stoul(arguments[0]));
-				System::instance.createCard(p, arguments[1]);
+				Passenger *p = getPassenger((id_t)stoul(arguments[0]));
+				createCard(p, arguments[1]);
 			} catch (...) {
 				continue;
 			}
@@ -603,12 +614,19 @@ void System::loadTrains() {
 		while (getline(trainsFile, line)) {
 			vector<string> arguments = project_utils::splitArguments(line);
 
-			if (arguments.size() != 3) {
+			if (arguments.size() != 4) {
 				continue;
 			}
 
 			try {
-				Train *tr = new Train((uint)stoul(arguments[2]));
+				Train *tr;
+				if (arguments[3] == "AP") {
+					tr = new AlfaPendular(stoi(arguments[2]));
+				} else if (arguments[3] == "IC") {
+					tr = new InterCidades(stoi(arguments[2]));
+				} else {
+					continue;
+				}
 				tr->setID((id_t)stoul(arguments[0]));
 				if (!stoi(arguments[1])){
 					tr->setInactive();
@@ -797,7 +815,7 @@ void System::listEngineers(std::ostream &os) {
 	os << endl;
 }
 
-void System::hireEnginner(id_t id) {
+void System::hireEngineer(id_t id) {
     Engineer *toHire = nullptr;
 	Engineer *search = new Engineer("",Date(Date::defaultDateString));
     search->setID(id);
