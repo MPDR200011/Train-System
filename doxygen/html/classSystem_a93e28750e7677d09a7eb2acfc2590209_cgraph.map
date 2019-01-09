@@ -1,0 +1,5 @@
+<map id="System::payCard" name="System::payCard">
+<area shape="rect" id="node2" href="$classPerson.html#ab20f096fdfd5201818c45754af4c3e3b" title="Get the person&#39;s name. " alt="" coords="208,5,343,32"/>
+<area shape="rect" id="node3" href="$classPassenger.html#ae8d5310db80438702dec5f4d649289f1" title="Get the Card object. " alt="" coords="201,56,349,83"/>
+<area shape="rect" id="node4" href="$classPassengerCard.html#a8428ca4fc3d4c7b4636be628c2fe5aad" title="Get the monthly cost of the card. " alt="" coords="187,107,364,133"/>
+</map>

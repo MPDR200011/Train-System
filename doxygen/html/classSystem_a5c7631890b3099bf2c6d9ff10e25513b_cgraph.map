@@ -1,0 +1,7 @@
+<map id="System::loadTrains" name="System::loadTrains">
+<area shape="rect" id="node2" href="$namespaceproject__utils.html#a8a3acf9a2b81c44b525870adb954dcff" title="project_utils::splitArguments" alt="" coords="199,5,408,32"/>
+<area shape="rect" id="node3" href="$classTrain.html#a9a8b1feb180da07e26c90919a0c32406" title="Train::setID" alt="" coords="256,56,351,83"/>
+<area shape="rect" id="node4" href="$classSystemElement.html#aaa601d0e2960dd62d68e0f025f5eb362" title="SystemElement::setInactive" alt="" coords="201,107,406,133"/>
+<area shape="rect" id="node5" href="$classTrain.html#a2e6fc233ded428364670c07a46f08891" title="Train::setUnhealthy" alt="" coords="229,157,377,184"/>
+<area shape="rect" id="node6" href="$classTrain.html#a7310ae0bc5b43ea392e4fa62630ee56b" title="Get the train ID. " alt="" coords="255,208,351,235"/>
+</map>

@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classDate-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -123,6 +124,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af047ef9ca2cf7843b921f36e9883f0a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Time Stamp object.  <a href="#af047ef9ca2cf7843b921f36e9883f0a7">More...</a><br /></td></tr>
 <tr class="separator:af047ef9ca2cf7843b921f36e9883f0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac3833dc0b7e3f62bac56195d48522f71"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDate.html#ac3833dc0b7e3f62bac56195d48522f71">defaultDateString</a> = &quot;01-01-1970 00:00&quot;</td></tr>
+<tr class="separator:ac3833dc0b7e3f62bac56195d48522f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a2f114c7aa1398dac0f21b888bcb40f3e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDate.html#a2f114c7aa1398dac0f21b888bcb40f3e">operator&lt;&lt;</a> (std::ostream &amp;o, <a class="el" href="classDate.html">Date</a> &amp;d)</td></tr>
@@ -178,7 +184,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object. </p>
-<p>Constructs <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object and calls validate(). If validation fails, throws InvalidDateException.</p>
+<p>Constructs <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object and calls validate(). If validation fails, throws <a class="el" href="classInvalidDateException.html" title="Exception reporting an invalid date. ">InvalidDateException</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">year</td><td><a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a>'s year </td></tr>
@@ -197,6 +203,9 @@ Friends</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Date::Date </td>
@@ -206,10 +215,15 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object. </p>
-<p>Constructs <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object and calls validate(). If validation fails, throws InvalidDateException.</p>
+<p>Constructs <a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> object and calls validate(). If validation fails, throws <a class="el" href="classInvalidDateException.html" title="Exception reporting an invalid date. ">InvalidDateException</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dateString</td><td><a class="el" href="classDate.html" title="Class for representing dates in the program. ">Date</a> in form of a string in format "dd-mm-yyyy HH:MM". Day, month, year, hour and minutes must be two digits ('02', '08', '12') </td></tr>
@@ -573,9 +587,33 @@ false if otherwise </dd></dl>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac3833dc0b7e3f62bac56195d48522f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3833dc0b7e3f62bac56195d48522f71">&#9670;&nbsp;</a></span>defaultDateString</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * Date::defaultDateString = &quot;01-01-1970 00:00&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>String with base date. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Date_8h_source.html">Date.h</a></li>
-<li>Date.cpp</li>
+<li><a class="el" href="Date_8cpp.html">Date.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -9,13 +9,39 @@ Class for representing a station in the system.
 
 {\ttfamily \#include $<$Station.\+h$>$}
 
+
+
+Inheritance diagram for Station\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classStation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Station\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classStation__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classStation_a53a471eb11c9431c3e89058d558f7601}{Station}} (std\+::string name)
+\mbox{\hyperlink{classStation_ae136c6cba0e6f4d3a33d0b6e6d0082de}{Station}} (std\+::string name, int x, int y)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classStation}{Station}} object. \end{DoxyCompactList}\item 
-id\+\_\+t \mbox{\hyperlink{classStation_acbc5832d77cbe29c9006212b9cc32a42}{get\+ID}} () const
+void \mbox{\hyperlink{classStation_a1cb215c1fea787806cfd116c7c32d350}{set\+ID}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} station\+ID)
+\item 
+\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} \mbox{\hyperlink{classStation_acbc5832d77cbe29c9006212b9cc32a42}{get\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Get the station ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStation_a2205a1288789260beee59fd3532286e9}{getX}} () const
+\item 
+int \mbox{\hyperlink{classStation_a28c75f35db1f6a1d3ed0488f2effbfb4}{getY}} () const
+\item 
 std\+::string \mbox{\hyperlink{classStation_ac823ae175ec0e2baff462ed9612c7bae}{get\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classStation}{Station}}\textquotesingle{}s name. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classStation_a66c028cdffd79bddd0704235b051ff4e}{print\+Row}} (std\+::ostream \&os)
@@ -31,11 +57,11 @@ std\+::ostream \& \mbox{\hyperlink{classStation_ae5ca3266f8eead5634eb5926438392d
 Class for representing a station in the system. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classStation_a53a471eb11c9431c3e89058d558f7601}\label{classStation_a53a471eb11c9431c3e89058d558f7601}} 
+\mbox{\Hypertarget{classStation_ae136c6cba0e6f4d3a33d0b6e6d0082de}\label{classStation_ae136c6cba0e6f4d3a33d0b6e6d0082de}} 
 \index{Station@{Station}!Station@{Station}}
 \index{Station@{Station}!Station@{Station}}
 \subsubsection{\texorpdfstring{Station()}{Station()}}
-{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -45,6 +71,10 @@ Construct a new \mbox{\hyperlink{classStation}{Station}} object.
 \begin{DoxyParams}{Parameters}
 {\em name} & Name of the station. \\
 \hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
 \end{DoxyParams}
 
 
@@ -53,7 +83,7 @@ Construct a new \mbox{\hyperlink{classStation}{Station}} object.
 \index{Station@{Station}!get\+ID@{get\+ID}}
 \index{get\+ID@{get\+ID}!Station@{Station}}
 \subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
-{\footnotesize\ttfamily id\+\_\+t Station\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} Station\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -75,6 +105,24 @@ Get the \mbox{\hyperlink{classStation}{Station}}\textquotesingle{}s name.
 \begin{DoxyReturn}{Returns}
 std\+::string \mbox{\hyperlink{classStation}{Station}}\textquotesingle{}s name 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classStation_a2205a1288789260beee59fd3532286e9}\label{classStation_a2205a1288789260beee59fd3532286e9}} 
+\index{Station@{Station}!getX@{getX}}
+\index{getX@{getX}!Station@{Station}}
+\subsubsection{\texorpdfstring{get\+X()}{getX()}}
+{\footnotesize\ttfamily int Station\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the x coordinate. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStation_a28c75f35db1f6a1d3ed0488f2effbfb4}\label{classStation_a28c75f35db1f6a1d3ed0488f2effbfb4}} 
+\index{Station@{Station}!getY@{getY}}
+\index{getY@{getY}!Station@{Station}}
+\subsubsection{\texorpdfstring{get\+Y()}{getY()}}
+{\footnotesize\ttfamily int Station\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the y coordinate. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classStation_a66c028cdffd79bddd0704235b051ff4e}\label{classStation_a66c028cdffd79bddd0704235b051ff4e}} 
 \index{Station@{Station}!print\+Row@{print\+Row}}
 \index{print\+Row@{print\+Row}!Station@{Station}}
@@ -90,6 +138,19 @@ Outputs the object\textquotesingle{}s information as it was a row in a table. Us
 
 \begin{DoxyParams}{Parameters}
 {\em os} & The output stream to which the station will be output. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStation_a1cb215c1fea787806cfd116c7c32d350}\label{classStation_a1cb215c1fea787806cfd116c7c32d350}} 
+\index{Station@{Station}!set\+ID@{set\+ID}}
+\index{set\+ID@{set\+ID}!Station@{Station}}
+\subsubsection{\texorpdfstring{set\+I\+D()}{setID()}}
+{\footnotesize\ttfamily void Station\+::set\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{station\+ID }\end{DoxyParamCaption})}
+
+Set the station ID
+
+
+\begin{DoxyParams}{Parameters}
+{\em station\+ID} & \\
 \hline
 \end{DoxyParams}
 
@@ -109,7 +170,7 @@ Output \mbox{\hyperlink{classStation}{Station}} object in a user friendly fashio
 \begin{DoxyParams}{Parameters}
 {\em os} & Output stream to wich \mbox{\hyperlink{classStation}{Station}} object will be output \\
 \hline
-{\em p} & \mbox{\hyperlink{classStation}{Station}} object to be output \\
+{\em st} & \mbox{\hyperlink{classStation}{Station}} object to be output \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -119,5 +180,5 @@ std\+::ostream\&
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Station.\+h\item 
-Station.\+cpp\end{DoxyCompactItemize}
+system\+\_\+elements/\mbox{\hyperlink{Station_8h}{Station.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{Station_8cpp}{Station.\+cpp}}\end{DoxyCompactItemize}

@@ -22,15 +22,14 @@ const std\+::string \mbox{\hyperlink{classTicketInvoice_a1db4ffac81e11b765c62042
 \begin{DoxyCompactList}\small\item\em Get the Dest Name. \end{DoxyCompactList}\item 
 const std\+::string \mbox{\hyperlink{classTicketInvoice_a97998091765f01ff9f394210530a89ed}{get\+Price\+String}} () const
 \begin{DoxyCompactList}\small\item\em Get the Price String. \end{DoxyCompactList}\item 
-const uint \mbox{\hyperlink{classTicketInvoice_a3758bface685702a6229d617691663e1}{get\+Price}} () const
+const \mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{classTicketInvoice_a3758bface685702a6229d617691663e1}{get\+Price}} () const
 \begin{DoxyCompactList}\small\item\em Get the Price. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classTicketInvoice_afeed9962f0276861876a001e372d2063}{set\+Price}} (uint price)
+void \mbox{\hyperlink{classTicketInvoice_afeed9962f0276861876a001e372d2063}{set\+Price}} (\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} price)
 \begin{DoxyCompactList}\small\item\em Set the Price. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTicketInvoice_ae78ba81ba79ed7e8c9e8cd23a910f00d}\label{classTicketInvoice_ae78ba81ba79ed7e8c9e8cd23a910f00d}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classTicketInvoice}{Ticket\+Invoice}} \&in)
+std\+::ostream \& \mbox{\hyperlink{classTicketInvoice_ae78ba81ba79ed7e8c9e8cd23a910f00d}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classTicketInvoice}{Ticket\+Invoice}} \&in)
 \end{DoxyCompactItemize}
 
 
@@ -55,6 +54,14 @@ Construct a new Ticket Invoice object.
 {\em t} & \mbox{\hyperlink{classTrip}{Trip}} to which the ticket has been purchased \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTicketInvoice_a38b37e5168ce71bbf37aceef8a6f6267_cgraph}
+\end{center}
+\end{figure}
 
 
 \subsection{Member Function Documentation}
@@ -88,7 +95,7 @@ const std\+::string Name of the passenger
 \index{Ticket\+Invoice@{Ticket\+Invoice}!get\+Price@{get\+Price}}
 \index{get\+Price@{get\+Price}!Ticket\+Invoice@{Ticket\+Invoice}}
 \subsubsection{\texorpdfstring{get\+Price()}{getPrice()}}
-{\footnotesize\ttfamily const uint Ticket\+Invoice\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const \mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Ticket\+Invoice\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -127,7 +134,7 @@ const std\+::string Name of the source station
 \index{Ticket\+Invoice@{Ticket\+Invoice}!set\+Price@{set\+Price}}
 \index{set\+Price@{set\+Price}!Ticket\+Invoice@{Ticket\+Invoice}}
 \subsubsection{\texorpdfstring{set\+Price()}{setPrice()}}
-{\footnotesize\ttfamily void Ticket\+Invoice\+::set\+Price (\begin{DoxyParamCaption}\item[{uint}]{price }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Ticket\+Invoice\+::set\+Price (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{price }\end{DoxyParamCaption})}
 
 
 
@@ -140,7 +147,16 @@ Set the Price.
 \end{DoxyParams}
 
 
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classTicketInvoice_ae78ba81ba79ed7e8c9e8cd23a910f00d}\label{classTicketInvoice_ae78ba81ba79ed7e8c9e8cd23a910f00d}} 
+\index{Ticket\+Invoice@{Ticket\+Invoice}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Ticket\+Invoice@{Ticket\+Invoice}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classTicketInvoice}{Ticket\+Invoice}} \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Ticket\+Invoice.\+h\item 
-Ticket\+Invoice.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{TicketInvoice_8h}{Ticket\+Invoice.\+h}}\item 
+\mbox{\hyperlink{TicketInvoice_8cpp}{Ticket\+Invoice.\+cpp}}\end{DoxyCompactItemize}

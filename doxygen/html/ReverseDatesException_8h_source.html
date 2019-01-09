@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Train-System: ReverseDatesException.h Source File</title>
+<title>Train-System: exceptions/ReverseDatesException.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,13 +59,19 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_fceced95d8215eeebebd9df6aa39e1a5.html">exceptions</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">ReverseDatesException.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef REVERSEDATESEXCEPTION_H_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define REVERSEDATESEXCEPTION_H_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;TrainSystemException.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classReverseDatesException.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classReverseDatesException.html">ReverseDatesException</a>: <span class="keyword">public</span> <a class="code" href="classTrainSystemException.html">TrainSystemException</a> {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classReverseDatesException.html">ReverseDatesException</a>(<span class="keyword">const</span> std::string date1, <span class="keyword">const</span> std::string date2);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::string what();</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string date1, date2;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* REVERSEDATESEXCEPTION_H_ */</span><span class="preprocessor"></span></div><div class="ttc" id="classReverseDatesException_html"><div class="ttname"><a href="classReverseDatesException.html">ReverseDatesException</a></div><div class="ttdoc">Exception reporting a trip&amp;#39;s arrival date happens before departure date. </div><div class="ttdef"><b>Definition:</b> ReverseDatesException.h:10</div></div>
-<div class="ttc" id="classTrainSystemException_html"><div class="ttname"><a href="classTrainSystemException.html">TrainSystemException</a></div><div class="ttdef"><b>Definition:</b> TrainSystemException.h:6</div></div>
+<a href="ReverseDatesException_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef REVERSEDATESEXCEPTION_H_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define REVERSEDATESEXCEPTION_H_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classReverseDatesException.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classReverseDatesException.html">ReverseDatesException</a>: <span class="keyword">public</span> std::exception {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classReverseDatesException.html#afc245532384383f8f62b20358326c773">ReverseDatesException</a>(<span class="keyword">const</span> std::string date1, <span class="keyword">const</span> std::string date2);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classReverseDatesException.html#a52bb69fd0d940befffd9d69855ed6ae8">what</a>();</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::string date1, date2;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* REVERSEDATESEXCEPTION_H_ */</span><span class="preprocessor"></span></div><div class="ttc" id="classReverseDatesException_html_a52bb69fd0d940befffd9d69855ed6ae8"><div class="ttname"><a href="classReverseDatesException.html#a52bb69fd0d940befffd9d69855ed6ae8">ReverseDatesException::what</a></div><div class="ttdeci">const char * what()</div><div class="ttdef"><b>Definition:</b> ReverseDatesException.cpp:8</div></div>
+<div class="ttc" id="classReverseDatesException_html"><div class="ttname"><a href="classReverseDatesException.html">ReverseDatesException</a></div><div class="ttdoc">Exception reporting a trip&amp;#39;s arrival date happens before departure date. </div><div class="ttdef"><b>Definition:</b> ReverseDatesException.h:11</div></div>
+<div class="ttc" id="classReverseDatesException_html_afc245532384383f8f62b20358326c773"><div class="ttname"><a href="classReverseDatesException.html#afc245532384383f8f62b20358326c773">ReverseDatesException::ReverseDatesException</a></div><div class="ttdeci">ReverseDatesException(const std::string date1, const std::string date2)</div><div class="ttdef"><b>Definition:</b> ReverseDatesException.cpp:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

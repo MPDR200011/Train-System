@@ -1,0 +1,146 @@
+\hypertarget{classEngineer}{}\section{Engineer Class Reference}
+\label{classEngineer}\index{Engineer@{Engineer}}
+
+
+{\ttfamily \#include $<$Engineer.\+h$>$}
+
+
+
+Inheritance diagram for Engineer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classEngineer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Engineer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classEngineer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEngineer_1_1EngineerHashUtils}{Engineer\+Hash\+Utils}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEngineer_a608c643d1826e12d503c213679803a60}{Engineer}} (std\+::string \mbox{\hyperlink{classPerson_a7594663aadc0de77616506df8a2f4128}{name}}, \mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classPerson_a7a764b56b815321eeb8412c1dcc4cabf}{birth\+Date}})
+\item 
+\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} \mbox{\hyperlink{classEngineer_aa2a341b66e189ef19ab7dfa364cd2c20}{get\+ID}} () const
+\item 
+void \mbox{\hyperlink{classEngineer_ad413cf55ffbef71b3d5d58aa522da8cf}{set\+ID}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\item 
+void \mbox{\hyperlink{classEngineer_a399ceec45f4608f743070893ac573dcc}{add\+Trip}} (\mbox{\hyperlink{classTrip}{Trip}} $\ast$trip)
+\item 
+std\+::set$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \mbox{\hyperlink{classEngineer_af2dd8a34a1f90956e9c31043638518cf}{get\+Trips}} ()
+\item 
+void \mbox{\hyperlink{classEngineer_a75fdfc733d86cb8dc2ff243994716da1}{print\+Row}} (std\+::ostream \&os)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class representing an engineer(train driver). Extends class \mbox{\hyperlink{classPerson}{Person}}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEngineer_a608c643d1826e12d503c213679803a60}\label{classEngineer_a608c643d1826e12d503c213679803a60}} 
+\index{Engineer@{Engineer}!Engineer@{Engineer}}
+\index{Engineer@{Engineer}!Engineer@{Engineer}}
+\subsubsection{\texorpdfstring{Engineer()}{Engineer()}}
+{\footnotesize\ttfamily Engineer\+::\+Engineer (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{birth\+Date }\end{DoxyParamCaption})}
+
+Construct a new \mbox{\hyperlink{classEngineer}{Engineer}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em birth\+Date} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classEngineer_a399ceec45f4608f743070893ac573dcc}\label{classEngineer_a399ceec45f4608f743070893ac573dcc}} 
+\index{Engineer@{Engineer}!add\+Trip@{add\+Trip}}
+\index{add\+Trip@{add\+Trip}!Engineer@{Engineer}}
+\subsubsection{\texorpdfstring{add\+Trip()}{addTrip()}}
+{\footnotesize\ttfamily void Engineer\+::add\+Trip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTrip}{Trip}} $\ast$}]{trip }\end{DoxyParamCaption})}
+
+Add a trip to the engineer\textquotesingle{}s trip history.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trip} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngineer_aa2a341b66e189ef19ab7dfa364cd2c20}\label{classEngineer_aa2a341b66e189ef19ab7dfa364cd2c20}} 
+\index{Engineer@{Engineer}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Engineer@{Engineer}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} Engineer\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the engineer ID.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngineer_af2dd8a34a1f90956e9c31043638518cf}\label{classEngineer_af2dd8a34a1f90956e9c31043638518cf}} 
+\index{Engineer@{Engineer}!get\+Trips@{get\+Trips}}
+\index{get\+Trips@{get\+Trips}!Engineer@{Engineer}}
+\subsubsection{\texorpdfstring{get\+Trips()}{getTrips()}}
+{\footnotesize\ttfamily std\+::set$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ Engineer\+::get\+Trips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the vector of trips made by the engineer.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngineer_a75fdfc733d86cb8dc2ff243994716da1}\label{classEngineer_a75fdfc733d86cb8dc2ff243994716da1}} 
+\index{Engineer@{Engineer}!print\+Row@{print\+Row}}
+\index{print\+Row@{print\+Row}!Engineer@{Engineer}}
+\subsubsection{\texorpdfstring{print\+Row()}{printRow()}}
+{\footnotesize\ttfamily void Engineer\+::print\+Row (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+Print the engineer information in a formatted row.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEngineer_a75fdfc733d86cb8dc2ff243994716da1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classEngineer_ad413cf55ffbef71b3d5d58aa522da8cf}\label{classEngineer_ad413cf55ffbef71b3d5d58aa522da8cf}} 
+\index{Engineer@{Engineer}!set\+ID@{set\+ID}}
+\index{set\+ID@{set\+ID}!Engineer@{Engineer}}
+\subsubsection{\texorpdfstring{set\+I\+D()}{setID()}}
+{\footnotesize\ttfamily void Engineer\+::set\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
+
+Set the engineer ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+system\+\_\+elements/\mbox{\hyperlink{Engineer_8h}{Engineer.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{Engineer_8cpp}{Engineer.\+cpp}}\end{DoxyCompactItemize}

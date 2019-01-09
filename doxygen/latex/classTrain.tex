@@ -9,22 +9,62 @@ Class for representing a train in the system.
 
 {\ttfamily \#include $<$Train.\+h$>$}
 
+
+
+Inheritance diagram for Train\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classTrain__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Train\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classTrain__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classTrain_aa965be5e5d076d2743301c5d75ce4401}{Train}} (uint total\+Seats)
+\mbox{\hyperlink{classTrain_aa965be5e5d076d2743301c5d75ce4401}{Train}} (\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} total\+Seats)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classTrain}{Train}} object. \end{DoxyCompactList}\item 
-id\+\_\+t \mbox{\hyperlink{classTrain_a7310ae0bc5b43ea392e4fa62630ee56b}{get\+ID}} () const
+void \mbox{\hyperlink{classTrain_a9a8b1feb180da07e26c90919a0c32406}{set\+ID}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\item 
+\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} \mbox{\hyperlink{classTrain_a7310ae0bc5b43ea392e4fa62630ee56b}{get\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Get the train ID. \end{DoxyCompactList}\item 
-uint \mbox{\hyperlink{classTrain_a93cd372664bac4ba28fa36e40316444a}{get\+Max\+Seats}} ()
+\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{classTrain_a93cd372664bac4ba28fa36e40316444a}{get\+Max\+Seats}} ()
 \begin{DoxyCompactList}\small\item\em Get the max capacity. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}{print\+Row}} (std\+::ostream \&os)
-\begin{DoxyCompactList}\small\item\em Output train information in a row fashion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classTrain_a73909d49761b5152ee3bfc2e1b9d1325}{set\+Healthy}} ()
+\item 
+void \mbox{\hyperlink{classTrain_a2e6fc233ded428364670c07a46f08891}{set\+Unhealthy}} ()
+\item 
+bool \mbox{\hyperlink{classTrain_a68d9748a7cb2d1c8c49450b1fb4ad894}{is\+Healthy}} () const
+\item 
+virtual float \mbox{\hyperlink{classTrain_a2f8a45aaa96058a2675422d206221964}{get\+Price\+Multiplyer}} () const =0
+\item 
+virtual const char $\ast$ \mbox{\hyperlink{classTrain_ad2bd424547b5be4e3fa8e491f1ce790d}{get\+Type}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}{print\+Row}} (std\+::ostream \&os)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classTrain_a46d816dfcfd42a00fb3f20ac0a15e567}{healthy}}
+\item 
+\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} \mbox{\hyperlink{classTrain_a8f77f693153f35b33284699d8058bf0a}{train\+ID}}
+\item 
+\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{classTrain_a2954421b3beb871526ca169beca4c430}{max\+Seats}}
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTrain_ab4c39558eb319a2f509b128f1fc90bd8}\label{classTrain_ab4c39558eb319a2f509b128f1fc90bd8}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classTrain}{Train}} \&tr)
+ostream \& \mbox{\hyperlink{classTrain_a8d9438650288814c061279ef0dc73dcd}{operator$<$$<$}} (ostream \&os, \mbox{\hyperlink{classTrain}{Train}} \&tr)
 \end{DoxyCompactItemize}
 
 
@@ -36,7 +76,7 @@ Class for representing a train in the system.
 \index{Train@{Train}!Train@{Train}}
 \index{Train@{Train}!Train@{Train}}
 \subsubsection{\texorpdfstring{Train()}{Train()}}
-{\footnotesize\ttfamily Train\+::\+Train (\begin{DoxyParamCaption}\item[{uint}]{total\+Seats }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Train\+::\+Train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{total\+Seats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -54,7 +94,7 @@ Construct a new \mbox{\hyperlink{classTrain}{Train}} object.
 \index{Train@{Train}!get\+ID@{get\+ID}}
 \index{get\+ID@{get\+ID}!Train@{Train}}
 \subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
-{\footnotesize\ttfamily id\+\_\+t Train\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} Train\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -67,7 +107,7 @@ id\+\_\+t
 \index{Train@{Train}!get\+Max\+Seats@{get\+Max\+Seats}}
 \index{get\+Max\+Seats@{get\+Max\+Seats}!Train@{Train}}
 \subsubsection{\texorpdfstring{get\+Max\+Seats()}{getMaxSeats()}}
-{\footnotesize\ttfamily uint Train\+::get\+Max\+Seats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Train\+::get\+Max\+Seats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -76,26 +116,134 @@ Get the max capacity.
 \begin{DoxyReturn}{Returns}
 uint 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classTrain_a2f8a45aaa96058a2675422d206221964}\label{classTrain_a2f8a45aaa96058a2675422d206221964}} 
+\index{Train@{Train}!get\+Price\+Multiplyer@{get\+Price\+Multiplyer}}
+\index{get\+Price\+Multiplyer@{get\+Price\+Multiplyer}!Train@{Train}}
+\subsubsection{\texorpdfstring{get\+Price\+Multiplyer()}{getPriceMultiplyer()}}
+{\footnotesize\ttfamily virtual float Train\+::get\+Price\+Multiplyer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+The function to get the trains price multiplyer. To be overriden.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classAlfaPendular_a12d09e5b65835ab7dcd3580ec8a41eee}{Alfa\+Pendular}}, and \mbox{\hyperlink{classInterCidades_ae48f10e5086edea5b9797ae12ab0867f}{Inter\+Cidades}}.
+
+\mbox{\Hypertarget{classTrain_ad2bd424547b5be4e3fa8e491f1ce790d}\label{classTrain_ad2bd424547b5be4e3fa8e491f1ce790d}} 
+\index{Train@{Train}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Train@{Train}}
+\subsubsection{\texorpdfstring{get\+Type()}{getType()}}
+{\footnotesize\ttfamily virtual const char$\ast$ Train\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+The function to get the type of the train. To be overriden.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classInterCidades_a19eb37a1538d16247a7ba44e4a3c367b}{Inter\+Cidades}}, and \mbox{\hyperlink{classAlfaPendular_a8bae5eb768c157fd2151dfb0d0134962}{Alfa\+Pendular}}.
+
+\mbox{\Hypertarget{classTrain_a68d9748a7cb2d1c8c49450b1fb4ad894}\label{classTrain_a68d9748a7cb2d1c8c49450b1fb4ad894}} 
+\index{Train@{Train}!is\+Healthy@{is\+Healthy}}
+\index{is\+Healthy@{is\+Healthy}!Train@{Train}}
+\subsubsection{\texorpdfstring{is\+Healthy()}{isHealthy()}}
+{\footnotesize\ttfamily bool Train\+::is\+Healthy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Tells if the train is in good condition.
+
+\begin{DoxyReturn}{Returns}
+healthy private attribute. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}\label{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}} 
 \index{Train@{Train}!print\+Row@{print\+Row}}
 \index{print\+Row@{print\+Row}!Train@{Train}}
 \subsubsection{\texorpdfstring{print\+Row()}{printRow()}}
-{\footnotesize\ttfamily void Train\+::print\+Row (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Train\+::print\+Row (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-
-
-Output train information in a row fashion. 
-
-Outputs the object\textquotesingle{}s information as it was a row in a table. Useful for outputing all train objects in the system.
+Function to print information of train in a formated row.
 
 
 \begin{DoxyParams}{Parameters}
-{\em os} & The output stream to which the train will be output. \\
+{\em os} & \\
 \hline
 \end{DoxyParams}
 
 
+Reimplemented in \mbox{\hyperlink{classAlfaPendular_aceb64b85c475612b8045d0108b448669}{Alfa\+Pendular}}, and \mbox{\hyperlink{classInterCidades_af3a946b18bb99a7d1372d2dad4588639}{Inter\+Cidades}}.
+
+\mbox{\Hypertarget{classTrain_a73909d49761b5152ee3bfc2e1b9d1325}\label{classTrain_a73909d49761b5152ee3bfc2e1b9d1325}} 
+\index{Train@{Train}!set\+Healthy@{set\+Healthy}}
+\index{set\+Healthy@{set\+Healthy}!Train@{Train}}
+\subsubsection{\texorpdfstring{set\+Healthy()}{setHealthy()}}
+{\footnotesize\ttfamily void Train\+::set\+Healthy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Marks the train as unhealthy, needing repairs. \mbox{\Hypertarget{classTrain_a9a8b1feb180da07e26c90919a0c32406}\label{classTrain_a9a8b1feb180da07e26c90919a0c32406}} 
+\index{Train@{Train}!set\+ID@{set\+ID}}
+\index{set\+ID@{set\+ID}!Train@{Train}}
+\subsubsection{\texorpdfstring{set\+I\+D()}{setID()}}
+{\footnotesize\ttfamily void Train\+::set\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
+
+Set the train ID
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTrain_a2e6fc233ded428364670c07a46f08891}\label{classTrain_a2e6fc233ded428364670c07a46f08891}} 
+\index{Train@{Train}!set\+Unhealthy@{set\+Unhealthy}}
+\index{set\+Unhealthy@{set\+Unhealthy}!Train@{Train}}
+\subsubsection{\texorpdfstring{set\+Unhealthy()}{setUnhealthy()}}
+{\footnotesize\ttfamily void Train\+::set\+Unhealthy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Marks the train as healthy after being repaired. 
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classTrain_a8d9438650288814c061279ef0dc73dcd}\label{classTrain_a8d9438650288814c061279ef0dc73dcd}} 
+\index{Train@{Train}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Train@{Train}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{\mbox{\hyperlink{classTrain}{Train}} \&}]{tr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Print train information in a user friendly way.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em tr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classTrain_a46d816dfcfd42a00fb3f20ac0a15e567}\label{classTrain_a46d816dfcfd42a00fb3f20ac0a15e567}} 
+\index{Train@{Train}!healthy@{healthy}}
+\index{healthy@{healthy}!Train@{Train}}
+\subsubsection{\texorpdfstring{healthy}{healthy}}
+{\footnotesize\ttfamily bool Train\+::healthy\hspace{0.3cm}{\ttfamily [protected]}}
+
+Is true if the train is in good condition. False if it needs repairing. \mbox{\Hypertarget{classTrain_a2954421b3beb871526ca169beca4c430}\label{classTrain_a2954421b3beb871526ca169beca4c430}} 
+\index{Train@{Train}!max\+Seats@{max\+Seats}}
+\index{max\+Seats@{max\+Seats}!Train@{Train}}
+\subsubsection{\texorpdfstring{max\+Seats}{maxSeats}}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Train\+::max\+Seats\hspace{0.3cm}{\ttfamily [protected]}}
+
+Max capacity of the train. \mbox{\Hypertarget{classTrain_a8f77f693153f35b33284699d8058bf0a}\label{classTrain_a8f77f693153f35b33284699d8058bf0a}} 
+\index{Train@{Train}!train\+ID@{train\+ID}}
+\index{train\+ID@{train\+ID}!Train@{Train}}
+\subsubsection{\texorpdfstring{train\+ID}{trainID}}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} Train\+::train\+ID\hspace{0.3cm}{\ttfamily [protected]}}
+
+Id of the train. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Train.\+h\item 
-Train.\+cpp\end{DoxyCompactItemize}
+system\+\_\+elements/\mbox{\hyperlink{Train_8h}{Train.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{Train_8cpp}{Train.\+cpp}}\end{DoxyCompactItemize}

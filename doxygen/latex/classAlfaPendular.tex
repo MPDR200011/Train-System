@@ -1,0 +1,102 @@
+\hypertarget{classAlfaPendular}{}\section{Alfa\+Pendular Class Reference}
+\label{classAlfaPendular}\index{Alfa\+Pendular@{Alfa\+Pendular}}
+
+
+{\ttfamily \#include $<$Alfa\+Pendular.\+h$>$}
+
+
+
+Inheritance diagram for Alfa\+Pendular\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classAlfaPendular__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Alfa\+Pendular\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classAlfaPendular__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{classAlfaPendular_a8bae5eb768c157fd2151dfb0d0134962}{get\+Type}} () const override
+\item 
+\mbox{\hyperlink{classAlfaPendular_ac194f781d3cb929f6ddcb5670dd7722d}{Alfa\+Pendular}} (\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{classTrain_a2954421b3beb871526ca169beca4c430}{max\+Seats}})
+\item 
+float \mbox{\hyperlink{classAlfaPendular_a12d09e5b65835ab7dcd3580ec8a41eee}{get\+Price\+Multiplyer}} () const override
+\item 
+void \mbox{\hyperlink{classAlfaPendular_aceb64b85c475612b8045d0108b448669}{print\+Row}} (std\+::ostream \&os) override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class representing an A\+Lfa Pendular train. Its a derivation of the \mbox{\hyperlink{classTrain}{Train}} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAlfaPendular_ac194f781d3cb929f6ddcb5670dd7722d}\label{classAlfaPendular_ac194f781d3cb929f6ddcb5670dd7722d}} 
+\index{Alfa\+Pendular@{Alfa\+Pendular}!Alfa\+Pendular@{Alfa\+Pendular}}
+\index{Alfa\+Pendular@{Alfa\+Pendular}!Alfa\+Pendular@{Alfa\+Pendular}}
+\subsubsection{\texorpdfstring{Alfa\+Pendular()}{AlfaPendular()}}
+{\footnotesize\ttfamily Alfa\+Pendular\+::\+Alfa\+Pendular (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{max\+Seats }\end{DoxyParamCaption})}
+
+Construct a new \mbox{\hyperlink{classAlfaPendular}{Alfa\+Pendular}} object
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Seats} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAlfaPendular_a12d09e5b65835ab7dcd3580ec8a41eee}\label{classAlfaPendular_a12d09e5b65835ab7dcd3580ec8a41eee}} 
+\index{Alfa\+Pendular@{Alfa\+Pendular}!get\+Price\+Multiplyer@{get\+Price\+Multiplyer}}
+\index{get\+Price\+Multiplyer@{get\+Price\+Multiplyer}!Alfa\+Pendular@{Alfa\+Pendular}}
+\subsubsection{\texorpdfstring{get\+Price\+Multiplyer()}{getPriceMultiplyer()}}
+{\footnotesize\ttfamily float Alfa\+Pendular\+::get\+Price\+Multiplyer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+2 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTrain_a2f8a45aaa96058a2675422d206221964}{Train}}.
+
+\mbox{\Hypertarget{classAlfaPendular_a8bae5eb768c157fd2151dfb0d0134962}\label{classAlfaPendular_a8bae5eb768c157fd2151dfb0d0134962}} 
+\index{Alfa\+Pendular@{Alfa\+Pendular}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Alfa\+Pendular@{Alfa\+Pendular}}
+\subsubsection{\texorpdfstring{get\+Type()}{getType()}}
+{\footnotesize\ttfamily const char $\ast$ Alfa\+Pendular\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}\+A\+P\char`\"{} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTrain_ad2bd424547b5be4e3fa8e491f1ce790d}{Train}}.
+
+\mbox{\Hypertarget{classAlfaPendular_aceb64b85c475612b8045d0108b448669}\label{classAlfaPendular_aceb64b85c475612b8045d0108b448669}} 
+\index{Alfa\+Pendular@{Alfa\+Pendular}!print\+Row@{print\+Row}}
+\index{print\+Row@{print\+Row}!Alfa\+Pendular@{Alfa\+Pendular}}
+\subsubsection{\texorpdfstring{print\+Row()}{printRow()}}
+{\footnotesize\ttfamily void Alfa\+Pendular\+::print\+Row (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Print a formated row of the trains information. 
+
+Reimplemented from \mbox{\hyperlink{classTrain_a3fd1c87c2152aa96cc6928f0aea37e21}{Train}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+system\+\_\+elements/\mbox{\hyperlink{AlfaPendular_8h}{Alfa\+Pendular.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{AlfaPendular_8cpp}{Alfa\+Pendular.\+cpp}}\end{DoxyCompactItemize}

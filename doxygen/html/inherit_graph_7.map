@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classSystemElement.html" title="SystemElement" alt="" coords="5,132,131,159"/>
+<area shape="rect" id="node2" href="$classPerson.html" title="Person" alt="" coords="193,31,260,57"/>
+<area shape="rect" id="node5" href="$classRepairShop.html" title="RepairShop" alt="" coords="179,81,275,108"/>
+<area shape="rect" id="node6" href="$classStation.html" title="Class for representing a station in the system. " alt="" coords="193,132,261,159"/>
+<area shape="rect" id="node7" href="$classTrain.html" title="Class for representing a train in the system. " alt="" coords="200,183,253,209"/>
+<area shape="rect" id="node10" href="$classTrip.html" title="Class for representing a trip in the system. " alt="" coords="204,233,249,260"/>
+<area shape="rect" id="node3" href="$classEngineer.html" title="Engineer" alt="" coords="336,5,415,32"/>
+<area shape="rect" id="node4" href="$classPassenger.html" title="Class for representing a passenger in the system Extends class Person. " alt="" coords="331,56,420,83"/>
+<area shape="rect" id="node8" href="$classAlfaPendular.html" title="AlfaPendular" alt="" coords="323,157,428,184"/>
+<area shape="rect" id="node9" href="$classInterCidades.html" title="InterCidades" alt="" coords="323,208,427,235"/>
+</map>

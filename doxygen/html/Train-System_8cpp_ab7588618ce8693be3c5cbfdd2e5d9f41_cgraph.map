@@ -1,0 +1,6 @@
+<map id="createPassenger" name="createPassenger">
+<area shape="rect" id="node2" href="$namespaceproject__utils.html#aab1cf7fd8bfa2074ed3e6fb99fa973dc" title="Function to read a string using getline(cin). " alt="" coords="433,5,600,32"/>
+<area shape="rect" id="node3" href="$namespaceproject__utils.html#adab6593a2685f866191793214c7c60ce" title="Read a birthdate. " alt="" coords="184,31,385,57"/>
+<area shape="rect" id="node4" href="$classSystem.html#a635ad100d71c3d964047376505d7850b" title="Create a Passenger object. " alt="" coords="191,81,378,108"/>
+<area shape="rect" id="node5" href="$classPassenger.html#a13b831d7ccd52a81ee4f5d47bcd2c795" title="Passenger::setID" alt="" coords="451,81,582,108"/>
+</map>

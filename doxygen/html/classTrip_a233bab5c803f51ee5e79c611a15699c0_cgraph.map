@@ -1,0 +1,9 @@
+<map id="Trip::printRow" name="Trip::printRow">
+<area shape="rect" id="node2" href="$classTrip.html#a9006732aa32a2b098538d48b63f2d276" title="Get the price with discounts in mind. " alt="" coords="164,56,319,83"/>
+<area shape="rect" id="node6" href="$classStation.html#ac823ae175ec0e2baff462ed9612c7bae" title="Get the Station&#39;s name. " alt="" coords="173,107,309,133"/>
+<area shape="rect" id="node7" href="$classDate.html#a733c89177097f0d7f5cc2f68f5593856" title="Get the Date String. " alt="" coords="166,157,317,184"/>
+<area shape="rect" id="node8" href="$classTrain.html#a7310ae0bc5b43ea392e4fa62630ee56b" title="Get the train ID. " alt="" coords="193,208,289,235"/>
+<area shape="rect" id="node3" href="$classDate.html#af047ef9ca2cf7843b921f36e9883f0a7" title="Get the Time Stamp object. " alt="" coords="377,5,535,32"/>
+<area shape="rect" id="node4" href="$classTrain.html#a2f8a45aaa96058a2675422d206221964" title="Train::getPriceMultiplyer" alt="" coords="367,56,545,83"/>
+<area shape="rect" id="node5" href="$classTrain.html#a93cd372664bac4ba28fa36e40316444a" title="Get the max capacity. " alt="" coords="383,107,529,133"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="System::removePassenger" name="System::removePassenger">
+<area shape="rect" id="node2" href="$classSystemElement.html#aaa601d0e2960dd62d68e0f025f5eb362" title="SystemElement::setInactive" alt="" coords="249,5,455,32"/>
+<area shape="rect" id="node3" href="$classPassenger.html#a7afe05c6e57aa998954b878a5b632dac" title="Remove the passenger&#39;s card;. " alt="" coords="263,56,441,83"/>
+<area shape="rect" id="node4" href="$classNoSuchPassengerException.html#a6dcb45902936f5c11beef44030378872" title="NoSuchPassengerException\l::what" alt="" coords="251,107,453,149"/>
+</map>

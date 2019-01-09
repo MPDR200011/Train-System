@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Train-System: NoSuchTripException.h Source File</title>
+<title>Train-System: exceptions/NoSuchTripException.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,13 +59,20 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_fceced95d8215eeebebd9df6aa39e1a5.html">exceptions</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">NoSuchTripException.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef NOSUCHTRIPEXCEPTION_H_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NOSUCHTRIPEXCEPTION_H_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;TrainSystemException.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;project_types.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classNoSuchTripException.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNoSuchTripException.html">NoSuchTripException</a>: <span class="keyword">public</span> <a class="code" href="classTrainSystemException.html">TrainSystemException</a> {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classNoSuchTripException.html">NoSuchTripException</a>(id_t <span class="keywordtype">id</span>);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::string what();</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    id_t id;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* NOSUCHTRIPEXCEPTION_H_ */</span><span class="preprocessor"></span></div><div class="ttc" id="classNoSuchTripException_html"><div class="ttname"><a href="classNoSuchTripException.html">NoSuchTripException</a></div><div class="ttdoc">Exception reporting that a trip ID does not exist in the system. </div><div class="ttdef"><b>Definition:</b> NoSuchTripException.h:11</div></div>
-<div class="ttc" id="classTrainSystemException_html"><div class="ttname"><a href="classTrainSystemException.html">TrainSystemException</a></div><div class="ttdef"><b>Definition:</b> TrainSystemException.h:6</div></div>
+<a href="NoSuchTripException_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef NOSUCHTRIPEXCEPTION_H_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NOSUCHTRIPEXCEPTION_H_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../project_utils.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classNoSuchTripException.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNoSuchTripException.html">NoSuchTripException</a>: <span class="keyword">public</span> std::exception {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classNoSuchTripException.html#ad4e2e75706508833ccbb7a793092734c">NoSuchTripException</a>(<a class="code" href="project__utils_8h.html#a8f3a969054ad2200720b96e7e23dd4e1">id_t</a> <span class="keywordtype">id</span>);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classNoSuchTripException.html#a48adffc40883e044fd248f1185084bb6">what</a>();</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="project__utils_8h.html#a8f3a969054ad2200720b96e7e23dd4e1">id_t</a> id;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* NOSUCHTRIPEXCEPTION_H_ */</span><span class="preprocessor"></span></div><div class="ttc" id="classNoSuchTripException_html_ad4e2e75706508833ccbb7a793092734c"><div class="ttname"><a href="classNoSuchTripException.html#ad4e2e75706508833ccbb7a793092734c">NoSuchTripException::NoSuchTripException</a></div><div class="ttdeci">NoSuchTripException(id_t id)</div><div class="ttdef"><b>Definition:</b> NoSuchTripException.cpp:6</div></div>
+<div class="ttc" id="classNoSuchTripException_html"><div class="ttname"><a href="classNoSuchTripException.html">NoSuchTripException</a></div><div class="ttdoc">Exception reporting that a trip ID does not exist in the system. </div><div class="ttdef"><b>Definition:</b> NoSuchTripException.h:11</div></div>
+<div class="ttc" id="project__utils_8h_html_a8f3a969054ad2200720b96e7e23dd4e1"><div class="ttname"><a href="project__utils_8h.html#a8f3a969054ad2200720b96e7e23dd4e1">id_t</a></div><div class="ttdeci">unsigned int id_t</div><div class="ttdoc">Contextual typedef for ID&amp;#39;s. </div><div class="ttdef"><b>Definition:</b> project_utils.h:26</div></div>
+<div class="ttc" id="classNoSuchTripException_html_a48adffc40883e044fd248f1185084bb6"><div class="ttname"><a href="classNoSuchTripException.html#a48adffc40883e044fd248f1185084bb6">NoSuchTripException::what</a></div><div class="ttdeci">const char * what()</div><div class="ttdef"><b>Definition:</b> NoSuchTripException.cpp:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

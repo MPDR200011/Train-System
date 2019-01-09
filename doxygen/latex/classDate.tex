@@ -42,6 +42,11 @@ int \mbox{\hyperlink{classDate_a55251df891f43b9f19419cd79ce69876}{get\+Minutes}}
 \begin{DoxyCompactList}\small\item\em Get the Minutes. \end{DoxyCompactList}\item 
 long int \mbox{\hyperlink{classDate_af047ef9ca2cf7843b921f36e9883f0a7}{get\+Time\+Stamp}} ()
 \begin{DoxyCompactList}\small\item\em Get the Time Stamp object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{classDate_ac3833dc0b7e3f62bac56195d48522f71}{default\+Date\+String}} = \char`\"{}01-\/01-\/1970 00\+:00\char`\"{}
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -65,7 +70,7 @@ Works as an abstraction of C++\textquotesingle{}s ctime library.
 
 Construct a new \mbox{\hyperlink{classDate}{Date}} object. 
 
-Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws Invalid\+Date\+Exception.
+Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws \mbox{\hyperlink{classInvalidDateException}{Invalid\+Date\+Exception}}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -84,13 +89,13 @@ Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If va
 \index{Date@{Date}!Date@{Date}}
 \index{Date@{Date}!Date@{Date}}
 \subsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{date\+String }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{date\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
 Construct a new \mbox{\hyperlink{classDate}{Date}} object. 
 
-Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws Invalid\+Date\+Exception.
+Constructs \mbox{\hyperlink{classDate}{Date}} object and calls validate(). If validation fails, throws \mbox{\hyperlink{classInvalidDateException}{Invalid\+Date\+Exception}}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -331,7 +336,16 @@ std\+::ostream\& reference to the output stream passed as argument
 \end{DoxyReturn}
 
 
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classDate_ac3833dc0b7e3f62bac56195d48522f71}\label{classDate_ac3833dc0b7e3f62bac56195d48522f71}} 
+\index{Date@{Date}!default\+Date\+String@{default\+Date\+String}}
+\index{default\+Date\+String@{default\+Date\+String}!Date@{Date}}
+\subsubsection{\texorpdfstring{default\+Date\+String}{defaultDateString}}
+{\footnotesize\ttfamily const char $\ast$ Date\+::default\+Date\+String = \char`\"{}01-\/01-\/1970 00\+:00\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+String with base date. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Date.\+h\item 
-Date.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{Date_8h}{Date.\+h}}\item 
+\mbox{\hyperlink{Date_8cpp}{Date.\+cpp}}\end{DoxyCompactItemize}

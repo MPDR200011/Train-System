@@ -1,0 +1,5 @@
+<map id="Trip::getCurrentPrice" name="Trip::getCurrentPrice">
+<area shape="rect" id="node2" href="$classDate.html#af047ef9ca2cf7843b921f36e9883f0a7" title="Get the Time Stamp object. " alt="" coords="219,5,376,32"/>
+<area shape="rect" id="node3" href="$classTrain.html#a2f8a45aaa96058a2675422d206221964" title="Train::getPriceMultiplyer" alt="" coords="208,56,387,83"/>
+<area shape="rect" id="node4" href="$classTrain.html#a93cd372664bac4ba28fa36e40316444a" title="Get the max capacity. " alt="" coords="225,107,370,133"/>
+</map>

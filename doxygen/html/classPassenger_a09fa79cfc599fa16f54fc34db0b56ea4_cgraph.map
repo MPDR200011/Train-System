@@ -1,0 +1,4 @@
+<map id="Passenger::setCard" name="Passenger::setCard">
+<area shape="rect" id="node2" href="$classPassengerCard.html#ab0c4c67f185dc1abee907b6cd50413bf" title="Set the typeof the card. " alt="" coords="201,5,378,32"/>
+<area shape="rect" id="node3" href="$classPassengerCard.html#aef682e4bb625ac937c4aec7999c92626" title="Get the Type object. " alt="" coords="200,56,379,83"/>
+</map>

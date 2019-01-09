@@ -1,0 +1,6 @@
+<map id="System::loadStations" name="System::loadStations">
+<area shape="rect" id="node2" href="$namespaceproject__utils.html#a8a3acf9a2b81c44b525870adb954dcff" title="project_utils::splitArguments" alt="" coords="213,5,423,32"/>
+<area shape="rect" id="node3" href="$classStation.html#a1cb215c1fea787806cfd116c7c32d350" title="Station::setID" alt="" coords="263,56,373,83"/>
+<area shape="rect" id="node4" href="$classSystemElement.html#aaa601d0e2960dd62d68e0f025f5eb362" title="SystemElement::setInactive" alt="" coords="215,107,421,133"/>
+<area shape="rect" id="node5" href="$classStation.html#acbc5832d77cbe29c9006212b9cc32a42" title="Get the station ID. " alt="" coords="263,157,373,184"/>
+</map>

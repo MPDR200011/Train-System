@@ -1,0 +1,8 @@
+<map id="System::removeStation" name="System::removeStation">
+<area shape="rect" id="node2" href="$classTrip.html#a65b45d4816c85d47ef743e7c1cfe807f" title="Get the Source object. " alt="" coords="271,5,390,32"/>
+<area shape="rect" id="node3" href="$classStation.html#acbc5832d77cbe29c9006212b9cc32a42" title="Get the station ID. " alt="" coords="275,56,386,83"/>
+<area shape="rect" id="node4" href="$classTrip.html#a459ae85fc25404ba616fabfb4b4165f4" title="Get the Destination object. " alt="" coords="279,107,383,133"/>
+<area shape="rect" id="node5" href="$classTrip.html#a7770a61e1211789c80b003eeedcaa09c" title="get ID of the trip " alt="" coords="287,157,375,184"/>
+<area shape="rect" id="node6" href="$classSystemElement.html#aaa601d0e2960dd62d68e0f025f5eb362" title="SystemElement::setInactive" alt="" coords="228,208,433,235"/>
+<area shape="rect" id="node7" href="$classNoSuchStationException.html#ab67522921093ac926cc70e2fb0a0730c" title="NoSuchStationException\l::what" alt="" coords="240,259,421,301"/>
+</map>

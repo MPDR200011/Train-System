@@ -9,16 +9,40 @@ Class for representing a trip in the system.
 
 {\ttfamily \#include $<$Trip.\+h$>$}
 
+
+
+Inheritance diagram for Trip\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classTrip__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Trip\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classTrip__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classTrip_a2f799d60e9d2fa7d0e63a0e96b57f731}{Trip}} (uint base\+Price, \mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, \mbox{\hyperlink{classTrain}{Train}} $\ast$train, const \mbox{\hyperlink{classDate}{Date}} departure\+Date, const \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
+\mbox{\hyperlink{classTrip_ab25669acad521c66612a118ae64d71f5}{Trip}} (\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} base\+Price, \mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, \mbox{\hyperlink{classTrain}{Train}} $\ast$train, \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$engy, \mbox{\hyperlink{classDate}{Date}} departure\+Date, \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classTrip}{Trip}} object. \end{DoxyCompactList}\item 
-id\+\_\+t \mbox{\hyperlink{classTrip_a7770a61e1211789c80b003eeedcaa09c}{get\+ID}} () const
+\mbox{\hyperlink{classTrip_a2376daed3b03469163782ef0d0533d52}{$\sim$\+Trip}} ()
+\item 
+void \mbox{\hyperlink{classTrip_a15be60d61cf9fb7dc3e18e6cebedb27e}{set\+ID}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\item 
+\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} \mbox{\hyperlink{classTrip_a7770a61e1211789c80b003eeedcaa09c}{get\+ID}} () const
 \begin{DoxyCompactList}\small\item\em get ID of the trip \end{DoxyCompactList}\item 
-uint \mbox{\hyperlink{classTrip_af2a3a9f9e33b9dd31e9193cf48bec134}{get\+Base\+Price}} () const
+\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{classTrip_af2a3a9f9e33b9dd31e9193cf48bec134}{get\+Base\+Price}} () const
 \begin{DoxyCompactList}\small\item\em Get the Base Price. \end{DoxyCompactList}\item 
-uint \mbox{\hyperlink{classTrip_a9006732aa32a2b098538d48b63f2d276}{get\+Current\+Price}} ()
+\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{classTrip_a9006732aa32a2b098538d48b63f2d276}{get\+Current\+Price}} ()
 \begin{DoxyCompactList}\small\item\em Get the price with discounts in mind. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{classTrip_a65b45d4816c85d47ef743e7c1cfe807f}{get\+Source}} () const
 \begin{DoxyCompactList}\small\item\em Get the Source object. \end{DoxyCompactList}\item 
@@ -26,6 +50,8 @@ uint \mbox{\hyperlink{classTrip_a9006732aa32a2b098538d48b63f2d276}{get\+Current\
 \begin{DoxyCompactList}\small\item\em Get the Destination object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classTrain}{Train}} $\ast$ \mbox{\hyperlink{classTrip_a7595a39e9aa91e321d37b1696da50024}{get\+Train}} () const
 \begin{DoxyCompactList}\small\item\em Get the object of the train responsible for the trip. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ \mbox{\hyperlink{classTrip_ae499f5d9d3c72fecfac96c4a46cb5d28}{get\+Engineer}} () const
+\item 
 \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classTrip_ae7c3b34b692a17737a2b1200060fa479}{get\+Departure\+Date}} ()
 \begin{DoxyCompactList}\small\item\em Get the Departure \mbox{\hyperlink{classDate}{Date}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classTrip_a821dfd23e37c28f1c0a2dab3f2836799}{get\+Arrival\+Date}} ()
@@ -37,8 +63,7 @@ void \mbox{\hyperlink{classTrip_a233bab5c803f51ee5e79c611a15699c0}{print\+Row}} 
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTrip_ad143ba29c1778aa25a53301503c3f2bd}\label{classTrip_ad143ba29c1778aa25a53301503c3f2bd}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classTrip}{Trip}} \&tr)
+std\+::ostream \& \mbox{\hyperlink{classTrip_ad143ba29c1778aa25a53301503c3f2bd}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classTrip}{Trip}} \&tr)
 \end{DoxyCompactItemize}
 
 
@@ -46,11 +71,11 @@ std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperl
 Class for representing a trip in the system. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classTrip_a2f799d60e9d2fa7d0e63a0e96b57f731}\label{classTrip_a2f799d60e9d2fa7d0e63a0e96b57f731}} 
+\mbox{\Hypertarget{classTrip_ab25669acad521c66612a118ae64d71f5}\label{classTrip_ab25669acad521c66612a118ae64d71f5}} 
 \index{Trip@{Trip}!Trip@{Trip}}
 \index{Trip@{Trip}!Trip@{Trip}}
 \subsubsection{\texorpdfstring{Trip()}{Trip()}}
-{\footnotesize\ttfamily Trip\+::\+Trip (\begin{DoxyParamCaption}\item[{uint}]{base\+Price,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{classTrain}{Train}} $\ast$}]{train,  }\item[{const \mbox{\hyperlink{classDate}{Date}}}]{departure\+Date,  }\item[{const \mbox{\hyperlink{classDate}{Date}}}]{arrival\+Date }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Trip\+::\+Trip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{base\+Price,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{classTrain}{Train}} $\ast$}]{train,  }\item[{\mbox{\hyperlink{classEngineer}{Engineer}} $\ast$}]{engy,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{departure\+Date,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{arrival\+Date }\end{DoxyParamCaption})}
 
 
 
@@ -66,11 +91,19 @@ Construct a new \mbox{\hyperlink{classTrip}{Trip}} object.
 \hline
 {\em train} & Pointer to train that will be in charge of the trip \\
 \hline
+{\em engy} & engineer that is going to drive the train \\
+\hline
 {\em departure\+Date} & \mbox{\hyperlink{classDate}{Date}} object of the time of departure \\
 \hline
 {\em arrival\+Date} & \mbox{\hyperlink{classDate}{Date}} object of the time of arrival \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classTrip_a2376daed3b03469163782ef0d0533d52}\label{classTrip_a2376daed3b03469163782ef0d0533d52}} 
+\index{Trip@{Trip}!````~Trip@{$\sim$\+Trip}}
+\index{````~Trip@{$\sim$\+Trip}!Trip@{Trip}}
+\subsubsection{\texorpdfstring{$\sim$\+Trip()}{~Trip()}}
+{\footnotesize\ttfamily Trip\+::$\sim$\+Trip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 
 
 \subsection{Member Function Documentation}
@@ -108,7 +141,7 @@ Get the Arrival \mbox{\hyperlink{classDate}{Date}} object.
 \index{Trip@{Trip}!get\+Base\+Price@{get\+Base\+Price}}
 \index{get\+Base\+Price@{get\+Base\+Price}!Trip@{Trip}}
 \subsubsection{\texorpdfstring{get\+Base\+Price()}{getBasePrice()}}
-{\footnotesize\ttfamily uint Trip\+::get\+Base\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Trip\+::get\+Base\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -121,7 +154,7 @@ uint Price in cents
 \index{Trip@{Trip}!get\+Current\+Price@{get\+Current\+Price}}
 \index{get\+Current\+Price@{get\+Current\+Price}!Trip@{Trip}}
 \subsubsection{\texorpdfstring{get\+Current\+Price()}{getCurrentPrice()}}
-{\footnotesize\ttfamily uint Trip\+::get\+Current\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Trip\+::get\+Current\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -130,6 +163,14 @@ Get the price with discounts in mind.
 \begin{DoxyReturn}{Returns}
 uint Price with dicounts in cents 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTrip_a9006732aa32a2b098538d48b63f2d276_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classTrip_ae7c3b34b692a17737a2b1200060fa479}\label{classTrip_ae7c3b34b692a17737a2b1200060fa479}} 
 \index{Trip@{Trip}!get\+Departure\+Date@{get\+Departure\+Date}}
 \index{get\+Departure\+Date@{get\+Departure\+Date}!Trip@{Trip}}
@@ -156,11 +197,22 @@ Get the Destination object.
 \begin{DoxyReturn}{Returns}
 Station$\ast$ 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classTrip_ae499f5d9d3c72fecfac96c4a46cb5d28}\label{classTrip_ae499f5d9d3c72fecfac96c4a46cb5d28}} 
+\index{Trip@{Trip}!get\+Engineer@{get\+Engineer}}
+\index{get\+Engineer@{get\+Engineer}!Trip@{Trip}}
+\subsubsection{\texorpdfstring{get\+Engineer()}{getEngineer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ Trip\+::get\+Engineer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the pointer to the engineer driving the train.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classTrip_a7770a61e1211789c80b003eeedcaa09c}\label{classTrip_a7770a61e1211789c80b003eeedcaa09c}} 
 \index{Trip@{Trip}!get\+ID@{get\+ID}}
 \index{get\+ID@{get\+ID}!Trip@{Trip}}
 \subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
-{\footnotesize\ttfamily id\+\_\+t Trip\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} Trip\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -212,9 +264,39 @@ Outputs the object\textquotesingle{}s information as it was a row in a table. Us
 {\em os} & The output stream to which the trip will be output. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTrip_a233bab5c803f51ee5e79c611a15699c0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classTrip_a15be60d61cf9fb7dc3e18e6cebedb27e}\label{classTrip_a15be60d61cf9fb7dc3e18e6cebedb27e}} 
+\index{Trip@{Trip}!set\+ID@{set\+ID}}
+\index{set\+ID@{set\+ID}!Trip@{Trip}}
+\subsubsection{\texorpdfstring{set\+I\+D()}{setID()}}
+{\footnotesize\ttfamily void Trip\+::set\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
+
+Set the trip ID
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classTrip_ad143ba29c1778aa25a53301503c3f2bd}\label{classTrip_ad143ba29c1778aa25a53301503c3f2bd}} 
+\index{Trip@{Trip}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Trip@{Trip}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classTrip}{Trip}} \&}]{tr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Trip.\+h\item 
-Trip.\+cpp\end{DoxyCompactItemize}
+system\+\_\+elements/\mbox{\hyperlink{Trip_8h}{Trip.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{Trip_8cpp}{Trip.\+cpp}}\end{DoxyCompactItemize}

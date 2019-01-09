@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['_7epassenger',['~Passenger',['../classPassenger.html#a6a6747cafd45d2c85db2ec4e873be3c7',1,'Passenger']]],
-  ['_7esystem',['~System',['../classSystem.html#a3be70bb338e3f062f821173fd15680d0',1,'System']]],
-  ['_7eticketpurchaserequest',['~TicketPurchaseRequest',['../classTicketPurchaseRequest.html#afdd1e6ed2929ecb81dbefd1aecf22326',1,'TicketPurchaseRequest']]]
+  ['nosuchengineerexception',['NoSuchEngineerException',['../classNoSuchEngineerException.html#acb7d95771ea1961a2cf223d3fcedd78a',1,'NoSuchEngineerException']]],
+  ['nosuchpassengerexception',['NoSuchPassengerException',['../classNoSuchPassengerException.html#a592e57495c93657a25e7da49da5b6649',1,'NoSuchPassengerException']]],
+  ['nosuchstationexception',['NoSuchStationException',['../classNoSuchStationException.html#a3e907e61f0836f6954f40bd63538bcb6',1,'NoSuchStationException']]],
+  ['nosuchtrainexception',['NoSuchTrainException',['../classNoSuchTrainException.html#ae60439498bd6e552159ed1c50335daba',1,'NoSuchTrainException']]],
+  ['nosuchtripexception',['NoSuchTripException',['../classNoSuchTripException.html#ad4e2e75706508833ccbb7a793092734c',1,'NoSuchTripException']]]
 ];

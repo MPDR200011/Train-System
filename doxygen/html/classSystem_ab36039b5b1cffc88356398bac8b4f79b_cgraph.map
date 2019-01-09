@@ -1,0 +1,7 @@
+<map id="System::removeTrain" name="System::removeTrain">
+<area shape="rect" id="node2" href="$classTrip.html#a7595a39e9aa91e321d37b1696da50024" title="Get the object of the train responsible for the trip. " alt="" coords="263,5,369,32"/>
+<area shape="rect" id="node3" href="$classTrain.html#a7310ae0bc5b43ea392e4fa62630ee56b" title="Get the train ID. " alt="" coords="268,56,364,83"/>
+<area shape="rect" id="node4" href="$classTrip.html#a7770a61e1211789c80b003eeedcaa09c" title="get ID of the trip " alt="" coords="272,107,360,133"/>
+<area shape="rect" id="node5" href="$classSystemElement.html#aaa601d0e2960dd62d68e0f025f5eb362" title="SystemElement::setInactive" alt="" coords="213,157,419,184"/>
+<area shape="rect" id="node6" href="$classNoSuchTrainException.html#ad2739cfe2389af42ee3f6780ff1392c5" title="NoSuchTrainException\l::what" alt="" coords="233,209,399,250"/>
+</map>

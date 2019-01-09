@@ -1,0 +1,49 @@
+\hypertarget{Date_8cpp}{}\section{Date.\+cpp File Reference}
+\label{Date_8cpp}\index{Date.\+cpp@{Date.\+cpp}}
+{\ttfamily \#include \char`\"{}Date.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}exceptions/\+Invalid\+Date\+Exception.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for Date.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Date_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{Date_8cpp_a2f114c7aa1398dac0f21b888bcb40f3e}{operator$<$$<$}} (std\+::ostream \&o, \mbox{\hyperlink{classDate}{Date}} \&d)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{Date_8cpp_a2f114c7aa1398dac0f21b888bcb40f3e}\label{Date_8cpp_a2f114c7aa1398dac0f21b888bcb40f3e}} 
+\index{Date.\+cpp@{Date.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Date.\+cpp@{Date.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{o,  }\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{d }\end{DoxyParamCaption})}
+
+Passes a string of the date, to the output stream, in the following format\+: \char`\"{}dd-\/mm-\/yyyy H\+H\+:\+M\+M\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & ouput stream \\
+\hline
+{\em d} & date object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& reference to the output stream passed as argument 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{Date_8cpp_a2f114c7aa1398dac0f21b888bcb40f3e_cgraph}
+\end{center}
+\end{figure}

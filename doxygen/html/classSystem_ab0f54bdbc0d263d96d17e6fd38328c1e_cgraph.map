@@ -1,0 +1,15 @@
+<map id="System::saveTrips" name="System::saveTrips">
+<area shape="rect" id="node2" href="$classTrip.html#a7770a61e1211789c80b003eeedcaa09c" title="get ID of the trip " alt="" coords="242,5,330,32"/>
+<area shape="rect" id="node3" href="$classSystemElement.html#a50987a52734db127a8ff3574903182d0" title="SystemElement::isActive" alt="" coords="193,56,379,83"/>
+<area shape="rect" id="node4" href="$classTrip.html#af2a3a9f9e33b9dd31e9193cf48bec134" title="Get the Base Price. " alt="" coords="217,107,355,133"/>
+<area shape="rect" id="node5" href="$classTrip.html#a65b45d4816c85d47ef743e7c1cfe807f" title="Get the Source object. " alt="" coords="227,157,345,184"/>
+<area shape="rect" id="node6" href="$classStation.html#acbc5832d77cbe29c9006212b9cc32a42" title="Get the station ID. " alt="" coords="231,208,341,235"/>
+<area shape="rect" id="node7" href="$classTrip.html#a459ae85fc25404ba616fabfb4b4165f4" title="Get the Destination object. " alt="" coords="234,259,338,285"/>
+<area shape="rect" id="node8" href="$classTrip.html#a7595a39e9aa91e321d37b1696da50024" title="Get the object of the train responsible for the trip. " alt="" coords="233,309,339,336"/>
+<area shape="rect" id="node9" href="$classTrain.html#a7310ae0bc5b43ea392e4fa62630ee56b" title="Get the train ID. " alt="" coords="238,360,334,387"/>
+<area shape="rect" id="node10" href="$classTrip.html#ae499f5d9d3c72fecfac96c4a46cb5d28" title="Trip::getEngineer" alt="" coords="221,411,351,437"/>
+<area shape="rect" id="node11" href="$classEngineer.html#aa2a341b66e189ef19ab7dfa364cd2c20" title="Engineer::getID" alt="" coords="225,461,347,488"/>
+<area shape="rect" id="node12" href="$classTrip.html#ae7c3b34b692a17737a2b1200060fa479" title="Get the Departure Date object. " alt="" coords="201,512,371,539"/>
+<area shape="rect" id="node13" href="$classDate.html#a733c89177097f0d7f5cc2f68f5593856" title="Get the Date String. " alt="" coords="211,563,361,589"/>
+<area shape="rect" id="node14" href="$classTrip.html#a821dfd23e37c28f1c0a2dab3f2836799" title="Get the Arrival Date object. " alt="" coords="212,613,360,640"/>
+</map>

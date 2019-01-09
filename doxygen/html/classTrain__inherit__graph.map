@@ -1,0 +1,5 @@
+<map id="Train" name="Train">
+<area shape="rect" id="node3" href="$classAlfaPendular.html" title="AlfaPendular" alt="" coords="5,155,111,181"/>
+<area shape="rect" id="node4" href="$classInterCidades.html" title="InterCidades" alt="" coords="135,155,239,181"/>
+<area shape="rect" id="node2" href="$classSystemElement.html" title="SystemElement" alt="" coords="59,5,185,32"/>
+</map>

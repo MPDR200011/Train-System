@@ -2,35 +2,52 @@
 \label{classPassenger}\index{Passenger@{Passenger}}
 
 
-Class for representing a passenger in the system.  
+Class for representing a passenger in the system Extends class \mbox{\hyperlink{classPerson}{Person}}.  
 
 
 
 
 {\ttfamily \#include $<$Passenger.\+h$>$}
 
+
+
+Inheritance diagram for Passenger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classPassenger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Passenger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classPassenger__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classPassenger_ac66212e8c1e35bb4423c6e1624ae31d9}{Passenger}} (std\+::string name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
+\mbox{\hyperlink{classPassenger_ac66212e8c1e35bb4423c6e1624ae31d9}{Passenger}} (std\+::string \mbox{\hyperlink{classPerson_a7594663aadc0de77616506df8a2f4128}{name}}, \mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classPerson_a7a764b56b815321eeb8412c1dcc4cabf}{birth\+Date}})
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classPassenger}{Passenger}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPassenger_a6a6747cafd45d2c85db2ec4e873be3c7}{$\sim$\+Passenger}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classPassenger}{Passenger}} object. \end{DoxyCompactList}\item 
-id\+\_\+t \mbox{\hyperlink{classPassenger_ae6fcc19037be144f654c623c5b78ae24}{get\+ID}} () const
+void \mbox{\hyperlink{classPassenger_a13b831d7ccd52a81ee4f5d47bcd2c795}{set\+ID}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\item 
+\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} \mbox{\hyperlink{classPassenger_ae6fcc19037be144f654c623c5b78ae24}{get\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s ID. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classPassenger_a7c919f6947817ff1c6a4ee51923c116f}{get\+Name}} () const
-\begin{DoxyCompactList}\small\item\em Get the Name object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} $\ast$ \mbox{\hyperlink{classPassenger_ae8d5310db80438702dec5f4d649289f1}{get\+Card}} () const
 \begin{DoxyCompactList}\small\item\em Get the Card object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classPassenger_a23e16eaaf1c1927240380aa02e9d44a4}{get\+Birth\+Date}} ()
-\begin{DoxyCompactList}\small\item\em Get the Birth \mbox{\hyperlink{classDate}{Date}} object. \end{DoxyCompactList}\item 
 const std\+::vector$<$ \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} $>$ \& \mbox{\hyperlink{classPassenger_a4d8911ca0e8fe1d9226594674bd04af4}{get\+Trip\+Logs}} () const
 \begin{DoxyCompactList}\small\item\em Get the Trips object. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}{set\+Card}} (\mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} $\ast$c)
 \begin{DoxyCompactList}\small\item\em Set the passenger\textquotesingle{}s card. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPassenger_ad61aeee59fcdb0084a6cc12d16305d12}{log\+Trip}} (\mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} log)
 \begin{DoxyCompactList}\small\item\em Logs a trip the passenger has purchased. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPassenger_a7afe05c6e57aa998954b878a5b632dac}\label{classPassenger_a7afe05c6e57aa998954b878a5b632dac}} 
 void \mbox{\hyperlink{classPassenger_a7afe05c6e57aa998954b878a5b632dac}{remove\+Card}} ()
 \begin{DoxyCompactList}\small\item\em Remove the passenger\textquotesingle{}s card;. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPassenger_a72e4042544557a3dd9c02198aa2582d8}{print\+Row}} (std\+::ostream \&os)
@@ -40,12 +57,11 @@ void \mbox{\hyperlink{classPassenger_a72e4042544557a3dd9c02198aa2582d8}{print\+R
 \item 
 std\+::ostream \& \mbox{\hyperlink{classPassenger_a7b1aeaded08562578690b788f39db888}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classPassenger}{Passenger}} \&p)
 \begin{DoxyCompactList}\small\item\em Output \mbox{\hyperlink{classPassenger}{Passenger}} object in a user friendly fashion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-Class for representing a passenger in the system. 
-
-Holds his ID, name, pointer to a \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} object (if he has one), a \mbox{\hyperlink{classDate}{Date}} object representing his date of birth and a vector of pointers to trips he has bought tickets for. 
+Class for representing a passenger in the system Extends class \mbox{\hyperlink{classPerson}{Person}}. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classPassenger_ac66212e8c1e35bb4423c6e1624ae31d9}\label{classPassenger_ac66212e8c1e35bb4423c6e1624ae31d9}} 
@@ -78,19 +94,6 @@ Destroy the \mbox{\hyperlink{classPassenger}{Passenger}} object.
 Sole purpose is to free memory occupied by \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} pointer, if it has a card. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classPassenger_a23e16eaaf1c1927240380aa02e9d44a4}\label{classPassenger_a23e16eaaf1c1927240380aa02e9d44a4}} 
-\index{Passenger@{Passenger}!get\+Birth\+Date@{get\+Birth\+Date}}
-\index{get\+Birth\+Date@{get\+Birth\+Date}!Passenger@{Passenger}}
-\subsubsection{\texorpdfstring{get\+Birth\+Date()}{getBirthDate()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classDate}{Date}} \& Passenger\+::get\+Birth\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Get the Birth \mbox{\hyperlink{classDate}{Date}} object. 
-
-\begin{DoxyReturn}{Returns}
-const \mbox{\hyperlink{classDate}{Date}}\& The \mbox{\hyperlink{classDate}{Date}} object representing the \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s date of birth 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classPassenger_ae8d5310db80438702dec5f4d649289f1}\label{classPassenger_ae8d5310db80438702dec5f4d649289f1}} 
 \index{Passenger@{Passenger}!get\+Card@{get\+Card}}
 \index{get\+Card@{get\+Card}!Passenger@{Passenger}}
@@ -108,7 +111,7 @@ Passenger\+Card$\ast$ The pointer to the \mbox{\hyperlink{classPassengerCard}{Pa
 \index{Passenger@{Passenger}!get\+ID@{get\+ID}}
 \index{get\+ID@{get\+ID}!Passenger@{Passenger}}
 \subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
-{\footnotesize\ttfamily id\+\_\+t Passenger\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} Passenger\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -116,19 +119,6 @@ Get the \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s ID.
 
 \begin{DoxyReturn}{Returns}
 id\+\_\+t The \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s ID 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classPassenger_a7c919f6947817ff1c6a4ee51923c116f}\label{classPassenger_a7c919f6947817ff1c6a4ee51923c116f}} 
-\index{Passenger@{Passenger}!get\+Name@{get\+Name}}
-\index{get\+Name@{get\+Name}!Passenger@{Passenger}}
-\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
-{\footnotesize\ttfamily std\+::string Passenger\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Get the Name object. 
-
-\begin{DoxyReturn}{Returns}
-std\+::string The \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s name 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classPassenger_a4d8911ca0e8fe1d9226594674bd04af4}\label{classPassenger_a4d8911ca0e8fe1d9226594674bd04af4}} 
 \index{Passenger@{Passenger}!get\+Trip\+Logs@{get\+Trip\+Logs}}
@@ -180,6 +170,24 @@ Outputs the object\textquotesingle{}s information as it was a row in a table. Us
 {\em os} & Output stream to wich object will be output \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPassenger_a72e4042544557a3dd9c02198aa2582d8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPassenger_a7afe05c6e57aa998954b878a5b632dac}\label{classPassenger_a7afe05c6e57aa998954b878a5b632dac}} 
+\index{Passenger@{Passenger}!remove\+Card@{remove\+Card}}
+\index{remove\+Card@{remove\+Card}!Passenger@{Passenger}}
+\subsubsection{\texorpdfstring{remove\+Card()}{removeCard()}}
+{\footnotesize\ttfamily void Passenger\+::remove\+Card (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove the passenger\textquotesingle{}s card;. 
+
 \mbox{\Hypertarget{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}\label{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4}} 
 \index{Passenger@{Passenger}!set\+Card@{set\+Card}}
 \index{set\+Card@{set\+Card}!Passenger@{Passenger}}
@@ -194,7 +202,7 @@ Sets the passenger card wether he has one or not. If the passenger already has o
 
 
 \begin{DoxyParams}{Parameters}
-{\em card} & Pointer to the \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} object \\
+{\em c} & Pointer to the \mbox{\hyperlink{classPassengerCard}{Passenger\+Card}} object \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -202,7 +210,21 @@ true If the \mbox{\hyperlink{classPassenger}{Passenger}} didn\textquotesingle{}t
 
 false If the \mbox{\hyperlink{classPassenger}{Passenger}} didn\textquotesingle{}t have a card 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPassenger_a09fa79cfc599fa16f54fc34db0b56ea4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPassenger_a13b831d7ccd52a81ee4f5d47bcd2c795}\label{classPassenger_a13b831d7ccd52a81ee4f5d47bcd2c795}} 
+\index{Passenger@{Passenger}!set\+ID@{set\+ID}}
+\index{set\+ID@{set\+ID}!Passenger@{Passenger}}
+\subsubsection{\texorpdfstring{set\+I\+D()}{setID()}}
+{\footnotesize\ttfamily void Passenger\+::set\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
+Set the passenger\textquotesingle{}s ID; 
 
 \subsection{Friends And Related Function Documentation}
 \mbox{\Hypertarget{classPassenger_a7b1aeaded08562578690b788f39db888}\label{classPassenger_a7b1aeaded08562578690b788f39db888}} 
@@ -229,5 +251,5 @@ std\+::ostream\&
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Passenger.\+h\item 
-Passenger.\+cpp\end{DoxyCompactItemize}
+system\+\_\+elements/\mbox{\hyperlink{Passenger_8h}{Passenger.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{Passenger_8cpp}{Passenger.\+cpp}}\end{DoxyCompactItemize}

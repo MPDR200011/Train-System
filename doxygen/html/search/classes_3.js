@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ticketinvoice',['TicketInvoice',['../classTicketInvoice.html',1,'']]],
-  ['ticketpurchaserequest',['TicketPurchaseRequest',['../classTicketPurchaseRequest.html',1,'']]],
-  ['train',['Train',['../classTrain.html',1,'']]],
-  ['trip',['Trip',['../classTrip.html',1,'']]]
+  ['identicaldestinationexception',['IdenticalDestinationException',['../classIdenticalDestinationException.html',1,'']]],
+  ['intercidades',['InterCidades',['../classInterCidades.html',1,'']]],
+  ['invaliddateexception',['InvalidDateException',['../classInvalidDateException.html',1,'']]],
+  ['invalidtraintypeexception',['InvalidTrainTypeException',['../classInvalidTrainTypeException.html',1,'']]]
 ];

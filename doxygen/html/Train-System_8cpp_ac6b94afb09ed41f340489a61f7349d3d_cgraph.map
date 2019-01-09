@@ -1,0 +1,6 @@
+<map id="createTrain" name="createTrain">
+<area shape="rect" id="node2" href="$namespaceproject__utils.html#a72293f22700ff24cdf6663f45ca10c91" title="Template function to read any variable from cin. " alt="" coords="164,5,323,32"/>
+<area shape="rect" id="node3" href="$classSystem.html#a0eb9c67e05902a014cf37e8ce1ad2ee3" title="Create a Train object. " alt="" coords="168,56,319,83"/>
+<area shape="rect" id="node5" href="$classInvalidTrainTypeException.html#a9eb95875231c7bace498e824f2e746c2" title="InvalidTrainTypeException\l::what" alt="" coords="148,107,339,149"/>
+<area shape="rect" id="node4" href="$classTrain.html#a9a8b1feb180da07e26c90919a0c32406" title="Train::setID" alt="" coords="387,56,481,83"/>
+</map>

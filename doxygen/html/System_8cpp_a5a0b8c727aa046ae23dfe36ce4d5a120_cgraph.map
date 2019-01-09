@@ -1,0 +1,6 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="node2" href="$classSystem.html#a1c5753d5c70d15dc3fe56fd5e421ba76" title="Print all passengers. " alt="" coords="152,5,335,32"/>
+<area shape="rect" id="node3" href="$classSystem.html#ac4b65c4fe2628e7d35b1027161e9d1da" title="Print all stations. " alt="" coords="162,56,325,83"/>
+<area shape="rect" id="node4" href="$classSystem.html#af4610f38d80e01a18f2083a7c5fbd5ce" title="Print all train. " alt="" coords="170,107,317,133"/>
+<area shape="rect" id="node5" href="$classSystem.html#abaa61b6377abcfc61da32092e5d734d9" title="Print all trips. " alt="" coords="174,157,313,184"/>
+</map>

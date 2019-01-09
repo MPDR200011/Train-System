@@ -1,0 +1,4 @@
+<map id="RepairShop::advanceDay" name="RepairShop::advanceDay">
+<area shape="rect" id="node2" href="$classTrain.html#a73909d49761b5152ee3bfc2e1b9d1325" title="Train::setHealthy" alt="" coords="239,5,371,32"/>
+<area shape="rect" id="node3" href="$classTrain.html#a7310ae0bc5b43ea392e4fa62630ee56b" title="Get the train ID. " alt="" coords="257,56,353,83"/>
+</map>

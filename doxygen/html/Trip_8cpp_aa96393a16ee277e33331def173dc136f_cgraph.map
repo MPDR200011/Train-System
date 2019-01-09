@@ -1,0 +1,8 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="node2" href="$classTrip.html#a9006732aa32a2b098538d48b63f2d276" title="Get the price with discounts in mind. " alt="" coords="152,56,307,83"/>
+<area shape="rect" id="node6" href="$classStation.html#ac823ae175ec0e2baff462ed9612c7bae" title="Get the Station&#39;s name. " alt="" coords="161,107,297,133"/>
+<area shape="rect" id="node7" href="$classTrain.html#a7310ae0bc5b43ea392e4fa62630ee56b" title="Get the train ID. " alt="" coords="181,157,277,184"/>
+<area shape="rect" id="node3" href="$classDate.html#af047ef9ca2cf7843b921f36e9883f0a7" title="Get the Time Stamp object. " alt="" coords="365,5,523,32"/>
+<area shape="rect" id="node4" href="$classTrain.html#a2f8a45aaa96058a2675422d206221964" title="Train::getPriceMultiplyer" alt="" coords="355,56,533,83"/>
+<area shape="rect" id="node5" href="$classTrain.html#a93cd372664bac4ba28fa36e40316444a" title="Get the max capacity. " alt="" coords="371,107,517,133"/>
+</map>

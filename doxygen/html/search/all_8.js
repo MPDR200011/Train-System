@@ -1,8 +1,19 @@
 var searchData=
 [
-  ['removecard',['removeCard',['../classPassenger.html#a7afe05c6e57aa998954b878a5b632dac',1,'Passenger']]],
-  ['removepassenger',['removePassenger',['../classSystem.html#af31acdda711986978533367ce3a64276',1,'System']]],
-  ['removestation',['removeStation',['../classSystem.html#ae582dd1c79cbd879ba1fbec5ceaab2fb',1,'System']]],
-  ['removetrain',['removeTrain',['../classSystem.html#acf1d845cdb88b43143b3f738214e866b',1,'System']]],
-  ['removetrip',['removeTrip',['../classSystem.html#ae802cde42ae56b50adc02c76920e9001',1,'System']]]
+  ['id_5ft',['id_t',['../project__utils_8h.html#a8f3a969054ad2200720b96e7e23dd4e1',1,'project_utils.h']]],
+  ['identicaldestinationexception',['IdenticalDestinationException',['../classIdenticalDestinationException.html',1,'']]],
+  ['identicaldestinationexception_2ecpp',['IdenticalDestinationException.cpp',['../IdenticalDestinationException_8cpp.html',1,'']]],
+  ['identicaldestinationexception_2eh',['IdenticalDestinationException.h',['../IdenticalDestinationException_8h.html',1,'']]],
+  ['instance',['instance',['../classSystem.html#a40d348884d1b737ecd26b4bc6509bf48',1,'System']]],
+  ['intercidades',['InterCidades',['../classInterCidades.html',1,'InterCidades'],['../classInterCidades.html#a461d109be503396d4c66a5016438bb26',1,'InterCidades::InterCidades()']]],
+  ['intercidades_2ecpp',['InterCidades.cpp',['../InterCidades_8cpp.html',1,'']]],
+  ['intercidades_2eh',['InterCidades.h',['../InterCidades_8h.html',1,'']]],
+  ['invaliddateexception',['InvalidDateException',['../classInvalidDateException.html',1,'InvalidDateException'],['../classInvalidDateException.html#a0ae7a8a97c0442fc025cb63e3b86bee8',1,'InvalidDateException::InvalidDateException()']]],
+  ['invaliddateexception_2ecpp',['InvalidDateException.cpp',['../InvalidDateException_8cpp.html',1,'']]],
+  ['invaliddateexception_2eh',['InvalidDateException.h',['../InvalidDateException_8h.html',1,'']]],
+  ['invalidtraintypeexception',['InvalidTrainTypeException',['../classInvalidTrainTypeException.html',1,'InvalidTrainTypeException'],['../classInvalidTrainTypeException.html#aa06f57cd1c9c04bc98cece928a6f0ed8',1,'InvalidTrainTypeException::InvalidTrainTypeException()']]],
+  ['invalidtraintypeexception_2ecpp',['InvalidTrainTypeException.cpp',['../InvalidTrainTypeException_8cpp.html',1,'']]],
+  ['invalidtraintypeexception_2eh',['InvalidTrainTypeException.h',['../InvalidTrainTypeException_8h.html',1,'']]],
+  ['isactive',['isActive',['../classSystemElement.html#a50987a52734db127a8ff3574903182d0',1,'SystemElement']]],
+  ['ishealthy',['isHealthy',['../classTrain.html#a68d9748a7cb2d1c8c49450b1fb4ad894',1,'Train']]]
 ];

@@ -9,93 +9,133 @@ Class to represent the central system.
 
 {\ttfamily \#include $<$System.\+h$>$}
 
+
+
+Collaboration diagram for System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classSystem__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}\label{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}} 
 \mbox{\hyperlink{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}{System}} ()=default
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classSystem}{System}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSystem_a3be70bb338e3f062f821173fd15680d0}{$\sim$\+System}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classSystem}{System}} object. \end{DoxyCompactList}\item 
-std\+::vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_aa4879a70a434d3b879090500b282de0b}{get\+Passengers}} ()
+std\+::vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a068044900b7db2474b6b97c9bed602e5}{get\+Passengers}} ()
 \begin{DoxyCompactList}\small\item\em Get the Passengers vector. \end{DoxyCompactList}\item 
-std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}{get\+Trips}} ()
+std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a2abffc916635c5c8fba9c35e076ddb99}{get\+Trips}} ()
 \begin{DoxyCompactList}\small\item\em Get the Trips vector. \end{DoxyCompactList}\item 
-std\+::vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}{get\+Trains}} ()
-\begin{DoxyCompactList}\small\item\em Get the Trains vector. \end{DoxyCompactList}\item 
-std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \& \mbox{\hyperlink{classSystem_a6f27512fba42cc093efd34fe10bf0045}{get\+Stations}} ()
-\begin{DoxyCompactList}\small\item\em Get the Stations vector. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ \mbox{\hyperlink{classSystem_a5a0348802d5cdb666f330b1e10d32727}{get\+Passenger}} (const id\+\_\+t id)
+std\+::vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a5b75b51e691ed66fd8a8f53836fece76}{get\+Trains}} ()
+\begin{DoxyCompactList}\small\item\em Get the Trains map. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a9d46ff7bc1c5a1762a48d475bb796d38}{get\+Stations}} ()
+\begin{DoxyCompactList}\small\item\em Get the Stations map. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a7c46ccdf8464941220f87c8c9c2b8920}{get\+Engineers}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a2c7e714df1c7788f724cdfbd9eab3984}{get\+Past\+Engineers}} ()
+\item 
+\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ \mbox{\hyperlink{classSystem_a166d21a8b7c87bb6779420b77387fce6}{get\+Passenger}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classPassenger}{Passenger}} pointer. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classTrip}{Trip}} $\ast$ \mbox{\hyperlink{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}{get\+Trip}} (const id\+\_\+t id)
+\mbox{\hyperlink{classTrip}{Trip}} $\ast$ \mbox{\hyperlink{classSystem_ac3c08260fc0dd63ad38df7a3e12bbea3}{get\+Trip}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classTrip}{Trip}} pointer. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classTrain}{Train}} $\ast$ \mbox{\hyperlink{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}{get\+Train}} (const id\+\_\+t id)
+\mbox{\hyperlink{classTrain}{Train}} $\ast$ \mbox{\hyperlink{classSystem_aa7757a87f1cbcfbb4dcdf2c84c43e285}{get\+Train}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrain}{Train}} pointer. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}{get\+Station}} (const id\+\_\+t id)
+\mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{classSystem_a624e03523cf1e76d328211689c0d56bf}{get\+Station}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classStation}{Station}} pointer. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classSystem_a231710db7f31b3fec68f90fd90b292eb}{get\+Station\+Index}} (id\+\_\+t station\+ID)
-\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classStation}{Station}} Index. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classSystem_a15d033a2efda45b83bbe0800698ae712}{get\+Train\+Index}} (id\+\_\+t train\+ID)
-\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrain}{Train}} Index. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classSystem_aa431fdc152458fc39efb9a60e9f62f01}{get\+Trip\+Index}} (id\+\_\+t trip\+ID)
-\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classTrip}{Trip}} Index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ \mbox{\hyperlink{classSystem_a6a707516000be8f8f1d67b2ba03a4995}{get\+Engineer}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\item 
 std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \mbox{\hyperlink{classSystem_a293b247432ab577c9bf0ba7285a6eeda}{search\+Trips}} (\mbox{\hyperlink{classStation}{Station}} $\ast$src, \mbox{\hyperlink{classStation}{Station}} $\ast$dest, bool search\+By\+Arrival\+Date, \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
 \begin{DoxyCompactList}\small\item\em Get a vector of \mbox{\hyperlink{classTrip}{Trip}} respecting constraints. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classSystem_af31acdda711986978533367ce3a64276}{remove\+Passenger}} (id\+\_\+t id)
+void \mbox{\hyperlink{classSystem_a95041a0cbce21f64feb99d437a7b340d}{remove\+Passenger}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classPassenger}{Passenger}} from the system. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classSystem_ae802cde42ae56b50adc02c76920e9001}{remove\+Trip}} (id\+\_\+t id)
+void \mbox{\hyperlink{classSystem_a38046fbc01e62b7ff06799c2f8bc8ef6}{remove\+Trip}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classTrip}{Trip}} from the system. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}{remove\+Station}} (id\+\_\+t id)
+void \mbox{\hyperlink{classSystem_afb7a703741077530b0dd299872f7892f}{remove\+Station}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classStation}{Station}} from the system. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classSystem_acf1d845cdb88b43143b3f738214e866b}{remove\+Train}} (id\+\_\+t id)
+void \mbox{\hyperlink{classSystem_ab36039b5b1cffc88356398bac8b4f79b}{remove\+Train}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
 \begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classTrain}{Train}} from the system. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}{create\+Passenger}} (std\+::string name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
+void \mbox{\hyperlink{classSystem_a73bc771e0038b7b7b08a185edc2354f4}{remove\+Engineer}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classEngineer}{Engineer}} from the system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_aaf63fe98c16bc79b2e91c3555afd9446}{remove\+Repair\+Shop}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\begin{DoxyCompactList}\small\item\em Remove Repair Shop from the system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a635ad100d71c3d964047376505d7850b}{create\+Passenger}} (std\+::string \&name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
 \begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classPassenger}{Passenger}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classSystem_a9e317da5b607c6dee850089f340dd9e7}{create\+Card}} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$p, std\+::string type)
+void \mbox{\hyperlink{classSystem_a22dc3f27200865820d450576e129a3f9}{create\+Card}} (\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$p, std\+::string \&type)
 \begin{DoxyCompactList}\small\item\em Create a Card object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}{create\+Station}} (std\+::string name)
+void \mbox{\hyperlink{classSystem_aeb522e2930e953770f3c4f52090a8297}{create\+Station}} (std\+::string \&name, int x, int y)
 \begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classStation}{Station}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}{create\+Train}} (uint max\+Seats)
+void \mbox{\hyperlink{classSystem_a0eb9c67e05902a014cf37e8ce1ad2ee3}{create\+Train}} (\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} max\+Seats, std\+::string type)
 \begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classTrain}{Train}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classSystem_aea8519bf009400085f8e499891b7eb37}{create\+Trip}} (uint base\+Price, \mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, \mbox{\hyperlink{classTrain}{Train}} $\ast$train, const \mbox{\hyperlink{classDate}{Date}} daparture\+Date, const \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
+void \mbox{\hyperlink{classSystem_a6ce652f45a3883db7b3cce145b25585c}{create\+Trip}} (\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} base\+Price, \mbox{\hyperlink{classStation}{Station}} $\ast$source, \mbox{\hyperlink{classStation}{Station}} $\ast$destination, \mbox{\hyperlink{classTrain}{Train}} $\ast$train, \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$engy, \mbox{\hyperlink{classDate}{Date}} departure\+Date, \mbox{\hyperlink{classDate}{Date}} arrival\+Date)
 \begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classTrip}{Trip}} object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSystem_a360f9d625dbc649d567249642c1db53c}\label{classSystem_a360f9d625dbc649d567249642c1db53c}} 
-void \mbox{\hyperlink{classSystem_a360f9d625dbc649d567249642c1db53c}{sort\+Passengers}} ()
-\begin{DoxyCompactList}\small\item\em Sort passenger in vector by id. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSystem_ae3b7301dda5863379777c863df0b976e}\label{classSystem_ae3b7301dda5863379777c863df0b976e}} 
-void \mbox{\hyperlink{classSystem_ae3b7301dda5863379777c863df0b976e}{sort\+Passengers\+By\+Name}} ()
-\begin{DoxyCompactList}\small\item\em Sort passengers in vector by name. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}\label{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}} 
-void \mbox{\hyperlink{classSystem_a94f061c2fa79b7f0e4f175fc68a59246}{sort\+Stations}} ()
-\begin{DoxyCompactList}\small\item\em Sort stations in vector by id. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSystem_a3961bbb1e8a309ef37c4366731bbb813}\label{classSystem_a3961bbb1e8a309ef37c4366731bbb813}} 
-void \mbox{\hyperlink{classSystem_a3961bbb1e8a309ef37c4366731bbb813}{sort\+Trains}} ()
-\begin{DoxyCompactList}\small\item\em Sort trains in vector by id. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}\label{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}} 
-void \mbox{\hyperlink{classSystem_a9122a0e24a88b5111959fdc87b23bc6b}{sort\+Trips}} ()
-\begin{DoxyCompactList}\small\item\em Sort trips in vecotr by id. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}\label{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}} 
-void \mbox{\hyperlink{classSystem_a3a2aace3c50cfbf7f9d2354cd858a59b}{sort\+Trips\+By\+Date}} ()
-\begin{DoxyCompactList}\small\item\em Sort trips in vector by time of departure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_ae08e68de517d1a18828c55ff3fab2cc9}{create\+Engineer}} (std\+::string name, \mbox{\hyperlink{classDate}{Date}} birth\+Date)
+\item 
+void \mbox{\hyperlink{classSystem_a9d679f887ea7cd8bb34d84bd8ffd605b}{hire\+Engineer}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\item 
+void \mbox{\hyperlink{classSystem_a9a71a2cf8064bb20d4235b5aecb927f4}{create\+Repair\+Shop}} (std\+::string \&name, int x, int y)
+\item 
+void \mbox{\hyperlink{classSystem_a141f8056dd552acd8c535cc46aeba878}{send\+Train\+To\+Repair\+Shop}} (\mbox{\hyperlink{classTrain}{Train}} $\ast$tr, \mbox{\hyperlink{classStation}{Station}} $\ast$st, \mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} distance)
+\item 
 bool \mbox{\hyperlink{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df}{process\+Ticket\+Purchase\+Request}} (\mbox{\hyperlink{classTicketPurchaseRequest}{Ticket\+Purchase\+Request}} \&request)
 \begin{DoxyCompactList}\small\item\em Process a request for a ticket purchase. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSystem_a3d823d755bcbc5843dd261b88693bc69}{log\+Purchase}} (\mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} log)
 \begin{DoxyCompactList}\small\item\em Log a purchase request. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSystem_af8aa6900656b6e81c7f13db29782baa4}\label{classSystem_af8aa6900656b6e81c7f13db29782baa4}} 
-const std\+::vector$<$ \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} $>$ \& {\bfseries get\+Logs} () const
+const std\+::vector$<$ \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} $>$ \& \mbox{\hyperlink{classSystem_af8aa6900656b6e81c7f13db29782baa4}{get\+Logs}} () const
+\item 
+void \mbox{\hyperlink{classSystem_a7e2c83b2b5749886087f9d5d86ad241b}{advance\+Day}} ()
 \item 
 void \mbox{\hyperlink{classSystem_aebffe11376f68cb17175f30ea517c10b}{process\+Cards}} ()
 \begin{DoxyCompactList}\small\item\em End of month card processing. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classSystem_a93e28750e7677d09a7eb2acfc2590209}{pay\+Card}} (id\+\_\+t passenger\+ID, std\+::ostream \&os)
+bool \mbox{\hyperlink{classSystem_a93e28750e7677d09a7eb2acfc2590209}{pay\+Card}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} passenger\+ID, std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Process card monthly fee payment. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}{list\+Passengers}} (std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Print a table of passengers. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSystem_a06041827a7b47ad06eee9d121e42590c}{list\+Stations}} (std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Print a table of stations. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}{list\+Trains}} (std\+::ostream \&os)
+void \mbox{\hyperlink{classSystem_a54cf2411ea0b4c47a30f9e44442b59a9}{list\+Healthy\+Trains}} (std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Print a table of trains. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSystem_af11f201f6417c2658f35238d98c6f032}{list\+Trips}} (std\+::ostream \&os)
-\begin{DoxyCompactList}\small\item\em Print a table of trip. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Print a table of trips. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSystem_a833ba14791db12a0e6f45b17bbeef068}{list\+Engineers}} (std\+::ostream \&os)
+\item 
+void \mbox{\hyperlink{classSystem_afd19a30636955896bc6dd59d9a4ca20e}{list\+Past\+Engineers}} (std\+::ostream \&os)
+\item 
+void \mbox{\hyperlink{classSystem_ac6e7530d7bde96b46e6db061ed139096}{list\+Repair\+Shops}} (std\+::ostream \&os)
+\item 
+void \mbox{\hyperlink{classSystem_a43da2cea53bae53723d572855cfbe817}{save\+Passengers}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a8cfeb93474f802f30212fad659b10937}{save\+Engineers}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a4c246427b8cb72dfe2d7db89d7144d3a}{save\+Stations}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a83c5a9ae95096cbd03ba559b042ee5e1}{save\+Trains}} ()
+\item 
+void \mbox{\hyperlink{classSystem_ab0f54bdbc0d263d96d17e6fd38328c1e}{save\+Trips}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a062c2502fcf944ecec0a84003042eecd}{save\+Repair\+Shops}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a49f432c40f4b1a503416f47517264648}{save\+Purchases}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a2e2da799ffbf2231bbc67eb4bc4ad4d8}{load\+Passengers}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a68bb6ac77ce0de562c408968488037f9}{load\+Engineers}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a32ef7e1c914ff8a237bc28de8c6aeedf}{load\+Cards}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a017a8478b6ab45656f106cd2739848b4}{load\+Stations}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a5c7631890b3099bf2c6d9ff10e25513b}{load\+Trains}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a437952e6a2cde86e17a747c0e5500d2b}{load\+Trips}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a53596ab10851974766ad4488375fdbb1}{load\+Repair\+Shops}} ()
+\item 
+void \mbox{\hyperlink{classSystem_a6dc7732405b691c4de1db0cc3626be49}{load\+Purchases}} ()
+\item 
 void \mbox{\hyperlink{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}{print\+Passengers}} (std\+::ostream \&os) const
 \begin{DoxyCompactList}\small\item\em Print all passengers. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSystem_ac4b65c4fe2628e7d35b1027161e9d1da}{print\+Stations}} (std\+::ostream \&os) const
@@ -124,6 +164,16 @@ Class to represent the central system.
 Contains A listing of every passenger, station, train and trip. Is responsible for handling queries and outputing information that is requested. Also handles ticket purchasing. 
 
 \subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}\label{classSystem_a7ffb94a5a2db03014de0a8440f0cee3a}} 
+\index{System@{System}!System@{System}}
+\index{System@{System}!System@{System}}
+\subsubsection{\texorpdfstring{System()}{System()}}
+{\footnotesize\ttfamily System\+::\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classSystem}{System}} object. 
+
 \mbox{\Hypertarget{classSystem_a3be70bb338e3f062f821173fd15680d0}\label{classSystem_a3be70bb338e3f062f821173fd15680d0}} 
 \index{System@{System}!````~System@{$\sim$\+System}}
 \index{````~System@{$\sim$\+System}!System@{System}}
@@ -137,11 +187,17 @@ Destroy the \mbox{\hyperlink{classSystem}{System}} object.
 Since the listings are handled using pointers, the destructor is in charge od freeing the space occupied by them. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classSystem_a9e317da5b607c6dee850089f340dd9e7}\label{classSystem_a9e317da5b607c6dee850089f340dd9e7}} 
+\mbox{\Hypertarget{classSystem_a7e2c83b2b5749886087f9d5d86ad241b}\label{classSystem_a7e2c83b2b5749886087f9d5d86ad241b}} 
+\index{System@{System}!advance\+Day@{advance\+Day}}
+\index{advance\+Day@{advance\+Day}!System@{System}}
+\subsubsection{\texorpdfstring{advance\+Day()}{advanceDay()}}
+{\footnotesize\ttfamily void System\+::advance\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Advances the day in the system, updating the repairshops. \mbox{\Hypertarget{classSystem_a22dc3f27200865820d450576e129a3f9}\label{classSystem_a22dc3f27200865820d450576e129a3f9}} 
 \index{System@{System}!create\+Card@{create\+Card}}
 \index{create\+Card@{create\+Card}!System@{System}}
 \subsubsection{\texorpdfstring{create\+Card()}{createCard()}}
-{\footnotesize\ttfamily void System\+::create\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$}]{p,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::create\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPassenger}{Passenger}} $\ast$}]{p,  }\item[{std\+::string \&}]{type }\end{DoxyParamCaption})}
 
 
 
@@ -156,11 +212,42 @@ Creates a passenger card object and adds it to the respective passenger.
 {\em type} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}\label{classSystem_a623d7369872a9af9b69b24bd2a3c71b1}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a22dc3f27200865820d450576e129a3f9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_ae08e68de517d1a18828c55ff3fab2cc9}\label{classSystem_ae08e68de517d1a18828c55ff3fab2cc9}} 
+\index{System@{System}!create\+Engineer@{create\+Engineer}}
+\index{create\+Engineer@{create\+Engineer}!System@{System}}
+\subsubsection{\texorpdfstring{create\+Engineer()}{createEngineer()}}
+{\footnotesize\ttfamily void System\+::create\+Engineer (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{birth\+Date }\end{DoxyParamCaption})}
+
+Creates an \mbox{\hyperlink{classEngineer}{Engineer}} object
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em birth\+Date} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classSystem_ae08e68de517d1a18828c55ff3fab2cc9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a635ad100d71c3d964047376505d7850b}\label{classSystem_a635ad100d71c3d964047376505d7850b}} 
 \index{System@{System}!create\+Passenger@{create\+Passenger}}
 \index{create\+Passenger@{create\+Passenger}!System@{System}}
 \subsubsection{\texorpdfstring{create\+Passenger()}{createPassenger()}}
-{\footnotesize\ttfamily void System\+::create\+Passenger (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{birth\+Date }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::create\+Passenger (\begin{DoxyParamCaption}\item[{std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{birth\+Date }\end{DoxyParamCaption})}
 
 
 
@@ -175,11 +262,44 @@ Creates a passenger object and adds it to the respective vector.
 {\em birth\+Date} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}\label{classSystem_ab8cf1529f497af79b72fe6cc59b08d60}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a635ad100d71c3d964047376505d7850b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a9a71a2cf8064bb20d4235b5aecb927f4}\label{classSystem_a9a71a2cf8064bb20d4235b5aecb927f4}} 
+\index{System@{System}!create\+Repair\+Shop@{create\+Repair\+Shop}}
+\index{create\+Repair\+Shop@{create\+Repair\+Shop}!System@{System}}
+\subsubsection{\texorpdfstring{create\+Repair\+Shop()}{createRepairShop()}}
+{\footnotesize\ttfamily void System\+::create\+Repair\+Shop (\begin{DoxyParamCaption}\item[{std\+::string \&}]{name,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Creates a Repair Shop oobject
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a9a71a2cf8064bb20d4235b5aecb927f4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_aeb522e2930e953770f3c4f52090a8297}\label{classSystem_aeb522e2930e953770f3c4f52090a8297}} 
 \index{System@{System}!create\+Station@{create\+Station}}
 \index{create\+Station@{create\+Station}!System@{System}}
 \subsubsection{\texorpdfstring{create\+Station()}{createStation()}}
-{\footnotesize\ttfamily void System\+::create\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::create\+Station (\begin{DoxyParamCaption}\item[{std\+::string \&}]{name,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
 
 
 
@@ -191,12 +311,24 @@ Creates a station object and adds it to the respective vector.
 \begin{DoxyParams}{Parameters}
 {\em name} & \\
 \hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}\label{classSystem_aa4cf09119e31e5bdf9d9187a7a60cd1a}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classSystem_aeb522e2930e953770f3c4f52090a8297_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a0eb9c67e05902a014cf37e8ce1ad2ee3}\label{classSystem_a0eb9c67e05902a014cf37e8ce1ad2ee3}} 
 \index{System@{System}!create\+Train@{create\+Train}}
 \index{create\+Train@{create\+Train}!System@{System}}
 \subsubsection{\texorpdfstring{create\+Train()}{createTrain()}}
-{\footnotesize\ttfamily void System\+::create\+Train (\begin{DoxyParamCaption}\item[{uint}]{max\+Seats }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::create\+Train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{max\+Seats,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
 
 
 
@@ -208,12 +340,22 @@ Creates a train object and adds it to the respective vector.
 \begin{DoxyParams}{Parameters}
 {\em max\+Seats} & \\
 \hline
+{\em type} & tpe of the train A\+P/\+IC \\
+\hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSystem_aea8519bf009400085f8e499891b7eb37}\label{classSystem_aea8519bf009400085f8e499891b7eb37}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classSystem_a0eb9c67e05902a014cf37e8ce1ad2ee3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a6ce652f45a3883db7b3cce145b25585c}\label{classSystem_a6ce652f45a3883db7b3cce145b25585c}} 
 \index{System@{System}!create\+Trip@{create\+Trip}}
 \index{create\+Trip@{create\+Trip}!System@{System}}
 \subsubsection{\texorpdfstring{create\+Trip()}{createTrip()}}
-{\footnotesize\ttfamily void System\+::create\+Trip (\begin{DoxyParamCaption}\item[{uint}]{base\+Price,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{classTrain}{Train}} $\ast$}]{train,  }\item[{const \mbox{\hyperlink{classDate}{Date}}}]{daparture\+Date,  }\item[{const \mbox{\hyperlink{classDate}{Date}}}]{arrival\+Date }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::create\+Trip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{base\+Price,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{classTrain}{Train}} $\ast$}]{train,  }\item[{\mbox{\hyperlink{classEngineer}{Engineer}} $\ast$}]{engy,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{departure\+Date,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{arrival\+Date }\end{DoxyParamCaption})}
 
 
 
@@ -231,22 +373,70 @@ Creates a station object and adds it to the respective vector.
 \hline
 {\em train} & \\
 \hline
-{\em daparture\+Date} & \\
+{\em engy} & \\
+\hline
+{\em departure\+Date} & \\
 \hline
 {\em arrival\+Date} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSystem_a5a0348802d5cdb666f330b1e10d32727}\label{classSystem_a5a0348802d5cdb666f330b1e10d32727}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classSystem_a6ce652f45a3883db7b3cce145b25585c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a6a707516000be8f8f1d67b2ba03a4995}\label{classSystem_a6a707516000be8f8f1d67b2ba03a4995}} 
+\index{System@{System}!get\+Engineer@{get\+Engineer}}
+\index{get\+Engineer@{get\+Engineer}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Engineer()}{getEngineer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ System\+::get\+Engineer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
+
+Returns pointer to the engineer that has the specified ID. If the ID doesn\textquotesingle{}t exist, throws \mbox{\hyperlink{classNoSuchEngineerException}{No\+Such\+Engineer\+Exception}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Engineer$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a7c46ccdf8464941220f87c8c9c2b8920}\label{classSystem_a7c46ccdf8464941220f87c8c9c2b8920}} 
+\index{System@{System}!get\+Engineers@{get\+Engineers}}
+\index{get\+Engineers@{get\+Engineers}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Engineers()}{getEngineers()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ $>$ System\+::get\+Engineers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the enabled engineers vector.
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Engineer$\ast$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_af8aa6900656b6e81c7f13db29782baa4}\label{classSystem_af8aa6900656b6e81c7f13db29782baa4}} 
+\index{System@{System}!get\+Logs@{get\+Logs}}
+\index{get\+Logs@{get\+Logs}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Logs()}{getLogs()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{classPurchaseLog}{Purchase\+Log}} $>$ \& System\+::get\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the logs vector.
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Purchase\+Log$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a166d21a8b7c87bb6779420b77387fce6}\label{classSystem_a166d21a8b7c87bb6779420b77387fce6}} 
 \index{System@{System}!get\+Passenger@{get\+Passenger}}
 \index{get\+Passenger@{get\+Passenger}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Passenger()}{getPassenger()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ System\+::get\+Passenger (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ System\+::get\+Passenger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
 Get \mbox{\hyperlink{classPassenger}{Passenger}} pointer. 
 
-Returns the pointer to the passenger object with id specified in the parameter. If there is no such object, throws No\+Such\+Passenger\+Exception.
+Returns the pointer to the passenger object with id specified in the parameter. If there is no such object, throws \mbox{\hyperlink{classNoSuchPassengerException}{No\+Such\+Passenger\+Exception}}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -256,26 +446,45 @@ Returns the pointer to the passenger object with id specified in the parameter. 
 \begin{DoxyReturn}{Returns}
 Passenger$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_aa4879a70a434d3b879090500b282de0b}\label{classSystem_aa4879a70a434d3b879090500b282de0b}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a166d21a8b7c87bb6779420b77387fce6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a068044900b7db2474b6b97c9bed602e5}\label{classSystem_a068044900b7db2474b6b97c9bed602e5}} 
 \index{System@{System}!get\+Passengers@{get\+Passengers}}
 \index{get\+Passengers@{get\+Passengers}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Passengers()}{getPassengers()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ \& System\+::get\+Passengers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classPassenger}{Passenger}} $\ast$ $>$ System\+::get\+Passengers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Get the Passengers vector. 
 
-Returns the vector of passengers.
+Returns the vector of active passengers.
 
 \begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Passenger$\ast$$>$\& 
+std\+::vector$<$\+Passenger$\ast$$>$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}\label{classSystem_aaadc55451a0d43b7ba98ff5377de8e02}} 
+\mbox{\Hypertarget{classSystem_a2c7e714df1c7788f724cdfbd9eab3984}\label{classSystem_a2c7e714df1c7788f724cdfbd9eab3984}} 
+\index{System@{System}!get\+Past\+Engineers@{get\+Past\+Engineers}}
+\index{get\+Past\+Engineers@{get\+Past\+Engineers}!System@{System}}
+\subsubsection{\texorpdfstring{get\+Past\+Engineers()}{getPastEngineers()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classEngineer}{Engineer}} $\ast$ $>$ System\+::get\+Past\+Engineers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the vector of past engineers.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a624e03523cf1e76d328211689c0d56bf}\label{classSystem_a624e03523cf1e76d328211689c0d56bf}} 
 \index{System@{System}!get\+Station@{get\+Station}}
 \index{get\+Station@{get\+Station}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Station()}{getStation()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classStation}{Station}} $\ast$ System\+::get\+Station (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStation}{Station}} $\ast$ System\+::get\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -291,52 +500,40 @@ Returns the pointer to the station object with id specified in the parameter. If
 \begin{DoxyReturn}{Returns}
 Station$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_a231710db7f31b3fec68f90fd90b292eb}\label{classSystem_a231710db7f31b3fec68f90fd90b292eb}} 
-\index{System@{System}!get\+Station\+Index@{get\+Station\+Index}}
-\index{get\+Station\+Index@{get\+Station\+Index}!System@{System}}
-\subsubsection{\texorpdfstring{get\+Station\+Index()}{getStationIndex()}}
-{\footnotesize\ttfamily int System\+::get\+Station\+Index (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{station\+ID }\end{DoxyParamCaption})}
-
-
-
-Get \mbox{\hyperlink{classStation}{Station}} Index. 
-
-Returns the index of the station object, with id specified in the parameter, in the respective vector. If there is no such object, returns -\/1.
-
-
-\begin{DoxyParams}{Parameters}
-{\em station\+ID} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-int 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_a6f27512fba42cc093efd34fe10bf0045}\label{classSystem_a6f27512fba42cc093efd34fe10bf0045}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a624e03523cf1e76d328211689c0d56bf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a9d46ff7bc1c5a1762a48d475bb796d38}\label{classSystem_a9d46ff7bc1c5a1762a48d475bb796d38}} 
 \index{System@{System}!get\+Stations@{get\+Stations}}
 \index{get\+Stations@{get\+Stations}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Stations()}{getStations()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \& System\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ System\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Get the Stations vector. 
+Get the Stations map. 
 
-Returns the vector of stations.
+Returns the map of enabled stations.
 
 \begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Station$\ast$$>$\& 
+std\+::vector$<$\+Station$\ast$$>$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}\label{classSystem_ac29b91a9dca7dd1bb4c39769a75d444f}} 
+\mbox{\Hypertarget{classSystem_aa7757a87f1cbcfbb4dcdf2c84c43e285}\label{classSystem_aa7757a87f1cbcfbb4dcdf2c84c43e285}} 
 \index{System@{System}!get\+Train@{get\+Train}}
 \index{get\+Train@{get\+Train}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Train()}{getTrain()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classTrain}{Train}} $\ast$ System\+::get\+Train (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrain}{Train}} $\ast$ System\+::get\+Train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
 Get the \mbox{\hyperlink{classTrain}{Train}} pointer. 
 
-Returns the pointer to the train object with id specified in the parameter. If there is no such object, throws No\+Such\+Train\+Exception.
+Returns the pointer to the train object with id specified in the parameter. If there is no such object, throws \mbox{\hyperlink{classNoSuchTrainException}{No\+Such\+Train\+Exception}}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -346,52 +543,40 @@ Returns the pointer to the train object with id specified in the parameter. If t
 \begin{DoxyReturn}{Returns}
 Train$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_a15d033a2efda45b83bbe0800698ae712}\label{classSystem_a15d033a2efda45b83bbe0800698ae712}} 
-\index{System@{System}!get\+Train\+Index@{get\+Train\+Index}}
-\index{get\+Train\+Index@{get\+Train\+Index}!System@{System}}
-\subsubsection{\texorpdfstring{get\+Train\+Index()}{getTrainIndex()}}
-{\footnotesize\ttfamily int System\+::get\+Train\+Index (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{train\+ID }\end{DoxyParamCaption})}
-
-
-
-Get the \mbox{\hyperlink{classTrain}{Train}} Index. 
-
-Returns the index of the train object, with id specified in the parameter, in the respective vector. If there is no such object, returns -\/1.
-
-
-\begin{DoxyParams}{Parameters}
-{\em train\+ID} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-int 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}\label{classSystem_a44ee205bcb6c27bb1a7bc7fb545aef44}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_aa7757a87f1cbcfbb4dcdf2c84c43e285_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a5b75b51e691ed66fd8a8f53836fece76}\label{classSystem_a5b75b51e691ed66fd8a8f53836fece76}} 
 \index{System@{System}!get\+Trains@{get\+Trains}}
 \index{get\+Trains@{get\+Trains}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Trains()}{getTrains()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ \& System\+::get\+Trains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classTrain}{Train}} $\ast$ $>$ System\+::get\+Trains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Get the Trains vector. 
+Get the Trains map. 
 
-Returns the vector of trains.
+Returns the map of enabled trains.
 
 \begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Train$\ast$$>$\& 
+std\+::vector$<$\+Train$\ast$$>$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}\label{classSystem_a518ff04299c8b37d3cbec814ac0b7ec6}} 
+\mbox{\Hypertarget{classSystem_ac3c08260fc0dd63ad38df7a3e12bbea3}\label{classSystem_ac3c08260fc0dd63ad38df7a3e12bbea3}} 
 \index{System@{System}!get\+Trip@{get\+Trip}}
 \index{get\+Trip@{get\+Trip}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Trip()}{getTrip()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classTrip}{Trip}} $\ast$ System\+::get\+Trip (\begin{DoxyParamCaption}\item[{const id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrip}{Trip}} $\ast$ System\+::get\+Trip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
 Get \mbox{\hyperlink{classTrip}{Trip}} pointer. 
 
-Returns the pointer to the trip object with id specified in the parameter. If there is no such object, throws No\+Such\+Trip\+Exception.
+Returns the pointer to the trip object with id specified in the parameter. If there is no such object, throws \mbox{\hyperlink{classNoSuchTripException}{No\+Such\+Trip\+Exception}}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -401,41 +586,90 @@ Returns the pointer to the trip object with id specified in the parameter. If th
 \begin{DoxyReturn}{Returns}
 Trip$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_aa431fdc152458fc39efb9a60e9f62f01}\label{classSystem_aa431fdc152458fc39efb9a60e9f62f01}} 
-\index{System@{System}!get\+Trip\+Index@{get\+Trip\+Index}}
-\index{get\+Trip\+Index@{get\+Trip\+Index}!System@{System}}
-\subsubsection{\texorpdfstring{get\+Trip\+Index()}{getTripIndex()}}
-{\footnotesize\ttfamily int System\+::get\+Trip\+Index (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{trip\+ID }\end{DoxyParamCaption})}
-
-
-
-Get the \mbox{\hyperlink{classTrip}{Trip}} Index. 
-
-Returns the index of the trip object, with id specified in the parameter, in the respective vector. If there is no such object, returns -\/1.
-
-
-\begin{DoxyParams}{Parameters}
-{\em trip\+ID} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-int 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}\label{classSystem_a97b3ac8c8d84fecbdd2c49df5e4b51bf}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{classSystem_ac3c08260fc0dd63ad38df7a3e12bbea3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a2abffc916635c5c8fba9c35e076ddb99}\label{classSystem_a2abffc916635c5c8fba9c35e076ddb99}} 
 \index{System@{System}!get\+Trips@{get\+Trips}}
 \index{get\+Trips@{get\+Trips}!System@{System}}
 \subsubsection{\texorpdfstring{get\+Trips()}{getTrips()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ \& System\+::get\+Trips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $\ast$ $>$ System\+::get\+Trips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Get the Trips vector. 
 
-Returns the vector of trips.
+Returns the map of enabled trips.
 
 \begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Trip$\ast$$>$\& 
+std\+::vector$<$\+Trip$\ast$$>$ 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a9d679f887ea7cd8bb34d84bd8ffd605b}\label{classSystem_a9d679f887ea7cd8bb34d84bd8ffd605b}} 
+\index{System@{System}!hire\+Engineer@{hire\+Engineer}}
+\index{hire\+Engineer@{hire\+Engineer}!System@{System}}
+\subsubsection{\texorpdfstring{hire\+Engineer()}{hireEngineer()}}
+{\footnotesize\ttfamily void System\+::hire\+Engineer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
+
+Finds the inactive engineer object with specified ID, and marks it as active. Effectively hiring him.
+
+If there is no inactive engineer with the specified ID, throws \mbox{\hyperlink{classNoSuchEngineerException}{No\+Such\+Engineer\+Exception}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a9d679f887ea7cd8bb34d84bd8ffd605b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a833ba14791db12a0e6f45b17bbeef068}\label{classSystem_a833ba14791db12a0e6f45b17bbeef068}} 
+\index{System@{System}!list\+Engineers@{list\+Engineers}}
+\index{list\+Engineers@{list\+Engineers}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Engineers()}{listEngineers()}}
+{\footnotesize\ttfamily void System\+::list\+Engineers (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+Prints all trains in a formatted table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{classSystem_a833ba14791db12a0e6f45b17bbeef068_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a54cf2411ea0b4c47a30f9e44442b59a9}\label{classSystem_a54cf2411ea0b4c47a30f9e44442b59a9}} 
+\index{System@{System}!list\+Healthy\+Trains@{list\+Healthy\+Trains}}
+\index{list\+Healthy\+Trains@{list\+Healthy\+Trains}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Healthy\+Trains()}{listHealthyTrains()}}
+{\footnotesize\ttfamily void System\+::list\+Healthy\+Trains (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Print a table of trains. 
+
+Prints all trains\textquotesingle{} information in a formated table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}\label{classSystem_a23c0b01d0e84fa4665ce85203ce6747b}} 
 \index{System@{System}!list\+Passengers@{list\+Passengers}}
 \index{list\+Passengers@{list\+Passengers}!System@{System}}
@@ -453,6 +687,48 @@ Prints all passengers\textquotesingle{} information in a formated table
 {\em os} & \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{classSystem_a23c0b01d0e84fa4665ce85203ce6747b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_afd19a30636955896bc6dd59d9a4ca20e}\label{classSystem_afd19a30636955896bc6dd59d9a4ca20e}} 
+\index{System@{System}!list\+Past\+Engineers@{list\+Past\+Engineers}}
+\index{list\+Past\+Engineers@{list\+Past\+Engineers}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Past\+Engineers()}{listPastEngineers()}}
+{\footnotesize\ttfamily void System\+::list\+Past\+Engineers (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+Print all active engineers in a formatted table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_afd19a30636955896bc6dd59d9a4ca20e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_ac6e7530d7bde96b46e6db061ed139096}\label{classSystem_ac6e7530d7bde96b46e6db061ed139096}} 
+\index{System@{System}!list\+Repair\+Shops@{list\+Repair\+Shops}}
+\index{list\+Repair\+Shops@{list\+Repair\+Shops}!System@{System}}
+\subsubsection{\texorpdfstring{list\+Repair\+Shops()}{listRepairShops()}}
+{\footnotesize\ttfamily void System\+::list\+Repair\+Shops (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+Print all active repair shops in a formatted table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSystem_a06041827a7b47ad06eee9d121e42590c}\label{classSystem_a06041827a7b47ad06eee9d121e42590c}} 
 \index{System@{System}!list\+Stations@{list\+Stations}}
 \index{list\+Stations@{list\+Stations}!System@{System}}
@@ -463,24 +739,7 @@ Prints all passengers\textquotesingle{} information in a formated table
 
 Print a table of stations. 
 
-Prints all stations\textquotesingle{} information in a formated table
-
-
-\begin{DoxyParams}{Parameters}
-{\em os} & \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}\label{classSystem_a0a6c0d8d1061893151f9b4ee3332ce85}} 
-\index{System@{System}!list\+Trains@{list\+Trains}}
-\index{list\+Trains@{list\+Trains}!System@{System}}
-\subsubsection{\texorpdfstring{list\+Trains()}{listTrains()}}
-{\footnotesize\ttfamily void System\+::list\+Trains (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
-
-
-
-Print a table of trains. 
-
-Prints all trains\textquotesingle{} information in a formated table
+Prints all stations\textquotesingle{} information in a formated table.
 
 
 \begin{DoxyParams}{Parameters}
@@ -495,15 +754,135 @@ Prints all trains\textquotesingle{} information in a formated table
 
 
 
-Print a table of trip. 
+Print a table of trips. 
 
-Prints all trips\textquotesingle{} information in a formated table
+Prints all trips\textquotesingle{} information in a formated table.
 
 
 \begin{DoxyParams}{Parameters}
 {\em os} & \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classSystem_af11f201f6417c2658f35238d98c6f032_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a32ef7e1c914ff8a237bc28de8c6aeedf}\label{classSystem_a32ef7e1c914ff8a237bc28de8c6aeedf}} 
+\index{System@{System}!load\+Cards@{load\+Cards}}
+\index{load\+Cards@{load\+Cards}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Cards()}{loadCards()}}
+{\footnotesize\ttfamily void System\+::load\+Cards (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a32ef7e1c914ff8a237bc28de8c6aeedf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a68bb6ac77ce0de562c408968488037f9}\label{classSystem_a68bb6ac77ce0de562c408968488037f9}} 
+\index{System@{System}!load\+Engineers@{load\+Engineers}}
+\index{load\+Engineers@{load\+Engineers}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Engineers()}{loadEngineers()}}
+{\footnotesize\ttfamily void System\+::load\+Engineers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a68bb6ac77ce0de562c408968488037f9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a2e2da799ffbf2231bbc67eb4bc4ad4d8}\label{classSystem_a2e2da799ffbf2231bbc67eb4bc4ad4d8}} 
+\index{System@{System}!load\+Passengers@{load\+Passengers}}
+\index{load\+Passengers@{load\+Passengers}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Passengers()}{loadPassengers()}}
+{\footnotesize\ttfamily void System\+::load\+Passengers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a2e2da799ffbf2231bbc67eb4bc4ad4d8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a6dc7732405b691c4de1db0cc3626be49}\label{classSystem_a6dc7732405b691c4de1db0cc3626be49}} 
+\index{System@{System}!load\+Purchases@{load\+Purchases}}
+\index{load\+Purchases@{load\+Purchases}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Purchases()}{loadPurchases()}}
+{\footnotesize\ttfamily void System\+::load\+Purchases (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a6dc7732405b691c4de1db0cc3626be49_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a53596ab10851974766ad4488375fdbb1}\label{classSystem_a53596ab10851974766ad4488375fdbb1}} 
+\index{System@{System}!load\+Repair\+Shops@{load\+Repair\+Shops}}
+\index{load\+Repair\+Shops@{load\+Repair\+Shops}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Repair\+Shops()}{loadRepairShops()}}
+{\footnotesize\ttfamily void System\+::load\+Repair\+Shops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a53596ab10851974766ad4488375fdbb1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a017a8478b6ab45656f106cd2739848b4}\label{classSystem_a017a8478b6ab45656f106cd2739848b4}} 
+\index{System@{System}!load\+Stations@{load\+Stations}}
+\index{load\+Stations@{load\+Stations}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Stations()}{loadStations()}}
+{\footnotesize\ttfamily void System\+::load\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a017a8478b6ab45656f106cd2739848b4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a5c7631890b3099bf2c6d9ff10e25513b}\label{classSystem_a5c7631890b3099bf2c6d9ff10e25513b}} 
+\index{System@{System}!load\+Trains@{load\+Trains}}
+\index{load\+Trains@{load\+Trains}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Trains()}{loadTrains()}}
+{\footnotesize\ttfamily void System\+::load\+Trains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a5c7631890b3099bf2c6d9ff10e25513b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a437952e6a2cde86e17a747c0e5500d2b}\label{classSystem_a437952e6a2cde86e17a747c0e5500d2b}} 
+\index{System@{System}!load\+Trips@{load\+Trips}}
+\index{load\+Trips@{load\+Trips}!System@{System}}
+\subsubsection{\texorpdfstring{load\+Trips()}{loadTrips()}}
+{\footnotesize\ttfamily void System\+::load\+Trips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a437952e6a2cde86e17a747c0e5500d2b_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classSystem_a3d823d755bcbc5843dd261b88693bc69}\label{classSystem_a3d823d755bcbc5843dd261b88693bc69}} 
 \index{System@{System}!log\+Purchase@{log\+Purchase}}
 \index{log\+Purchase@{log\+Purchase}!System@{System}}
@@ -523,7 +902,7 @@ Log a purchase request.
 \index{System@{System}!pay\+Card@{pay\+Card}}
 \index{pay\+Card@{pay\+Card}!System@{System}}
 \subsubsection{\texorpdfstring{pay\+Card()}{payCard()}}
-{\footnotesize\ttfamily bool System\+::pay\+Card (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{passenger\+ID,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool System\+::pay\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{passenger\+ID,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
 
 
 
@@ -543,6 +922,14 @@ true If passenger has successfully payed card
 
 false If passenger pointer wasn\textquotesingle{}t on the cards\+To\+Pay vector 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classSystem_a93e28750e7677d09a7eb2acfc2590209_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}\label{classSystem_a1c5753d5c70d15dc3fe56fd5e421ba76}} 
 \index{System@{System}!print\+Passengers@{print\+Passengers}}
 \index{print\+Passengers@{print\+Passengers}!System@{System}}
@@ -648,7 +1035,7 @@ Works as a complement of the \mbox{\hyperlink{classTrain}{Train}} system abstrac
 
 Process a request for a ticket purchase. 
 
-Receives a request for a ticket purchase and processes it. Will throw Trip\+Past\+Exception if the specified trip has already happened.
+Receives a request for a ticket purchase and processes it. Will throw \mbox{\hyperlink{classTripPastException}{Trip\+Past\+Exception}} if the specified trip has already happened.
 
 Checks wether the trip has free seats and, if it does, adds the respective trip to the passenger\textquotesingle{}s vector of booked trips. Also calculates the price to pay based on available discounts.
 
@@ -662,94 +1049,222 @@ true
 
 false 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_af31acdda711986978533367ce3a64276}\label{classSystem_af31acdda711986978533367ce3a64276}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_ac2b6f3d934b64f4fa56ffb1db1d261df_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a73bc771e0038b7b7b08a185edc2354f4}\label{classSystem_a73bc771e0038b7b7b08a185edc2354f4}} 
+\index{System@{System}!remove\+Engineer@{remove\+Engineer}}
+\index{remove\+Engineer@{remove\+Engineer}!System@{System}}
+\subsubsection{\texorpdfstring{remove\+Engineer()}{removeEngineer()}}
+{\footnotesize\ttfamily void System\+::remove\+Engineer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{classEngineer}{Engineer}} from the system. 
+
+Sets the engineer with specified ID as inactive, effectively marking it as removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_a95041a0cbce21f64feb99d437a7b340d}\label{classSystem_a95041a0cbce21f64feb99d437a7b340d}} 
 \index{System@{System}!remove\+Passenger@{remove\+Passenger}}
 \index{remove\+Passenger@{remove\+Passenger}!System@{System}}
 \subsubsection{\texorpdfstring{remove\+Passenger()}{removePassenger()}}
-{\footnotesize\ttfamily bool System\+::remove\+Passenger (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::remove\+Passenger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
 Remove \mbox{\hyperlink{classPassenger}{Passenger}} from the system. 
 
-Removes the passenger object with id specified by the parameter from the respective vector.
+Sets the passanger with specified ID as inactive, effectively marking it as removed.
 
 
 \begin{DoxyParams}{Parameters}
 {\em id} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true If passenger was successfully removed. 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a95041a0cbce21f64feb99d437a7b340d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_aaf63fe98c16bc79b2e91c3555afd9446}\label{classSystem_aaf63fe98c16bc79b2e91c3555afd9446}} 
+\index{System@{System}!remove\+Repair\+Shop@{remove\+Repair\+Shop}}
+\index{remove\+Repair\+Shop@{remove\+Repair\+Shop}!System@{System}}
+\subsubsection{\texorpdfstring{remove\+Repair\+Shop()}{removeRepairShop()}}
+{\footnotesize\ttfamily void System\+::remove\+Repair\+Shop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
-false If passenger never existed. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}\label{classSystem_ae582dd1c79cbd879ba1fbec5ceaab2fb}} 
+
+
+Remove Repair Shop from the system. 
+
+Sets the repair shop with specified ID as inactive, effectively marking it as removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSystem_afb7a703741077530b0dd299872f7892f}\label{classSystem_afb7a703741077530b0dd299872f7892f}} 
 \index{System@{System}!remove\+Station@{remove\+Station}}
 \index{remove\+Station@{remove\+Station}!System@{System}}
 \subsubsection{\texorpdfstring{remove\+Station()}{removeStation()}}
-{\footnotesize\ttfamily bool System\+::remove\+Station (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::remove\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
 Remove \mbox{\hyperlink{classStation}{Station}} from the system. 
 
-Removes the station object with id specified by the parameter from the respective vector.
+Sets the station with specified ID as inactive, effectively marking it as removed.
 
 
 \begin{DoxyParams}{Parameters}
 {\em id} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true If station was successfully removed. 
-
-false If station never existed. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_acf1d845cdb88b43143b3f738214e866b}\label{classSystem_acf1d845cdb88b43143b3f738214e866b}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_afb7a703741077530b0dd299872f7892f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_ab36039b5b1cffc88356398bac8b4f79b}\label{classSystem_ab36039b5b1cffc88356398bac8b4f79b}} 
 \index{System@{System}!remove\+Train@{remove\+Train}}
 \index{remove\+Train@{remove\+Train}!System@{System}}
 \subsubsection{\texorpdfstring{remove\+Train()}{removeTrain()}}
-{\footnotesize\ttfamily bool System\+::remove\+Train (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::remove\+Train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
 Remove \mbox{\hyperlink{classTrain}{Train}} from the system. 
 
-Removes the train object with id specified by the parameter from the respective vector.
+Sets the train with specified ID as inactive, effectively marking it as removed.
 
 
 \begin{DoxyParams}{Parameters}
 {\em id} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true If train was successfully removed. 
-
-false If train never existed. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classSystem_ae802cde42ae56b50adc02c76920e9001}\label{classSystem_ae802cde42ae56b50adc02c76920e9001}} 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_ab36039b5b1cffc88356398bac8b4f79b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a38046fbc01e62b7ff06799c2f8bc8ef6}\label{classSystem_a38046fbc01e62b7ff06799c2f8bc8ef6}} 
 \index{System@{System}!remove\+Trip@{remove\+Trip}}
 \index{remove\+Trip@{remove\+Trip}!System@{System}}
 \subsubsection{\texorpdfstring{remove\+Trip()}{removeTrip()}}
-{\footnotesize\ttfamily bool System\+::remove\+Trip (\begin{DoxyParamCaption}\item[{id\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void System\+::remove\+Trip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
 
 
 
 Remove \mbox{\hyperlink{classTrip}{Trip}} from the system. 
 
-Removes the trip object with id specified by the parameter from the respective vector.
+Sets the trip with specified ID as inactive, effectively marking it as removed.
 
 
 \begin{DoxyParams}{Parameters}
 {\em id} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true If trip was successfully removed. 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a38046fbc01e62b7ff06799c2f8bc8ef6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a8cfeb93474f802f30212fad659b10937}\label{classSystem_a8cfeb93474f802f30212fad659b10937}} 
+\index{System@{System}!save\+Engineers@{save\+Engineers}}
+\index{save\+Engineers@{save\+Engineers}!System@{System}}
+\subsubsection{\texorpdfstring{save\+Engineers()}{saveEngineers()}}
+{\footnotesize\ttfamily void System\+::save\+Engineers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-false If trip never existed. 
-\end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a43da2cea53bae53723d572855cfbe817}\label{classSystem_a43da2cea53bae53723d572855cfbe817}} 
+\index{System@{System}!save\+Passengers@{save\+Passengers}}
+\index{save\+Passengers@{save\+Passengers}!System@{System}}
+\subsubsection{\texorpdfstring{save\+Passengers()}{savePassengers()}}
+{\footnotesize\ttfamily void System\+::save\+Passengers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a43da2cea53bae53723d572855cfbe817_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a49f432c40f4b1a503416f47517264648}\label{classSystem_a49f432c40f4b1a503416f47517264648}} 
+\index{System@{System}!save\+Purchases@{save\+Purchases}}
+\index{save\+Purchases@{save\+Purchases}!System@{System}}
+\subsubsection{\texorpdfstring{save\+Purchases()}{savePurchases()}}
+{\footnotesize\ttfamily void System\+::save\+Purchases (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classSystem_a062c2502fcf944ecec0a84003042eecd}\label{classSystem_a062c2502fcf944ecec0a84003042eecd}} 
+\index{System@{System}!save\+Repair\+Shops@{save\+Repair\+Shops}}
+\index{save\+Repair\+Shops@{save\+Repair\+Shops}!System@{System}}
+\subsubsection{\texorpdfstring{save\+Repair\+Shops()}{saveRepairShops()}}
+{\footnotesize\ttfamily void System\+::save\+Repair\+Shops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classSystem_a4c246427b8cb72dfe2d7db89d7144d3a}\label{classSystem_a4c246427b8cb72dfe2d7db89d7144d3a}} 
+\index{System@{System}!save\+Stations@{save\+Stations}}
+\index{save\+Stations@{save\+Stations}!System@{System}}
+\subsubsection{\texorpdfstring{save\+Stations()}{saveStations()}}
+{\footnotesize\ttfamily void System\+::save\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a4c246427b8cb72dfe2d7db89d7144d3a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_a83c5a9ae95096cbd03ba559b042ee5e1}\label{classSystem_a83c5a9ae95096cbd03ba559b042ee5e1}} 
+\index{System@{System}!save\+Trains@{save\+Trains}}
+\index{save\+Trains@{save\+Trains}!System@{System}}
+\subsubsection{\texorpdfstring{save\+Trains()}{saveTrains()}}
+{\footnotesize\ttfamily void System\+::save\+Trains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a83c5a9ae95096cbd03ba559b042ee5e1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSystem_ab0f54bdbc0d263d96d17e6fd38328c1e}\label{classSystem_ab0f54bdbc0d263d96d17e6fd38328c1e}} 
+\index{System@{System}!save\+Trips@{save\+Trips}}
+\index{save\+Trips@{save\+Trips}!System@{System}}
+\subsubsection{\texorpdfstring{save\+Trips()}{saveTrips()}}
+{\footnotesize\ttfamily void System\+::save\+Trips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_ab0f54bdbc0d263d96d17e6fd38328c1e_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classSystem_a293b247432ab577c9bf0ba7285a6eeda}\label{classSystem_a293b247432ab577c9bf0ba7285a6eeda}} 
 \index{System@{System}!search\+Trips@{search\+Trips}}
 \index{search\+Trips@{search\+Trips}!System@{System}}
@@ -776,6 +1291,31 @@ Creates a vector of trip that match the constraints given in the parameters.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Trip$\ast$$>$ 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classSystem_a141f8056dd552acd8c535cc46aeba878}\label{classSystem_a141f8056dd552acd8c535cc46aeba878}} 
+\index{System@{System}!send\+Train\+To\+Repair\+Shop@{send\+Train\+To\+Repair\+Shop}}
+\index{send\+Train\+To\+Repair\+Shop@{send\+Train\+To\+Repair\+Shop}!System@{System}}
+\subsubsection{\texorpdfstring{send\+Train\+To\+Repair\+Shop()}{sendTrainToRepairShop()}}
+{\footnotesize\ttfamily void System\+::send\+Train\+To\+Repair\+Shop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTrain}{Train}} $\ast$}]{tr,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{st,  }\item[{\mbox{\hyperlink{project__utils_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{distance }\end{DoxyParamCaption})}
+
+Finds the repair shop that is available in the least time and is within a specified distance from the provided station. And puts the specified train object there, marking it as unhealthy.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tr} & \\
+\hline
+{\em st} & \\
+\hline
+{\em distance} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSystem_a141f8056dd552acd8c535cc46aeba878_cgraph}
+\end{center}
+\end{figure}
 
 
 \subsection{Friends And Related Function Documentation}
@@ -818,5 +1358,5 @@ Since the \mbox{\hyperlink{classSystem}{System}} class only really needs to have
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-System.\+h\item 
-System.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{System_8h}{System.\+h}}\item 
+\mbox{\hyperlink{System_8cpp}{System.\+cpp}}\end{DoxyCompactItemize}

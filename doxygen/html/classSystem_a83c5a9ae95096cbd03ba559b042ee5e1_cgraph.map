@@ -1,0 +1,7 @@
+<map id="System::saveTrains" name="System::saveTrains">
+<area shape="rect" id="node2" href="$classTrain.html#a7310ae0bc5b43ea392e4fa62630ee56b" title="Get the train ID. " alt="" coords="246,5,342,32"/>
+<area shape="rect" id="node3" href="$classSystemElement.html#a50987a52734db127a8ff3574903182d0" title="SystemElement::isActive" alt="" coords="201,56,387,83"/>
+<area shape="rect" id="node4" href="$classTrain.html#a93cd372664bac4ba28fa36e40316444a" title="Get the max capacity. " alt="" coords="221,107,367,133"/>
+<area shape="rect" id="node5" href="$classTrain.html#ad2bd424547b5be4e3fa8e491f1ce790d" title="Train::getType" alt="" coords="238,157,350,184"/>
+<area shape="rect" id="node6" href="$classTrain.html#a68d9748a7cb2d1c8c49450b1fb4ad894" title="Train::isHealthy" alt="" coords="233,208,355,235"/>
+</map>

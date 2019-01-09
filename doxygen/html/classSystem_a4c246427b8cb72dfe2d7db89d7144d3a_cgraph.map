@@ -1,0 +1,7 @@
+<map id="System::saveStations" name="System::saveStations">
+<area shape="rect" id="node2" href="$classStation.html#acbc5832d77cbe29c9006212b9cc32a42" title="Get the station ID. " alt="" coords="253,5,364,32"/>
+<area shape="rect" id="node3" href="$classSystemElement.html#a50987a52734db127a8ff3574903182d0" title="SystemElement::isActive" alt="" coords="216,56,401,83"/>
+<area shape="rect" id="node4" href="$classStation.html#ac823ae175ec0e2baff462ed9612c7bae" title="Get the Station&#39;s name. " alt="" coords="241,107,377,133"/>
+<area shape="rect" id="node5" href="$classStation.html#a2205a1288789260beee59fd3532286e9" title="Station::getX" alt="" coords="255,157,362,184"/>
+<area shape="rect" id="node6" href="$classStation.html#a28c75f35db1f6a1d3ed0488f2effbfb4" title="Station::getY" alt="" coords="256,208,361,235"/>
+</map>

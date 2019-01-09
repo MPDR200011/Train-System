@@ -1,0 +1,231 @@
+\hypertarget{classRepairShop}{}\section{Repair\+Shop Class Reference}
+\label{classRepairShop}\index{Repair\+Shop@{Repair\+Shop}}
+
+
+{\ttfamily \#include $<$Repair\+Shop.\+h$>$}
+
+
+
+Inheritance diagram for Repair\+Shop\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classRepairShop__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Repair\+Shop\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classRepairShop__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRepairShop_1_1RepairShopPQUtils}{Repair\+Shop\+P\+Q\+Utils}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRepairShop_adb1c691ca60133e5e95a7d06489854e6}{Repair\+Shop}} (std\+::string \&name, int x, int y)
+\item 
+void \mbox{\hyperlink{classRepairShop_ab3b24779f3d3bf3b9e9a70f1a4cb78c5}{set\+ID}} (\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} id)
+\item 
+\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} \mbox{\hyperlink{classRepairShop_a78f871f65f7bf4b0f068b9406998f351}{get\+ID}} () const
+\item 
+int \mbox{\hyperlink{classRepairShop_ae0def7ba65f30ff9e7ddc0228c5b7ef8}{get\+Days\+To\+Availability}} () const
+\item 
+const string \& \mbox{\hyperlink{classRepairShop_ae470c339746dcb9ba5bb4c58195e0400}{get\+Name}} () const
+\item 
+int \mbox{\hyperlink{classRepairShop_a5a1fe514136f22f66e8676421525c896}{get\+X\+Coord}} () const
+\item 
+int \mbox{\hyperlink{classRepairShop_a9c3c6369451f7da751ca1c6845d5d8f7}{get\+Y\+Coord}} () const
+\item 
+void \mbox{\hyperlink{classRepairShop_a9232d4d4318014f7ca2665292f118938}{add\+Train}} (\mbox{\hyperlink{classTrain}{Train}} $\ast$tr)
+\item 
+void \mbox{\hyperlink{classRepairShop_a1a5015fd8f8ad162254ef037ce15db48}{advance\+Day}} ()
+\item 
+void \mbox{\hyperlink{classRepairShop_adb1e3f82716bac189d0f91ce9b9fd74e}{save}} (std\+::ofstream \&os)
+\item 
+void \mbox{\hyperlink{classRepairShop_af212410041d7bc7486e1eaa27864f527}{set\+Days\+To\+Availability}} (int days\+To\+Availability)
+\item 
+void \mbox{\hyperlink{classRepairShop_a7da5258b6595d1efc533b1eb8ec41ce3}{print\+Row}} (std\+::ostream \&os)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing a repair shop in the system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRepairShop_adb1c691ca60133e5e95a7d06489854e6}\label{classRepairShop_adb1c691ca60133e5e95a7d06489854e6}} 
+\index{Repair\+Shop@{Repair\+Shop}!Repair\+Shop@{Repair\+Shop}}
+\index{Repair\+Shop@{Repair\+Shop}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{Repair\+Shop()}{RepairShop()}}
+{\footnotesize\ttfamily Repair\+Shop\+::\+Repair\+Shop (\begin{DoxyParamCaption}\item[{std\+::string \&}]{name,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Construct a new \mbox{\hyperlink{classRepairShop}{Repair\+Shop}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classRepairShop_a9232d4d4318014f7ca2665292f118938}\label{classRepairShop_a9232d4d4318014f7ca2665292f118938}} 
+\index{Repair\+Shop@{Repair\+Shop}!add\+Train@{add\+Train}}
+\index{add\+Train@{add\+Train}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{add\+Train()}{addTrain()}}
+{\footnotesize\ttfamily void Repair\+Shop\+::add\+Train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTrain}{Train}} $\ast$}]{tr }\end{DoxyParamCaption})}
+
+Add train to repair queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tr} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{classRepairShop_a9232d4d4318014f7ca2665292f118938_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRepairShop_a1a5015fd8f8ad162254ef037ce15db48}\label{classRepairShop_a1a5015fd8f8ad162254ef037ce15db48}} 
+\index{Repair\+Shop@{Repair\+Shop}!advance\+Day@{advance\+Day}}
+\index{advance\+Day@{advance\+Day}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{advance\+Day()}{advanceDay()}}
+{\footnotesize\ttfamily void Repair\+Shop\+::advance\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Decrement days\+To\+Availability. If it becomes 0 after decrementation puts next train in currently being repaired. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRepairShop_a1a5015fd8f8ad162254ef037ce15db48_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRepairShop_ae0def7ba65f30ff9e7ddc0228c5b7ef8}\label{classRepairShop_ae0def7ba65f30ff9e7ddc0228c5b7ef8}} 
+\index{Repair\+Shop@{Repair\+Shop}!get\+Days\+To\+Availability@{get\+Days\+To\+Availability}}
+\index{get\+Days\+To\+Availability@{get\+Days\+To\+Availability}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{get\+Days\+To\+Availability()}{getDaysToAvailability()}}
+{\footnotesize\ttfamily int Repair\+Shop\+::get\+Days\+To\+Availability (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get days left to start repairing next train.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRepairShop_a78f871f65f7bf4b0f068b9406998f351}\label{classRepairShop_a78f871f65f7bf4b0f068b9406998f351}} 
+\index{Repair\+Shop@{Repair\+Shop}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}} Repair\+Shop\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the repair shop ID. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRepairShop_ae470c339746dcb9ba5bb4c58195e0400}\label{classRepairShop_ae470c339746dcb9ba5bb4c58195e0400}} 
+\index{Repair\+Shop@{Repair\+Shop}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily const string \& Repair\+Shop\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the name of the repair shop.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRepairShop_a5a1fe514136f22f66e8676421525c896}\label{classRepairShop_a5a1fe514136f22f66e8676421525c896}} 
+\index{Repair\+Shop@{Repair\+Shop}!get\+X\+Coord@{get\+X\+Coord}}
+\index{get\+X\+Coord@{get\+X\+Coord}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{get\+X\+Coord()}{getXCoord()}}
+{\footnotesize\ttfamily int Repair\+Shop\+::get\+X\+Coord (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the x coordinate of the repair shop.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRepairShop_a9c3c6369451f7da751ca1c6845d5d8f7}\label{classRepairShop_a9c3c6369451f7da751ca1c6845d5d8f7}} 
+\index{Repair\+Shop@{Repair\+Shop}!get\+Y\+Coord@{get\+Y\+Coord}}
+\index{get\+Y\+Coord@{get\+Y\+Coord}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{get\+Y\+Coord()}{getYCoord()}}
+{\footnotesize\ttfamily int Repair\+Shop\+::get\+Y\+Coord (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the y coordinate of the repair shop.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRepairShop_a7da5258b6595d1efc533b1eb8ec41ce3}\label{classRepairShop_a7da5258b6595d1efc533b1eb8ec41ce3}} 
+\index{Repair\+Shop@{Repair\+Shop}!print\+Row@{print\+Row}}
+\index{print\+Row@{print\+Row}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{print\+Row()}{printRow()}}
+{\footnotesize\ttfamily void Repair\+Shop\+::print\+Row (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+Print information in a fromatted line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRepairShop_adb1e3f82716bac189d0f91ce9b9fd74e}\label{classRepairShop_adb1e3f82716bac189d0f91ce9b9fd74e}} 
+\index{Repair\+Shop@{Repair\+Shop}!save@{save}}
+\index{save@{save}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Repair\+Shop\+::save (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})}
+
+Save information into file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRepairShop_adb1e3f82716bac189d0f91ce9b9fd74e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRepairShop_af212410041d7bc7486e1eaa27864f527}\label{classRepairShop_af212410041d7bc7486e1eaa27864f527}} 
+\index{Repair\+Shop@{Repair\+Shop}!set\+Days\+To\+Availability@{set\+Days\+To\+Availability}}
+\index{set\+Days\+To\+Availability@{set\+Days\+To\+Availability}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{set\+Days\+To\+Availability()}{setDaysToAvailability()}}
+{\footnotesize\ttfamily void Repair\+Shop\+::set\+Days\+To\+Availability (\begin{DoxyParamCaption}\item[{int}]{days\+To\+Availability }\end{DoxyParamCaption})}
+
+Set the days\+To\+Availability variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em days\+To\+Availability} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRepairShop_ab3b24779f3d3bf3b9e9a70f1a4cb78c5}\label{classRepairShop_ab3b24779f3d3bf3b9e9a70f1a4cb78c5}} 
+\index{Repair\+Shop@{Repair\+Shop}!set\+ID@{set\+ID}}
+\index{set\+ID@{set\+ID}!Repair\+Shop@{Repair\+Shop}}
+\subsubsection{\texorpdfstring{set\+I\+D()}{setID()}}
+{\footnotesize\ttfamily void Repair\+Shop\+::set\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{project__utils_8h_a8f3a969054ad2200720b96e7e23dd4e1}{id\+\_\+t}}}]{id }\end{DoxyParamCaption})}
+
+Set the repair shop ID. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+system\+\_\+elements/\mbox{\hyperlink{RepairShop_8h}{Repair\+Shop.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{RepairShop_8cpp}{Repair\+Shop.\+cpp}}\end{DoxyCompactItemize}

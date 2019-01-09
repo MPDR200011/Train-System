@@ -1,0 +1,5 @@
+<map id="System::loadPurchases" name="System::loadPurchases">
+<area shape="rect" id="node2" href="$namespaceproject__utils.html#a8a3acf9a2b81c44b525870adb954dcff" title="project_utils::splitArguments" alt="" coords="227,5,436,32"/>
+<area shape="rect" id="node3" href="$classPassenger.html#ae6fcc19037be144f654c623c5b78ae24" title="Get the Passenger&#39;s ID. " alt="" coords="265,56,397,83"/>
+<area shape="rect" id="node4" href="$classPassenger.html#ad61aeee59fcdb0084a6cc12d16305d12" title="Logs a trip the passenger has purchased. " alt="" coords="261,107,401,133"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="System::processTicketPurchaseRequest" name="System::processTicketPurchaseRequest">
+<area shape="rect" id="node2" href="$classTrip.html#ae7c3b34b692a17737a2b1200060fa479" title="Get the Departure Date object. " alt="" coords="299,5,469,32"/>
+<area shape="rect" id="node3" href="$classDate.html#af047ef9ca2cf7843b921f36e9883f0a7" title="Get the Time Stamp object. " alt="" coords="545,69,703,96"/>
+<area shape="rect" id="node4" href="$classTrip.html#a00e2b65d40562051bfe4124f581a49e1" title="Try to book a seat in the trip. " alt="" coords="327,107,441,133"/>
+<area shape="rect" id="node5" href="$classTrip.html#a9006732aa32a2b098538d48b63f2d276" title="Get the price with discounts in mind. " alt="" coords="307,157,461,184"/>
+<area shape="rect" id="node8" href="$classPassenger.html#ae8d5310db80438702dec5f4d649289f1" title="Get the Card object. " alt="" coords="310,208,458,235"/>
+<area shape="rect" id="node9" href="$classPassengerCard.html#a62d2651d233d28643d5e0863500c42c4" title="Get the discount percentage provided by the card. " alt="" coords="281,259,487,285"/>
+<area shape="rect" id="node10" href="$classTicketPurchaseRequest.html#a35b5d38bf3d6d00f90041762f2ca93ee" title="Set the price of the invoiceof the purchase. " alt="" coords="297,310,471,351"/>
+<area shape="rect" id="node12" href="$classTrip.html#a7770a61e1211789c80b003eeedcaa09c" title="get ID of the trip " alt="" coords="340,376,428,403"/>
+<area shape="rect" id="node13" href="$classPassenger.html#ae6fcc19037be144f654c623c5b78ae24" title="Get the Passenger&#39;s ID. " alt="" coords="318,427,450,453"/>
+<area shape="rect" id="node14" href="$classPassenger.html#ad61aeee59fcdb0084a6cc12d16305d12" title="Logs a trip the passenger has purchased. " alt="" coords="314,477,454,504"/>
+<area shape="rect" id="node6" href="$classTrain.html#a2f8a45aaa96058a2675422d206221964" title="Train::getPriceMultiplyer" alt="" coords="535,145,713,172"/>
+<area shape="rect" id="node7" href="$classTrain.html#a93cd372664bac4ba28fa36e40316444a" title="Get the max capacity. " alt="" coords="551,196,697,223"/>
+<area shape="rect" id="node11" href="$classTicketInvoice.html#afeed9962f0276861876a001e372d2063" title="Set the Price. " alt="" coords="539,317,709,344"/>
+</map>

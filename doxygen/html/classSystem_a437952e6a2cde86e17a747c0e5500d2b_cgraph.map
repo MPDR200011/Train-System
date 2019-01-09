@@ -1,0 +1,7 @@
+<map id="System::loadTrips" name="System::loadTrips">
+<area shape="rect" id="node2" href="$namespaceproject__utils.html#a8a3acf9a2b81c44b525870adb954dcff" title="project_utils::splitArguments" alt="" coords="191,5,400,32"/>
+<area shape="rect" id="node3" href="$classTrip.html#a15be60d61cf9fb7dc3e18e6cebedb27e" title="Trip::setID" alt="" coords="252,56,339,83"/>
+<area shape="rect" id="node4" href="$classEngineer.html#a399ceec45f4608f743070893ac573dcc" title="Engineer::addTrip" alt="" coords="228,107,363,133"/>
+<area shape="rect" id="node5" href="$classSystemElement.html#aaa601d0e2960dd62d68e0f025f5eb362" title="SystemElement::setInactive" alt="" coords="193,157,398,184"/>
+<area shape="rect" id="node6" href="$classTrip.html#a7770a61e1211789c80b003eeedcaa09c" title="get ID of the trip " alt="" coords="251,208,339,235"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="System::sendTrainToRepairShop" name="System::sendTrainToRepairShop">
+<area shape="rect" id="node2" href="$namespaceproject__utils.html#ac8764d0b6de158f9eba38a6b517d8cd8" title="project_utils::pointDistance" alt="" coords="283,5,483,32"/>
+<area shape="rect" id="node3" href="$classStation.html#a2205a1288789260beee59fd3532286e9" title="Station::getX" alt="" coords="329,56,436,83"/>
+<area shape="rect" id="node4" href="$classStation.html#a28c75f35db1f6a1d3ed0488f2effbfb4" title="Station::getY" alt="" coords="330,107,435,133"/>
+<area shape="rect" id="node5" href="$classRepairShop.html#a9232d4d4318014f7ca2665292f118938" title="RepairShop::addTrain" alt="" coords="303,157,462,184"/>
+<area shape="rect" id="node7" href="$classRepairShop.html#ae470c339746dcb9ba5bb4c58195e0400" title="RepairShop::getName" alt="" coords="301,208,465,235"/>
+<area shape="rect" id="node6" href="$classTrain.html#a2e6fc233ded428364670c07a46f08891" title="Train::setUnhealthy" alt="" coords="531,157,679,184"/>
+</map>

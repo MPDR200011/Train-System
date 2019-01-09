@@ -1,0 +1,5 @@
+<map id="Person" name="Person">
+<area shape="rect" id="node3" href="$classEngineer.html" title="Engineer" alt="" coords="5,155,84,181"/>
+<area shape="rect" id="node4" href="$classPassenger.html" title="Class for representing a passenger in the system Extends class Person. " alt="" coords="108,155,197,181"/>
+<area shape="rect" id="node2" href="$classSystemElement.html" title="SystemElement" alt="" coords="35,5,161,32"/>
+</map>

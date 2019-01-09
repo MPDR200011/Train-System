@@ -1,0 +1,112 @@
+\hypertarget{classPerson}{}\section{Person Class Reference}
+\label{classPerson}\index{Person@{Person}}
+
+
+{\ttfamily \#include $<$Person.\+h$>$}
+
+
+
+Inheritance diagram for Person\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classPerson__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Person\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classPerson__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPerson_aa4fc660ce27df46986187ce76481f126}{Person}} (std\+::string \mbox{\hyperlink{classPerson_a7594663aadc0de77616506df8a2f4128}{name}}, \mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classPerson_a7a764b56b815321eeb8412c1dcc4cabf}{birth\+Date}})
+\item 
+std\+::string \mbox{\hyperlink{classPerson_ab20f096fdfd5201818c45754af4c3e3b}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the person\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classPerson_a9f24821cb33c10e512eee2a5ad09c920}{get\+Birth\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Get the person\textquotesingle{}s Birth \mbox{\hyperlink{classDate}{Date}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classPerson_a7594663aadc0de77616506df8a2f4128}{name}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classPerson}{Person}}\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classPerson_a7a764b56b815321eeb8412c1dcc4cabf}{birth\+Date}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDate}{Date}} object representing \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s date of birth. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing a person in the \mbox{\hyperlink{classSystem}{System}}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPerson_aa4fc660ce27df46986187ce76481f126}\label{classPerson_aa4fc660ce27df46986187ce76481f126}} 
+\index{Person@{Person}!Person@{Person}}
+\index{Person@{Person}!Person@{Person}}
+\subsubsection{\texorpdfstring{Person()}{Person()}}
+{\footnotesize\ttfamily Person\+::\+Person (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classDate}{Date}}}]{birth\+Date }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPerson_a9f24821cb33c10e512eee2a5ad09c920}\label{classPerson_a9f24821cb33c10e512eee2a5ad09c920}} 
+\index{Person@{Person}!get\+Birth\+Date@{get\+Birth\+Date}}
+\index{get\+Birth\+Date@{get\+Birth\+Date}!Person@{Person}}
+\subsubsection{\texorpdfstring{get\+Birth\+Date()}{getBirthDate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDate}{Date}} \& Person\+::get\+Birth\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the person\textquotesingle{}s Birth \mbox{\hyperlink{classDate}{Date}}. 
+
+\begin{DoxyReturn}{Returns}
+const \mbox{\hyperlink{classDate}{Date}}\& The \mbox{\hyperlink{classDate}{Date}} object representing the \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s date of birth 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPerson_ab20f096fdfd5201818c45754af4c3e3b}\label{classPerson_ab20f096fdfd5201818c45754af4c3e3b}} 
+\index{Person@{Person}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Person@{Person}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily std\+::string Person\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the person\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string The person\textquotesingle{}s name 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classPerson_a7a764b56b815321eeb8412c1dcc4cabf}\label{classPerson_a7a764b56b815321eeb8412c1dcc4cabf}} 
+\index{Person@{Person}!birth\+Date@{birth\+Date}}
+\index{birth\+Date@{birth\+Date}!Person@{Person}}
+\subsubsection{\texorpdfstring{birth\+Date}{birthDate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDate}{Date}} Person\+::birth\+Date\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{classDate}{Date}} object representing \mbox{\hyperlink{classPassenger}{Passenger}}\textquotesingle{}s date of birth. 
+
+\mbox{\Hypertarget{classPerson_a7594663aadc0de77616506df8a2f4128}\label{classPerson_a7594663aadc0de77616506df8a2f4128}} 
+\index{Person@{Person}!name@{name}}
+\index{name@{name}!Person@{Person}}
+\subsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Person\+::name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{classPerson}{Person}}\textquotesingle{}s name. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+system\+\_\+elements/\mbox{\hyperlink{Person_8h}{Person.\+h}}\item 
+system\+\_\+elements/\mbox{\hyperlink{Person_8cpp}{Person.\+cpp}}\end{DoxyCompactItemize}
