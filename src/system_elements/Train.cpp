@@ -4,27 +4,40 @@
 using namespace std;
 
 Train::Train(uint totalSeats) {
-	this->maxSeats = totalSeats;
+    this->maxSeats = totalSeats;
+    this->healthy = true;
 }
 
 void Train::setID(id_t id) {
-	this->trainID = id;
+    this->trainID = id;
 }
 
 id_t Train::getID() const {
-	return trainID;
+    return trainID;
 }
 
 uint Train::getMaxSeats() {
-	return maxSeats;
+    return maxSeats;
 }
 
-void Train::printRow(ostream &os){
+void Train::printRow(ostream &os) {
 }
 
 ostream &operator<<(ostream &os, Train &tr) {
-	os << "//// Train ////" << endl;
-	os << "ID: " << tr.trainID << endl;
-	os << "Max Seats: " << tr.maxSeats << endl;
-	return os;
+    os << "//// Train ////" << endl;
+    os << "ID: " << tr.trainID << endl;
+    os << "Max Seats: " << tr.maxSeats << endl;
+    return os;
+}
+
+void Train::setHealthy() {
+    healthy = true;
+}
+
+void Train::setUnhealthy() {
+    healthy = false;
+}
+
+bool Train::isHealthy() const {
+    return healthy;
 }

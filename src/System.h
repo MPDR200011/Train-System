@@ -15,6 +15,7 @@
 #include "PurchaseLog.h"
 #include "exceptions/NoSuchPassengerException.h"
 #include "system_elements/Engineer.h"
+#include "system_elements/RepairShop.h"
 
 /**
  * @brief Class to represent the central system.
@@ -43,36 +44,46 @@ public:
 	/**
 	 * @brief Get the Passengers vector.
 	 * 
-	 * Returns the vector of passengers.
+	 * Returns the vector of active passengers.
 	 * 
-	 * @return std::vector<Passenger*>& 
+	 * @return std::vector<Passenger*>
 	 */
     std::vector<Passenger *> getPassengers();
 	/**
-	 * @brief Get the Trips map.
+	 * @brief Get the Trips vector.
 	 * 
-	 * Returns the map of trips.
+	 * Returns the map of enabled trips.
 	 * 
-	 * @return std::map<id_t, Trip*>&
+	 * @return std::vector<Trip*>
 	 */
     std::vector<Trip *> getTrips();
 	/**
 	 * @brief Get the Trains map.
 	 * 
-	 * Returns the map of trains.
+	 * Returns the map of enabled trains.
 	 * 
-	 * @return std::map<id_t, Train*>&
+	 * @return std::vector<Train*>
 	 */
 	std::vector<Train *> getTrains();
 	/**
 	 * @brief Get the Stations map.
 	 * 
-	 * Returns the map of stations.
+	 * Returns the map of enabled stations.
 	 * 
-	 * @return std::map<id_t, Station*>&
+	 * @return std::vector<Station*>
 	 */
 	std::vector<Station *> getStations();
+	/**
+	 * Returns the enabled engineers vector.
+	 *
+	 * @return std::vector<Engineer*>
+	 */
 	std::vector<Engineer*> getEngineers();
+	/**
+	 * Returns the vector of past engineers.
+	 *
+	 * @return
+	 */
 	std::vector<Engineer*> getPastEngineers();
 
 	/**
@@ -115,6 +126,13 @@ public:
 	 * @return Station* 
 	 */
 	Station* getStation(id_t id);
+	/**
+	 * Returns pointer to the engineer that has the specified ID.
+	 * If the ID doesn't exist, throws NoSuchEngineerException.
+	 *
+	 * @param id
+	 * @return Engineer*
+	 */
 	Engineer* getEngineer(id_t id);
 
 	/**
@@ -132,45 +150,52 @@ public:
 
 	/**
 	 * @brief Remove Passenger from the system
-	 * 
-	 * Removes the passenger object with id specified by the parameter from the respective vector.
-	 * 
+	 *
+	 * Sets the passanger with specified ID as inactive, effectively marking it as removed.
+	 *
 	 * @param id 
-	 * @return true If passenger was successfully removed.
-	 * @return false If passenger never existed.
 	 */
 	void removePassenger(id_t id);
 	/**
 	 * @brief Remove Trip from the system
 	 * 
-	 * Removes the trip object with id specified by the parameter from the respective vector.
-	 * 
+	 * Sets the trip with specified ID as inactive, effectively marking it as removed.
+	 *
 	 * @param id 
-	 * @return true If trip was successfully removed.
-	 * @return false If trip never existed.
 	 */
 	void removeTrip(id_t id);
 	/**
 	 * @brief Remove Station from the system
 	 * 
-	 * Removes the station object with id specified by the parameter from the respective vector.
-	 * 
+	 * Sets the station with specified ID as inactive, effectively marking it as removed.
+	 *
 	 * @param id 
-	 * @return true If station was successfully removed.
-	 * @return false If station never existed.
 	 */
 	void removeStation(id_t id);
 	/**
 	 * @brief Remove Train from the system
 	 * 
-	 * Removes the train object with id specified by the parameter from the respective vector.
-	 * 
+	 * Sets the train with specified ID as inactive, effectively marking it as removed.
+	 *
 	 * @param id 
-	 * @return true If train was successfully removed.
-	 * @return false If train never existed.
 	 */
 	void removeTrain(id_t id);
+	/**
+	 * @brief Remove Engineer from the system
+	 *
+	 * Sets the engineer with specified ID as inactive, effectively marking it as removed.
+	 *
+	 * @param id
+	 */
 	void removeEngineer(id_t id);
+	/**
+	 * @brief Remove Repair Shop from the system
+	 *
+	 * Sets the repair shop with specified ID as inactive, effectively marking it as removed.
+	 *
+	 * @param id
+	 */
+	void removeRepairShop(id_t id);
 
 	/**
 	 * @brief Create a Passenger object
@@ -195,9 +220,11 @@ public:
 	 * 
 	 * Creates a station object and adds it to the respective vector.
 	 * 
-	 * @param name 
+	 * @param name
+	 * @param x
+	 * @param y
 	 */
-	void createStation(std::string &name);
+	void createStation(std::string &name, int x, int y);
 	/**
 	 * @brief Create a Train object
 	 *
@@ -215,14 +242,50 @@ public:
 	 * @param basePrice 
 	 * @param source 
 	 * @param destination 
-	 * @param train 
-	 * @param dapartureDate 
+	 * @param train
+	 * @param engy
+	 * @param departureDate
 	 * @param arrivalDate 
 	 */
 	void createTrip(uint basePrice, Station* source, Station* destination,
 			Train* train, Engineer* engy, Date departureDate, Date arrivalDate);
+	/**
+	 *
+	 * Creates an Engineer object
+	 *
+	 * @param name
+	 * @param birthDate
+	 */
 	void createEngineer(std::string name, Date birthDate);
+	/**
+	 * Finds the inactive engineer object with specified ID, and marks it as active.
+	 * Effectively hiring him.
+	 *
+	 * If there is no inactive engineer with the specified ID, throws NoSuchEngineerException.
+	 *
+	 * @param id
+	 */
 	void hireEngineer(id_t id);
+
+	/**
+	 * Creates a Repair Shop oobject
+	 *
+	 * @param name
+	 * @param x
+	 * @param y
+	 */
+	void createRepairShop(std::string &name, int x, int y);
+
+	/**
+	 * Finds the repair shop that is available in the least time and is within
+	 * a specified distance from the provided station. And puts the specified train object
+	 * there, marking it as unhealthy.
+	 *
+	 * @param tr
+	 * @param st
+	 * @param distance
+	 */
+	void sendTrainToRepairShop(Train *tr, Station *st, uint distance);
 
 	/**
 	 * @brief Process a request for a ticket purchase
@@ -246,7 +309,18 @@ public:
 	 */
 	void logPurchase(PurchaseLog log);
 
+	/**
+	 * Get the logs vector.
+	 *
+	 * @return std::vector<PurchaseLog>
+	 */
 	const std::vector<PurchaseLog> & getLogs() const;
+
+	/**
+	 * Advances the day in the system, updating the repairshops.
+	 *
+	 */
+	void advanceDay();
 
 	/**
 	 * @brief End of month card processing.
@@ -285,7 +359,7 @@ public:
 	/**
 	 * @brief Print a table of stations
 	 * 
-	 * Prints all stations' information in a formated table
+	 * Prints all stations' information in a formated table.
 	 * 
 	 * @param os 
 	 */
@@ -293,27 +367,44 @@ public:
 	/**
 	 * @brief Print a table of trains
 	 * 
-	 * Prints all trains' information in a formated table
+	 * Prints all trains' information in a formated table.
 	 * 
 	 * @param os 
 	 */
-	void listTrains(std::ostream &os);
+	void listHealthyTrains(std::ostream &os);
 	/**
-	 * @brief Print a table of trip
+	 * @brief Print a table of trips
 	 * 
-	 * Prints all trips' information in a formated table
+	 * Prints all trips' information in a formated table.
 	 * 
 	 * @param os 
 	 */
 	void listTrips(std::ostream &os);
+	/**
+	 * Prints all trains in a formatted table.
+	 *
+	 * @param os
+	 */
 	void listEngineers(std::ostream &os);
+	/**
+	 * Print all active engineers in a formatted table.
+	 *
+	 * @param os
+	 */
 	void listPastEngineers(std::ostream &os);
+	/**
+	 * Print all active repair shops in a formatted table.
+	 *
+	 * @param os
+	 */
+	void listRepairShops(std::ostream &os);
 
 	void savePassengers();
 	void saveEngineers();
 	void saveStations();
 	void saveTrains();
 	void saveTrips();
+	void saveRepairShops();
 	void savePurchases();
 
 	void loadPassengers();
@@ -322,16 +413,17 @@ public:
 	void loadStations();
 	void loadTrains();
 	void loadTrips();
+	void loadRepairShops();
 	void loadPurchases();
 
 private:
 	/**
-	 * @brief Passengers vector
+	 * @brief Passengers map
 	 * 
 	 */
 	std::map<id_t, Passenger*> passengers;
 	/**
-	 * @brief Trips vector
+	 * @brief Trips map
 	 * 
 	 */
 	std::map<id_t, Trip*> trips;
@@ -346,7 +438,19 @@ private:
 	 */
 	std::map<id_t, Station*> stations;
 
+	/**
+	 * Hash table with all the engineers.
+	 */
 	std::unordered_set<Engineer*, Engineer::EngineerHashUtils, Engineer::EngineerHashUtils> engineers;
+
+	/**
+	 * Repair shops priority queue, keeps the ones that are more likely to become available at top.
+	 */
+	std::priority_queue<RepairShop*, vector<RepairShop*>,RepairShop::RepairShopPQUtils> shopsPQ;
+	/**
+	 * Map with all the repair shops.
+	 */
+	std::map<id_t ,RepairShop*> repairShops;
 
 	/**
 	 * @brief Vector of passengers with pending monthly card fee 

@@ -5,17 +5,20 @@
 #include "SystemElement.h"
 #include "../Date.h"
 
+/**
+ * Class representing a person in the System.
+ */
 class Person : public SystemElement {
 public:
     Person(std::string name, Date birthDate);
 	/**
-	 * @brief Get the Name object
+	 * @brief Get the person's name.
 	 *
-	 * @return std::string The Passenger's name
+	 * @return std::string The person's name
 	 */
 	std::string getName() const;
 	/**
-	 * @brief Get the Birth Date object
+	 * @brief Get the person's Birth Date
 	 *
 	 * @return const Date& The Date object representing the Passenger's date of birth
 	 */

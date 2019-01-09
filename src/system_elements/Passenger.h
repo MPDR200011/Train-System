@@ -13,10 +13,8 @@
 
 /**
  * @brief Class for representing a passenger in the system
- * 
- * Holds his ID, name, pointer to a PassengerCard object (if he has one),
- * a Date object representing his date of birth and a vector of pointers to trips he has bought tickets for.
- * 
+ * Extends class Person.
+ *
  */
 class Passenger : public Person{
 
@@ -65,7 +63,7 @@ public:
 	 * Sets the passenger card wether he has one or not.
 	 * If the passenger already has one, it is treated as changing the type of the card.
 	 * 
-	 * @param card Pointer to the PassengerCard object
+	 * @param c Pointer to the PassengerCard object
 	 * @return true If the Passenger didn't have a card
 	 * @return false If the Passenger didn't have a card
 	 */

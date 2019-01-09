@@ -5,6 +5,9 @@
 #include <exception>
 #include "../project_utils.h"
 
+/**
+ * Exception reporting a non existing engineer id.
+ */
 class NoSuchEngineerException : public std::exception {
 public:
     explicit NoSuchEngineerException(id_t id);

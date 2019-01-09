@@ -21,6 +21,7 @@ public:
      * 
      * @param tripID 
      * @param passengerID
+     * @param price
      */
     PurchaseLog(id_t tripID, id_t passengerID, uint price);
 
@@ -52,9 +53,21 @@ public:
     friend std::ostream &operator<< (std::ostream &os, PurchaseLog &pl);
 
 private:
+    /**
+     * ID of the log.
+     */
     id_t logID;
+    /**
+     * ID of the trip.
+     */
     id_t tripID;
+    /**
+     * ID of the passenger.
+     */
     id_t passengerID;
+    /**
+     * ID of the price.
+     */
     uint price;
 };
 

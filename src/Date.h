@@ -13,6 +13,9 @@
  */
 class Date {
 public:
+	/**
+	 * String with base date.
+	 */
 	static const char* defaultDateString;
 public:
 	/**

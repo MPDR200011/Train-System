@@ -4,7 +4,9 @@
 using namespace std;
 
 
-Station::Station(string name) : name(name){
+Station::Station(string name, int x, int y) : name(name){
+	this->xCoord = x;
+	this->yCoord = y;
 }
 
 id_t Station::getID() const {
@@ -15,9 +17,19 @@ string Station::getName() const {
 	return name;
 }
 
+int Station::getX() const {
+	return xCoord;
+}
+
+int Station::getY() const {
+	return yCoord;
+}
+
 void Station::printRow(ostream &os) {
 	os << setw(5) << stationID 
-	<< setw(35) << name;
+	<< setw(35) << name
+	<< setw(5) << xCoord
+	<< setw(5) << yCoord;
 }
 
 ostream &operator<<(ostream &os, Station &st) {

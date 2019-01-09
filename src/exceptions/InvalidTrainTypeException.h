@@ -4,6 +4,9 @@
 #include <string>
 #include <exception>
 
+/**
+ * Exception reporting an invalid train type.
+ */
 class InvalidTrainTypeException : public std::exception {
 public:
     InvalidTrainTypeException(std::string type);

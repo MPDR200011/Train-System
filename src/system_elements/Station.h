@@ -17,8 +17,10 @@ public:
 	 * @brief Construct a new Station object
 	 * 
 	 * @param name Name of the station.
+	 * @param x
+	 * @param y
 	 */
-	explicit Station(std::string name);
+	explicit Station(std::string name, int x, int y);
 
 	/**
 	 * Set the station ID
@@ -33,6 +35,17 @@ public:
 	 * @return id_t 
 	 */
 	id_t getID() const;
+
+	/**
+	 * Get the x coordinate.
+	 * @return
+	 */
+	int getX() const;
+	/**
+	 * Get the y coordinate.
+	 * @return
+	 */
+	int getY() const;
 
 	/**
 	 * @brief Get the Station's name
@@ -54,7 +67,7 @@ public:
 	 * @brief Output Station object in a user friendly fashion
 	 * 
 	 * @param os Output stream to wich Station object will be output
-	 * @param p Station object to be output
+	 * @param st Station object to be output
 	 * @return std::ostream& 
 	 */
 	friend std::ostream &operator <<(std::ostream &os, Station &st);
@@ -70,6 +83,15 @@ private:
 	 * 
 	 */
 	std::string name;
+
+	/**
+	 * The stations x coordinate.
+	 */
+	int xCoord;
+	/**
+	 * The stations y coordinate.
+	 */
+	int yCoord;
 };
 
 #endif /* STATION_H_ */

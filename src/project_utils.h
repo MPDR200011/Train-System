@@ -94,6 +94,8 @@ namespace project_utils {
     Date readDate();
 
     std::vector<std::string> splitArguments(std::string& command);
+
+    float pointDistance(float x1, float y1, float x2, float y2);
 }
 
 #endif

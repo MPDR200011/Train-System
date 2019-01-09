@@ -1,4 +1,5 @@
 #include "project_utils.h"
+#include <cmath>
 #include "exceptions/InvalidDateException.h"
 
 bool project_utils::readLine(string &s) {
@@ -116,4 +117,8 @@ vector<string> project_utils::splitArguments(string& command) {
 	}
 
 	return v;
+}
+
+float project_utils::pointDistance(float x1, float y1, float x2, float y2) {
+	return sqrtf(powf(x1-x2,2)+powf(y1-y2,2));
 }

@@ -5,7 +5,7 @@
 #include "../project_utils.h"
 
 /**
- * @brief Exception reporting that a station ID does not exist in the system
+ * @brief Exception reporting that a station ID does not exist in the system.
  * 
  */
 class NoSuchStationException: public std::exception {

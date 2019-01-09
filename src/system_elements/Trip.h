@@ -78,6 +78,11 @@ public:
 	 * @return Train* 
 	 */
 	Train* getTrain() const;
+	/**
+	 * Get the pointer to the engineer driving the train.
+	 *
+	 * @return
+	 */
 	Engineer* getEngineer() const;
 	/**
 	 * @brief Get the Departure Date object
@@ -161,6 +166,9 @@ private:
 	 * 
 	 */
 	Train* train;
+	/**
+	 * Pointer to the engineer driving the train.
+	 */
 	Engineer* engineer;
 	/**
 	 * @brief Time of departure
