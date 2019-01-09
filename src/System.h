@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <unordered_set>
+#include <set>
 #include "system_elements/Passenger.h"
 #include "system_elements/Trip.h"
 #include "system_elements/Station.h"
@@ -290,6 +291,16 @@ public:
 	 * @param os 
 	 */
 	void listStations(std::ostream &os);
+
+	/**
+	 *@brief Print a table of stations organized by the BST
+	 *
+	 *Prints all stations' information in a formated table, organized by the BST
+	 *
+	 *@param os
+	 */
+	void listStationsBST(std::ostream &os);
+
 	/**
 	 * @brief Print a table of trains
 	 * 
@@ -345,6 +356,11 @@ private:
 	 * 
 	 */
 	std::map<id_t, Station*> stations;
+
+	/**
+	 * @brief stations BST
+	 */
+	std::set<Station> stationsBST;
 
 	std::unordered_set<Engineer*, Engineer::EngineerHashUtils, Engineer::EngineerHashUtils> engineers;
 

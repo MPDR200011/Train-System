@@ -202,6 +202,7 @@ void System::createStation(string &name) {
 		result = stations.insert(pair<id_t, Station*>(id, st));
 	}
 	st->setID(id);
+	stationsBST.insert(*st);
 }
 
 void System::createTrain(uint maxSeats, string type) {
@@ -321,6 +322,9 @@ bool System::processTicketPurchaseRequest(TicketPurchaseRequest &request) {
 		PurchaseLog log(request.trip->getID(), request.passenger->getID(), price);
 		request.passenger->logTrip(log);
 		logPurchase(log);
+		stationsBST.erase(*request.trip->getDest());
+		request.trip->getDest()->addPassenger();
+		stationsBST.insert(*request.trip->getDest());
 		return true;
 	} else {
 		return false;
@@ -390,6 +394,18 @@ void System::listStations(ostream &os) {
 		item->printRow(os);
 		os << endl;
 	}
+	os << endl;
+}
+
+void System::listStationsBST(ostream &os){
+	os << endl
+	<< setw(5) << "id"
+	<< setw(35) << "name"
+	<< setw(65) << "Number" << endl;
+	for (auto itr = stationsBST.begin(); itr != stationsBST.end(); ++itr){
+        itr->printRow(os);
+        os << setw(65) << itr->getPassengerNumber() << endl;
+    }
 	os << endl;
 }
 
@@ -599,6 +615,7 @@ void System::loadStations() {
 					st->setInactive();
 				}
 				stations.insert(pair<id_t,Station*>(st->getID(),st));
+				stationsBST.insert(*st);
 			} catch (...) {
 				continue;
 			}
