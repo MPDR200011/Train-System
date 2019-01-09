@@ -101,6 +101,11 @@ void listTask();
 void sendTrainToRepairTask();
 
 /**
+ * Called when the user chooses to print the stations leader board.
+ */
+void printStationsLB();
+
+/**
  * Called when user chooses to advance day.
  */
 void advanceDayTask();
@@ -125,6 +130,7 @@ void mainMenu() {
             "  6 - Process card payment.",
             "  7 - Print Sales.",
             "  8 - Send train to repair shop.",
+            "  9 - Print stations leader board.",
             " 20 - Advance Day (demonstration purposes).",
             " 50 - End of month card processing.",
             "100 - exit"
@@ -692,6 +698,10 @@ void sendTrainToRepairTask() {
     }
 }
 
+void printStationsLB() {
+    System::instance.listStationsBST(cout);
+}
+
 void advanceDayTask() {
     cout << "Are you sure? (yes/no): ";
     string answer;
@@ -815,6 +825,11 @@ int main() {
                 }
                 case 8: {
                     sendTrainToRepairTask();
+                    validChoice = true;
+                    break;
+                }
+                case 9: {
+                    printStationsLB();
                     validChoice = true;
                     break;
                 }

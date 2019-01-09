@@ -185,7 +185,6 @@ void System::createPassenger(string& name, Date birthDate) {
 
 void System::createCard(Passenger* passenger, string& type) {
 
-<<<<<<< HEAD
   PassengerCard::CardType cardType;
   if (type == "twenty five") {
     cardType = PassengerCard::twentyFive;
@@ -214,37 +213,7 @@ void System::createStation(string& name, int x, int y) {
     result = stations.insert(pair<id_t, Station*>(id, st));
   }
   st->setID(id);
-=======
-  PassengerCard::CardType cardType;
-  if (type == "twenty five") {
-    cardType = PassengerCard::twentyFive;
-  } else if (type == "fifty") {
-    cardType = PassengerCard::fifty;
-  } else if (type == "hundred") {
-    cardType = PassengerCard::hundred;
-  } else {
-    cout << "Invalid card type: " << type << endl;
-    return;
-  }
-
-  PassengerCard* pc =
-      new PassengerCard(cardType, passenger->getID(), passenger->getName());
-  passenger->setCard(pc);
-  cardsToPay.push_back(passenger);
-}
-
-void System::createStation(string& name) {
-  Station* st = new Station(name);
-  srand((uint)time(nullptr));
-  id_t id = rand();
-  auto result = stations.insert(pair<id_t, Station*>(id, st));
-  while (!result.second) {
-    id = rand();
-    result = stations.insert(pair<id_t, Station*>(id, st));
-  }
-  st->setID(id);
   stationsBST.insert(*st);
->>>>>>> Dev
 }
 
 void System::createTrain(uint maxSeats, string type) {
@@ -325,6 +294,7 @@ void System::removeStation(id_t id) {
   try {
     Station* st = getStation(id);
     st->setInactive();
+    stationsBST.erase(*st);
   } catch (NoSuchStationException& e) {
     cout << endl << e.what() << endl;
   }
@@ -430,10 +400,9 @@ void System::listPassengers(ostream& os) {
 }
 
 void System::listStations(ostream& os) {
-<<<<<<< HEAD
   os << endl
      << setw(5) << "id" << setw(35) << "name" << setw(5) << "X" << setw(5)
-     << "Y" << endl;
+     << "Y" << setw(15) << "num. pass." << endl;
   for (auto item : getStations()) {
     item->printRow(os);
     os << endl;
@@ -470,42 +439,20 @@ void System::listTrips(ostream& os) {
     os << endl;
   }
   os << endl;
-=======
-  os << endl << setw(5) << "id" << setw(35) << "name" << endl;
-  for (auto item : getStations()) {
-    item->printRow(os);
-    os << endl;
-  }
-  os << endl;
 }
 
 void System::listStationsBST(ostream& os) {
   os << endl
-     << setw(5) << "id" << setw(35) << "name" << setw(65) << "Number" << endl;
+     << setw(5) << "id" << setw(35) << "name" << setw(5) << "X" << setw(5)
+     << "Y" << setw(15) << "num. pass." << endl;
   for (auto itr = stationsBST.begin(); itr != stationsBST.end(); ++itr) {
+    if (!itr->isActive()) {
+      continue;
+    }
     itr->printRow(os);
-    os << setw(65) << itr->getPassengerNumber() << endl;
-  }
-  os << endl;
-}
-
-void System::listTrips(ostream& os) {
-  vector<Trip*> vec = getTrips();
-  sort(vec.begin(), vec.end(), [](Trip* tr1, Trip* tr2) -> bool {
-    return tr1->getDepartureDate() < tr2->getDepartureDate();
-  });
-  os << endl
-     << setw(5) << "id" << setw(13) << "base price" << setw(16)
-     << "current price" << setw(20) << "source name" << setw(20)
-     << "departure date" << setw(20) << "destination name" << setw(20)
-     << "arrival date" << setw(10) << "train id" << setw(16) << "free seats"
-     << endl;
-  for (auto item : vec) {
-    item->printRow(os);
     os << endl;
   }
   os << endl;
->>>>>>> Dev
 }
 
 void System::printPassengers(ostream& os) const {
@@ -581,7 +528,7 @@ void System::saveStations() {
     Station* st = item.second;
     stationsFile << st->getID() << " " << st->isActive() << " \""
                  << st->getName() << "\" " << st->getX() << " " << st->getY()
-                 << endl;
+                 << " " << st->getPassengerNumber() << endl;
   }
   stationsFile.close();
 }
@@ -670,55 +617,33 @@ void System::loadCards() {
 }
 
 void System::loadStations() {
-<<<<<<< HEAD
   ifstream stationsFile("stations.txt");
   string line;
   if (stationsFile.is_open()) {
     while (getline(stationsFile, line)) {
       vector<string> arguments = project_utils::splitArguments(line);
-      if (arguments.size() != 5) {
+      if (arguments.size() != 6) {
         continue;
       }
 
       try {
-        Station* st =
-            new Station(arguments[2], stoi(arguments[3]), stoi(arguments[4]));
-        st->setID((id_t)stoul(arguments[0]));
+        Station *st =
+                new Station(arguments[2], stoi(arguments[3]), stoi(arguments[4]));
+        st->setID((id_t) stoul(arguments[0]));
         if (!stoi(arguments[1])) {
           st->setInactive();
         }
-        stations.insert(pair<id_t, Station*>(st->getID(), st));
+        st->setPassengerNumber(stoi(arguments[5]));
+        stations.insert(pair<id_t, Station *>(st->getID(), st));
+        if (st->isActive()) {
+          stationsBST.insert(*st);
+        }
       } catch (...) {
         continue;
       }
     }
     stationsFile.close();
   }
-=======
-  ifstream stationsFile("stations.txt");
-  string line;
-  if (stationsFile.is_open()) {
-    while (getline(stationsFile, line)) {
-      vector<string> arguments = project_utils::splitArguments(line);
-      if (arguments.size() != 3) {
-        continue;
-      }
-
-      try {
-        Station* st = new Station(arguments[2]);
-        st->setID((id_t)stoul(arguments[0]));
-        if (!stoi(arguments[1])) {
-          st->setInactive();
-        }
-        stations.insert(pair<id_t, Station*>(st->getID(), st));
-        stationsBST.insert(*st);
-      } catch (...) {
-        continue;
-      }
-    }
-    stationsFile.close();
-  }
->>>>>>> Dev
 }
 
 void System::loadTrains() {
@@ -763,7 +688,7 @@ void System::loadTrips() {
   if (tripsFile.is_open()) {
     while (getline(tripsFile, line)) {
       vector<string> arguments = project_utils::splitArguments(line);
-      if (arguments.size() != 8) {
+      if (arguments.size() != 9) {
         continue;
       }
 

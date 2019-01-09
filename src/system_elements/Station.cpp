@@ -24,9 +24,9 @@ int Station::getY() const {
   return yCoord;
 }
 
-void Station::printRow(ostream& os) {
+void Station::printRow(ostream& os) const {
   os << setw(5) << stationID << setw(35) << name << setw(5) << xCoord << setw(5)
-     << yCoord;
+     << yCoord << setw(15) << passengerNumber;
 }
 
 ostream& operator<<(ostream& os, Station& st) {
@@ -50,12 +50,20 @@ void Station::removePassenger() {
 }
 
 bool Station::operator<(const Station& st) const {
-  if (this->passengerNumber < st.passengerNumber)
-    return this->getName() < st.getName();
+  if (this->passengerNumber == st.passengerNumber)
+    return this->getName() > st.getName();
   else
-    return passengerNumber < st.passengerNumber;
+    return passengerNumber > st.passengerNumber;
 }
 
 bool Station::operator==(const Station& st) const {
-  return (passengerNumber == st.passengerNumber && name == st.name);
+  return stationID == st.stationID;
+}
+
+int Station::getPassengerNumber() const {
+  return passengerNumber;
+}
+
+void Station::setPassengerNumber(int passengerNumber) {
+  this->passengerNumber = passengerNumber;
 }
